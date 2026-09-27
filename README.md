@@ -2,7 +2,7 @@
 
 A single-page, no-dependency quiz app for practicing JEE-level Physics, Chemistry, and Mathematics questions — with per-topic accuracy tracking to surface weak areas over time.
 
-**[Try it live](#)** — replace with your GitHub Pages link once deployed (see below).
+https://github.com/Happ3ns/JEE-Quiz-Generator.git
 
 ## Features
 
