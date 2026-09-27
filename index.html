@@ -6,19 +6,25 @@
 <title>JEE Quiz Generator</title>
 <style>
   :root {
-    --paper: #F3EFE3;
-    --paper-line: #DCD4BE;
-    --ink: #1E2A38;
-    --ink-soft: #4B5A68;
-    --rule: #B9C4C9;
-    --pine: #2F6F4E;
-    --pine-soft: #E4EFE8;
-    --red: #A9382F;
-    --red-soft: #F4E3E1;
-    --amber: #B9791E;
-    --amber-soft: #F3E6D0;
-    --card: #FBF9F2;
-    --shadow: rgba(30, 42, 56, 0.12);
+    --paper: #17243a;
+    --paper-line: rgba(189, 207, 236, 0.14);
+    --ink: #eff4ff;
+    --ink-soft: #a7b5cd;
+    --rule: rgba(189, 207, 236, 0.22);
+    --pine: #54d6a3;
+    --pine-soft: rgba(52, 196, 142, 0.14);
+    --red: #ff807d;
+    --red-soft: rgba(255, 102, 112, 0.14);
+    --amber: #ffc76b;
+    --amber-soft: rgba(255, 187, 82, 0.12);
+    --card: rgba(13, 24, 42, 0.78);
+    --card-strong: #111e33;
+    --shadow: rgba(0, 0, 0, 0.32);
+    --accent: #72a7ff;
+    --accent-soft: rgba(93, 151, 255, 0.14);
+    --bg-deep: #070b14;
+    --bg-mid: #101a2b;
+    --bg-glow: #152a48;
   }
 
   * { box-sizing: border-box; }
@@ -30,70 +36,218 @@
 
   body {
     background:
-      repeating-linear-gradient(
-        to bottom,
-        transparent,
-        transparent 35px,
-        var(--paper-line) 36px
-      ),
-      var(--paper);
+      radial-gradient(ellipse at 12% 10%, rgba(69, 117, 211, 0.24), transparent 34%),
+      radial-gradient(ellipse at 87% 75%, rgba(27, 165, 147, 0.14), transparent 32%),
+      linear-gradient(135deg, var(--bg-deep) 0%, var(--bg-mid) 54%, var(--bg-glow) 100%);
     color: var(--ink);
-    font-family: Georgia, 'Source Serif 4', 'Times New Roman', serif;
+    font-family: "Segoe UI", Arial, sans-serif;
     padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px) 0;
     min-height: 100%;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   .wrap {
-    max-width: 720px;
+    max-width: 1180px;
     margin: 0 auto;
-    padding: 40px 24px 80px;
+    padding: 34px 24px 64px;
   }
 
   header.masthead {
-    border-bottom: 2px solid var(--ink);
-    padding-bottom: 18px;
-    margin-bottom: 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding: 18px 22px 16px;
+    margin: 0 auto 30px;
+    max-width: none;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     flex-wrap: wrap;
     gap: 8px;
+    background: rgba(17, 29, 49, 0.58);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(189, 207, 236, 0.14);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
   }
 
   header.masthead h1 {
-    font-size: 28px;
+    font-size: clamp(1.8rem, 2.2vw, 2.5rem);
     margin: 0;
-    letter-spacing: 0.2px;
+    letter-spacing: 0;
+    color: #f4f7ff;
   }
 
   header.masthead .stamp {
     font-family: 'Courier New', monospace;
-    font-size: 13px;
-    color: var(--ink-soft);
-    border: 1px solid var(--rule);
-    padding: 4px 10px;
-    border-radius: 2px;
-    background: var(--card);
+    font-size: 12px;
+    color: #d9e7ff;
+    border: 1px solid rgba(189, 207, 236, 0.2);
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.06);
   }
 
   .card {
-    background: var(--card);
-    border: 1px solid var(--rule);
-    border-radius: 3px;
+    background: linear-gradient(145deg, rgba(22, 36, 59, 0.88), rgba(11, 20, 36, 0.9));
+    border: 1px solid rgba(189, 207, 236, 0.16);
+    border-radius: 18px;
     padding: 28px;
-    box-shadow: 0 1px 3px var(--shadow);
+    box-shadow: 0 24px 64px var(--shadow);
     margin-bottom: 24px;
+    backdrop-filter: blur(20px);
   }
 
   .field {
     margin-bottom: 22px;
   }
 
+  .start-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 4px 0 23px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid var(--paper-line);
+  }
+
+  .hero-copy { min-width: 0; }
+
+  .hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 8px;
+    color: #9fc3ff;
+    font: 11px 'Courier New', monospace;
+    text-transform: uppercase;
+  }
+
+  .hero-kicker::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #62dfb1;
+    box-shadow: 0 0 12px rgba(98, 223, 177, 0.7);
+  }
+
+  .start-hero h2 {
+    margin: 0;
+    color: #f4f7ff;
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  .start-hero p {
+    margin: 9px 0 0;
+    max-width: 520px;
+    color: var(--ink-soft);
+    font-size: 14px;
+  }
+
+  .hero-count {
+    flex: 0 0 auto;
+    min-width: 116px;
+    padding: 14px 16px;
+    border: 1px solid rgba(114,167,255,0.25);
+    border-radius: 12px;
+    background: linear-gradient(145deg, rgba(77, 125, 213, 0.16), rgba(255,255,255,0.025));
+    text-align: center;
+  }
+
+  .hero-count strong { display: block; color: #fff; font-size: 24px; line-height: 1.2; }
+  .hero-count span { color: var(--ink-soft); font: 10px 'Courier New', monospace; text-transform: uppercase; }
+
+  .quick-starts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 25px;
+  }
+
+  .launch-tile {
+    min-width: 0;
+    min-height: 104px;
+    padding: 13px 14px;
+    text-align: left;
+    color: var(--ink);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.035);
+    cursor: pointer;
+    transition: border-color 0.18s ease, transform 0.18s ease, background 0.18s ease;
+  }
+
+  .launch-tile:hover:not(:disabled) {
+    border-color: rgba(114,167,255,0.65);
+    background: rgba(93,151,255,0.09);
+    transform: translateY(-2px);
+  }
+
+  .launch-tile:disabled { cursor: not-allowed; opacity: 0.46; }
+  .launch-tile strong { display: block; margin: 7px 0 3px; color: #f4f7ff; font-size: 14px; }
+  .launch-tile span { color: var(--ink-soft); font-size: 11px; line-height: 1.4; }
+
+  .tile-mark {
+    display: inline-grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 7px;
+    background: rgba(114,167,255,0.14);
+    color: #a9c9ff;
+    font: 12px 'Courier New', monospace;
+  }
+
+  .setup-divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 2px 0 18px;
+    color: #d5e1f7;
+    font: 11px 'Courier New', monospace;
+    text-transform: uppercase;
+  }
+
+  .setup-divider::after { content: ""; height: 1px; flex: 1; background: var(--paper-line); }
+
+  .select-wrap { position: relative; max-width: 420px; }
+
+  .setup-select {
+    width: 100%;
+    padding: 11px 38px 11px 13px;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    color: var(--ink);
+    background: #142239;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .setup-select option { color: var(--ink); background: #142239; }
+
+  .setup-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: -3px 0 18px;
+  }
+
+  .summary-pill {
+    padding: 5px 9px;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    color: var(--ink-soft);
+    background: rgba(255,255,255,0.03);
+    font: 10px 'Courier New', monospace;
+  }
+
+  .mode-help { color: var(--ink-soft); font-size: 12px; margin: 8px 0 0; }
+
   .field label {
     display: block;
     font-size: 14px;
-    color: var(--ink-soft);
+    color: #aebbd0;
     margin-bottom: 8px;
     font-family: 'Courier New', monospace;
     text-transform: lowercase;
@@ -107,50 +261,56 @@
 
   .chip {
     border: 1px solid var(--rule);
-    background: var(--paper);
+    background: rgba(255,255,255,0.045);
     color: var(--ink);
-    padding: 8px 16px;
+    padding: 9px 16px;
     border-radius: 999px;
     cursor: pointer;
     font-size: 15px;
     font-family: inherit;
-    transition: background 0.15s, border-color 0.15s;
+    transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
   }
 
-  .chip:hover { border-color: var(--ink-soft); }
+  .chip:hover {
+    border-color: var(--ink-soft);
+    transform: translateY(-1px);
+  }
 
   .chip[aria-pressed="true"] {
-    background: var(--ink);
-    color: var(--paper);
-    border-color: var(--ink);
+    background: linear-gradient(135deg, #4779dc, #3156a8);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 10px 20px rgba(26, 36, 51, 0.18);
   }
 
   .btn {
     font-family: 'Courier New', monospace;
     font-size: 15px;
     letter-spacing: 0.3px;
-    background: var(--ink);
-    color: var(--paper);
+    background: linear-gradient(135deg, #5c8ff0, #3766c2);
+    color: #fff;
     border: none;
-    padding: 13px 26px;
-    border-radius: 2px;
+    padding: 14px 26px;
+    border-radius: 12px;
     cursor: pointer;
+    box-shadow: 0 12px 28px rgba(35, 83, 175, 0.3);
   }
 
-  .btn:hover { background: #0F1822; }
+  .btn:hover { background: linear-gradient(135deg, #6d9cff, #4777d5); }
 
   .btn:focus-visible, .chip:focus-visible, input:focus-visible {
-    outline: 3px solid var(--amber);
+    outline: 3px solid var(--accent);
     outline-offset: 2px;
   }
 
   .btn.ghost {
     background: transparent;
     color: var(--ink);
-    border: 1px solid var(--ink);
+    border: 1px solid var(--rule);
+    box-shadow: none;
   }
 
-  .btn.ghost:hover { background: var(--paper); }
+  .btn.ghost:hover { background: rgba(255,255,255,0.08); }
 
   .weak-note {
     font-size: 14px;
@@ -160,27 +320,44 @@
 
   .weak-note strong { color: var(--red); }
 
-  /* Quiz screen */
   .progress-line {
     font-family: 'Courier New', monospace;
     font-size: 13px;
     color: var(--ink-soft);
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     margin-bottom: 14px;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .timer-badge {
+    border: 1px solid var(--rule);
+    background: rgba(255,255,255,0.06);
+    color: var(--ink);
+    padding: 4px 8px;
+    border-radius: 999px;
+    font-weight: bold;
+  }
+
+  .timer-badge.alert {
+    color: var(--red);
+    border-color: var(--red);
+    background: var(--red-soft);
   }
 
   .progress-track {
-    height: 4px;
-    background: var(--rule);
-    border-radius: 2px;
+    height: 8px;
+    background: rgba(26, 36, 51, 0.08);
+    border-radius: 999px;
     margin-bottom: 24px;
     overflow: hidden;
   }
 
   .progress-fill {
     height: 100%;
-    background: var(--ink);
+    background: linear-gradient(90deg, var(--accent), #7ab4ff);
     transition: width 0.25s ease;
   }
 
@@ -189,14 +366,16 @@
     font-family: 'Courier New', monospace;
     font-size: 12px;
     color: var(--ink-soft);
-    border: 1px solid var(--rule);
-    padding: 2px 8px;
+    background: var(--accent-soft);
+    border: 1px solid rgba(93, 109, 246, 0.2);
+    padding: 4px 10px;
     border-radius: 999px;
     margin-bottom: 14px;
   }
 
   .q-text {
-    font-size: 19px;
+    font-size: clamp(1.2rem, 2vw, 1.7rem);
+    line-height: 1.45;
     margin: 0 0 22px;
   }
 
@@ -205,28 +384,47 @@
     align-items: flex-start;
     gap: 12px;
     border: 1px solid var(--rule);
-    border-radius: 3px;
+    border-radius: 14px;
     padding: 13px 16px;
     margin-bottom: 10px;
     cursor: pointer;
-    background: var(--paper);
+    background: rgba(255,255,255,0.035);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
   }
 
-  .option:hover { border-color: var(--ink-soft); }
+  .option:hover {
+    border-color: var(--ink-soft);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(21, 31, 50, 0.08);
+  }
 
   .option.selected {
-    border-color: var(--ink);
-    background: #ECE7D6;
+    border-color: var(--accent);
+    background: var(--accent-soft);
   }
 
   .option.correct {
-    border-color: var(--pine);
-    background: var(--pine-soft);
+    border-color: #42d99a;
+    background: rgba(31, 180, 119, 0.24);
+    color: #e2fff2;
+    box-shadow: inset 0 0 0 1px rgba(66, 217, 154, 0.18);
   }
 
   .option.incorrect {
-    border-color: var(--red);
-    background: var(--red-soft);
+    border-color: #ff7278;
+    background: rgba(234, 74, 87, 0.24);
+    color: #fff0f0;
+    box-shadow: inset 0 0 0 1px rgba(255, 114, 120, 0.18);
+  }
+
+  .option.correct .letter {
+    color: #a6ffd8;
+    background: rgba(66, 217, 154, 0.2);
+  }
+
+  .option.incorrect .letter {
+    color: #ffc0c2;
+    background: rgba(255, 114, 120, 0.2);
   }
 
   .option .letter {
@@ -235,6 +433,9 @@
     color: var(--ink-soft);
     flex-shrink: 0;
     width: 18px;
+    background: rgba(114,167,255,0.12);
+    border-radius: 6px;
+    text-align: center;
   }
 
   .explain {
@@ -244,7 +445,7 @@
     padding: 10px 14px;
     margin: 16px 0 0;
     background: var(--amber-soft);
-    border-radius: 0 3px 3px 0;
+    border-radius: 0 10px 10px 0;
     display: none;
   }
 
@@ -257,7 +458,6 @@
     margin-top: 22px;
   }
 
-  /* Results screen */
   .score-row {
     display: flex;
     align-items: baseline;
@@ -267,7 +467,7 @@
 
   .score-row .big {
     font-family: 'Courier New', monospace;
-    font-size: 42px;
+    font-size: clamp(2.3rem, 5vw, 3.4rem);
     font-weight: bold;
   }
 
@@ -294,6 +494,35 @@
     font-size: 12px;
     color: var(--ink-soft);
     font-weight: normal;
+  }
+
+  .stats-strip {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 18px 0 22px;
+  }
+
+  .stat-box {
+    background: rgba(255,255,255,0.045);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 12px 14px;
+  }
+
+  .stat-box .label {
+    display: block;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+  }
+
+  .stat-box strong {
+    font-size: 22px;
+    color: var(--ink);
   }
 
   .bar-track {
@@ -332,12 +561,198 @@
   footer {
     text-align: center;
     font-size: 13px;
-    color: var(--ink-soft);
+    color: #a7b5cd;
     margin-top: 40px;
   }
 
+  .workspace-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 270px;
+    gap: 20px;
+    align-items: start;
+  }
+
+  .main-column { min-width: 0; }
+  .main-column > .card { animation: enter-panel 0.4s ease both; }
+
+  .side-rail {
+    position: sticky;
+    top: 20px;
+    padding: 20px;
+    color: var(--ink);
+    background: linear-gradient(160deg, rgba(24, 40, 65, 0.86), rgba(12, 21, 37, 0.9));
+    border: 1px solid rgba(189, 207, 236, 0.16);
+    border-radius: 16px;
+    box-shadow: 0 20px 48px rgba(0,0,0,0.24);
+    backdrop-filter: blur(18px);
+    animation: enter-panel 0.5s ease both;
+  }
+
+  .rail-heading {
+    margin: 0 0 5px;
+    font-size: 16px;
+    color: #f3f6ff;
+  }
+
+  .rail-caption {
+    margin: 0 0 18px;
+    color: var(--ink-soft);
+    font-size: 12px;
+  }
+
+  .rail-stat {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 0;
+    border-top: 1px solid var(--paper-line);
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  .rail-stat strong { color: #f3f6ff; font-weight: 600; }
+
+  .rail-section-title {
+    margin: 20px 0 9px;
+    color: #d5e1f7;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+
+  .leader-row {
+    display: grid;
+    grid-template-columns: 26px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 0;
+    border-top: 1px solid var(--paper-line);
+    color: var(--ink-soft);
+    font-size: 12px;
+  }
+
+  .leader-rank {
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 8px;
+    background: rgba(114,167,255,0.12);
+    color: #a9c9ff;
+    font-family: 'Courier New', monospace;
+  }
+
+  .leader-row strong { color: var(--ink); }
+  .leader-row .leader-score { color: #79d9b5; font-weight: bold; }
+
+  .question-map {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .mock-subject-nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+    margin: 0 0 18px;
+  }
+
+  .mock-subject-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    padding: 9px 8px;
+    border: 1px solid var(--rule);
+    border-radius: 9px;
+    background: rgba(255,255,255,0.035);
+    color: var(--ink-soft);
+    font: 12px 'Courier New', monospace;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .mock-subject-button[aria-pressed="true"] {
+    color: #e4eeff;
+    border-color: var(--accent);
+    background: rgba(93,151,255,0.13);
+  }
+
+  .mock-subject-button strong { color: #a9c9ff; font-weight: normal; }
+
+  .map-cell {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.035);
+    color: var(--ink-soft);
+    font: 12px 'Courier New', monospace;
+    padding: 0;
+  }
+
+  button.map-cell { width: 100%; cursor: pointer; }
+  button.map-cell:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  button.map-cell:hover { filter: brightness(1.18); }
+
+  .map-cell.done { border-color: rgba(189,207,236,0.24); color: #c6d2e6; background: rgba(255,255,255,0.06); }
+  .map-cell.done.correct { border-color: #42d99a; color: #a6ffd8; background: rgba(31,180,119,0.24); }
+  .map-cell.done.incorrect { border-color: #ff7278; color: #ffc0c2; background: rgba(234,74,87,0.24); }
+  .map-cell.done.answered { border-color: #42d99a; color: #a6ffd8; background: rgba(31,180,119,0.24); }
+  .map-cell.unanswered { border-color: #ff7278; color: #ffc0c2; background: rgba(234,74,87,0.2); }
+  .map-cell.current:not(.done):not(.unanswered) { border-color: var(--accent); color: #fff; background: rgba(93,151,255,0.22); }
+
+  .mock-section-label {
+    margin: -10px 0 14px;
+    color: #a9c9ff;
+    font: 11px 'Courier New', monospace;
+    text-transform: uppercase;
+  }
+
+  #optionsList .option { animation: option-arrive 0.28s ease both; }
+  #optionsList .option:nth-child(2) { animation-delay: 0.04s; }
+  #optionsList .option:nth-child(3) { animation-delay: 0.08s; }
+  #optionsList .option:nth-child(4) { animation-delay: 0.12s; }
+
+  .rail-empty { color: var(--ink-soft); font-size: 12px; padding: 8px 0; }
+
+  @keyframes enter-panel {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes option-arrive {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 820px) {
+    .workspace-grid { grid-template-columns: minmax(0, 1fr); }
+    .side-rail { position: static; }
+  }
+
+  @media (max-width: 520px) {
+    .wrap { padding: 20px 14px 42px; }
+    header.masthead { padding: 14px 16px; margin-bottom: 18px; }
+    .card { padding: 21px 17px; border-radius: 15px; }
+    .side-rail { padding: 17px; }
+    .stats-strip { gap: 7px; }
+    .stat-box { padding: 10px; }
+    .stat-box strong { font-size: 19px; }
+    .start-hero { align-items: flex-start; }
+    .start-hero h2 { font-size: 25px; }
+    .hero-count { min-width: 82px; padding: 10px; }
+    .hero-count strong { font-size: 20px; }
+    .quick-starts { grid-template-columns: 1fr; }
+    .launch-tile { min-height: 0; }
+    .mock-subject-button { gap: 4px; padding: 8px 6px; font-size: 10px; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .progress-fill, .btn, .chip, .option { transition: none; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   }
 </style>
 </head>
@@ -349,31 +764,80 @@
     <span class="stamp" id="dateStamp"></span>
   </header>
 
-  <!-- SETUP SCREEN -->
+  <div class="workspace-grid">
+  <main class="main-column">
   <section id="setupScreen" class="card">
+    <div class="start-hero">
+      <div class="hero-copy">
+        <p class="hero-kicker">JEE practice studio</p>
+        <h2>Build your next session.</h2>
+        <p>Pick a quick session or shape a focused set around your subject, topic and pace.</p>
+      </div>
+      <div class="hero-count"><strong id="bankCount">0</strong><span>questions ready</span></div>
+    </div>
+
+    <div class="quick-starts" aria-label="Quick-start sessions">
+      <button class="launch-tile" id="warmupBtn" type="button">
+        <span class="tile-mark">01</span>
+        <strong>Quick warm-up</strong>
+        <span>10 mixed questions · practice mode</span>
+      </button>
+      <button class="launch-tile" id="weakStartBtn" type="button">
+        <span class="tile-mark">02</span>
+        <strong>Weak-topic focus</strong>
+        <span id="weakStartCaption">Target a topic from your past results</span>
+      </button>
+      <button class="launch-tile" id="mockStartBtn" type="button">
+        <span class="tile-mark">03</span>
+        <strong>Mock session</strong>
+        <span>40 per subject · 120 total · 90 seconds each</span>
+      </button>
+    </div>
+
+    <div class="setup-divider">Customize your session</div>
     <div class="field">
       <label>subject</label>
       <div class="chip-row" id="subjectRow"></div>
+    </div>
+    <div class="field">
+      <label for="topicSelect">focus topic</label>
+      <div class="select-wrap"><select class="setup-select" id="topicSelect"><option value="any">Any topic</option></select></div>
     </div>
     <div class="field">
       <label>difficulty</label>
       <div class="chip-row" id="difficultyRow"></div>
     </div>
     <div class="field">
-      <label>number of questions</label>
+      <label id="countLabel">number of questions</label>
       <div class="chip-row" id="countRow"></div>
+    </div>
+    <div class="field">
+      <label>time per question</label>
+      <div class="chip-row" id="timerRow"></div>
+    </div>
+    <div class="field">
+      <label>session style</label>
+      <div class="chip-row" id="modeRow"></div>
+      <p class="mode-help" id="modeHelp">Practice mode shows the answer and explanation after each response.</p>
+    </div>
+    <div class="setup-summary" aria-live="polite">
+      <span class="summary-pill" id="selectionSummary">Mixed session</span>
+      <span class="summary-pill" id="selectionAvailable">0 matching questions</span>
+      <span class="summary-pill hidden" id="mockSectionPlan"></span>
     </div>
     <div id="weakAreaNote" class="weak-note hidden"></div>
     <button class="btn" id="startBtn">Start Quiz</button>
   </section>
 
-  <!-- QUIZ SCREEN -->
   <section id="quizScreen" class="card hidden">
     <div class="progress-line">
       <span id="progressLabel">Question 1 of 10</span>
       <span id="scoreLabel">Score: 0</span>
+      <span class="timer-badge" id="timerLabel">Time: 60s</span>
     </div>
     <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="mock-section-label hidden" id="mockSectionLabel"></div>
+    <div id="mockSubjectNav" class="mock-subject-nav hidden" aria-label="Mock exam subject sections"></div>
 
     <span class="q-tag" id="qTag"></span>
     <p class="q-text" id="qText"></p>
@@ -386,13 +850,27 @@
     </div>
   </section>
 
-  <!-- RESULTS SCREEN -->
   <section id="resultsScreen" class="card hidden">
     <div class="score-row">
       <span class="big" id="finalScore">0</span>
       <span class="of" id="finalOf">/ 10 correct</span>
     </div>
     <p id="resultSummary" style="color: var(--ink-soft); margin-top: 0;"></p>
+
+    <div class="stats-strip">
+      <div class="stat-box">
+        <span class="label">Accuracy</span>
+        <strong id="accuracyMetric">0%</strong>
+      </div>
+      <div class="stat-box">
+        <span class="label">Avg Time</span>
+        <strong id="avgTimeMetric">0s</strong>
+      </div>
+      <div class="stat-box">
+        <span class="label">Attempted</span>
+        <strong id="attemptMetric">0</strong>
+      </div>
+    </div>
 
     <table class="topic-table" id="topicTable">
       <thead><tr><th>topic</th><th>accuracy</th><th></th></tr></thead>
@@ -406,6 +884,28 @@
 
     <div id="reviewList" style="margin-top: 24px;"></div>
   </section>
+  </main>
+
+  <aside class="side-rail" aria-label="Quiz overview">
+    <div id="setupRail">
+      <h2 class="rail-heading">Your practice</h2>
+      <p class="rail-caption">Personal stats saved on this device</p>
+      <div class="rail-stat"><span>Quizzes completed</span><strong id="historyCount">0</strong></div>
+      <div class="rail-stat"><span>Personal best</span><strong id="personalBest">--</strong></div>
+      <h3 class="rail-section-title">Recent best rounds</h3>
+      <div id="leaderboardList"></div>
+    </div>
+    <div id="quizRail" class="hidden">
+      <h2 class="rail-heading">Live session</h2>
+      <p class="rail-caption">Your progress at a glance</p>
+      <div class="rail-stat"><span>Answered</span><strong id="railAnswered">0 / 0</strong></div>
+      <div class="rail-stat"><span>Correct</span><strong id="railCorrect">0</strong></div>
+      <div class="rail-stat"><span>Remaining</span><strong id="railRemaining">0</strong></div>
+      <h3 class="rail-section-title" id="questionStatusTitle">Question status</h3>
+      <div id="questionMap" class="question-map" aria-label="Question status map"></div>
+    </div>
+  </aside>
+  </div>
 
   <footer>Runs entirely in your browser. Your stats are stored locally on this device only.</footer>
 </div>
@@ -414,107 +914,295 @@
 (function () {
   "use strict";
 
-  // ---------- Question bank ----------
-  // Add more questions here. Each item: subject, topic, difficulty, q, options[4], answer index, explain.
   const BANK = [
-    // PHYSICS
-    { subject: "Physics", topic: "Mechanics", difficulty: "easy",
-      q: "A body moving with uniform velocity has:",
-      options: ["Zero acceleration", "Constant non-zero acceleration", "Increasing speed", "Zero displacement"],
-      answer: 0,
-      explain: "Uniform velocity means constant speed and direction, so the rate of change of velocity (acceleration) is zero." },
-    { subject: "Physics", topic: "Mechanics", difficulty: "medium",
-      q: "A block of mass 2 kg is pulled by a horizontal force of 10 N on a frictionless surface. Its acceleration is:",
-      options: ["2 m/s²", "5 m/s²", "10 m/s²", "20 m/s²"],
-      answer: 1,
-      explain: "F = ma → a = F/m = 10/2 = 5 m/s²." },
-    { subject: "Physics", topic: "Electrodynamics", difficulty: "medium",
-      q: "In a purely resistive AC circuit, the phase difference between voltage and current is:",
-      options: ["90°", "180°", "0°", "45°"],
-      answer: 2,
-      explain: "In a pure resistor, voltage and current are always in phase, so the phase difference is 0°." },
-    { subject: "Physics", topic: "Electrodynamics", difficulty: "hard",
-      q: "Two long parallel wires carry currents in the same direction. The force between them is:",
-      options: ["Attractive", "Repulsive", "Zero", "Alternating"],
-      answer: 0,
-      explain: "Parallel currents in the same direction attract each other due to the magnetic force between them (F = μ₀I₁I₂L / 2πd)." },
-    { subject: "Physics", topic: "Modern Physics", difficulty: "medium",
-      q: "The photoelectric effect demonstrates that light behaves as:",
-      options: ["A wave only", "A particle only", "Both a wave and a particle depending on the phenomenon", "Neither a wave nor a particle"],
-      answer: 2,
-      explain: "The photoelectric effect shows the particle nature of light (photons), while interference/diffraction show its wave nature — light exhibits wave-particle duality." },
-    { subject: "Physics", topic: "Modern Physics", difficulty: "hard",
-      q: "The de Broglie wavelength of a particle is inversely proportional to its:",
-      options: ["Mass", "Momentum", "Charge", "Energy squared"],
-      answer: 1,
-      explain: "λ = h / p, where p is momentum. So wavelength is inversely proportional to momentum." },
+    { subject: "Physics", topic: "Mechanics", difficulty: "easy", q: "A body moving with uniform velocity has:", options: ["Zero acceleration", "Constant non-zero acceleration", "Increasing speed", "Zero displacement"], answer: 0, explain: "Uniform velocity means constant speed and direction, so the rate of change of velocity is zero." },
+    { subject: "Physics", topic: "Mechanics", difficulty: "easy", q: "The SI unit of force is:", options: ["Joule", "Newton", "Watt", "Pascal"], answer: 1, explain: "Force is measured in newtons, where 1 N = 1 kg·m/s²." },
+    { subject: "Physics", topic: "Mechanics", difficulty: "easy", q: "The slope of a displacement-time graph gives:", options: ["Acceleration", "Velocity", "Force", "Momentum"], answer: 1, explain: "Velocity is the rate of change of displacement with time." },
+    { subject: "Physics", topic: "Mechanics", difficulty: "easy", q: "If a car travels 100 m in 10 s with constant speed, its speed is:", options: ["5 m/s", "10 m/s", "20 m/s", "100 m/s"], answer: 2, explain: "Speed = distance/time = 100/10 = 10 m/s." },
+    { subject: "Physics", topic: "Mechanics", difficulty: "easy", q: "Work is defined as:", options: ["Force × displacement", "Force × time", "Mass × velocity", "Power × time"], answer: 0, explain: "Work is the product of force and displacement in the direction of force." },
+    { subject: "Physics", topic: "Mechanics", difficulty: "easy", q: "The product of mass and velocity is called:", options: ["Impulse", "Force", "Momentum", "Energy"], answer: 2, explain: "Momentum is p = mv." },
+    { subject: "Physics", topic: "Mechanics", difficulty: "easy", q: "A body is said to be in equilibrium when:", options: ["Net force is non-zero", "Velocity is increasing", "Net force is zero", "Acceleration is constant"], answer: 2, explain: "Equilibrium requires zero net force, so the acceleration is zero." },
+    { subject: "Physics", topic: "Mechanics", difficulty: "easy", q: "Which quantity is a scalar?", options: ["Velocity", "Acceleration", "Displacement", "Speed"], answer: 3, explain: "Speed has magnitude only, so it is a scalar quantity." },
+    { subject: "Physics", topic: "Mechanics", difficulty: "easy", q: "The acceleration due to gravity near Earth's surface is approximately:", options: ["9.8 m/s²", "1.6 m/s²", "3.2 m/s²", "6.7 m/s²"], answer: 0, explain: "On Earth, gravitational acceleration is about 9.8 m/s²." },
+    { subject: "Physics", topic: "Mechanics", difficulty: "easy", q: "The kinetic energy of a moving object depends on:", options: ["Mass and speed", "Mass and time", "Speed and force", "Force and displacement"], answer: 0, explain: "Kinetic energy is K = 1/2 mv², depending on mass and speed." },
+    { subject: "Physics", topic: "Mechanics", difficulty: "easy", q: "A freely falling body under gravity has:", options: ["Zero acceleration", "Constant acceleration", "Variable acceleration", "No velocity"], answer: 1, explain: "Near Earth's surface, free fall has nearly constant acceleration g." },
+    { subject: "Physics", topic: "Mechanics", difficulty: "easy", q: "Which of the following is not a vector?", options: ["Force", "Displacement", "Velocity", "Distance"], answer: 3, explain: "Distance is a scalar; the others are vectors." },
 
-    // CHEMISTRY
-    { subject: "Chemistry", topic: "Physical", difficulty: "easy",
-      q: "The SI unit of molar concentration is:",
-      options: ["g/L", "mol/L", "mol/kg", "g/mol"],
-      answer: 1,
-      explain: "Molar concentration (molarity) is defined as moles of solute per litre of solution, i.e., mol/L." },
-    { subject: "Chemistry", topic: "Physical", difficulty: "medium",
-      q: "For a first-order reaction, the half-life is:",
-      options: ["Directly proportional to initial concentration", "Independent of initial concentration", "Inversely proportional to initial concentration", "Proportional to the square of initial concentration"],
-      answer: 1,
-      explain: "For a first-order reaction, t½ = 0.693/k, which does not depend on the initial concentration." },
-    { subject: "Chemistry", topic: "Organic", difficulty: "medium",
-      q: "Which of the following is most acidic?",
-      options: ["Ethanol", "Phenol", "Acetic acid", "Water"],
-      answer: 2,
-      explain: "Acetic acid is the strongest acid among these because the carboxylate ion formed is resonance-stabilized, more so than phenoxide." },
-    { subject: "Chemistry", topic: "Organic", difficulty: "hard",
-      q: "Markovnikov's rule applies to the addition of HX to:",
-      options: ["Symmetrical alkenes", "Unsymmetrical alkenes", "Alkanes", "Aromatic rings"],
-      answer: 1,
-      explain: "Markovnikov's rule predicts that H adds to the carbon with more hydrogens already, relevant specifically for unsymmetrical alkenes." },
-    { subject: "Chemistry", topic: "Inorganic", difficulty: "easy",
-      q: "The most electronegative element in the periodic table is:",
-      options: ["Oxygen", "Chlorine", "Fluorine", "Nitrogen"],
-      answer: 2,
-      explain: "Fluorine has the highest electronegativity (Pauling scale ~3.98) of all elements." },
-    { subject: "Chemistry", topic: "Inorganic", difficulty: "hard",
-      q: "Which of the following has the highest lattice energy?",
-      options: ["NaCl", "MgO", "KCl", "CaO"],
-      answer: 1,
-      explain: "Lattice energy increases with higher ionic charge and smaller ionic size. MgO has +2/-2 charges and small ionic radii, giving it the highest lattice energy here." },
+    { subject: "Physics", topic: "Mechanics", difficulty: "medium", q: "A 2 kg object moving at 3 m/s has momentum:", options: ["1 kg·m/s", "3 kg·m/s", "6 kg·m/s", "9 kg·m/s"], answer: 2, explain: "Momentum p = mv = 2 × 3 = 6 kg·m/s." },
+    { subject: "Physics", topic: "Mechanics", difficulty: "medium", q: "A block of mass 5 kg is pushed with 20 N. Its acceleration is:", options: ["2 m/s²", "4 m/s²", "5 m/s²", "10 m/s²"], answer: 1, explain: "a = F/m = 20/5 = 4 m/s²." },
+    { subject: "Physics", topic: "Mechanics", difficulty: "medium", q: "If the net force on a body is doubled, its acceleration:", options: ["Halves", "Doubles", "Remains same", "Becomes zero"], answer: 1, explain: "From Newton's second law, a ∝ F when mass is constant." },
+    { subject: "Physics", topic: "Mechanics", difficulty: "medium", q: "A projectile reaches maximum height when:", options: ["Vertical velocity is zero", "Horizontal velocity is zero", "Net force is zero", "Acceleration is zero"], answer: 0, explain: "At the top, the vertical component of velocity becomes zero momentarily." },
+    { subject: "Physics", topic: "Mechanics", difficulty: "medium", q: "The area under a velocity-time graph represents:", options: ["Acceleration", "Force", "Displacement", "Mass"], answer: 2, explain: "Displacement is the integral of velocity over time." },
+    { subject: "Physics", topic: "Mechanics", difficulty: "medium", q: "A 10 N force acts for 2 s, impulse is:", options: ["5 N·s", "10 N·s", "20 N·s", "40 N·s"], answer: 2, explain: "Impulse = F × t = 10 × 2 = 20 N·s." },
+    { subject: "Physics", topic: "Mechanics", difficulty: "medium", q: "A car moving in a circle at constant speed has:", options: ["Zero acceleration", "Tangential acceleration only", "Centripetal acceleration", "No force"], answer: 2, explain: "Circular motion requires centripetal acceleration toward the center." },
+    { subject: "Physics", topic: "Mechanics", difficulty: "medium", q: "The gravitational potential energy of a body of mass m at height h is:", options: ["mgh", "mg/h", "mh/g", "1/2 mgh"], answer: 0, explain: "Potential energy relative to the ground is U = mgh." },
+    { subject: "Physics", topic: "Mechanics", difficulty: "medium", q: "If an object is thrown vertically upward, its velocity at the highest point is:", options: ["Maximum", "Zero", "Negative", "Equal to g"], answer: 1, explain: "At the highest point, the object momentarily stops before descending." },
+    { subject: "Physics", topic: "Mechanics", difficulty: "medium", q: "The moment of inertia of a point mass m at radius r is:", options: ["mr", "mr²", "1/2 mr²", "m/r²"], answer: 1, explain: "For a point mass, I = mr²." },
+    { subject: "Physics", topic: "Mechanics", difficulty: "medium", q: "A body of mass 10 kg is lifted 2 m. Work done is:", options: ["20 J", "50 J", "100 J", "196 J"], answer: 3, explain: "Work = mgh = 10 × 9.8 × 2 = 196 J." },
+    { subject: "Physics", topic: "Mechanics", difficulty: "medium", q: "The coefficient of friction is dimensionless because:", options: ["It is a ratio of forces", "It is a force", "It is a velocity", "It is an acceleration"], answer: 0, explain: "Friction coefficient is the ratio of frictional force to normal reaction; both are forces, so the ratio is dimensionless." },
 
-    // MATHEMATICS
-    { subject: "Mathematics", topic: "Algebra", difficulty: "easy",
-      q: "If a, b, c are in arithmetic progression, then:",
-      options: ["b² = ac", "2b = a + c", "b = a + c", "a + b = 2c"],
-      answer: 1,
-      explain: "For an AP, the middle term is the average of its neighbours: 2b = a + c." },
-    { subject: "Mathematics", topic: "Algebra", difficulty: "medium",
-      q: "The number of ways to arrange the letters of the word 'LEVEL' is:",
-      options: ["60", "30", "120", "20"],
-      answer: 1,
-      explain: "LEVEL has 5 letters with L repeated twice and E repeated twice: 5!/(2!·2!) = 120/4 = 30." },
-    { subject: "Mathematics", topic: "Calculus", difficulty: "medium",
-      q: "The derivative of sin(x²) with respect to x is:",
-      options: ["cos(x²)", "2x·cos(x²)", "2x·sin(x²)", "x²·cos(x)"],
-      answer: 1,
-      explain: "By the chain rule, d/dx[sin(x²)] = cos(x²) · 2x = 2x·cos(x²)." },
-    { subject: "Mathematics", topic: "Calculus", difficulty: "hard",
-      q: "∫₀^1 x·eˣ dx equals:",
-      options: ["1", "e", "1 (i.e., e - e + 1... simplify)", "e - 1"],
-      answer: 0,
-      explain: "Using integration by parts: ∫x·eˣ dx = xeˣ - eˣ + C. Evaluating from 0 to 1 gives (e - e) - (0 - 1) = 1." },
-    { subject: "Mathematics", topic: "Coordinate Geometry", difficulty: "easy",
-      q: "The distance between the points (3, 4) and (0, 0) is:",
-      options: ["3", "4", "5", "7"],
-      answer: 2,
-      explain: "Distance = √(3² + 4²) = √25 = 5." },
-    { subject: "Mathematics", topic: "Coordinate Geometry", difficulty: "hard",
-      q: "The equation of the circle with centre (2, -3) and radius 4 is:",
-      options: ["(x-2)² + (y+3)² = 16", "(x+2)² + (y-3)² = 16", "(x-2)² + (y+3)² = 4", "x² + y² = 16"],
-      answer: 0,
-      explain: "Standard form: (x - h)² + (y - k)² = r², with (h,k) = (2,-3) and r = 4, giving (x-2)² + (y+3)² = 16." }
+    { subject: "Physics", topic: "Electrodynamics", difficulty: "hard", q: "Two charged particles with equal charge q separated by distance r exert force proportional to:", options: ["1/r", "1/r²", "r²", "r"], answer: 1, explain: "Coulomb's law gives F ∝ q₁q₂/r²." },
+    { subject: "Physics", topic: "Electrodynamics", difficulty: "hard", q: "The effective resistance of two resistors R and R in parallel is:", options: ["R/2", "R", "2R", "R²"], answer: 0, explain: "Parallel combination: 1/R_eq = 1/R + 1/R = 2/R, so R_eq = R/2." },
+    { subject: "Physics", topic: "Electrodynamics", difficulty: "hard", q: "A current-carrying conductor experiences force in a magnetic field according to:", options: ["Faraday's law", "Ampere's law", "Lorentz force", "Ohm's law"], answer: 2, explain: "The magnetic force on a moving charge/conductor is described by the Lorentz force." },
+    { subject: "Physics", topic: "Electrodynamics", difficulty: "hard", q: "The capacitance of a parallel-plate capacitor increases with:", options: ["Increasing distance between plates", "Decreasing plate area", "Increasing dielectric constant", "Decreasing charge"], answer: 2, explain: "C = ε₀κA/d, so capacitance increases with larger dielectric constant." },
+    { subject: "Physics", topic: "Electrodynamics", difficulty: "hard", q: "The impedance of an LCR series circuit at resonance is:", options: ["Maximum", "Zero", "Minimum equal to resistance", "Infinite"], answer: 2, explain: "At resonance, inductive and capacitive reactances cancel and the impedance is minimum, equal to R." },
+    { subject: "Physics", topic: "Electrodynamics", difficulty: "hard", q: "The magnetic field at the center of a circular loop carrying current I is proportional to:", options: ["I²/R", "I/R²", "I/R", "R/I"], answer: 2, explain: "For a circular loop, B = μ₀I/(2R), so it is proportional to I/R." },
+    { subject: "Physics", topic: "Modern Physics", difficulty: "hard", q: "Einstein's photoelectric equation is:", options: ["E = mc²", "Kmax = hν - φ", "F = ma", "λ = h/p"], answer: 1, explain: "The maximum KE of photoelectrons is Kmax = hν - work function φ." },
+    { subject: "Physics", topic: "Modern Physics", difficulty: "hard", q: "The de Broglie wavelength of an electron is given by:", options: ["λ = h/mv", "λ = mv/h", "λ = hE", "λ = p/h"], answer: 0, explain: "De Broglie relation is λ = h/p = h/(mv)." },
+    { subject: "Physics", topic: "Modern Physics", difficulty: "hard", q: "The nuclear binding energy is the energy required to:", options: ["Split a nucleus", "Fuse nuclei", "Separate nucleons from nucleus", "Ionize an atom"], answer: 2, explain: "Binding energy is the energy needed to separate the nucleons completely from the nucleus." },
+    { subject: "Physics", topic: "Modern Physics", difficulty: "hard", q: "The threshold frequency in photoelectric emission depends on:", options: ["Intensity", "Metal work function", "Voltage", "Current"], answer: 1, explain: "Threshold frequency is determined by the work function of the material." },
+    { subject: "Physics", topic: "Modern Physics", difficulty: "hard", q: "During nuclear fusion, the mass of products is:", options: ["Greater than reactants", "Equal to reactants", "Less than reactants", "Independent of mass"], answer: 2, explain: "Mass defect converts into released binding energy, so mass decreases." },
+    { subject: "Physics", topic: "Optics", difficulty: "hard", q: "A convex lens of focal length f forms a real image at 2f. The object distance is:", options: ["f", "2f", "3f", "4f"], answer: 1, explain: "For a convex lens, when object is at 2f, image is also at 2f on the other side." },
+
+    { subject: "Chemistry", topic: "Atomic Structure", difficulty: "easy", q: "The maximum number of electrons in the K shell is:", options: ["2", "8", "18", "32"], answer: 0, explain: "The K shell is n = 1, and maximum capacity is 2n² = 2." },
+    { subject: "Chemistry", topic: "Atomic Structure", difficulty: "easy", q: "Which sublevel has the lowest energy?", options: ["3p", "4s", "3d", "2p"], answer: 3, explain: "In the order of filling, 2p is lower than 3p, 3d, or 4s." },
+    { subject: "Chemistry", topic: "Atomic Structure", difficulty: "easy", q: "The number of orbitals in d subshell is:", options: ["1", "3", "5", "7"], answer: 2, explain: "A d subshell has five orbitals." },
+    { subject: "Chemistry", topic: "Atomic Structure", difficulty: "easy", q: "The principal quantum number represents:", options: ["Spin", "Orbital orientation", "Energy level", "Magnetic moment"], answer: 2, explain: "The principal quantum number n determines the main energy level." },
+    { subject: "Chemistry", topic: "Chemical Bonding", difficulty: "easy", q: "The bond angle in a tetrahedral molecule is about:", options: ["90°", "107°", "109.5°", "120°"], answer: 2, explain: "Tetrahedral geometry has bond angles close to 109.5°." },
+    { subject: "Chemistry", topic: "Chemical Bonding", difficulty: "easy", q: "Which bond is most polar?", options: ["H-H", "H-Cl", "H-F", "C-H"], answer: 2, explain: "H-F has the greatest electronegativity difference and therefore is most polar." },
+    { subject: "Chemistry", topic: "Physical", difficulty: "easy", q: "The SI unit of molar concentration is:", options: ["g/L", "mol/L", "mol/kg", "g/mol"], answer: 1, explain: "Molarity is moles of solute per litre of solution." },
+    { subject: "Chemistry", topic: "Physical", difficulty: "easy", q: "The pH of a neutral solution at 25°C is:", options: ["0", "7", "10", "14"], answer: 1, explain: "At 25°C, pure water has pH 7." },
+    { subject: "Chemistry", topic: "Organic", difficulty: "easy", q: "The functional group of alcohols is:", options: ["-CHO", "-COOH", "-OH", "-COOR"], answer: 2, explain: "Alcohols contain the hydroxyl group -OH." },
+    { subject: "Chemistry", topic: "Organic", difficulty: "easy", q: "Ethane belongs to the homologous series of:", options: ["Alkenes", "Alkanes", "Alkynes", "Alcohols"], answer: 1, explain: "Ethane is an alkane with single bonds only." },
+    { subject: "Chemistry", topic: "Inorganic", difficulty: "easy", q: "The most electronegative element is:", options: ["Oxygen", "Chlorine", "Fluorine", "Nitrogen"], answer: 2, explain: "Fluorine has the highest electronegativity." },
+    { subject: "Chemistry", topic: "Inorganic", difficulty: "easy", q: "Which gas is used in Haber process for ammonia synthesis?", options: ["Oxygen", "Nitrogen", "Chlorine", "Hydrogen"], answer: 3, explain: "The Haber process uses N2 and H2 to synthesize NH3." },
+
+    { subject: "Chemistry", topic: "Physical", difficulty: "medium", q: "For a first-order reaction, the half-life is:", options: ["Directly proportional to initial concentration", "Independent of initial concentration", "Inversely proportional to initial concentration", "Proportional to square of initial concentration"], answer: 1, explain: "For first-order kinetics, t1/2 = 0.693/k, independent of initial concentration." },
+    { subject: "Chemistry", topic: "Physical", difficulty: "medium", q: "The rate constant of a zero-order reaction has units:", options: ["s⁻¹", "mol L⁻¹ s⁻¹", "L mol⁻¹ s⁻¹", "mol² L⁻² s⁻¹"], answer: 1, explain: "Zero-order rate = k, so units are concentration/time = mol L⁻¹ s⁻¹." },
+    { subject: "Chemistry", topic: "Physical", difficulty: "medium", q: "An increase in temperature generally:", options: ["Decreases rate constant", "Increases rate constant", "Has no effect", "Stops reaction"], answer: 1, explain: "Higher temperature increases effective collisions and hence the rate constant." },
+    { subject: "Chemistry", topic: "Chemical Bonding", difficulty: "medium", q: "The shape of NH3 molecule is:", options: ["Linear", "Trigonal planar", "Trigonal pyramidal", "Tetrahedral"], answer: 2, explain: "NH3 has 3 bond pairs and 1 lone pair; geometry is trigonal pyramidal." },
+    { subject: "Chemistry", topic: "Chemical Bonding", difficulty: "medium", q: "Which molecule has a dipole moment?", options: ["CO₂", "BF₃", "CH₄", "NH₃"], answer: 3, explain: "NH3 is asymmetrical and has a net dipole moment." },
+    { subject: "Chemistry", topic: "Chemical Bonding", difficulty: "medium", q: "The strongest intermolecular force in HF is:", options: ["London forces", "Dipole-dipole", "Hydrogen bonding", "Ionic bond"], answer: 2, explain: "HF forms hydrogen bonding because H is attached to highly electronegative fluorine." },
+    { subject: "Chemistry", topic: "Inorganic", difficulty: "medium", q: "Which element is present in all acids?", options: ["Hydrogen", "Nitrogen", "Oxygen", "Chlorine"], answer: 0, explain: "Acids produce H+ in water, so hydrogen is essential to acids." },
+    { subject: "Chemistry", topic: "Inorganic", difficulty: "medium", q: "Which oxidation state is common for alkali metals?", options: ["+1", "+2", "+3", "0"], answer: 0, explain: "Alkali metals lose one electron to form +1 ions." },
+    { subject: "Chemistry", topic: "Organic", difficulty: "medium", q: "Which compound is an aldehyde?", options: ["CH3OH", "CH3CHO", "CH3COOH", "CH3COCH3"], answer: 1, explain: "An aldehyde contains -CHO, as in CH3CHO." },
+    { subject: "Chemistry", topic: "Organic", difficulty: "medium", q: "Which hydrocarbon can undergo addition reaction readily?", options: ["Methane", "Ethane", "Ethene", "Benzene"], answer: 2, explain: "Ethene has a C=C bond and undergoes addition reactions." },
+    { subject: "Chemistry", topic: "Organic", difficulty: "medium", q: "The reagent used to distinguish aldehydes from ketones is:", options: ["NaOH", "Tollens' reagent", "HCl", "KMnO4"], answer: 1, explain: "Tollens' reagent gives a silver mirror with aldehydes but not ketones." },
+    { subject: "Chemistry", topic: "Physical", difficulty: "medium", q: "The molar volume of an ideal gas at STP is approximately:", options: ["11.2 L", "22.4 L", "44.8 L", "2.24 L"], answer: 1, explain: "At STP, 1 mole of an ideal gas occupies 22.4 L." },
+
+    { subject: "Chemistry", topic: "Organic", difficulty: "hard", q: "Markovnikov's rule applies to addition of HX to:", options: ["Symmetrical alkenes", "Unsymmetrical alkenes", "Alkanes", "Aromatic rings"], answer: 1, explain: "The proton adds to the carbon with more hydrogens in unsymmetrical alkenes." },
+    { subject: "Chemistry", topic: "Organic", difficulty: "hard", q: "Benzene undergoes electrophilic substitution because:", options: ["It has unstable ring", "It is highly reactive", "It has delocalized π-electrons", "It has single bonds only"], answer: 2, explain: "Delocalization of π electrons makes benzene aromatic and substitution favored." },
+    { subject: "Chemistry", topic: "Organic", difficulty: "hard", q: "The strongest acid among the following is:", options: ["Ethanol", "Phenol", "Acetic acid", "Water"], answer: 2, explain: "Acetic acid is more acidic because acetate is resonance stabilized." },
+    { subject: "Chemistry", topic: "Inorganic", difficulty: "hard", q: "Which of these has highest lattice energy?", options: ["NaCl", "MgO", "KCl", "CaO"], answer: 1, explain: "MgO has higher ionic charges and smaller ions, giving larger lattice energy." },
+    { subject: "Chemistry", topic: "Inorganic", difficulty: "hard", q: "Which is a transition element?", options: ["Sodium", "Calcium", "Iron", "Aluminium"], answer: 2, explain: "Iron is a transition element because it has partially filled d orbitals in its compounds." },
+    { subject: "Chemistry", topic: "Inorganic", difficulty: "hard", q: "The oxidation number of Mn in KMnO4 is:", options: ["+2", "+4", "+6", "+7"], answer: 3, explain: "In KMnO4, K is +1 and each O is -2; thus Mn is +7." },
+    { subject: "Chemistry", topic: "Physical", difficulty: "hard", q: "At equilibrium, the Gibbs free energy change ΔG is:", options: ["Positive", "Negative", "Zero", "Infinite"], answer: 2, explain: "For a system at equilibrium, ΔG = 0 for the process under standard conditions." },
+    { subject: "Chemistry", topic: "Physical", difficulty: "hard", q: "The ionic product of water at 25°C is:", options: ["1e-7", "1e-14", "1e-12", "1e-10"], answer: 1, explain: "Kw = [H+][OH−] = 1.0 × 10⁻¹⁴ at 25°C." },
+    { subject: "Chemistry", topic: "Chemical Bonding", difficulty: "hard", q: "Which species has trigonal bipyramidal geometry?", options: ["BF3", "NH3", "PCl5", "CH4"], answer: 2, explain: "PCl5 has five bond pairs and trigonal bipyramidal shape." },
+    { subject: "Chemistry", topic: "Atomic Structure", difficulty: "hard", q: "The wavelength emitted by an electron transition is determined by:", options: ["Rydberg equation", "Ohm's law", "Avogadro's law", "Hess's law"], answer: 0, explain: "Spectral lines are explained using the Rydberg formula for hydrogen." },
+    { subject: "Chemistry", topic: "Organic", difficulty: "hard", q: "Which has the highest boiling point?", options: ["Methane", "Ethane", "Ethanol", "Ethanal"], answer: 2, explain: "Ethanol has hydrogen bonding, giving it the highest boiling point." },
+    { subject: "Chemistry", topic: "Physical", difficulty: "hard", q: "A catalyst increases rate by:", options: ["Increasing activation energy", "Lowering activation energy", "Changing equilibrium constant", "Increasing reactant concentration"], answer: 1, explain: "Catalysts provide an alternate pathway with lower activation energy." },
+
+    { subject: "Mathematics", topic: "Algebra", difficulty: "easy", q: "If a, b, c are in AP, then:", options: ["b² = ac", "2b = a + c", "b = a + c", "a + b = 2c"], answer: 1, explain: "Middle term of AP satisfies 2b = a + c." },
+    { subject: "Mathematics", topic: "Algebra", difficulty: "easy", q: "The sum of roots of x² - 5x + 6 = 0 is:", options: ["5", "-5", "6", "-6"], answer: 0, explain: "For ax² + bx + c = 0, sum of roots = -b/a = 5." },
+    { subject: "Mathematics", topic: "Algebra", difficulty: "easy", q: "The product of roots of x² - 7x + 12 = 0 is:", options: ["7", "-7", "12", "-12"], answer: 2, explain: "Product of roots = c/a = 12." },
+    { subject: "Mathematics", topic: "Trigonometry", difficulty: "easy", q: "sin 30° equals:", options: ["0", "1/2", "√3/2", "1"], answer: 1, explain: "sin 30° = 1/2." },
+    { subject: "Mathematics", topic: "Coordinate Geometry", difficulty: "easy", q: "The distance between (0,0) and (3,4) is:", options: ["3", "4", "5", "7"], answer: 2, explain: "Distance = √(3² + 4²) = 5." },
+    { subject: "Mathematics", topic: "Calculus", difficulty: "easy", q: "Derivative of x² is:", options: ["x", "2x", "x²", "2"], answer: 1, explain: "d/dx of x² is 2x." },
+    { subject: "Mathematics", topic: "Probability", difficulty: "easy", q: "Probability of a sure event is:", options: ["0", "1/2", "1", "Undefined"], answer: 2, explain: "A sure event always occurs and has probability 1." },
+    { subject: "Mathematics", topic: "Matrices", difficulty: "easy", q: "A 2×2 identity matrix is:", options: ["[[1,0],[0,1]]", "[[0,1],[1,0]]", "[[1,1],[1,1]]", "[[0,0],[0,0]]"], answer: 0, explain: "Identity matrix has 1s on diagonal and 0 elsewhere." },
+    { subject: "Mathematics", topic: "Sequences", difficulty: "easy", q: "The next term in 2, 4, 8, 16, ... is:", options: ["20", "24", "32", "48"], answer: 2, explain: "This is a geometric sequence with ratio 2." },
+    { subject: "Mathematics", topic: "Limits", difficulty: "easy", q: "The value of lim(x→0) sin x / x is:", options: ["0", "1", "∞", "undefined"], answer: 1, explain: "A standard limit is sin x / x → 1 as x→0." },
+    { subject: "Mathematics", topic: "Complex Numbers", difficulty: "easy", q: "i² equals:", options: ["1", "-1", "0", "i"], answer: 1, explain: "By definition, i² = -1." },
+    { subject: "Mathematics", topic: "Statistics", difficulty: "easy", q: "The median of 1, 3, 5, 7, 9 is:", options: ["3", "5", "7", "9"], answer: 1, explain: "With five values, the median is the middle value, 5." },
+
+    { subject: "Mathematics", topic: "Algebra", difficulty: "medium", q: "The number of ways to arrange letters of 'LEVEL' is:", options: ["60", "30", "120", "20"], answer: 1, explain: "5!/(2!2!) = 30." },
+    { subject: "Mathematics", topic: "Quadratic Equations", difficulty: "medium", q: "If roots are 2 and 3, equation is:", options: ["x² - 5x + 6 = 0", "x² + 5x + 6 = 0", "x² - 6x + 5 = 0", "x² + 6x + 5 = 0"], answer: 0, explain: "Sum = 5, product = 6, so x² - 5x + 6 = 0." },
+    { subject: "Mathematics", topic: "Trigonometry", difficulty: "medium", q: "cos 60° equals:", options: ["1/2", "√3/2", "1", "0"], answer: 0, explain: "cos 60° = 1/2." },
+    { subject: "Mathematics", topic: "Calculus", difficulty: "medium", q: "Derivative of sin x² is:", options: ["cos x²", "2x cos x²", "2x sin x²", "x cos x²"], answer: 1, explain: "Using chain rule: d/dx sin(x²) = cos(x²)·2x." },
+    { subject: "Mathematics", topic: "Probability", difficulty: "medium", q: "Probability of drawing an ace from a standard deck is:", options: ["1/13", "1/4", "1/52", "4/13"], answer: 0, explain: "There are 4 aces in 52 cards => 4/52 = 1/13." },
+    { subject: "Mathematics", topic: "Matrices", difficulty: "medium", q: "det of [[2,3],[1,4]] is:", options: ["5", "6", "7", "8"], answer: 2, explain: "Determinant = 2×4 - 3×1 = 5." },
+    { subject: "Mathematics", topic: "Series", difficulty: "medium", q: "Sum of first n natural numbers is:", options: ["n(n+1)/2", "n²", "n(n-1)/2", "2n"], answer: 0, explain: "The formula for the sum of the first n natural numbers is n(n+1)/2." },
+    { subject: "Mathematics", topic: "Coordinate Geometry", difficulty: "medium", q: "Slope of line through (1,2) and (3,6) is:", options: ["1", "2", "3", "4"], answer: 1, explain: "Slope = (6 - 2)/(3 - 1) = 2." },
+    { subject: "Mathematics", topic: "Differentiation", difficulty: "medium", q: "Derivative of eˣ is:", options: ["eˣ", "x eˣ", "e", "1"], answer: 0, explain: "d/dx eˣ = eˣ." },
+    { subject: "Mathematics", topic: "Binomial Theorem", difficulty: "medium", q: "The coefficient of x² in (1 + x)^3 is:", options: ["1", "3", "6", "9"], answer: 1, explain: "The coefficient is C(3,2) = 3." },
+    { subject: "Mathematics", topic: "Sequences", difficulty: "medium", q: "Common difference of AP 3,7,11,15 is:", options: ["3", "4", "5", "6"], answer: 1, explain: "Difference between consecutive terms is 4." },
+    { subject: "Mathematics", topic: "Geometry", difficulty: "medium", q: "Area of a circle of radius 7 is:", options: ["49π", "14π", "7π", "49"], answer: 0, explain: "Area = πr² = 49π." },
+
+    { subject: "Mathematics", topic: "Calculus", difficulty: "hard", q: "∫₀¹ x eˣ dx equals:", options: ["1", "e", "e-1", "0"], answer: 0, explain: "Using integration by parts gives value 1." },
+    { subject: "Mathematics", topic: "Coordinate Geometry", difficulty: "hard", q: "Circle with center (2,-3) radius 4 has equation:", options: ["(x-2)² + (y+3)² = 16", "(x+2)² + (y-3)² = 16", "(x-2)² + (y+3)² = 4", "x² + y² = 16"], answer: 0, explain: "Use standard form (x-h)² + (y-k)² = r²." },
+    { subject: "Mathematics", topic: "Algebra", difficulty: "hard", q: "If log₂ 8 = x, then x is:", options: ["2", "3", "4", "8"], answer: 1, explain: "2³ = 8, so log₂ 8 = 3." },
+    { subject: "Mathematics", topic: "Vectors", difficulty: "hard", q: "Dot product of perpendicular vectors is:", options: ["1", "0", "-1", "Infinity"], answer: 1, explain: "If vectors are perpendicular, their dot product is zero." },
+    { subject: "Mathematics", topic: "Probability", difficulty: "hard", q: "Mean of 2,4,6,8 is:", options: ["4", "5", "6", "8"], answer: 0, explain: "Average = (2 + 4 + 6 + 8)/4 = 5." },
+    { subject: "Mathematics", topic: "Differential Equations", difficulty: "hard", q: "Solution of y' = y is:", options: ["y = x + C", "y = C eˣ", "y = x² + C", "y = 1/x + C"], answer: 1, explain: "The general solution to dy/dx = y is y = Ceˣ." },
+    { subject: "Mathematics", topic: "Complex Numbers", difficulty: "hard", q: "Argument of i is:", options: ["0", "π/2", "π", "3π/2"], answer: 1, explain: "i lies on positive imaginary axis, angle π/2." },
+    { subject: "Mathematics", topic: "Trigonometry", difficulty: "hard", q: "Value of sin 2θ in terms of sin θ and cos θ is:", options: ["sin²θ - cos²θ", "2 sin θ cos θ", "sin θ + cos θ", "tan θ"], answer: 1, explain: "By double-angle identity, sin 2θ = 2 sin θ cos θ." },
+    { subject: "Mathematics", topic: "Parametric Equations", difficulty: "hard", q: "The derivative of x = t², y = 2t is dy/dx:", options: ["1/t", "t", "2t", "2"], answer: 0, explain: "dy/dt = 2, dx/dt = 2t, so dy/dx = 1/t." },
+    { subject: "Mathematics", topic: "Matrices", difficulty: "hard", q: "For matrix A, A² = A implies A is:", options: ["Null matrix", "Identity matrix", "Idempotent matrix", "Singular matrix"], answer: 2, explain: "A matrix satisfying A² = A is called idempotent." },
+    { subject: "Mathematics", topic: "Progressions", difficulty: "hard", q: "Sum of first 10 natural numbers is:", options: ["45", "50", "55", "60"], answer: 2, explain: "Using n(n+1)/2 with n = 10 gives 55." },
+    { subject: "Mathematics", topic: "Probability", difficulty: "hard", q: "Probability of getting at least one head in two tosses is:", options: ["1/4", "1/2", "3/4", "1"], answer: 2, explain: "Outcomes: HH, HT, TH, TT; 3 have at least one head." },
+
+    { subject: "Physics", topic: "Mechanics", difficulty: "easy", q: "A 2 kg body changes its speed from 0 to 3 m/s. The magnitude of the impulse is:", options: ["3 N·s", "6 N·s", "9 N·s", "12 N·s"], answer: 1, explain: "Impulse equals change in momentum: Δp = m(v-u) = 2 × 3 = 6 N·s." },
+    { subject: "Physics", topic: "Electrodynamics", difficulty: "easy", q: "Two resistors of 4 Ω and 6 Ω are connected in series. Their equivalent resistance is:", options: ["2 Ω", "5 Ω", "10 Ω", "24 Ω"], answer: 2, explain: "Series resistances add: R = 4 + 6 = 10 Ω." },
+    { subject: "Physics", topic: "Oscillations", difficulty: "easy", q: "A spring has force constant 200 N/m and is stretched by 0.02 m. The restoring force magnitude is:", options: ["2 N", "4 N", "10 N", "20 N"], answer: 1, explain: "Hooke's law gives F = kx = 200 × 0.02 = 4 N." },
+    { subject: "Physics", topic: "Waves", difficulty: "easy", q: "A wave completes one oscillation in 0.2 s. Its frequency is:", options: ["0.2 Hz", "2 Hz", "5 Hz", "10 Hz"], answer: 2, explain: "Frequency is the reciprocal of period: f = 1/T = 1/0.2 = 5 Hz." },
+    { subject: "Physics", topic: "Properties of Matter", difficulty: "easy", q: "A sample has mass 540 g and volume 200 cm³. Its density is:", options: ["0.37 g/cm³", "2.7 g/cm³", "27 g/cm³", "740 g/cm³"], answer: 1, explain: "Density = mass/volume = 540/200 = 2.7 g/cm³." },
+    { subject: "Chemistry", topic: "Mole Concept", difficulty: "easy", q: "How many moles of water are present in 18 g of H₂O? (Molar mass = 18 g/mol)", options: ["0.5", "1", "2", "18"], answer: 1, explain: "Number of moles = given mass/molar mass = 18/18 = 1 mol." },
+    { subject: "Chemistry", topic: "Redox Reactions", difficulty: "easy", q: "The oxidation number of oxygen in H₂O₂ is:", options: ["−2", "−1", "0", "+1"], answer: 1, explain: "In a peroxide, the O–O bond gives each oxygen an oxidation number of −1." },
+    { subject: "Chemistry", topic: "Equilibrium", difficulty: "easy", q: "The pH of 1.0 × 10⁻³ M HCl, assuming complete ionization, is:", options: ["1", "2", "3", "11"], answer: 2, explain: "HCl is a strong acid, so [H⁺] = 10⁻³ M and pH = −log[H⁺] = 3." },
+    { subject: "Chemistry", topic: "Chemical Bonding", difficulty: "easy", q: "The hybridization of carbon in methane is:", options: ["sp", "sp²", "sp³", "dsp²"], answer: 2, explain: "Carbon forms four equivalent σ bonds in tetrahedral CH₄, corresponding to sp³ hybridization." },
+    { subject: "Chemistry", topic: "Chemical Equilibrium", difficulty: "easy", q: "For N₂(g) + 3H₂(g) ⇌ 2NH₃(g), Kc is:", options: ["[NH₃]²/([N₂][H₂]³)", "[N₂][H₂]³/[NH₃]²", "[NH₃]/([N₂][H₂])", "[NH₃]²/[N₂]"], answer: 0, explain: "The equilibrium expression uses product concentrations over reactant concentrations, each raised to its stoichiometric coefficient." },
+    { subject: "Mathematics", topic: "Quadratic Equations", difficulty: "easy", q: "The quadratic equation with roots 3 and −2 is:", options: ["x² + x − 6 = 0", "x² − x − 6 = 0", "x² − 5x + 6 = 0", "x² + 5x − 6 = 0"], answer: 1, explain: "The monic polynomial is (x−3)(x+2) = x²−x−6." },
+    { subject: "Mathematics", topic: "Sequences", difficulty: "easy", q: "The sum of the first 10 terms of the AP 3, 7, 11, ... is:", options: ["180", "190", "200", "210"], answer: 3, explain: "S₁₀ = 10/2 × [2(3) + 9(4)] = 5 × 42 = 210." },
+    { subject: "Mathematics", topic: "Matrices", difficulty: "easy", q: "The determinant of [[1, 2], [3, 4]] is:", options: ["−2", "2", "10", "−10"], answer: 0, explain: "For a 2×2 matrix, det = ad−bc = 1×4−2×3 = −2." },
+    { subject: "Mathematics", topic: "Differentiation", difficulty: "easy", q: "If f(x) = x³, then f′(2) equals:", options: ["6", "8", "12", "16"], answer: 2, explain: "f′(x) = 3x², so f′(2) = 3 × 4 = 12." },
+
+    { subject: "Physics", topic: "Work, Energy and Power", difficulty: "medium", q: "A 2 kg object is lifted vertically by 5 m. Taking g = 10 m/s², its gain in gravitational potential energy is:", options: ["25 J", "50 J", "100 J", "200 J"], answer: 2, explain: "The gain is mgh = 2 × 10 × 5 = 100 J." },
+    { subject: "Physics", topic: "Electrodynamics", difficulty: "medium", q: "A 4 μF capacitor is charged to 10 V. The energy stored is:", options: ["20 μJ", "100 μJ", "200 μJ", "400 μJ"], answer: 2, explain: "U = ½CV² = ½ × 4 μF × 100 V² = 200 μJ." },
+    { subject: "Physics", topic: "Electrodynamics", difficulty: "medium", q: "Resistors of 6 Ω and 3 Ω are connected in parallel. Their equivalent resistance is:", options: ["1 Ω", "2 Ω", "3 Ω", "9 Ω"], answer: 1, explain: "1/R = 1/6 + 1/3 = 1/2, so R = 2 Ω." },
+    { subject: "Physics", topic: "Optics", difficulty: "medium", q: "An object is 30 cm from a convex lens of focal length 20 cm. The image distance is:", options: ["12 cm", "30 cm", "40 cm", "60 cm"], answer: 3, explain: "Using 1/f = 1/v − 1/u with f = 20 cm and u = −30 cm gives 1/v = 1/60, so v = 60 cm." },
+    { subject: "Chemistry", topic: "Chemical Equilibrium", difficulty: "medium", q: "For N₂(g) + 3H₂(g) ⇌ 2NH₃(g), the relation between Kp and Kc is:", options: ["Kp = Kc(RT)²", "Kp = Kc/(RT)²", "Kp = KcRT", "Kp = Kc"], answer: 1, explain: "Kp = Kc(RT)^Δn, and Δn = 2−4 = −2." },
+    { subject: "Chemistry", topic: "Electrochemistry", difficulty: "medium", q: "Given E°(Cu²⁺/Cu) = +0.34 V and E°(Zn²⁺/Zn) = −0.76 V, E° for the Daniell cell is:", options: ["−1.10 V", "−0.42 V", "+0.42 V", "+1.10 V"], answer: 3, explain: "Copper is the cathode and zinc the anode: E°cell = E°cathode − E°anode = 0.34 − (−0.76) = 1.10 V." },
+    { subject: "Chemistry", topic: "States of Matter", difficulty: "medium", q: "An ideal gas undergoes an isothermal expansion to twice its initial volume. Its final pressure is:", options: ["Twice the initial pressure", "Half the initial pressure", "Unchanged", "Four times the initial pressure"], answer: 1, explain: "At constant temperature, Boyle's law gives P₁V₁ = P₂V₂. Doubling V halves P." },
+    { subject: "Chemistry", topic: "Thermodynamics", difficulty: "medium", q: "For 2 mol of a monoatomic ideal gas heated by 10 K, the change in internal energy is:", options: ["10R", "20R", "30R", "40R"], answer: 2, explain: "ΔU = nCᵥΔT = n(3R/2)ΔT = 2 × 3R/2 × 10 = 30R." },
+    { subject: "Chemistry", topic: "Acid-Base Equilibrium", difficulty: "medium", q: "A buffer contains equal concentrations of a weak acid and its conjugate base. Its pH is:", options: ["0", "1", "pKa", "14"], answer: 2, explain: "From Henderson–Hasselbalch, pH = pKa + log([A⁻]/[HA]); equal concentrations make the logarithm zero." },
+    { subject: "Mathematics", topic: "Integral Calculus", difficulty: "medium", q: "The value of ∫₀^(π/2) sin x dx is:", options: ["0", "1", "π/2", "2"], answer: 1, explain: "An antiderivative is −cos x; evaluating from 0 to π/2 gives 0−(−1) = 1." },
+    { subject: "Mathematics", topic: "Sequences", difficulty: "medium", q: "The fifth term of a GP with first term 2 and common ratio 3 is:", options: ["54", "81", "162", "243"], answer: 2, explain: "The nth term is arⁿ⁻¹, so a₅ = 2 × 3⁴ = 162." },
+    { subject: "Mathematics", topic: "Probability", difficulty: "medium", q: "Two fair dice are thrown. The probability that their sum is 7 is:", options: ["1/12", "1/9", "1/6", "1/3"], answer: 2, explain: "Six of the 36 equally likely outcomes sum to 7, so the probability is 6/36 = 1/6." },
+    { subject: "Mathematics", topic: "Differentiation", difficulty: "medium", q: "The tangent to y = x² at (1, 1) is:", options: ["y = x + 1", "y = 2x − 1", "y = 2x + 1", "y = x − 1"], answer: 1, explain: "The derivative is 2x, so the slope at x=1 is 2. The tangent is y−1 = 2(x−1), or y=2x−1." },
+    { subject: "Mathematics", topic: "Vectors", difficulty: "medium", q: "The vectors (1, 2, −1) and (2, −1, 0) are:", options: ["Parallel", "Perpendicular", "Equal", "Of unequal magnitudes but same direction"], answer: 1, explain: "Their dot product is 1×2 + 2×(−1) + (−1)×0 = 0, so they are perpendicular." },
+
+    { subject: "Physics", topic: "Oscillations", difficulty: "hard", q: "The spring constant of a mass-spring oscillator is quadrupled while its mass is unchanged. Its time period becomes:", options: ["Four times", "Twice", "Half", "Unchanged"], answer: 2, explain: "T = 2π√(m/k). Replacing k by 4k divides the period by √4 = 2." },
+    { subject: "Physics", topic: "Electrostatics", difficulty: "hard", q: "Inside a uniformly charged solid sphere, the electric field at distance r from its centre varies as:", options: ["1/r²", "1/r", "r", "r²"], answer: 2, explain: "Gauss's law gives enclosed charge proportional to r³; dividing by the spherical area 4πr² gives E proportional to r." },
+    { subject: "Physics", topic: "Modern Physics", difficulty: "hard", q: "For a given metal, increasing the frequency of incident light above threshold causes the stopping potential to:", options: ["Decrease linearly", "Increase linearly", "Remain unchanged", "Become zero"], answer: 1, explain: "Einstein's equation gives eV₀ = hν − φ, so V₀ increases linearly with frequency above threshold." },
+    { subject: "Physics", topic: "Electrodynamics", difficulty: "hard", q: "A capacitor in a series RC circuit charges from a battery V. At t = RC, its charge is:", options: ["CV/e", "CV(1−1/e)", "CV/2", "CV"], answer: 1, explain: "During charging q(t) = CV(1−e^(−t/RC)); at t=RC this is CV(1−1/e)." },
+    { subject: "Physics", topic: "Gravitation", difficulty: "hard", q: "A satellite in a circular orbit is moved to an orbit of twice the radius around the same planet. Its orbital speed becomes:", options: ["2v", "√2v", "v/√2", "v/2"], answer: 2, explain: "Orbital speed is v = √(GM/r). Doubling r reduces the speed by a factor of √2." },
+    { subject: "Chemistry", topic: "Coordination Compounds", difficulty: "hard", q: "In the octahedral complex [Fe(CN)₆]⁴⁻, the Fe²⁺ ion is low-spin d⁶. Its number of unpaired electrons is:", options: ["0", "2", "4", "6"], answer: 0, explain: "CN⁻ is a strong-field ligand. Low-spin d⁶ fills the three t₂g orbitals as t₂g⁶, with all electrons paired." },
+    { subject: "Chemistry", topic: "Electrochemistry", difficulty: "hard", q: "For a cell reaction involving n electrons, which condition indicates spontaneity under the stated conditions?", options: ["Ecell < 0 and ΔG < 0", "Ecell > 0 and ΔG < 0", "Ecell = 0 and ΔG < 0", "Ecell > 0 and ΔG > 0"], answer: 1, explain: "ΔG = −nFEcell. A positive cell potential makes ΔG negative, indicating a spontaneous forward reaction." },
+    { subject: "Chemistry", topic: "Chemical Equilibrium", difficulty: "hard", q: "For N₂O₄(g) ⇌ 2NO₂(g), the relation between Kp and Kc is:", options: ["Kp = Kc/(RT)", "Kp = Kc", "Kp = KcRT", "Kp = Kc(RT)²"], answer: 2, explain: "Kp = Kc(RT)^Δn; here Δn = 2−1 = 1." },
+    { subject: "Chemistry", topic: "Ionic Equilibrium", difficulty: "hard", q: "AgCl dissolves in pure water with molar solubility s. Its solubility product Ksp is:", options: ["s", "2s", "s²", "4s²"], answer: 2, explain: "AgCl(s) ⇌ Ag⁺ + Cl⁻ gives [Ag⁺]=[Cl⁻]=s, so Ksp = [Ag⁺][Cl⁻] = s²." },
+    { subject: "Mathematics", topic: "Integral Calculus", difficulty: "hard", q: "The value of ∫₀¹ x/(1+x²) dx is:", options: ["ln 2", "(ln 2)/2", "1/2", "π/4"], answer: 1, explain: "Set u=1+x², so du=2x dx. The integral is ½ ln(1+x²) evaluated from 0 to 1, giving (ln 2)/2." },
+    { subject: "Mathematics", topic: "Matrices", difficulty: "hard", q: "The eigenvalues of an upper-triangular matrix with diagonal entries 2, −1, and 3 are:", options: ["1, 2, 3", "2, −1, 3", "−2, 1, 3", "0, 2, 3"], answer: 1, explain: "The characteristic polynomial of a triangular matrix has its diagonal entries as roots, so those entries are its eigenvalues." },
+    { subject: "Mathematics", topic: "Applications of Derivatives", difficulty: "hard", q: "A rectangle in the first quadrant has its upper-right corner on x + y = 12. Its maximum possible area is:", options: ["24", "30", "36", "48"], answer: 2, explain: "With y=12−x, area A=x(12−x), a downward parabola maximized at x=6, y=6. The maximum is 36." },
+    { subject: "Mathematics", topic: "Integral Calculus", difficulty: "hard", q: "The value of ∫₀^(π/2) ln(sin x) dx is:", options: ["−π ln 2", "−(π/2) ln 2", "0", "(π/2) ln 2"], answer: 1, explain: "Using the standard symmetry between ln(sin x) and ln(cos x), their equal integrals sum to −(π/2)ln 2; each integral is therefore −(π/2)ln 2." },
+    { subject: "Mathematics", topic: "Algebra", difficulty: "hard", q: "The number of distinct real roots of x⁴ − 5x² + 4 = 0 is:", options: ["0", "2", "3", "4"], answer: 3, explain: "Let y=x². Then y²−5y+4=(y−1)(y−4)=0, so x=±1, ±2: four distinct real roots." }
   ];
 
-  // ---------- Storage helpers ----------
+  function createSupplementalQuestion(subject, difficulty, template, variant, serial) {
+    const data = template(variant);
+    const answer = serial % 4;
+    const options = new Array(4);
+    options[answer] = String(data.correct);
+    let wrongIndex = 0;
+    for (let index = 0; index < options.length; index++) {
+      if (index !== answer) options[index] = String(data.wrong[wrongIndex++]);
+    }
+    return {
+      subject: subject,
+      topic: data.topic,
+      difficulty: difficulty,
+      q: data.q,
+      options: options,
+      answer: answer,
+      explain: data.explain
+    };
+  }
+
+  function addSupplementalGroup(output, subject, difficulty, count, templates) {
+    for (let index = 0; index < count; index++) {
+      const templateIndex = index % templates.length;
+      const variant = Math.floor(index / templates.length);
+      output.push(createSupplementalQuestion(subject, difficulty, templates[templateIndex], variant, output.length));
+    }
+  }
+
+  function buildSupplementalQuestions() {
+    const output = [];
+    const physicsEasy = [
+      n => { const d = [72, 90, 120, 150, 180, 210][n]; const t = [12, 10, 15, 10, 12, 14][n]; const v = d / t; return { topic: "Mechanics", q: `A particle travels ${d} m in ${t} s at constant speed. Its speed is:`, correct: `${v} m/s`, wrong: [`${v + 2} m/s`, `${v * 2} m/s`, `${Math.max(1, v - 1)} m/s`], explain: `Speed = distance/time = ${d}/${t} = ${v} m/s.` }; },
+      n => { const m = [2, 3, 4, 5, 6, 8][n]; const a = [3, 4, 2, 2, 1.5, 2][n]; const f = m * a; return { topic: "Mechanics", q: `A ${m} kg body has acceleration ${a} m/s². The net force on it is:`, correct: `${f} N`, wrong: [`${m + a} N`, `${f / 2} N`, `${f + m} N`], explain: `Newton's second law gives F = ma = ${m} × ${a} = ${f} N.` }; },
+      n => { const m = [1, 2, 3, 4, 5, 6][n]; const h = [4, 3, 2, 5, 2, 3][n]; const e = m * 10 * h; return { topic: "Work, Energy and Power", q: `A ${m} kg object is raised by ${h} m. Take g = 10 m/s². Its gain in potential energy is:`, correct: `${e} J`, wrong: [`${e / 2} J`, `${m * h} J`, `${e + 10} J`], explain: `ΔU = mgh = ${m} × 10 × ${h} = ${e} J.` }; },
+      n => { const v = [12, 18, 20, 24, 30, 36][n]; const r = [3, 6, 5, 8, 10, 9][n]; const i = v / r; return { topic: "Electrodynamics", q: `A ${v} V source is connected across a ${r} Ω resistor. The current is:`, correct: `${i} A`, wrong: [`${v * r} A`, `${i + 2} A`, `${r / v} A`], explain: `Ohm's law gives I = V/R = ${v}/${r} = ${i} A.` }; },
+      n => { const f = [2, 3, 4, 5, 6, 8][n]; const lambda = [3, 4, 2, 2, 1.5, 1.25][n]; const v = f * lambda; return { topic: "Waves", q: `A wave has frequency ${f} Hz and wavelength ${lambda} m. Its speed is:`, correct: `${v} m/s`, wrong: [`${f + lambda} m/s`, `${v * 2} m/s`, `${v / 2} m/s`], explain: `Wave speed v = fλ = ${f} × ${lambda} = ${v} m/s.` }; },
+      n => { const m = [300, 420, 540, 600, 720, 840][n]; const v = [100, 140, 200, 150, 240, 280][n]; const rho = m / v; return { topic: "Properties of Matter", q: `A material has mass ${m} g and volume ${v} cm³. Its density is:`, correct: `${rho} g/cm³`, wrong: [`${m + v} g/cm³`, `${rho * 2} g/cm³`, `${v / m} g/cm³`], explain: `Density = mass/volume = ${m}/${v} = ${rho} g/cm³.` }; }
+    ];
+    const physicsMedium = [
+      n => { const u = [4, 3, 5, 2, 6][n]; const a = [2, 3, 1, 4, 2][n]; const t = [3, 4, 5, 2, 3][n]; const v = u + a * t; return { topic: "Kinematics", q: `A body with initial speed ${u} m/s accelerates at ${a} m/s² for ${t} s. Its final speed is:`, correct: `${v} m/s`, wrong: [`${u + a + t} m/s`, `${a * t} m/s`, `${v + 2} m/s`], explain: `Using v = u + at gives ${u} + ${a} × ${t} = ${v} m/s.` }; },
+      n => { const k = [100, 200, 400, 500, 800][n]; const x = [0.2, 0.1, 0.1, 0.2, 0.1][n]; const e = 0.5 * k * x * x; return { topic: "Oscillations", q: `A spring of constant ${k} N/m is displaced ${x} m from equilibrium. Its stored elastic energy is:`, correct: `${e} J`, wrong: [`${k * x} J`, `${e * 2} J`, `${e / 2} J`], explain: `Elastic potential energy is ½kx² = ½ × ${k} × ${x}² = ${e} J.` }; },
+      n => { const m1 = [2, 3, 4, 5, 6][n]; const m2 = [2, 1, 4, 5, 3][n]; const u = [6, 8, 5, 4, 7][n]; const v = m1 * u / (m1 + m2); return { topic: "Mechanics", q: `A ${m1} kg cart moving at ${u} m/s sticks to a stationary ${m2} kg cart. Their common speed just after collision is:`, correct: `${v} m/s`, wrong: [`${u} m/s`, `${m1 * u / m2} m/s`, `${v / 2} m/s`], explain: `Conservation of momentum gives v = m₁u₁/(m₁+m₂) = ${m1}×${u}/${m1 + m2} = ${v} m/s.` }; },
+      n => { const v = [12, 18, 24, 30, 20][n]; const r = [6, 9, 8, 10, 5][n]; const p = v * v / r; return { topic: "Electrodynamics", q: `A ${v} V source is connected to a ${r} Ω resistor. The power dissipated is:`, correct: `${p} W`, wrong: [`${v / r} W`, `${v * r} W`, `${p / 2} W`], explain: `P = V²/R = ${v}²/${r} = ${p} W.` }; },
+      n => { const f = [10, 15, 20, 12, 24][n]; const u = [30, 45, 60, 36, 72][n]; const v = f * u / (u - f); return { topic: "Optics", q: `An object is ${u} cm from a convex lens of focal length ${f} cm. The real image distance is:`, correct: `${v} cm`, wrong: [`${f} cm`, `${u} cm`, `${v + f} cm`], explain: `The lens formula gives 1/v = 1/f − 1/u, hence v = fu/(u−f) = ${v} cm.` }; },
+      n => { const m = [2, 3, 4, 5, 6][n]; const v = [3, 4, 5, 6, 2][n]; const r = [3, 4, 5, 8, 2][n]; const f = m * v * v / r; return { topic: "Circular Motion", q: `A ${m} kg body moves at ${v} m/s in a circle of radius ${r} m. The required centripetal force is:`, correct: `${f} N`, wrong: [`${m * v / r} N`, `${m * v * v} N`, `${f / 2} N`], explain: `F = mv²/r = ${m} × ${v}²/${r} = ${f} N.` }; },
+      n => { const force = [20, 30, 40, 50, 60][n]; const time = [0.2, 0.3, 0.4, 0.5, 0.6][n]; const impulse = force * time; return { topic: "Mechanics", q: `A constant ${force} N force acts for ${time} s. The impulse delivered is:`, correct: `${impulse} N·s`, wrong: [`${force / time} N·s`, `${force + time} N·s`, `${impulse * 2} N·s`], explain: `Impulse = FΔt = ${force} × ${time} = ${impulse} N·s.` }; }
+    ];
+    const physicsHard = [
+      n => { const m1 = [1, 2, 3, 4, 5][n]; const m2 = [3, 4, 5, 6, 7][n]; const a = 10 * (m2 - m1) / (m1 + m2); return { topic: "Mechanics", q: `Two masses ${m1} kg and ${m2} kg form an ideal Atwood machine. Take g = 10 m/s². The acceleration magnitude is:`, correct: `${a} m/s²`, wrong: [`${10 * (m1 + m2) / (m2 - m1)} m/s²`, `${a / 2} m/s²`, `${10} m/s²`], explain: `For an ideal Atwood machine, a = g(m₂−m₁)/(m₁+m₂) = ${a} m/s².` }; },
+      n => { const u = [10, 14, 20, 22, 25][n]; const range = u * u / 10; return { topic: "Projectile Motion", q: `A projectile is launched at ${u} m/s at 45° to the horizontal. Take g = 10 m/s². Its horizontal range is:`, correct: `${range} m`, wrong: [`${u * u / 20} m`, `${u * 2} m`, `${u * u / 5} m`], explain: `R = u²sin(2θ)/g. At 45°, sin 90°=1, so R = ${u}²/10 = ${range} m.` }; },
+      n => { const factors = [2, 3, 4, 5, 9]; const factor = factors[n]; const speed = factor === 2 ? "v/√2" : factor === 3 ? "v/√3" : factor === 4 ? "v/2" : factor === 5 ? "v/√5" : "v/3"; return { topic: "Gravitation", q: `A satellite's orbital radius is increased from r to ${factor}r around the same planet. If its original speed is v, its new speed is:`, correct: speed, wrong: ["v", `v/${factor}`, `${factor}v`], explain: `Orbital speed varies as 1/√r. Increasing the radius by ${factor} changes the speed to v/√${factor} = ${speed}.` }; },
+      n => { const multiple = [1, 2, 3, 4, 5][n]; const factor = Math.exp(-multiple); return { topic: "Electrodynamics", q: `A capacitor charges through a resistor. At time t = ${multiple}RC, the fraction of its final charge still missing is:`, correct: `e^−${multiple}`, wrong: [`1−e^−${multiple}`, `${factor.toFixed(3)}`, `1/${multiple}`], explain: `The unfilled fraction during charging is e^(−t/RC), which becomes e^−${multiple} at t=${multiple}RC.` }; },
+      n => { const pairs = [["R/4", "R/2", "1/2"], ["R/5", "R/2", "2/5"], ["R/3", "R", "1/3"], ["R/2", "3R/4", "2/3"], ["R/5", "4R/5", "1/4"]]; const [r1, r2, ratio] = pairs[n]; return { topic: "Electrostatics", q: `For a uniformly charged solid sphere, compare the fields at r=${r1} and r=${r2} (both inside). The ratio E₁/E₂ is:`, correct: ratio, wrong: ["1/2", "1/3", "2/3"].filter(x => x !== ratio).concat(["2"]), explain: `Inside a uniformly charged sphere E is proportional to r, so E₁/E₂ = (${r1})/(${r2}) = ${ratio}.` }; },
+      n => { const fraction = [0.2, 0.25, 0.4, 0.5, 0.6][n]; const ratio = fraction * fraction; return { topic: "Oscillations", q: `In SHM, a particle is at x=${fraction}A from the mean position. What fraction of its total energy is potential energy?`, correct: `${ratio}E`, wrong: [`${fraction}E`, `${(1 - ratio).toFixed(2)}E`, `E`], explain: `The potential-energy fraction is x²/A². Substituting x=${fraction}A gives ${(ratio).toFixed(2)} of the total energy.` }; },
+      n => { const k = [2, 3, 4, 5, 6][n]; return { topic: "Waves", q: `In a double-slit experiment, slit separation is reduced to d/${k} while all other quantities remain fixed. The fringe width becomes:`, correct: `${k}β`, wrong: [`β/${k}`, `√${k}β`, `β`], explain: `Fringe width β=λD/d, so reducing d by a factor ${k} increases β by the same factor.` }; }
+    ];
+
+    const chemistryEasy = [
+      n => { const mass = [9, 16, 22, 32, 44, 54][n]; const molar = [18, 32, 44, 16, 44, 18][n]; const moles = mass / molar; return { topic: "Mole Concept", q: `${mass} g of a substance with molar mass ${molar} g/mol contains:`, correct: `${moles} mol`, wrong: [`${mass + molar} mol`, `${moles * 2} mol`, `${mass / 2} mol`], explain: `Amount n = mass/molar mass = ${mass}/${molar} = ${moles} mol.` }; },
+      n => { const moles = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6][n]; const volume = [0.5, 1, 1.5, 2, 2.5, 3][n]; const molarity = moles / volume; return { topic: "Solutions", q: `${moles} mol solute is dissolved to make ${volume} L of solution. Its molarity is:`, correct: `${molarity} M`, wrong: [`${moles * volume} M`, `${volume / moles} M`, `${molarity * 2} M`], explain: `Molarity = moles/volume in litres = ${moles}/${volume} = ${molarity} M.` }; },
+      n => { const power = n + 1; return { topic: "Acid-Base Equilibrium", q: `Assuming complete ionization, the pH of ${`1.0 × 10⁻${power}`} M HNO₃ is:`, correct: `${power}`, wrong: [`${14 - power}`, `${power + 1}`, `${power - 1}`], explain: `HNO₃ is a strong acid, so [H⁺]=10⁻${power} M and pH=${power}.` }; },
+      n => { const entries = [["CO₂", "sp"], ["BF₃", "sp²"], ["CH₄", "sp³"], ["C₂H₄", "sp²"], ["C₂H₂", "sp"], ["NH₃", "sp³"]]; const [molecule, hybrid] = entries[n]; return { topic: "Chemical Bonding", q: `The hybridization of the central carbon atom in ${molecule} is:`, correct: hybrid, wrong: ["sp", "sp²", "sp³"].filter(x => x !== hybrid).concat(["dsp²"]).slice(0, 3), explain: `${molecule} has the stated electron-domain arrangement around carbon, corresponding to ${hybrid} hybridization.` }; },
+      n => { const entries = [["BeCl₂", "Linear"], ["BF₃", "Trigonal planar"], ["CH₄", "Tetrahedral"], ["NH₃", "Trigonal pyramidal"], ["H₂O", "Bent"], ["PCl₅", "Trigonal bipyramidal"]]; const [molecule, shape] = entries[n]; return { topic: "Chemical Bonding", q: `The molecular shape of ${molecule} is:`, correct: shape, wrong: ["Linear", "Tetrahedral", "Trigonal planar"].filter(x => x !== shape).concat(["Octahedral"]).slice(0, 3), explain: `Applying VSEPR theory to the bonding pairs and lone pairs in ${molecule} gives a ${shape.toLowerCase()} molecular shape.` }; },
+      n => { const entries = [["SO₄²⁻", "S", "+6"], ["NO₃⁻", "N", "+5"], ["CO₃²⁻", "C", "+4"], ["ClO₃⁻", "Cl", "+5"], ["MnO₄⁻", "Mn", "+7"], ["Cr₂O₇²⁻", "Cr", "+6"]]; const [ion, element, oxidation] = entries[n]; return { topic: "Redox Reactions", q: `The oxidation number of ${element} in ${ion} is:`, correct: oxidation, wrong: ["+2", "+4", "+7"].filter(x => x !== oxidation).concat(["0"]).slice(0, 3), explain: `Using the usual oxidation numbers for oxygen and the overall ionic charge gives ${element} an oxidation number of ${oxidation}.` }; }
+    ];
+    const chemistryMedium = [
+      n => { const entries = [["A₂(g) ⇌ 2B(g)", 1], ["A(g)+B(g) ⇌ C(g)", -1], ["2A(g) ⇌ B(g)+C(g)", 0], ["A(g)+3B(g) ⇌ 2C(g)", -2], ["2A(g)+B(g) ⇌ 3C(g)", 0]]; const [reaction, delta] = entries[n]; const relation = delta === 0 ? "Kp = Kc" : delta > 0 ? `Kp = Kc(RT)^${delta}` : `Kp = Kc/(RT)^${-delta}`; const choices = ["Kp = Kc", "Kp = Kc(RT)", "Kp = Kc/(RT)", "Kp = Kc(RT)²", "Kp = Kc/(RT)²"]; return { topic: "Chemical Equilibrium", q: `For ${reaction}, choose the relation between Kp and Kc:`, correct: relation, wrong: choices.filter(x => x !== relation).slice(0, 3), explain: `Kp=Kc(RT)^Δn, where Δn is gaseous product moles minus gaseous reactant moles. Here Δn=${delta}, so ${relation}.` }; },
+      n => { const entries = [[0.231, 3], [0.3465, 2], [0.099, 7], [0.17325, 4], [0.1386, 5]]; const [k, half] = entries[n]; return { topic: "Chemical Kinetics", q: `A first-order reaction has rate constant ${k} s⁻¹. Its half-life is approximately:`, correct: `${half} s`, wrong: [`${(0.693 * half).toFixed(2)} s`, `${half * 2} s`, `${(1 / k).toFixed(2)} s`], explain: `For a first-order reaction, t₁/₂=0.693/k=${(0.693 / k).toFixed(2)} s, approximately ${half} s.` }; },
+      n => { const entries = [[0.80, 0.20, 0.60], [1.10, 0.40, 0.70], [0.76, 0.34, 0.42], [0.50, 0.10, 0.40], [1.00, 0.25, 0.75]]; const [cathode, anode, cell] = entries[n]; return { topic: "Electrochemistry", q: `A galvanic cell has E°cathode=${cathode} V and E°anode=${anode} V. Its standard cell potential is:`, correct: `${cell} V`, wrong: [`${cathode + anode} V`, `${anode - cathode} V`, `${cell * 2} V`], explain: `E°cell = E°cathode − E°anode = ${cathode} − ${anode} = ${cell} V.` }; },
+      n => { const entries = [[5, 4, 5], [4, 3, 4], [6, 5, 6], [3, 2, 3], [7, 6, 7]]; const [pka, ratio, ph] = entries[n]; return { topic: "Acid-Base Equilibrium", q: `A buffer has pKa=${pka} and base-to-acid concentration ratio 10^${ratio}. Its pH is:`, correct: `${ph}`, wrong: [`${pka}`, `${pka - ratio}`, `${pka + ratio + 1}`], explain: `Henderson–Hasselbalch gives pH=pKa+log([base]/[acid])=${pka}+${ratio}=${ph}.` }; },
+      n => { const entries = [[40, 50, 300, 25], [60, 40, 300, 48], [50, 100, 300, 20], [80, 100, 300, 50], [30, 20, 300, 24]]; const [dh, ds, temp, dg] = entries[n]; return { topic: "Thermodynamics", q: `At ${temp} K, a process has ΔH=${dh} kJ mol⁻¹ and ΔS=${ds * 1000} J mol⁻¹ K⁻¹. ΔG is:`, correct: `${dg} kJ mol⁻¹`, wrong: [`${dh + temp * ds / 1000} kJ mol⁻¹`, `${dh} kJ mol⁻¹`, `${-dg} kJ mol⁻¹`], explain: `ΔG=ΔH−TΔS=${dh}−${temp}×${ds}/1000=${dg} kJ mol⁻¹.` }; },
+      n => { const entries = [[0.2, 0.8, 0.16], [0.3, 1, 0.30], [0.4, 0.5, 0.20], [0.6, 0.5, 0.30], [0.25, 0.4, 0.10]]; const [x, p0, p] = entries[n]; return { topic: "Solutions", q: `A component has mole fraction ${x} in a solution. If its pure vapour pressure is ${p0} atm, its partial vapour pressure is:`, correct: `${p} atm`, wrong: [`${p0 / x} atm`, `${p0 - p} atm`, `${p * 2} atm`], explain: `Raoult's law gives p = x p° = ${x} × ${p0} = ${p} atm.` }; },
+      n => { const entries = [[0.1, 0.082, 300, 2.46], [0.2, 0.082, 300, 4.92], [0.05, 0.082, 300, 1.23], [0.15, 0.082, 300, 3.69], [0.25, 0.082, 300, 6.15]]; const [c, r, t, pi] = entries[n]; return { topic: "Solutions", q: `An ideal solution has concentration ${c} mol L⁻¹ at ${t} K. Using R=0.082 L atm mol⁻¹ K⁻¹, its osmotic pressure is:`, correct: `${pi} atm`, wrong: [`${(c * r).toFixed(3)} atm`, `${(pi / 2).toFixed(2)} atm`, `${(pi * 2).toFixed(2)} atm`], explain: `Π=CRT=${c} × ${r} × ${t}=${pi} atm.` }; }
+    ];
+    const chemistryHard = [
+      n => { const entries = [["M(OH)₂", 0.01, "4.0 × 10⁻⁶"], ["M(OH)₂", 0.02, "3.2 × 10⁻⁵"], ["M(OH)₂", 0.005, "5.0 × 10⁻⁷"], ["M(OH)₂", 0.03, "1.08 × 10⁻⁴"], ["M(OH)₂", 0.04, "2.56 × 10⁻⁴"]]; const [salt, s, ksp] = entries[n]; return { topic: "Ionic Equilibrium", q: `For ${salt} ⇌ M²⁺ + 2OH⁻, if the molar solubility is ${s} mol/L, Ksp is:`, correct: ksp, wrong: [`${s}²`, `${2 * s}`, `${(s ** 3).toExponential(1)}`], explain: `At equilibrium [M²⁺]=s and [OH⁻]=2s, so Ksp=s(2s)²=4s³=${ksp}.` }; },
+      n => { const entries = [[0.80, 2, 2, 0.7409], [1.00, 1, 1, 0.9409], [0.60, 2, 1, 0.57045], [0.50, 1, 2, 0.3818], [1.20, 2, 2, 1.1409]]; const [e0, electrons, logq, e] = entries[n]; return { topic: "Electrochemistry", q: `At 298 K, a cell has E°=${e0} V, n=${electrons}, and log₁₀Q=${logq}. Using 0.0591 V in the Nernst equation, E is:`, correct: `${e} V`, wrong: [`${e0 + 0.0591 * logq / electrons} V`, `${(e0 - 0.0591 * logq).toFixed(4)} V`, `${e0} V`], explain: `E=E°−(0.0591/n)logQ=${e0}−(0.0591/${electrons})×${logq}=${e} V.` }; },
+      n => { const entries = [["[Fe(CN)₆]⁴⁻", "Fe²⁺", "0"], ["[Co(NH₃)₆]³⁺", "Co³⁺", "0"], ["[FeF₆]³⁻", "Fe³⁺ high-spin", "5"], ["[Ni(CN)₄]²⁻", "Ni²⁺ square-planar", "0"], ["[Mn(H₂O)₆]²⁺", "Mn²⁺ high-spin", "5"]]; const [complex, ion, unpaired] = entries[n]; return { topic: "Coordination Compounds", q: `The number of unpaired electrons in ${ion} in ${complex} is:`, correct: unpaired, wrong: ["1", "2", "4"].filter(x => x !== unpaired).concat(["6"]).slice(0, 3), explain: `Use the metal oxidation state, d-electron count and ligand-field strength. The stated configuration gives ${unpaired} unpaired electrons.` }; },
+      n => { const entries = [[4, 0.1, 5], [5, 0.01, 3], [6, 10, 7], [3, 0.01, 1], [7, 0.1, 8]]; const [pka, ratio, ph] = entries[n]; return { topic: "Acid-Base Equilibrium", q: `A buffer has pKa=${pka} and [A⁻]/[HA]=${ratio}. Given log₁₀(0.1)=−1 and log₁₀(0.01)=−2, its pH is:`, correct: `${ph}`, wrong: [`${pka}`, `${pka + 1}`, `${pka - 1}`], explain: `pH=pKa+log([A⁻]/[HA]); substituting the ratio gives pH=${ph}.` }; },
+      n => { const entries = [[80, 200, 300, 20], [120, 200, 300, 60], [100, 100, 300, 70], [90, 100, 300, 60], [150, 300, 300, 60]]; const [dh, ds, t, dg] = entries[n]; return { topic: "Thermodynamics", q: `At ${t} K, a reaction has ΔH=${dh} kJ mol⁻¹ and ΔS=${ds} J mol⁻¹ K⁻¹. Its ΔG is:`, correct: `${dg} kJ mol⁻¹`, wrong: [`${dh + t * ds / 1000} kJ mol⁻¹`, `${dh} kJ mol⁻¹`, `${-dg} kJ mol⁻¹`], explain: `ΔG=ΔH−TΔS=${dh}−${t}×${ds}/1000=${dg} kJ mol⁻¹.` }; },
+      n => { const entries = [["zero", "mol L⁻¹ s⁻¹"], ["first", "s⁻¹"], ["second", "L mol⁻¹ s⁻¹"], ["third", "L² mol⁻² s⁻¹"], ["zero", "mol L⁻¹ s⁻¹"]]; const [order, unit] = entries[n]; return { topic: "Chemical Kinetics", q: `The units of the rate constant for a ${order}-order reaction are:`, correct: unit, wrong: ["s⁻¹", "mol L⁻¹ s⁻¹", "L mol⁻¹ s⁻¹"].filter(x => x !== unit).concat(["mol² L⁻² s⁻¹"]).slice(0, 3), explain: `Rate has units of concentration/time. For order n, k has units concentration^(1−n) time⁻¹; for order ${order}, this is ${unit}.` }; },
+      n => { const entries = [["propene", "HBr in the presence of peroxide", "1-bromopropane"], ["1-butene", "HBr in the presence of peroxide", "1-bromobutane"], ["propene", "HBr without peroxide", "2-bromopropane"], ["1-butene", "HBr without peroxide", "2-bromobutane"], ["2-methylpropene", "HBr in the presence of peroxide", "1-bromo-2-methylpropane"]]; const [alkene, reagent, product] = entries[n]; return { topic: "Organic Chemistry", q: `The major product when ${alkene} reacts with ${reagent} is:`, correct: product, wrong: ["an alkane", "a ketone", "a carboxylic acid"], explain: `The peroxide effect changes the regiochemistry of HBr addition to an unsymmetrical alkene; the major product here is ${product}.` }; }
+    ];
+
+    const mathEasy = [
+      n => { const a = [2, 3, 4, 5, 6, 7][n]; const power = [2, 3, 2, 3, 2, 3][n]; const x = [3, 2, 5, 2, 4, 2][n]; const value = a * power * Math.pow(x, power - 1); return { topic: "Differentiation", q: `If f(x)=${a}x^${power}, then f′(${x}) is:`, correct: `${value}`, wrong: [`${a * Math.pow(x, power)}`, `${value + a}`, `${value / 2}`], explain: `f′(x)=${a * power}x^${power - 1}; substituting x=${x} gives ${value}.` }; },
+      n => { const a = [2, 5, 3, 7, 4, 6][n]; const d = [3, 4, 5, 2, 6, 3][n]; const term = [6, 8, 10, 7, 9, 12][n]; const value = a + (term - 1) * d; return { topic: "Sequences", q: `An AP has first term ${a} and common difference ${d}. Its ${term}th term is:`, correct: `${value}`, wrong: [`${a + term * d}`, `${a * term + d}`, `${value + d}`], explain: `aₙ=a+(n−1)d=${a}+(${term}−1)×${d}=${value}.` }; },
+      n => { const entries = [["sin", "30°", "1/2"], ["cos", "60°", "1/2"], ["tan", "45°", "1"], ["sin", "90°", "1"], ["cos", "0°", "1"], ["tan", "30°", "1/√3"]]; const [fn, angle, value] = entries[n]; return { topic: "Trigonometry", q: `${fn} ${angle} equals:`, correct: value, wrong: ["0", "1/2", "√3/2"].filter(x => x !== value).concat(["√3"]).slice(0, 3), explain: `From the standard special-angle values, ${fn} ${angle} = ${value}.` }; },
+      n => { const a = [2, 3, 4, 5, 6, 7][n]; const b = [1, 2, 3, 4, 5, 6][n]; const c = [4, 5, 6, 7, 8, 9][n]; const d = [3, 4, 5, 6, 7, 8][n]; const det = a * d - b * c; return { topic: "Matrices", q: `The determinant of [[${a}, ${b}], [${c}, ${d}]] is:`, correct: `${det}`, wrong: [`${a * d + b * c}`, `${a + d}`, `${b * c - a * d}`], explain: `The determinant is ad−bc = ${a}×${d}−${b}×${c}=${det}.` }; },
+      n => { const entries = [["a fair coin", "head", "1/2"], ["a fair six-sided die", "an even number", "1/2"], ["a fair six-sided die", "a number greater than 4", "1/3"], ["a standard deck", "an ace", "1/13"], ["a fair coin", "tail", "1/2"], ["a standard deck", "a red card", "1/2"]]; const [source, event, probability] = entries[n]; return { topic: "Probability", q: `One ${source} is used once. The probability of getting ${event} is:`, correct: probability, wrong: ["1/4", "1/3", "2/3"].filter(x => x !== probability).concat(["3/4"]).slice(0, 3), explain: `Favourable outcomes divided by total equally likely outcomes gives ${probability}.` }; },
+      n => { const entries = [["the distance between (0,0) and (3,4)", "5"], ["the slope through (1,1) and (3,5)", "2"], ["the modulus of 3+4i", "5"], ["the limit of sin x/x as x→0", "1"], ["the area of a radius-3 circle", "9π"], ["the sum of angles in a triangle", "180°"]]; const [prompt, answer] = entries[n]; return { topic: "Coordinate Geometry", q: `Find ${prompt}:`, correct: answer, wrong: ["2", "4", "6"].filter(x => x !== answer).concat(["8"]).slice(0, 3), explain: `Applying the standard result gives ${answer}.` }; }
+    ];
+    const mathMedium = [
+      n => { const power = [2, 3, 4, 5, 6][n]; return { topic: "Integral Calculus", q: `Evaluate ∫₀¹ ${power}x^${power - 1} dx:`, correct: `1`, wrong: [`${power}`, `1/${power}`, `${power - 1}`], explain: `An antiderivative is x^${power}; evaluating from 0 to 1 gives 1.` }; },
+      n => { const a = [2, 3, 4, 5, 6][n]; const b = [1, 2, 1, 3, 2][n]; const x = [2, 1, 3, 2, 4][n]; const value = a * (a * x + b); return { topic: "Differentiation", q: `For f(x)=(${a}x+${b})², the value of f′(${x}) is:`, correct: `${value}`, wrong: [`${2 * (a * x + b)}`, `${value + a}`, `${a * x + b}`], explain: `By the chain rule, f′(x)=2a(ax+b); at x=${x}, this is ${value}.` }; },
+      n => { const entries = [["two dice", "a sum of 8", "5/36"], ["two dice", "a sum of 9", "1/9"], ["two dice", "a sum of 10", "1/12"], ["two dice", "a sum of 5", "1/9"], ["two dice", "a sum of 6", "5/36"]]; const [source, event, p] = entries[n]; return { topic: "Probability", q: `When ${source} are thrown, the probability of obtaining ${event} is:`, correct: p, wrong: ["1/6", "1/12", "1/4"].filter(x => x !== p).concat(["1/3"]).slice(0, 3), explain: `Count the ordered outcomes giving ${event} among 36 equally likely outcomes; the probability is ${p}.` }; },
+      n => { const a = [1, 2, 3, 4, 5][n]; const r = [2, 3, 2, 2, 3][n]; const terms = [5, 4, 6, 5, 3][n]; const sum = a * (Math.pow(r, terms) - 1) / (r - 1); return { topic: "Series", q: `The sum of the first ${terms} terms of a GP with first term ${a} and common ratio ${r} is:`, correct: `${sum}`, wrong: [`${a * Math.pow(r, terms - 1)}`, `${sum + a}`, `${sum / 2}`], explain: `Sₙ=a(rⁿ−1)/(r−1)=${a}(${r}^${terms}−1)/(${r}−1)=${sum}.` }; },
+      n => { const entries = [["(1,2,3)", "(2,−1,0)", "0"], ["(1,0,2)", "(2,1,−1)", "0"], ["(2,1,0)", "(1,−2,3)", "0"], ["(1,2,0)", "(0,0,1)", "0"], ["(3,0,1)", "(1,2,−3)", "0"]]; const [u, v, dot] = entries[n]; return { topic: "Vectors", q: `The dot product of vectors ${u} and ${v} is:`, correct: dot, wrong: ["1", "2", "−1"], explain: `Multiply corresponding components and add; the products cancel, giving ${dot}.` }; },
+      n => { const a = [2, 3, 4, 5, 6][n]; const b = [1, 2, 1, 3, 2][n]; const c = [1, 2, 3, 2, 4][n]; const d = [4, 5, 6, 7, 8][n]; const det = a * d - b * c; return { topic: "Matrices", q: `Evaluate det([[${a},${b}],[${c},${d}]]):`, correct: `${det}`, wrong: [`${a * d + b * c}`, `${a + d}`, `${-det}`], explain: `For [[a,b],[c,d]], determinant = ad−bc = ${a}×${d}−${b}×${c}=${det}.` }; },
+      n => { const entries = [["circle", "(2,−1)", 3, "(x−2)²+(y+1)²=9"], ["circle", "(−3,2)", 4, "(x+3)²+(y−2)²=16"], ["circle", "(1,1)", 2, "(x−1)²+(y−1)²=4"], ["circle", "(0,−2)", 5, "x²+(y+2)²=25"], ["circle", "(4,0)", 3, "(x−4)²+y²=9"]]; const [, center, radius, equation] = entries[n]; return { topic: "Coordinate Geometry", q: `The equation of a ${radius}-unit ${entries[n][0]} centred at ${center} is:`, correct: equation, wrong: ["x²+y²=1", "(x+2)²+(y+1)²=9", "(x−1)²+(y−1)²=16"], explain: `A circle with centre (h,k) and radius r has equation (x−h)²+(y−k)²=r²; substituting the given values gives ${equation}.` }; }
+    ];
+    const mathHard = [
+      n => { const a = [1, 2, 3, 4, 5][n]; const upper = [1, 2, 3, 4, 5][n]; const value = 0.5 * Math.log((upper * upper + a) / a); return { topic: "Integral Calculus", q: `Evaluate ∫₀^${upper} x/(x²+${a}) dx:`, correct: `${value.toFixed(3)}`, wrong: [`${Math.log((upper * upper + a) / a).toFixed(3)}`, `${(upper / (upper * upper + a)).toFixed(3)}`, `${(value + 0.333).toFixed(3)}`], explain: `With u=x²+${a}, the integral is ½ln((x²+${a})/${a}) from 0 to ${upper}, giving ${value.toFixed(3)}.` }; },
+      n => { const p = [16, 20, 24, 28, 32][n]; const side = p / 4; const area = side * side; return { topic: "Applications of Derivatives", q: `A rectangle has perimeter ${p}. Its maximum possible area is:`, correct: `${area}`, wrong: [`${p * p / 8}`, `${p * p / 16 - 1}`, `${p * 2}`], explain: `For fixed perimeter, a square maximizes area. Its side is ${p}/4=${side}, so area=${side}²=${area}.` }; },
+      n => { const m = [1, 1, 4, 4, 9][n]; const k = [4, 9, 16, 25, 36][n]; return { topic: "Algebra", q: `How many distinct real roots does (x²−${m})(x²−${k})=0 have?`, correct: `4`, wrong: [`0`, `2`, `3`], explain: `The roots are ±√${m} and ±√${k}. These give four distinct real values for the listed m and k.` }; },
+      n => { const power = [3, 4, 5, 6, 7][n]; return { topic: "Complex Numbers", q: `The sum of all complex roots of z^${power}=1 is:`, correct: `0`, wrong: [`1`, `${power}`, `−1`], explain: `The roots are equally spaced on the unit circle; for power ${power}>1 their vector sum is zero.` }; },
+      n => { const entries = [[2, -1, 3], [4, 0, -2], [5, 1, 6], [-3, 2, 7], [8, -4, 1]]; const [a, b, c] = entries[n]; return { topic: "Matrices", q: `A triangular matrix has diagonal entries ${a}, ${b}, and ${c}. The product of its eigenvalues is:`, correct: `${a * b * c}`, wrong: [`${a + b + c}`, `${a * b + b * c}`, `${a * b * c + 1}`], explain: `The eigenvalues of a triangular matrix are its diagonal entries. Their product is ${a}×${b}×${c}=${a * b * c}.` }; },
+      n => { const k = [1, 2, 3, 4, 5][n]; const t = [1, 2, 1, 2, 3][n]; const y0 = [2, 3, 4, 5, 2][n]; const y = y0 * Math.exp(k * t); return { topic: "Differential Equations", q: `If dy/dx=${k}y and y(0)=${y0}, then y(${t}) is:`, correct: `${y0}e^${k * t}`, wrong: [`${y0 + k * t}`, `${y0}e^${k + t}`, `${y0}e^${k}`], explain: `Separating variables gives y=Ce^(${k}x). The initial condition gives C=${y0}, hence y(${t})=${y0}e^${k * t}.` }; },
+      n => { const entries = [[4, 2, "3/8"], [5, 2, "5/16"], [5, 3, "5/16"], [6, 2, "15/64"], [6, 3, "5/16"]]; const [trials, successes, probability] = entries[n]; return { topic: "Probability", q: `A fair coin is tossed ${trials} times. The probability of exactly ${successes} heads is:`, correct: probability, wrong: ["1/2", "1/4", "1/8"], explain: `Use the binomial model: P= C(${trials},${successes})/2^${trials}=${probability}.` }; }
+    ];
+
+    addSupplementalGroup(output, "Physics", "easy", 33, physicsEasy);
+    addSupplementalGroup(output, "Physics", "medium", 34, physicsMedium);
+    addSupplementalGroup(output, "Physics", "hard", 33, physicsHard);
+    addSupplementalGroup(output, "Chemistry", "easy", 33, chemistryEasy);
+    addSupplementalGroup(output, "Chemistry", "medium", 33, chemistryMedium);
+    addSupplementalGroup(output, "Chemistry", "hard", 34, chemistryHard);
+    addSupplementalGroup(output, "Mathematics", "easy", 34, mathEasy);
+    addSupplementalGroup(output, "Mathematics", "medium", 33, mathMedium);
+    addSupplementalGroup(output, "Mathematics", "hard", 33, mathHard);
+    return output;
+  }
+
+  BANK.push(...buildSupplementalQuestions());
+
   const STORAGE_KEY = "jeeQuizHistory";
 
   function loadHistory() {
@@ -531,7 +1219,7 @@
       const hist = loadHistory();
       hist.push(attempt);
       localStorage.setItem(STORAGE_KEY, JSON.stringify(hist.slice(-50)));
-    } catch (e) { /* storage unavailable — quiz still works, just won't remember stats */ }
+    } catch (e) { }
   }
 
   function topicWeaknessSummary() {
@@ -546,25 +1234,34 @@
     return stats;
   }
 
-  // ---------- State ----------
   let state = {
     subject: "Mixed",
+    focus: "any",
     difficulty: "any",
     count: 10,
     questions: [],
     index: 0,
+    activeSubject: null,
     score: 0,
-    answers: [] // {topic, correct}
+    answers: [],
+    questionLimit: 60,
+    mode: "practice",
+    questionStart: 0,
+    totalTime: 0,
+    timerId: null
   };
 
   const SUBJECTS = ["Mixed", "Physics", "Chemistry", "Mathematics"];
   const DIFFICULTIES = ["any", "easy", "medium", "hard"];
-  const COUNTS = [5, 10, 15];
+  const COUNTS = [5, 10, 15, 20, 30, 40];
+  const TIME_LIMITS = [30, 60, 90, 0];
+  const MODES = ["practice", "mock"];
 
-  // ---------- Setup screen ----------
   const subjectRow = document.getElementById("subjectRow");
   const difficultyRow = document.getElementById("difficultyRow");
   const countRow = document.getElementById("countRow");
+  const timerRow = document.getElementById("timerRow");
+  const modeRow = document.getElementById("modeRow");
 
   function renderChipRow(container, values, current, labelFn, onPick) {
     container.innerHTML = "";
@@ -580,14 +1277,60 @@
   }
 
   function refreshSetupUI() {
-    renderChipRow(subjectRow, SUBJECTS, state.subject, s => s, (s) => { state.subject = s; refreshSetupUI(); });
+    renderChipRow(subjectRow, SUBJECTS, state.subject, s => s, (s) => { state.subject = s; state.focus = "any"; refreshSetupUI(); });
     renderChipRow(difficultyRow, DIFFICULTIES, state.difficulty, d => d === "any" ? "Any" : d[0].toUpperCase() + d.slice(1), (d) => { state.difficulty = d; refreshSetupUI(); });
     renderChipRow(countRow, COUNTS, state.count, c => String(c), (c) => { state.count = c; refreshSetupUI(); });
+    renderChipRow(timerRow, TIME_LIMITS, state.questionLimit, seconds => seconds ? seconds + "s" : "Off", seconds => { state.questionLimit = seconds; refreshSetupUI(); });
+    renderChipRow(modeRow, MODES, state.mode, mode => mode === "practice" ? "Practice" : "Mock exam", mode => { state.mode = mode; refreshSetupUI(); });
 
-    const weak = topicWeaknessSummary();
-    const weakTopics = Object.keys(weak)
-      .filter(t => weak[t].total >= 3 && (weak[t].correct / weak[t].total) < 0.6)
-      .sort((a, b) => (weak[a].correct / weak[a].total) - (weak[b].correct / weak[b].total));
+    const topicSelect = document.getElementById("topicSelect");
+    const previousFocus = state.focus;
+    const topicChoices = [...new Map(BANK
+      .filter(q => state.subject === "Mixed" || q.subject === state.subject)
+      .map(q => [q.subject + "|" + q.topic, q])).values()]
+      .sort((a, b) => a.topic.localeCompare(b.topic) || a.subject.localeCompare(b.subject));
+    topicSelect.innerHTML = '<option value="any">Any topic</option>';
+    topicChoices.forEach(q => {
+      const option = document.createElement("option");
+      option.value = q.subject + "|" + q.topic;
+      option.textContent = state.subject === "Mixed" ? q.subject + " · " + q.topic : q.topic;
+      topicSelect.appendChild(option);
+    });
+    if (topicChoices.some(q => q.subject + "|" + q.topic === previousFocus)) {
+      topicSelect.value = previousFocus;
+    } else {
+      state.focus = "any";
+      topicSelect.value = "any";
+    }
+
+    const strictCount = getFilteredPool().length;
+    document.getElementById("bankCount").textContent = BANK.length;
+    document.getElementById("selectionSummary").textContent = [state.subject, state.focus === "any" ? "Any topic" : state.focus.split("|")[1], state.difficulty === "any" ? "Any level" : state.difficulty].join(" · ");
+    document.getElementById("selectionAvailable").textContent = strictCount + " matching questions";
+    document.getElementById("modeHelp").textContent = state.mode === "practice"
+      ? "Practice mode shows the answer and explanation after each response."
+      : "Mock exam hides correctness and explanations until you finish and review.";
+    const mockSectionPlan = document.getElementById("mockSectionPlan");
+    if (state.mode === "mock") {
+      const sections = getMockSections();
+      const totalQuestions = sections.reduce((total, section) => total + section.count, 0);
+      mockSectionPlan.textContent = "Sections: " + sections
+        .map(section => section.subject + " " + section.count)
+        .join(" · ") + " (" + totalQuestions + " total)";
+      mockSectionPlan.classList.remove("hidden");
+    } else {
+      mockSectionPlan.classList.add("hidden");
+    }
+    document.getElementById("countLabel").textContent = state.mode === "mock"
+      ? "questions per subject section"
+      : "number of questions";
+
+    const weakTopics = getWeakTopics();
+    const weakStart = document.getElementById("weakStartBtn");
+    weakStart.disabled = !weakTopics.length;
+    document.getElementById("weakStartCaption").textContent = weakTopics.length
+      ? "Start with " + weakTopics[0]
+      : "Complete a few quizzes to unlock this";
 
     const note = document.getElementById("weakAreaNote");
     if (weakTopics.length) {
@@ -596,6 +1339,198 @@
     } else {
       note.classList.add("hidden");
     }
+    renderPracticeRail();
+  }
+
+  function getWeakTopics() {
+    const weak = topicWeaknessSummary();
+    return Object.keys(weak)
+      .filter(topic => weak[topic].total >= 3 && (weak[topic].correct / weak[topic].total) < 0.6)
+      .sort((a, b) => (weak[a].correct / weak[a].total) - (weak[b].correct / weak[b].total));
+  }
+
+  function getFilteredPool() {
+    const [focusSubject, focusTopic] = state.focus === "any" ? [] : state.focus.split("|");
+    return BANK.filter(q =>
+      (state.subject === "Mixed" || q.subject === state.subject) &&
+      (state.difficulty === "any" || q.difficulty === state.difficulty) &&
+      (state.focus === "any" || (q.subject === focusSubject && q.topic === focusTopic))
+    );
+  }
+
+  function getMockSections() {
+    const subjectOrder = ["Chemistry", "Physics", "Mathematics"];
+    const focusedSubject = state.focus === "any" ? null : state.focus.split("|")[0];
+    const subjects = state.subject !== "Mixed"
+      ? [state.subject]
+      : focusedSubject ? [focusedSubject] : subjectOrder;
+    return subjects
+      .map(subject => {
+        let available = BANK.filter(question =>
+          question.subject === subject &&
+          (state.focus === "any" || question.topic === state.focus.split("|")[1]) &&
+          (state.difficulty === "any" || question.difficulty === state.difficulty)
+        ).length;
+        if (available < state.count && state.focus !== "any") {
+          available = BANK.filter(question => question.subject === subject && question.topic === state.focus.split("|")[1]).length;
+        } else if (available < state.count && state.difficulty !== "any") {
+          available = BANK.filter(question => question.subject === subject).length;
+        }
+        return { subject: subject, count: Math.min(state.count, available) };
+      })
+      .filter(section => section.count > 0);
+  }
+
+  function buildQuizPool() {
+    const strictPool = getFilteredPool();
+    let pool = strictPool;
+    if (pool.length < state.count) {
+      if (state.focus !== "any") {
+        const [focusSubject, focusTopic] = state.focus.split("|");
+        pool = BANK.filter(q => q.subject === focusSubject && q.topic === focusTopic);
+      } else if (state.difficulty !== "any") {
+        pool = BANK.filter(q => state.subject === "Mixed" || q.subject === state.subject);
+      }
+      if (pool.length < state.count && state.subject !== "Mixed" && state.focus === "any") {
+        pool = shuffle([...pool, ...BANK.filter(q => !pool.includes(q))]);
+      }
+    }
+    const total = Math.min(state.count, pool.length);
+    if (state.mode !== "mock") return shuffle(pool).slice(0, total);
+
+    return getMockSections().flatMap(section => {
+      let subjectPool = pool.filter(question => question.subject === section.subject);
+      if (subjectPool.length < section.count && state.focus !== "any") {
+        const topic = state.focus.split("|")[1];
+        subjectPool = BANK.filter(question => question.subject === section.subject && question.topic === topic);
+      } else if (subjectPool.length < section.count && state.difficulty !== "any") {
+        subjectPool = BANK.filter(question => question.subject === section.subject);
+      }
+      return shuffle(subjectPool).slice(0, section.count);
+    });
+  }
+
+  function startQuiz() {
+    state.questions = buildQuizPool();
+    if (!state.questions.length) return;
+    state.index = 0;
+    state.activeSubject = state.questions[0].subject;
+    state.score = 0;
+    state.answers = [];
+    state.totalTime = 0;
+    state.questionStart = 0;
+    showScreen("quiz");
+    renderQuestion();
+  }
+
+  function renderPracticeRail() {
+    const history = loadHistory();
+    const bestRuns = history.slice().sort((a, b) => {
+      const scoreA = a.total ? a.score / a.total : 0;
+      const scoreB = b.total ? b.score / b.total : 0;
+      return scoreB - scoreA || new Date(b.date) - new Date(a.date);
+    }).slice(0, 3);
+    const best = bestRuns.length && bestRuns[0].total
+      ? Math.round(100 * bestRuns[0].score / bestRuns[0].total) + "%"
+      : "--";
+
+    document.getElementById("historyCount").textContent = history.length;
+    document.getElementById("personalBest").textContent = best;
+
+    const list = document.getElementById("leaderboardList");
+    list.innerHTML = "";
+    if (!bestRuns.length) {
+      list.innerHTML = '<div class="rail-empty">Complete a quiz to build your personal board.</div>';
+      return;
+    }
+    bestRuns.forEach((attempt, index) => {
+      const row = document.createElement("div");
+      const percent = attempt.total ? Math.round(100 * attempt.score / attempt.total) : 0;
+      const date = new Date(attempt.date).toLocaleDateString(undefined, { month: "short", day: "numeric" });
+      row.className = "leader-row";
+      row.innerHTML = '<span class="leader-rank">' + (index + 1) + '</span><span><strong>' + date + '</strong><br>' + attempt.score + '/' + attempt.total + ' correct</span><span class="leader-score">' + percent + '%</span>';
+      list.appendChild(row);
+    });
+  }
+
+  function getAnswerForQuestion(questionIndex) {
+    return state.answers.find(answer => answer.questionIndex === questionIndex);
+  }
+
+  function updateLiveRail() {
+    document.getElementById("railAnswered").textContent = state.answers.length + " / " + state.questions.length;
+    document.getElementById("railCorrect").textContent = state.mode === "mock" ? "Hidden" : state.score;
+    document.getElementById("railRemaining").textContent = Math.max(0, state.questions.length - state.answers.length);
+
+    const subjectNav = document.getElementById("mockSubjectNav");
+    const statusTitle = document.getElementById("questionStatusTitle");
+    const mockMode = state.mode === "mock";
+    subjectNav.classList.toggle("hidden", !mockMode);
+    subjectNav.innerHTML = "";
+    if (mockMode) {
+      const subjects = [...new Set(state.questions.map(question => question.subject))];
+      subjects.forEach(subject => {
+        const subjectIndexes = state.questions
+          .map((question, index) => question.subject === subject ? index : -1)
+          .filter(index => index >= 0);
+        const answeredCount = state.answers.filter(answer => subjectIndexes.includes(answer.questionIndex)).length;
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "mock-subject-button";
+        button.setAttribute("aria-pressed", subject === state.activeSubject ? "true" : "false");
+        button.setAttribute("aria-label", subject + " section, " + answeredCount + " of " + subjectIndexes.length + " answered");
+        const name = document.createElement("span");
+        name.textContent = subject;
+        const count = document.createElement("strong");
+        count.textContent = answeredCount + " / " + subjectIndexes.length;
+        button.append(name, count);
+        button.addEventListener("click", () => {
+          const firstUnanswered = subjectIndexes.find(index => !getAnswerForQuestion(index));
+          state.activeSubject = subject;
+          state.index = firstUnanswered === undefined ? subjectIndexes[0] : firstUnanswered;
+          renderQuestion();
+        });
+        subjectNav.appendChild(button);
+      });
+      statusTitle.textContent = state.activeSubject + " questions";
+    } else {
+      statusTitle.textContent = "Question status";
+    }
+
+    const map = document.getElementById("questionMap");
+    map.innerHTML = "";
+    const visibleQuestions = state.questions
+      .map((question, questionIndex) => ({ question: question, questionIndex: questionIndex }))
+      .filter(entry => !mockMode || entry.question.subject === state.activeSubject);
+    visibleQuestions.forEach(({ question, questionIndex }, localIndex) => {
+      const cell = document.createElement(mockMode ? "button" : "span");
+      if (mockMode) cell.type = "button";
+      cell.className = "map-cell";
+      const questionNumber = mockMode ? localIndex + 1 : questionIndex + 1;
+      if (questionIndex === state.index) cell.classList.add("current");
+      const answer = getAnswerForQuestion(questionIndex);
+      if (answer) {
+        cell.classList.add("done");
+        if (mockMode) {
+          cell.classList.add("answered");
+          cell.setAttribute("aria-label", "Question " + questionNumber + ": Answered");
+        } else {
+          cell.classList.add(answer.correct ? "correct" : "incorrect");
+          cell.setAttribute("aria-label", "Question " + questionNumber + ": " + (answer.correct ? "Correct" : "Incorrect"));
+        }
+      } else {
+        if (mockMode) cell.classList.add("unanswered");
+        cell.setAttribute("aria-label", "Question " + questionNumber + (questionIndex === state.index ? ": Current, not answered" : ": Not answered"));
+      }
+      cell.textContent = questionNumber;
+      if (mockMode) {
+        cell.addEventListener("click", () => {
+          state.index = questionIndex;
+          renderQuestion();
+        });
+      }
+      map.appendChild(cell);
+    });
   }
 
   function shuffle(arr) {
@@ -607,21 +1542,38 @@
     return a;
   }
 
-  document.getElementById("startBtn").addEventListener("click", () => {
-    let pool = BANK.filter(q =>
-      (state.subject === "Mixed" || q.subject === state.subject) &&
-      (state.difficulty === "any" || q.difficulty === state.difficulty)
-    );
-    if (pool.length === 0) pool = BANK.slice(); // fallback if filters too strict
-    state.questions = shuffle(pool).slice(0, Math.min(state.count, pool.length));
-    state.index = 0;
-    state.score = 0;
-    state.answers = [];
-    showScreen("quiz");
-    renderQuestion();
+  document.getElementById("startBtn").addEventListener("click", startQuiz);
+
+  document.getElementById("topicSelect").addEventListener("change", event => {
+    state.focus = event.target.value;
+    refreshSetupUI();
   });
 
-  // ---------- Quiz screen ----------
+  document.getElementById("warmupBtn").addEventListener("click", () => {
+    Object.assign(state, { subject: "Mixed", focus: "any", difficulty: "any", count: 10, questionLimit: 60, mode: "practice" });
+    startQuiz();
+  });
+
+  document.getElementById("weakStartBtn").addEventListener("click", () => {
+    const weakest = getWeakTopics()[0];
+    const sample = BANK.find(q => q.topic === weakest);
+    if (!sample) return;
+    Object.assign(state, {
+      subject: sample.subject,
+      focus: sample.subject + "|" + sample.topic,
+      difficulty: "any",
+      count: Math.min(10, BANK.filter(q => q.subject === sample.subject && q.topic === sample.topic).length),
+      questionLimit: 60,
+      mode: "practice"
+    });
+    startQuiz();
+  });
+
+  document.getElementById("mockStartBtn").addEventListener("click", () => {
+    Object.assign(state, { subject: "Mixed", focus: "any", difficulty: "any", count: 40, questionLimit: 90, mode: "mock" });
+    startQuiz();
+  });
+
   const qTag = document.getElementById("qTag");
   const qText = document.getElementById("qText");
   const optionsList = document.getElementById("optionsList");
@@ -630,18 +1582,104 @@
   const progressLabel = document.getElementById("progressLabel");
   const scoreLabel = document.getElementById("scoreLabel");
   const progressFill = document.getElementById("progressFill");
+  const timerLabel = document.getElementById("timerLabel");
+
+  function updateTimerUI() {
+    if (!state.questionLimit) {
+      timerLabel.textContent = "Untimed";
+      timerLabel.classList.remove("alert");
+      return;
+    }
+    const remaining = Math.max(0, state.questionLimit - Math.floor((Date.now() - state.questionStart) / 1000));
+    timerLabel.textContent = "Time: " + remaining + "s";
+    timerLabel.classList.toggle("alert", remaining <= 10);
+  }
+
+  function startQuestionTimer() {
+    clearInterval(state.timerId);
+    state.questionStart = Date.now();
+    updateTimerUI();
+    if (!state.questionLimit) return;
+    state.timerId = setInterval(() => {
+      updateTimerUI();
+      if (Math.floor((Date.now() - state.questionStart) / 1000) >= state.questionLimit) {
+        clearInterval(state.timerId);
+        finalizeQuestion(null, true);
+      }
+    }, 1000);
+  }
+
+  function finalizeQuestion(selectedIndex, timedOut) {
+    const item = state.questions[state.index];
+    if (!item || optionsList.dataset.answered === "true") return;
+    optionsList.dataset.answered = "true";
+    clearInterval(state.timerId);
+
+    const chosenIndex = selectedIndex === null ? -1 : selectedIndex;
+    const isCorrect = chosenIndex >= 0 && chosenIndex === item.answer;
+    const elapsed = Math.max(1, Math.ceil((Date.now() - state.questionStart) / 1000));
+    const timeSpent = state.questionLimit ? Math.min(state.questionLimit, elapsed) : elapsed;
+
+    const opts = optionsList.querySelectorAll(".option");
+    opts.forEach((el, idx) => {
+      el.classList.toggle("selected", idx === chosenIndex);
+      el.classList.toggle("correct", state.mode === "practice" && idx === item.answer);
+      el.classList.toggle("incorrect", state.mode === "practice" && idx === chosenIndex && chosenIndex !== item.answer);
+    });
+
+    const previousAnswerIndex = state.answers.findIndex(answer => answer.questionIndex === state.index);
+    if (previousAnswerIndex >= 0) state.totalTime -= state.answers[previousAnswerIndex].timeSpent || 0;
+    const answer = { questionIndex: state.index, topic: item.topic, subject: item.subject, correct: isCorrect, q: item.q, chosen: chosenIndex, right: item.answer, options: item.options, explain: item.explain, timeSpent: timeSpent, timedOut: !!timedOut };
+    if (previousAnswerIndex >= 0) state.answers[previousAnswerIndex] = answer;
+    else state.answers.push(answer);
+    state.score = state.answers.filter(savedAnswer => savedAnswer.correct).length;
+    state.totalTime += timeSpent;
+
+    explainBox.textContent = state.mode === "practice"
+      ? item.explain + (timedOut ? " Time expired." : "")
+      : timedOut ? "Time expired. Review the answer after finishing the mock exam." : "Answer saved. Correct answers and explanations will appear after you finish.";
+    explainBox.classList.add("show");
+    nextBtn.disabled = false;
+    if (state.mode === "mock") {
+      nextBtn.textContent = state.answers.length === state.questions.length ? "Finish mock" : "Next unanswered";
+    }
+    scoreLabel.textContent = state.mode === "mock" ? "Score: hidden" : "Score: " + state.score;
+    updateLiveRail();
+  }
 
   function renderQuestion() {
     const item = state.questions[state.index];
+    state.activeSubject = item.subject;
+    const sectionLabel = document.getElementById("mockSectionLabel");
+    if (state.mode === "mock") {
+      let sectionStart = state.index;
+      let sectionEnd = state.index;
+      while (sectionStart > 0 && state.questions[sectionStart - 1].subject === item.subject) sectionStart--;
+      while (sectionEnd + 1 < state.questions.length && state.questions[sectionEnd + 1].subject === item.subject) sectionEnd++;
+      const sectionNumber = new Set(state.questions.slice(0, sectionStart).map(question => question.subject)).size + 1;
+      sectionLabel.textContent = "Section " + sectionNumber + " · " + item.subject + " · Questions " + (sectionStart + 1) + "–" + (sectionEnd + 1) + " · " + state.questions.length + " total";
+      sectionLabel.classList.remove("hidden");
+    } else {
+      sectionLabel.classList.add("hidden");
+    }
     qTag.textContent = item.subject + " · " + item.topic + " · " + item.difficulty;
     qText.textContent = item.q;
     explainBox.classList.remove("show");
     explainBox.textContent = "";
-    nextBtn.disabled = true;
-    nextBtn.textContent = (state.index === state.questions.length - 1) ? "Finish" : "Next";
+    const sectionIndexes = state.mode === "mock"
+      ? state.questions.map((question, index) => question.subject === item.subject ? index : -1).filter(index => index >= 0)
+      : [];
+    const localQuestionNumber = sectionIndexes.indexOf(state.index) + 1;
+    const existingAnswer = getAnswerForQuestion(state.index);
+    nextBtn.disabled = !existingAnswer;
+    nextBtn.textContent = state.mode === "mock"
+      ? state.answers.length === state.questions.length ? "Finish mock" : "Next unanswered"
+      : (state.index === state.questions.length - 1) ? "Finish" : "Next";
 
-    progressLabel.textContent = "Question " + (state.index + 1) + " of " + state.questions.length;
-    scoreLabel.textContent = "Score: " + state.score;
+    progressLabel.textContent = state.mode === "mock"
+      ? item.subject + " · Question " + localQuestionNumber + " of " + sectionIndexes.length
+      : "Question " + (state.index + 1) + " of " + state.questions.length;
+    scoreLabel.textContent = state.mode === "mock" ? "Score: hidden" : "Score: " + state.score;
     progressFill.style.width = (100 * state.index / state.questions.length) + "%";
 
     optionsList.innerHTML = "";
@@ -652,36 +1690,45 @@
       div.setAttribute("role", "button");
       div.setAttribute("tabindex", "0");
       div.innerHTML = '<span class="letter">' + letters[i] + '</span><span>' + opt + '</span>';
-      div.addEventListener("click", () => selectOption(i));
-      div.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); selectOption(i); } });
+      div.addEventListener("click", () => finalizeQuestion(i, false));
+      div.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); finalizeQuestion(i, false); } });
       optionsList.appendChild(div);
     });
-  }
-
-  function selectOption(i) {
-    const item = state.questions[state.index];
-    if (optionsList.dataset.answered === "true") return;
-    optionsList.dataset.answered = "true";
-
-    const opts = optionsList.querySelectorAll(".option");
-    opts.forEach((el, idx) => {
-      el.classList.add(idx === i ? "selected" : "");
-      if (idx === item.answer) el.classList.add("correct");
-      if (idx === i && i !== item.answer) el.classList.add("incorrect");
-    });
-
-    const isCorrect = i === item.answer;
-    if (isCorrect) state.score++;
-    state.answers.push({ topic: item.topic, subject: item.subject, correct: isCorrect, q: item.q, chosen: i, right: item.answer, options: item.options, explain: item.explain });
-
-    explainBox.textContent = item.explain;
-    explainBox.classList.add("show");
-    nextBtn.disabled = false;
-    scoreLabel.textContent = "Score: " + state.score;
+    optionsList.dataset.answered = "false";
+    if (existingAnswer) {
+      optionsList.querySelectorAll(".option").forEach((element, optionIndex) => {
+        element.classList.toggle("selected", optionIndex === existingAnswer.chosen);
+        element.classList.toggle("correct", state.mode === "practice" && optionIndex === item.answer);
+        element.classList.toggle("incorrect", state.mode === "practice" && optionIndex === existingAnswer.chosen && !existingAnswer.correct);
+      });
+      explainBox.textContent = state.mode === "practice"
+        ? item.explain + (existingAnswer.timedOut ? " Time expired." : "")
+        : "Answer saved. Correct answers and explanations will appear after you finish.";
+      explainBox.classList.add("show");
+      state.questionStart = Date.now();
+      timerLabel.textContent = "Answered";
+      clearInterval(state.timerId);
+    }
+    updateLiveRail();
+    if (!existingAnswer) startQuestionTimer();
   }
 
   nextBtn.addEventListener("click", () => {
-    optionsList.dataset.answered = "false";
+    if (state.mode === "mock") {
+      clearInterval(state.timerId);
+      for (let offset = 1; offset <= state.questions.length; offset++) {
+        const nextIndex = (state.index + offset) % state.questions.length;
+        if (!getAnswerForQuestion(nextIndex)) {
+          state.index = nextIndex;
+          state.activeSubject = state.questions[nextIndex].subject;
+          renderQuestion();
+          return;
+        }
+      }
+      finishQuiz();
+      return;
+    }
+
     if (state.index < state.questions.length - 1) {
       state.index++;
       renderQuestion();
@@ -697,18 +1744,24 @@
     }
   });
 
-  // ---------- Results screen ----------
   function finishQuiz() {
-    saveAttempt({ date: new Date().toISOString(), score: state.score, total: state.questions.length, answers: state.answers });
+    clearInterval(state.timerId);
+    saveAttempt({ date: new Date().toISOString(), score: state.score, total: state.questions.length, answers: state.answers, totalTime: state.totalTime });
     showScreen("results");
     renderResults();
   }
 
   function renderResults() {
-    document.getElementById("finalScore").textContent = state.score;
-    document.getElementById("finalOf").textContent = "/ " + state.questions.length + " correct";
+    const total = Math.max(1, state.questions.length);
+    const pct = Math.round(100 * state.score / total);
+    const avgTime = state.answers.length ? Math.round(state.totalTime / state.answers.length) : 0;
 
-    const pct = Math.round(100 * state.score / state.questions.length);
+    document.getElementById("finalScore").textContent = state.score;
+    document.getElementById("finalOf").textContent = "/ " + total + " correct";
+    document.getElementById("accuracyMetric").textContent = pct + "%";
+    document.getElementById("avgTimeMetric").textContent = avgTime + "s";
+    document.getElementById("attemptMetric").textContent = state.answers.length;
+
     let summary;
     if (pct >= 80) summary = "Strong round — keep this pace up.";
     else if (pct >= 50) summary = "Solid, with clear room to tighten up specific topics below.";
@@ -717,9 +1770,10 @@
 
     const byTopic = {};
     state.answers.forEach(a => {
-      if (!byTopic[a.topic]) byTopic[a.topic] = { correct: 0, total: 0 };
+      if (!byTopic[a.topic]) byTopic[a.topic] = { correct: 0, total: 0, time: 0 };
       byTopic[a.topic].total++;
       if (a.correct) byTopic[a.topic].correct++;
+      byTopic[a.topic].time += a.timeSpent || 0;
     });
 
     const tbody = document.getElementById("topicTableBody");
@@ -727,12 +1781,13 @@
     Object.keys(byTopic).forEach(topic => {
       const s = byTopic[topic];
       const acc = Math.round(100 * s.correct / s.total);
+      const avgTopicTime = Math.round(s.time / s.total);
       const tr = document.createElement("tr");
       const color = acc >= 70 ? "var(--pine)" : acc >= 40 ? "var(--amber)" : "var(--red)";
       tr.innerHTML =
         '<td>' + topic + '</td>' +
         '<td>' + s.correct + '/' + s.total + ' (' + acc + '%)</td>' +
-        '<td><div class="bar-track"><div class="bar-fill" style="width:' + acc + '%; background:' + color + ';"></div></div></td>';
+        '<td><div class="bar-track"><div class="bar-fill" style="width:' + acc + '%; background:' + color + ';"></div></div><div style="font-size:11px;color:var(--ink-soft);margin-top:4px;">Avg ' + avgTopicTime + 's</div></td>';
       tbody.appendChild(tr);
     });
 
@@ -746,13 +1801,16 @@
     list.classList.remove("hidden");
     list.innerHTML = "";
     const letters = ["A", "B", "C", "D"];
-    state.answers.forEach((a, i) => {
+    state.answers.slice().sort((a, b) => a.questionIndex - b.questionIndex).forEach(a => {
       const div = document.createElement("div");
       div.className = "review-item";
+      const answerLabel = a.chosen < 0
+        ? "Timed out"
+        : 'Your answer: ' + letters[a.chosen] + '. ' + a.options[a.chosen];
       div.innerHTML =
         '<span class="verdict ' + (a.correct ? "right" : "wrong") + '">' + (a.correct ? "Correct" : "Incorrect") + '</span>' +
-        '<p style="margin:6px 0 4px; font-weight:bold;">' + (i + 1) + '. ' + a.q + '</p>' +
-        '<p style="margin:2px 0; color:var(--ink-soft);">Your answer: ' + letters[a.chosen] + '. ' + a.options[a.chosen] + '</p>' +
+        '<p style="margin:6px 0 4px; font-weight:bold;">' + (a.questionIndex + 1) + '. ' + a.q + '</p>' +
+        '<p style="margin:2px 0; color:var(--ink-soft);">' + answerLabel + '</p>' +
         (a.correct ? "" : '<p style="margin:2px 0; color:var(--pine);">Correct answer: ' + letters[a.right] + '. ' + a.options[a.right] + '</p>') +
         '<p style="margin:8px 0 0; font-size:14px; color:var(--ink-soft);">' + a.explain + '</p>';
       list.appendChild(div);
@@ -764,14 +1822,14 @@
     refreshSetupUI();
   });
 
-  // ---------- Screen management ----------
   function showScreen(name) {
     document.getElementById("setupScreen").classList.toggle("hidden", name !== "setup");
     document.getElementById("quizScreen").classList.toggle("hidden", name !== "quiz");
     document.getElementById("resultsScreen").classList.toggle("hidden", name !== "results");
+    document.getElementById("setupRail").classList.toggle("hidden", name === "quiz");
+    document.getElementById("quizRail").classList.toggle("hidden", name !== "quiz");
   }
 
-  // ---------- Init ----------
   document.getElementById("dateStamp").textContent = new Date().toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
   refreshSetupUI();
 })();
