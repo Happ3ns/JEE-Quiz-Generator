@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>JEE Quiz Generator</title>
+<style>
+  :root {
+    --paper: #F3EFE3;
+    --paper-line: #DCD4BE;
+    --ink: #1E2A38;
+    --ink-soft: #4B5A68;
+    --rule: #B9C4C9;
+    --pine: #2F6F4E;
+    --pine-soft: #E4EFE8;
+    --red: #A9382F;
+    --red-soft: #F4E3E1;
+    --amber: #B9791E;
+    --amber-soft: #F3E6D0;
+    --card: #FBF9F2;
+    --shadow: rgba(30, 42, 56, 0.12);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+  body {
+    background:
+      repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 35px,
+        var(--paper-line) 36px
+      ),
+      var(--paper);
+    color: var(--ink);
+    font-family: Georgia, 'Source Serif 4', 'Times New Roman', serif;
+    padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px) 0;
+    min-height: 100%;
+    line-height: 1.5;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  header.masthead {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 18px;
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  header.masthead h1 {
+    font-size: 28px;
+    margin: 0;
+    letter-spacing: 0.2px;
+  }
+
+  header.masthead .stamp {
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: var(--ink-soft);
+    border: 1px solid var(--rule);
+    padding: 4px 10px;
+    border-radius: 2px;
+    background: var(--card);
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 28px;
+    box-shadow: 0 1px 3px var(--shadow);
+    margin-bottom: 24px;
+  }
+
+  .field {
+    margin-bottom: 22px;
+  }
+
+  .field label {
+    display: block;
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+    font-family: 'Courier New', monospace;
+    text-transform: lowercase;
+  }
+
+  .chip-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .chip {
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    color: var(--ink);
+    padding: 8px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: inherit;
+    transition: background 0.15s, border-color 0.15s;
+  }
+
+  .chip:hover { border-color: var(--ink-soft); }
+
+  .chip[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+
+  .btn {
+    font-family: 'Courier New', monospace;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 13px 26px;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+
+  .btn:hover { background: #0F1822; }
+
+  .btn:focus-visible, .chip:focus-visible, input:focus-visible {
+    outline: 3px solid var(--amber);
+    outline-offset: 2px;
+  }
+
+  .btn.ghost {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+  }
+
+  .btn.ghost:hover { background: var(--paper); }
+
+  .weak-note {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin-top: 6px;
+  }
+
+  .weak-note strong { color: var(--red); }
+
+  /* Quiz screen */
+  .progress-line {
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: var(--ink-soft);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+
+  .progress-track {
+    height: 4px;
+    background: var(--rule);
+    border-radius: 2px;
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--ink);
+    transition: width 0.25s ease;
+  }
+
+  .q-tag {
+    display: inline-block;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: var(--ink-soft);
+    border: 1px solid var(--rule);
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  .q-text {
+    font-size: 19px;
+    margin: 0 0 22px;
+  }
+
+  .option {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 13px 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    background: var(--paper);
+  }
+
+  .option:hover { border-color: var(--ink-soft); }
+
+  .option.selected {
+    border-color: var(--ink);
+    background: #ECE7D6;
+  }
+
+  .option.correct {
+    border-color: var(--pine);
+    background: var(--pine-soft);
+  }
+
+  .option.incorrect {
+    border-color: var(--red);
+    background: var(--red-soft);
+  }
+
+  .option .letter {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: var(--ink-soft);
+    flex-shrink: 0;
+    width: 18px;
+  }
+
+  .explain {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--amber);
+    padding: 10px 14px;
+    margin: 16px 0 0;
+    background: var(--amber-soft);
+    border-radius: 0 3px 3px 0;
+    display: none;
+  }
+
+  .explain.show { display: block; }
+
+  .quiz-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 22px;
+  }
+
+  /* Results screen */
+  .score-row {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 6px;
+  }
+
+  .score-row .big {
+    font-family: 'Courier New', monospace;
+    font-size: 42px;
+    font-weight: bold;
+  }
+
+  .score-row .of {
+    font-size: 16px;
+    color: var(--ink-soft);
+  }
+
+  table.topic-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    font-size: 15px;
+  }
+
+  table.topic-table th, table.topic-table td {
+    text-align: left;
+    padding: 8px 6px;
+    border-bottom: 1px solid var(--paper-line);
+  }
+
+  table.topic-table th {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: var(--ink-soft);
+    font-weight: normal;
+  }
+
+  .bar-track {
+    background: var(--rule);
+    border-radius: 2px;
+    height: 8px;
+    width: 100px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+  }
+
+  .review-item {
+    border-top: 1px solid var(--paper-line);
+    padding: 16px 0;
+  }
+
+  .review-item:first-child { border-top: none; }
+
+  .review-item .verdict {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    padding: 1px 8px;
+    border-radius: 999px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+
+  .verdict.right { background: var(--pine-soft); color: var(--pine); }
+  .verdict.wrong { background: var(--red-soft); color: var(--red); }
+
+  .hidden { display: none !important; }
+
+  footer {
+    text-align: center;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 40px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .progress-fill, .btn, .chip, .option { transition: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <h1>JEE Quiz Generator</h1>
+    <span class="stamp" id="dateStamp"></span>
+  </header>
+
+  <!-- SETUP SCREEN -->
+  <section id="setupScreen" class="card">
+    <div class="field">
+      <label>subject</label>
+      <div class="chip-row" id="subjectRow"></div>
+    </div>
+    <div class="field">
+      <label>difficulty</label>
+      <div class="chip-row" id="difficultyRow"></div>
+    </div>
+    <div class="field">
+      <label>number of questions</label>
+      <div class="chip-row" id="countRow"></div>
+    </div>
+    <div id="weakAreaNote" class="weak-note hidden"></div>
+    <button class="btn" id="startBtn">Start Quiz</button>
+  </section>
+
+  <!-- QUIZ SCREEN -->
+  <section id="quizScreen" class="card hidden">
+    <div class="progress-line">
+      <span id="progressLabel">Question 1 of 10</span>
+      <span id="scoreLabel">Score: 0</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+
+    <span class="q-tag" id="qTag"></span>
+    <p class="q-text" id="qText"></p>
+    <div id="optionsList"></div>
+    <div class="explain" id="explainBox"></div>
+
+    <div class="quiz-actions">
+      <button class="btn ghost" id="quitBtn">Quit</button>
+      <button class="btn" id="nextBtn" disabled>Next</button>
+    </div>
+  </section>
+
+  <!-- RESULTS SCREEN -->
+  <section id="resultsScreen" class="card hidden">
+    <div class="score-row">
+      <span class="big" id="finalScore">0</span>
+      <span class="of" id="finalOf">/ 10 correct</span>
+    </div>
+    <p id="resultSummary" style="color: var(--ink-soft); margin-top: 0;"></p>
+
+    <table class="topic-table" id="topicTable">
+      <thead><tr><th>topic</th><th>accuracy</th><th></th></tr></thead>
+      <tbody id="topicTableBody"></tbody>
+    </table>
+
+    <div style="margin-top: 24px; display:flex; gap: 10px;">
+      <button class="btn" id="reviewBtn">Review Answers</button>
+      <button class="btn ghost" id="restartBtn">New Quiz</button>
+    </div>
+
+    <div id="reviewList" style="margin-top: 24px;"></div>
+  </section>
+
+  <footer>Runs entirely in your browser. Your stats are stored locally on this device only.</footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  // ---------- Question bank ----------
+  // Add more questions here. Each item: subject, topic, difficulty, q, options[4], answer index, explain.
+  const BANK = [
+    // PHYSICS
+    { subject: "Physics", topic: "Mechanics", difficulty: "easy",
+      q: "A body moving with uniform velocity has:",
+      options: ["Zero acceleration", "Constant non-zero acceleration", "Increasing speed", "Zero displacement"],
+      answer: 0,
+      explain: "Uniform velocity means constant speed and direction, so the rate of change of velocity (acceleration) is zero." },
+    { subject: "Physics", topic: "Mechanics", difficulty: "medium",
+      q: "A block of mass 2 kg is pulled by a horizontal force of 10 N on a frictionless surface. Its acceleration is:",
+      options: ["2 m/s²", "5 m/s²", "10 m/s²", "20 m/s²"],
+      answer: 1,
+      explain: "F = ma → a = F/m = 10/2 = 5 m/s²." },
+    { subject: "Physics", topic: "Electrodynamics", difficulty: "medium",
+      q: "In a purely resistive AC circuit, the phase difference between voltage and current is:",
+      options: ["90°", "180°", "0°", "45°"],
+      answer: 2,
+      explain: "In a pure resistor, voltage and current are always in phase, so the phase difference is 0°." },
+    { subject: "Physics", topic: "Electrodynamics", difficulty: "hard",
+      q: "Two long parallel wires carry currents in the same direction. The force between them is:",
+      options: ["Attractive", "Repulsive", "Zero", "Alternating"],
+      answer: 0,
+      explain: "Parallel currents in the same direction attract each other due to the magnetic force between them (F = μ₀I₁I₂L / 2πd)." },
+    { subject: "Physics", topic: "Modern Physics", difficulty: "medium",
+      q: "The photoelectric effect demonstrates that light behaves as:",
+      options: ["A wave only", "A particle only", "Both a wave and a particle depending on the phenomenon", "Neither a wave nor a particle"],
+      answer: 2,
+      explain: "The photoelectric effect shows the particle nature of light (photons), while interference/diffraction show its wave nature — light exhibits wave-particle duality." },
+    { subject: "Physics", topic: "Modern Physics", difficulty: "hard",
+      q: "The de Broglie wavelength of a particle is inversely proportional to its:",
+      options: ["Mass", "Momentum", "Charge", "Energy squared"],
+      answer: 1,
+      explain: "λ = h / p, where p is momentum. So wavelength is inversely proportional to momentum." },
+
+    // CHEMISTRY
+    { subject: "Chemistry", topic: "Physical", difficulty: "easy",
+      q: "The SI unit of molar concentration is:",
+      options: ["g/L", "mol/L", "mol/kg", "g/mol"],
+      answer: 1,
+      explain: "Molar concentration (molarity) is defined as moles of solute per litre of solution, i.e., mol/L." },
+    { subject: "Chemistry", topic: "Physical", difficulty: "medium",
+      q: "For a first-order reaction, the half-life is:",
+      options: ["Directly proportional to initial concentration", "Independent of initial concentration", "Inversely proportional to initial concentration", "Proportional to the square of initial concentration"],
+      answer: 1,
+      explain: "For a first-order reaction, t½ = 0.693/k, which does not depend on the initial concentration." },
+    { subject: "Chemistry", topic: "Organic", difficulty: "medium",
+      q: "Which of the following is most acidic?",
+      options: ["Ethanol", "Phenol", "Acetic acid", "Water"],
+      answer: 2,
+      explain: "Acetic acid is the strongest acid among these because the carboxylate ion formed is resonance-stabilized, more so than phenoxide." },
+    { subject: "Chemistry", topic: "Organic", difficulty: "hard",
+      q: "Markovnikov's rule applies to the addition of HX to:",
+      options: ["Symmetrical alkenes", "Unsymmetrical alkenes", "Alkanes", "Aromatic rings"],
+      answer: 1,
+      explain: "Markovnikov's rule predicts that H adds to the carbon with more hydrogens already, relevant specifically for unsymmetrical alkenes." },
+    { subject: "Chemistry", topic: "Inorganic", difficulty: "easy",
+      q: "The most electronegative element in the periodic table is:",
+      options: ["Oxygen", "Chlorine", "Fluorine", "Nitrogen"],
+      answer: 2,
+      explain: "Fluorine has the highest electronegativity (Pauling scale ~3.98) of all elements." },
+    { subject: "Chemistry", topic: "Inorganic", difficulty: "hard",
+      q: "Which of the following has the highest lattice energy?",
+      options: ["NaCl", "MgO", "KCl", "CaO"],
+      answer: 1,
+      explain: "Lattice energy increases with higher ionic charge and smaller ionic size. MgO has +2/-2 charges and small ionic radii, giving it the highest lattice energy here." },
+
+    // MATHEMATICS
+    { subject: "Mathematics", topic: "Algebra", difficulty: "easy",
+      q: "If a, b, c are in arithmetic progression, then:",
+      options: ["b² = ac", "2b = a + c", "b = a + c", "a + b = 2c"],
+      answer: 1,
+      explain: "For an AP, the middle term is the average of its neighbours: 2b = a + c." },
+    { subject: "Mathematics", topic: "Algebra", difficulty: "medium",
+      q: "The number of ways to arrange the letters of the word 'LEVEL' is:",
+      options: ["60", "30", "120", "20"],
+      answer: 1,
+      explain: "LEVEL has 5 letters with L repeated twice and E repeated twice: 5!/(2!·2!) = 120/4 = 30." },
+    { subject: "Mathematics", topic: "Calculus", difficulty: "medium",
+      q: "The derivative of sin(x²) with respect to x is:",
+      options: ["cos(x²)", "2x·cos(x²)", "2x·sin(x²)", "x²·cos(x)"],
+      answer: 1,
+      explain: "By the chain rule, d/dx[sin(x²)] = cos(x²) · 2x = 2x·cos(x²)." },
+    { subject: "Mathematics", topic: "Calculus", difficulty: "hard",
+      q: "∫₀^1 x·eˣ dx equals:",
+      options: ["1", "e", "1 (i.e., e - e + 1... simplify)", "e - 1"],
+      answer: 0,
+      explain: "Using integration by parts: ∫x·eˣ dx = xeˣ - eˣ + C. Evaluating from 0 to 1 gives (e - e) - (0 - 1) = 1." },
+    { subject: "Mathematics", topic: "Coordinate Geometry", difficulty: "easy",
+      q: "The distance between the points (3, 4) and (0, 0) is:",
+      options: ["3", "4", "5", "7"],
+      answer: 2,
+      explain: "Distance = √(3² + 4²) = √25 = 5." },
+    { subject: "Mathematics", topic: "Coordinate Geometry", difficulty: "hard",
+      q: "The equation of the circle with centre (2, -3) and radius 4 is:",
+      options: ["(x-2)² + (y+3)² = 16", "(x+2)² + (y-3)² = 16", "(x-2)² + (y+3)² = 4", "x² + y² = 16"],
+      answer: 0,
+      explain: "Standard form: (x - h)² + (y - k)² = r², with (h,k) = (2,-3) and r = 4, giving (x-2)² + (y+3)² = 16." }
+  ];
+
+  // ---------- Storage helpers ----------
+  const STORAGE_KEY = "jeeQuizHistory";
+
+  function loadHistory() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function saveAttempt(attempt) {
+    try {
+      const hist = loadHistory();
+      hist.push(attempt);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(hist.slice(-50)));
+    } catch (e) { /* storage unavailable — quiz still works, just won't remember stats */ }
+  }
+
+  function topicWeaknessSummary() {
+    const hist = loadHistory();
+    const stats = {};
+    hist.forEach(a => a.answers.forEach(r => {
+      const key = r.topic;
+      if (!stats[key]) stats[key] = { correct: 0, total: 0 };
+      stats[key].total++;
+      if (r.correct) stats[key].correct++;
+    }));
+    return stats;
+  }
+
+  // ---------- State ----------
+  let state = {
+    subject: "Mixed",
+    difficulty: "any",
+    count: 10,
+    questions: [],
+    index: 0,
+    score: 0,
+    answers: [] // {topic, correct}
+  };
+
+  const SUBJECTS = ["Mixed", "Physics", "Chemistry", "Mathematics"];
+  const DIFFICULTIES = ["any", "easy", "medium", "hard"];
+  const COUNTS = [5, 10, 15];
+
+  // ---------- Setup screen ----------
+  const subjectRow = document.getElementById("subjectRow");
+  const difficultyRow = document.getElementById("difficultyRow");
+  const countRow = document.getElementById("countRow");
+
+  function renderChipRow(container, values, current, labelFn, onPick) {
+    container.innerHTML = "";
+    values.forEach(v => {
+      const chip = document.createElement("button");
+      chip.type = "button";
+      chip.className = "chip";
+      chip.textContent = labelFn(v);
+      chip.setAttribute("aria-pressed", v === current ? "true" : "false");
+      chip.addEventListener("click", () => onPick(v));
+      container.appendChild(chip);
+    });
+  }
+
+  function refreshSetupUI() {
+    renderChipRow(subjectRow, SUBJECTS, state.subject, s => s, (s) => { state.subject = s; refreshSetupUI(); });
+    renderChipRow(difficultyRow, DIFFICULTIES, state.difficulty, d => d === "any" ? "Any" : d[0].toUpperCase() + d.slice(1), (d) => { state.difficulty = d; refreshSetupUI(); });
+    renderChipRow(countRow, COUNTS, state.count, c => String(c), (c) => { state.count = c; refreshSetupUI(); });
+
+    const weak = topicWeaknessSummary();
+    const weakTopics = Object.keys(weak)
+      .filter(t => weak[t].total >= 3 && (weak[t].correct / weak[t].total) < 0.6)
+      .sort((a, b) => (weak[a].correct / weak[a].total) - (weak[b].correct / weak[b].total));
+
+    const note = document.getElementById("weakAreaNote");
+    if (weakTopics.length) {
+      note.classList.remove("hidden");
+      note.innerHTML = "Your weaker topics so far: <strong>" + weakTopics.slice(0, 3).join(", ") + "</strong>";
+    } else {
+      note.classList.add("hidden");
+    }
+  }
+
+  function shuffle(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  document.getElementById("startBtn").addEventListener("click", () => {
+    let pool = BANK.filter(q =>
+      (state.subject === "Mixed" || q.subject === state.subject) &&
+      (state.difficulty === "any" || q.difficulty === state.difficulty)
+    );
+    if (pool.length === 0) pool = BANK.slice(); // fallback if filters too strict
+    state.questions = shuffle(pool).slice(0, Math.min(state.count, pool.length));
+    state.index = 0;
+    state.score = 0;
+    state.answers = [];
+    showScreen("quiz");
+    renderQuestion();
+  });
+
+  // ---------- Quiz screen ----------
+  const qTag = document.getElementById("qTag");
+  const qText = document.getElementById("qText");
+  const optionsList = document.getElementById("optionsList");
+  const explainBox = document.getElementById("explainBox");
+  const nextBtn = document.getElementById("nextBtn");
+  const progressLabel = document.getElementById("progressLabel");
+  const scoreLabel = document.getElementById("scoreLabel");
+  const progressFill = document.getElementById("progressFill");
+
+  function renderQuestion() {
+    const item = state.questions[state.index];
+    qTag.textContent = item.subject + " · " + item.topic + " · " + item.difficulty;
+    qText.textContent = item.q;
+    explainBox.classList.remove("show");
+    explainBox.textContent = "";
+    nextBtn.disabled = true;
+    nextBtn.textContent = (state.index === state.questions.length - 1) ? "Finish" : "Next";
+
+    progressLabel.textContent = "Question " + (state.index + 1) + " of " + state.questions.length;
+    scoreLabel.textContent = "Score: " + state.score;
+    progressFill.style.width = (100 * state.index / state.questions.length) + "%";
+
+    optionsList.innerHTML = "";
+    const letters = ["A", "B", "C", "D"];
+    item.options.forEach((opt, i) => {
+      const div = document.createElement("div");
+      div.className = "option";
+      div.setAttribute("role", "button");
+      div.setAttribute("tabindex", "0");
+      div.innerHTML = '<span class="letter">' + letters[i] + '</span><span>' + opt + '</span>';
+      div.addEventListener("click", () => selectOption(i));
+      div.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); selectOption(i); } });
+      optionsList.appendChild(div);
+    });
+  }
+
+  function selectOption(i) {
+    const item = state.questions[state.index];
+    if (optionsList.dataset.answered === "true") return;
+    optionsList.dataset.answered = "true";
+
+    const opts = optionsList.querySelectorAll(".option");
+    opts.forEach((el, idx) => {
+      el.classList.add(idx === i ? "selected" : "");
+      if (idx === item.answer) el.classList.add("correct");
+      if (idx === i && i !== item.answer) el.classList.add("incorrect");
+    });
+
+    const isCorrect = i === item.answer;
+    if (isCorrect) state.score++;
+    state.answers.push({ topic: item.topic, subject: item.subject, correct: isCorrect, q: item.q, chosen: i, right: item.answer, options: item.options, explain: item.explain });
+
+    explainBox.textContent = item.explain;
+    explainBox.classList.add("show");
+    nextBtn.disabled = false;
+    scoreLabel.textContent = "Score: " + state.score;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    optionsList.dataset.answered = "false";
+    if (state.index < state.questions.length - 1) {
+      state.index++;
+      renderQuestion();
+    } else {
+      finishQuiz();
+    }
+  });
+
+  document.getElementById("quitBtn").addEventListener("click", () => {
+    if (confirm("Quit this quiz? Your progress on this attempt will be lost.")) {
+      showScreen("setup");
+      refreshSetupUI();
+    }
+  });
+
+  // ---------- Results screen ----------
+  function finishQuiz() {
+    saveAttempt({ date: new Date().toISOString(), score: state.score, total: state.questions.length, answers: state.answers });
+    showScreen("results");
+    renderResults();
+  }
+
+  function renderResults() {
+    document.getElementById("finalScore").textContent = state.score;
+    document.getElementById("finalOf").textContent = "/ " + state.questions.length + " correct";
+
+    const pct = Math.round(100 * state.score / state.questions.length);
+    let summary;
+    if (pct >= 80) summary = "Strong round — keep this pace up.";
+    else if (pct >= 50) summary = "Solid, with clear room to tighten up specific topics below.";
+    else summary = "Rough round — use the topic breakdown below to target your next revision session.";
+    document.getElementById("resultSummary").textContent = summary;
+
+    const byTopic = {};
+    state.answers.forEach(a => {
+      if (!byTopic[a.topic]) byTopic[a.topic] = { correct: 0, total: 0 };
+      byTopic[a.topic].total++;
+      if (a.correct) byTopic[a.topic].correct++;
+    });
+
+    const tbody = document.getElementById("topicTableBody");
+    tbody.innerHTML = "";
+    Object.keys(byTopic).forEach(topic => {
+      const s = byTopic[topic];
+      const acc = Math.round(100 * s.correct / s.total);
+      const tr = document.createElement("tr");
+      const color = acc >= 70 ? "var(--pine)" : acc >= 40 ? "var(--amber)" : "var(--red)";
+      tr.innerHTML =
+        '<td>' + topic + '</td>' +
+        '<td>' + s.correct + '/' + s.total + ' (' + acc + '%)</td>' +
+        '<td><div class="bar-track"><div class="bar-fill" style="width:' + acc + '%; background:' + color + ';"></div></div></td>';
+      tbody.appendChild(tr);
+    });
+
+    document.getElementById("reviewList").innerHTML = "";
+    document.getElementById("reviewList").classList.add("hidden");
+  }
+
+  document.getElementById("reviewBtn").addEventListener("click", () => {
+    const list = document.getElementById("reviewList");
+    if (!list.classList.contains("hidden")) { list.classList.add("hidden"); return; }
+    list.classList.remove("hidden");
+    list.innerHTML = "";
+    const letters = ["A", "B", "C", "D"];
+    state.answers.forEach((a, i) => {
+      const div = document.createElement("div");
+      div.className = "review-item";
+      div.innerHTML =
+        '<span class="verdict ' + (a.correct ? "right" : "wrong") + '">' + (a.correct ? "Correct" : "Incorrect") + '</span>' +
+        '<p style="margin:6px 0 4px; font-weight:bold;">' + (i + 1) + '. ' + a.q + '</p>' +
+        '<p style="margin:2px 0; color:var(--ink-soft);">Your answer: ' + letters[a.chosen] + '. ' + a.options[a.chosen] + '</p>' +
+        (a.correct ? "" : '<p style="margin:2px 0; color:var(--pine);">Correct answer: ' + letters[a.right] + '. ' + a.options[a.right] + '</p>') +
+        '<p style="margin:8px 0 0; font-size:14px; color:var(--ink-soft);">' + a.explain + '</p>';
+      list.appendChild(div);
+    });
+  });
+
+  document.getElementById("restartBtn").addEventListener("click", () => {
+    showScreen("setup");
+    refreshSetupUI();
+  });
+
+  // ---------- Screen management ----------
+  function showScreen(name) {
+    document.getElementById("setupScreen").classList.toggle("hidden", name !== "setup");
+    document.getElementById("quizScreen").classList.toggle("hidden", name !== "quiz");
+    document.getElementById("resultsScreen").classList.toggle("hidden", name !== "results");
+  }
+
+  // ---------- Init ----------
+  document.getElementById("dateStamp").textContent = new Date().toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+  refreshSetupUI();
+})();
+</script>
+</body>
+</html>
