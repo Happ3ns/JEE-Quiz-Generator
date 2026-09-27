@@ -62,9 +62,7 @@ To add questions: append more objects to `BANK`. To add a new subject or topic, 
 ## Ideas for extending this further
 
 - [ ] Move the question bank into a separate `questions.json` file and fetch it, so it's easier to maintain as it grows
-- [ ] Add a per-question timer (JEE-style time pressure)
 - [ ] Add negative marking, matching the actual JEE marking scheme
-- [ ] Add a "weakest topic" quick-start button that auto-selects your worst-performing topic
 - [ ] Export attempt history as CSV
 
 ## License
