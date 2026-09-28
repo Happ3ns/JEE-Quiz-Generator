@@ -1,4 +1,4 @@
-# JEE Quiz Generator
+# JEE Quiz Studio
 
 A single-page, no-dependency quiz app for practicing JEE-level Physics, Chemistry, and Mathematics questions — with per-topic accuracy tracking to surface weak areas over time.
 
