@@ -7,45 +7,66 @@ https://happ3ns.github.io/JEE-Quiz-Generator/
 ## Architecture
 
 ```mermaid
-flowchart TD
-    subgraph USER["User"]
-        U1[Opens app in browser]
-        U2[Selects subject + difficulty]
-        U3[Answers questions]
+flowchart LR
+    %% ---------- Styling ----------
+    classDef client  fill:#eef4f0,stroke:#2f6f4e,stroke-width:1.5px,color:#18181b
+    classDef engine  fill:#eff4fb,stroke:#1d4ed8,stroke-width:1.5px,color:#18181b
+    classDef storage fill:#fdf6e3,stroke:#a16207,stroke-width:1.5px,color:#18181b
+    classDef host    fill:#f5f5f5,stroke:#52525b,stroke-width:1px,color:#18181b
+
+    %% ---------- Layer 1: Delivery ----------
+    subgraph L1["1 · Delivery"]
+        direction TB
+        H1["GitHub Pages<br/><i>static hosting, no server</i>"]
+        H2["index.html<br/><i>single-file app</i>"]
     end
 
-    subgraph APP["index.html — Single File Application"]
-        A1[Question Bank<br/>hardcoded JS array]
-        A2[Quiz Engine<br/>filter by subject + difficulty]
-        A3[Score Tracker<br/>per-question correct/wrong]
-        A4[Weak-Topic Analyzer<br/>flags topics below threshold]
-        A5[UI Renderer<br/>quiz view, results view]
+    %% ---------- Layer 2: Client ----------
+    subgraph L2["2 · User Interface"]
+        direction TB
+        U1["Subject + Difficulty<br/>selector"]
+        U2["Question view<br/>+ instant feedback"]
+        U3["Results view<br/>+ answer review"]
     end
 
-    subgraph STORAGE["Browser localStorage"]
-        S1[(topic_accuracy<br/>per-topic stats)]
-        S2[(attempt_history<br/>past sessions)]
+    %% ---------- Layer 3: Engine ----------
+    subgraph L3["3 · Quiz Engine"]
+        direction TB
+        Q1["Question Bank<br/><i>hardcoded JS array</i>"]
+        Q2["Filter<br/>subject × difficulty"]
+        Q3["Score Tracker<br/>correct / wrong per attempt"]
+        Q4["Weak-Topic Analyzer<br/>flags topics below threshold"]
     end
 
-    subgraph HOST["Hosting"]
-        H1[GitHub Pages<br/>static file, no server]
+    %% ---------- Layer 4: Persistence ----------
+    subgraph L4["4 · Browser Persistence"]
+        direction TB
+        P1[("topic_accuracy<br/><i>per-topic stats</i>")]
+        P2[("attempt_history<br/><i>past sessions</i>")]
     end
 
-    U1 --> H1
-    H1 --> A2
-    U2 --> A2
-    A1 --> A2
-    A2 --> A3
-    U3 --> A3
-    A3 --> A4
-    A4 --> A5
-    A3 --> S1
-    A4 --> S1
-    A3 --> S2
-    S1 --> A2
-    S2 --> A4
-    A5 --> U1
+    %% ---------- Edges ----------
+    H1 --> H2
+    H2 --> U1
+    U1 --> Q2
+    Q1 --> Q2
+    Q2 --> U2
+    U2 --> Q3
+    Q3 --> Q4
+    Q4 --> P1
+    Q3 --> P2
+    P1 -.->|loads on open| Q2
+    P2 -.->|loads on open| Q4
+    Q3 --> U3
+    Q4 --> U3
+
+    %% ---------- Apply classes ----------
+    class H1,H2 host
+    class U1,U2,U3 client
+    class Q1,Q2,Q3,Q4 engine
+    class P1,P2 storage
 ```
+
 ## Features
 
 - Pick a subject (Physics / Chemistry / Mathematics / Mixed), difficulty, and question count
