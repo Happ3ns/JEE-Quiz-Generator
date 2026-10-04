@@ -4,6 +4,48 @@ A single-page, no-dependency quiz app for practicing JEE-level Physics, Chemistr
 
 https://happ3ns.github.io/JEE-Quiz-Generator/
 
+## Architecture
+
+```mermaid
+flowchart TD
+    subgraph USER["User"]
+        U1[Opens app in browser]
+        U2[Selects subject + difficulty]
+        U3[Answers questions]
+    end
+
+    subgraph APP["index.html — Single File Application"]
+        A1[Question Bank<br/>hardcoded JS array]
+        A2[Quiz Engine<br/>filter by subject + difficulty]
+        A3[Score Tracker<br/>per-question correct/wrong]
+        A4[Weak-Topic Analyzer<br/>flags topics below threshold]
+        A5[UI Renderer<br/>quiz view, results view]
+    end
+
+    subgraph STORAGE["Browser localStorage"]
+        S1[(topic_accuracy<br/>per-topic stats)]
+        S2[(attempt_history<br/>past sessions)]
+    end
+
+    subgraph HOST["Hosting"]
+        H1[GitHub Pages<br/>static file, no server]
+    end
+
+    U1 --> H1
+    H1 --> A2
+    U2 --> A2
+    A1 --> A2
+    A2 --> A3
+    U3 --> A3
+    A3 --> A4
+    A4 --> A5
+    A3 --> S1
+    A4 --> S1
+    A3 --> S2
+    S1 --> A2
+    S2 --> A4
+    A5 --> U1
+```
 ## Features
 
 - Pick a subject (Physics / Chemistry / Mathematics / Mixed), difficulty, and question count
