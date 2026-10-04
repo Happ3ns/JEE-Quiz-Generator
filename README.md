@@ -128,6 +128,19 @@ To add questions: append more objects to `BANK`. To add a new subject or topic, 
 - [ ] Add negative marking, matching the actual JEE marking scheme
 - [ ] Export attempt history as CSV
 
+ ## Future work
+
+- **Backend with Firebase Auth + Firestore.** Currently progress is
+  stored in browser localStorage, so it doesn't sync across devices.
+  Firebase would handle auth and storage without a custom server.
+- **Spaced repetition.** Instead of just flagging weak topics, schedule
+  reviews of missed questions at increasing intervals.
+- **Question bank expansion.** The bank is currently Physics, Chemistry,
+  and Maths. Adding more questions per topic would improve coverage.
+- **Import/export.** Let users back up their progress to a file, since
+  clearing browser data currently wipes everything.
+  
 ## License
 
 MIT — use, modify, and extend freely.
+ 
