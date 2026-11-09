@@ -1,0 +1,6302 @@
+[
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "easy",
+    "q": "A body moving with uniform velocity has:",
+    "options": [
+      "Zero acceleration",
+      "Constant non-zero acceleration",
+      "Increasing speed",
+      "Zero displacement"
+    ],
+    "answer": 0,
+    "explain": "Uniform velocity means constant speed and direction, so the rate of change of velocity is zero."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "easy",
+    "q": "The SI unit of force is:",
+    "options": [
+      "Joule",
+      "Newton",
+      "Watt",
+      "Pascal"
+    ],
+    "answer": 1,
+    "explain": "Force is measured in newtons, where 1 N = 1 kg·m/s²."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "easy",
+    "q": "The slope of a displacement-time graph gives:",
+    "options": [
+      "Acceleration",
+      "Velocity",
+      "Force",
+      "Momentum"
+    ],
+    "answer": 1,
+    "explain": "Velocity is the rate of change of displacement with time."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "easy",
+    "q": "If a car travels 100 m in 10 s with constant speed, its speed is:",
+    "options": [
+      "5 m/s",
+      "10 m/s",
+      "20 m/s",
+      "100 m/s"
+    ],
+    "answer": 1,
+    "explain": "Speed = distance/time = 100/10 = 10 m/s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "easy",
+    "q": "Work is defined as:",
+    "options": [
+      "Force × displacement",
+      "Force × time",
+      "Mass × velocity",
+      "Power × time"
+    ],
+    "answer": 0,
+    "explain": "Work is the product of force and displacement in the direction of force."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "easy",
+    "q": "The product of mass and velocity is called:",
+    "options": [
+      "Impulse",
+      "Force",
+      "Momentum",
+      "Energy"
+    ],
+    "answer": 2,
+    "explain": "Momentum is p = mv."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "easy",
+    "q": "A body is said to be in equilibrium when:",
+    "options": [
+      "Net force is non-zero",
+      "Velocity is increasing",
+      "Net force is zero",
+      "Acceleration is constant"
+    ],
+    "answer": 2,
+    "explain": "Equilibrium requires zero net force, so the acceleration is zero."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "easy",
+    "q": "Which quantity is a scalar?",
+    "options": [
+      "Velocity",
+      "Acceleration",
+      "Displacement",
+      "Speed"
+    ],
+    "answer": 3,
+    "explain": "Speed has magnitude only, so it is a scalar quantity."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "easy",
+    "q": "The acceleration due to gravity near Earth's surface is approximately:",
+    "options": [
+      "9.8 m/s²",
+      "1.6 m/s²",
+      "3.2 m/s²",
+      "6.7 m/s²"
+    ],
+    "answer": 0,
+    "explain": "On Earth, gravitational acceleration is about 9.8 m/s²."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "easy",
+    "q": "The kinetic energy of a moving object depends on:",
+    "options": [
+      "Mass and speed",
+      "Mass and time",
+      "Speed and force",
+      "Force and displacement"
+    ],
+    "answer": 0,
+    "explain": "Kinetic energy is K = 1/2 mv², depending on mass and speed."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "easy",
+    "q": "A freely falling body under gravity has:",
+    "options": [
+      "Zero acceleration",
+      "Constant acceleration",
+      "Variable acceleration",
+      "No velocity"
+    ],
+    "answer": 1,
+    "explain": "Near Earth's surface, free fall has nearly constant acceleration g."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "easy",
+    "q": "Which of the following is not a vector?",
+    "options": [
+      "Force",
+      "Displacement",
+      "Velocity",
+      "Distance"
+    ],
+    "answer": 3,
+    "explain": "Distance is a scalar; the others are vectors."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "medium",
+    "q": "A 2 kg object moving at 3 m/s has momentum:",
+    "options": [
+      "1 kg·m/s",
+      "3 kg·m/s",
+      "6 kg·m/s",
+      "9 kg·m/s"
+    ],
+    "answer": 2,
+    "explain": "Momentum p = mv = 2 × 3 = 6 kg·m/s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "medium",
+    "q": "A block of mass 5 kg is pushed with 20 N. Its acceleration is:",
+    "options": [
+      "2 m/s²",
+      "4 m/s²",
+      "5 m/s²",
+      "10 m/s²"
+    ],
+    "answer": 1,
+    "explain": "a = F/m = 20/5 = 4 m/s²."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "medium",
+    "q": "If the net force on a body is doubled, its acceleration:",
+    "options": [
+      "Halves",
+      "Doubles",
+      "Remains same",
+      "Becomes zero"
+    ],
+    "answer": 1,
+    "explain": "From Newton's second law, a ∝ F when mass is constant."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "medium",
+    "q": "A projectile reaches maximum height when:",
+    "options": [
+      "Vertical velocity is zero",
+      "Horizontal velocity is zero",
+      "Net force is zero",
+      "Acceleration is zero"
+    ],
+    "answer": 0,
+    "explain": "At the top, the vertical component of velocity becomes zero momentarily."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "medium",
+    "q": "The area under a velocity-time graph represents:",
+    "options": [
+      "Acceleration",
+      "Force",
+      "Displacement",
+      "Mass"
+    ],
+    "answer": 2,
+    "explain": "Displacement is the integral of velocity over time."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "medium",
+    "q": "A 10 N force acts for 2 s, impulse is:",
+    "options": [
+      "5 N·s",
+      "10 N·s",
+      "20 N·s",
+      "40 N·s"
+    ],
+    "answer": 2,
+    "explain": "Impulse = F × t = 10 × 2 = 20 N·s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "medium",
+    "q": "A car moving in a circle at constant speed has:",
+    "options": [
+      "Zero acceleration",
+      "Tangential acceleration only",
+      "Centripetal acceleration",
+      "No force"
+    ],
+    "answer": 2,
+    "explain": "Circular motion requires centripetal acceleration toward the center."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "medium",
+    "q": "The gravitational potential energy of a body of mass m at height h is:",
+    "options": [
+      "mgh",
+      "mg/h",
+      "mh/g",
+      "1/2 mgh"
+    ],
+    "answer": 0,
+    "explain": "Potential energy relative to the ground is U = mgh."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "medium",
+    "q": "If an object is thrown vertically upward, its velocity at the highest point is:",
+    "options": [
+      "Maximum",
+      "Zero",
+      "Negative",
+      "Equal to g"
+    ],
+    "answer": 1,
+    "explain": "At the highest point, the object momentarily stops before descending."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "medium",
+    "q": "The moment of inertia of a point mass m at radius r is:",
+    "options": [
+      "mr",
+      "mr²",
+      "1/2 mr²",
+      "m/r²"
+    ],
+    "answer": 1,
+    "explain": "For a point mass, I = mr²."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "medium",
+    "q": "A body of mass 10 kg is lifted 2 m. Work done is:",
+    "options": [
+      "20 J",
+      "50 J",
+      "100 J",
+      "196 J"
+    ],
+    "answer": 3,
+    "explain": "Work = mgh = 10 × 9.8 × 2 = 196 J."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "medium",
+    "q": "The coefficient of friction is dimensionless because:",
+    "options": [
+      "It is a ratio of forces",
+      "It is a force",
+      "It is a velocity",
+      "It is an acceleration"
+    ],
+    "answer": 0,
+    "explain": "Friction coefficient is the ratio of frictional force to normal reaction; both are forces, so the ratio is dimensionless."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrodynamics",
+    "difficulty": "hard",
+    "q": "Two charged particles with equal charge q separated by distance r exert force proportional to:",
+    "options": [
+      "1/r",
+      "1/r²",
+      "r²",
+      "r"
+    ],
+    "answer": 1,
+    "explain": "Coulomb's law gives F ∝ q₁q₂/r²."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrodynamics",
+    "difficulty": "hard",
+    "q": "The effective resistance of two resistors R and R in parallel is:",
+    "options": [
+      "R/2",
+      "R",
+      "2R",
+      "R²"
+    ],
+    "answer": 0,
+    "explain": "Parallel combination: 1/R_eq = 1/R + 1/R = 2/R, so R_eq = R/2."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrodynamics",
+    "difficulty": "hard",
+    "q": "A current-carrying conductor experiences force in a magnetic field according to:",
+    "options": [
+      "Faraday's law",
+      "Ampere's law",
+      "Lorentz force",
+      "Ohm's law"
+    ],
+    "answer": 2,
+    "explain": "The magnetic force on a moving charge/conductor is described by the Lorentz force."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrodynamics",
+    "difficulty": "hard",
+    "q": "The capacitance of a parallel-plate capacitor increases with:",
+    "options": [
+      "Increasing distance between plates",
+      "Decreasing plate area",
+      "Increasing dielectric constant",
+      "Decreasing charge"
+    ],
+    "answer": 2,
+    "explain": "C = ε₀κA/d, so capacitance increases with larger dielectric constant."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrodynamics",
+    "difficulty": "hard",
+    "q": "The impedance of an LCR series circuit at resonance is:",
+    "options": [
+      "Maximum",
+      "Zero",
+      "Minimum equal to resistance",
+      "Infinite"
+    ],
+    "answer": 2,
+    "explain": "At resonance, inductive and capacitive reactances cancel and the impedance is minimum, equal to R."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrodynamics",
+    "difficulty": "hard",
+    "q": "The magnetic field at the center of a circular loop carrying current I is proportional to:",
+    "options": [
+      "I²/R",
+      "I/R²",
+      "I/R",
+      "R/I"
+    ],
+    "answer": 2,
+    "explain": "For a circular loop, B = μ₀I/(2R), so it is proportional to I/R."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Modern Physics",
+    "difficulty": "hard",
+    "q": "Einstein's photoelectric equation is:",
+    "options": [
+      "E = mc²",
+      "Kmax = hν - φ",
+      "F = ma",
+      "λ = h/p"
+    ],
+    "answer": 1,
+    "explain": "The maximum KE of photoelectrons is Kmax = hν - work function φ."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Modern Physics",
+    "difficulty": "hard",
+    "q": "The de Broglie wavelength of an electron is given by:",
+    "options": [
+      "λ = h/mv",
+      "λ = mv/h",
+      "λ = hE",
+      "λ = p/h"
+    ],
+    "answer": 0,
+    "explain": "De Broglie relation is λ = h/p = h/(mv)."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Modern Physics",
+    "difficulty": "hard",
+    "q": "The nuclear binding energy is the energy required to:",
+    "options": [
+      "Split a nucleus",
+      "Fuse nuclei",
+      "Separate nucleons from nucleus",
+      "Ionize an atom"
+    ],
+    "answer": 2,
+    "explain": "Binding energy is the energy needed to separate the nucleons completely from the nucleus."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Modern Physics",
+    "difficulty": "hard",
+    "q": "The threshold frequency in photoelectric emission depends on:",
+    "options": [
+      "Intensity",
+      "Metal work function",
+      "Voltage",
+      "Current"
+    ],
+    "answer": 1,
+    "explain": "Threshold frequency is determined by the work function of the material."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Modern Physics",
+    "difficulty": "hard",
+    "q": "During nuclear fusion, the mass of products is:",
+    "options": [
+      "Greater than reactants",
+      "Equal to reactants",
+      "Less than reactants",
+      "Independent of mass"
+    ],
+    "answer": 2,
+    "explain": "Mass defect converts into released binding energy, so mass decreases."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Optics",
+    "difficulty": "hard",
+    "q": "A convex lens of focal length f forms a real image at 2f. The object distance is:",
+    "options": [
+      "f",
+      "2f",
+      "3f",
+      "4f"
+    ],
+    "answer": 1,
+    "explain": "For a convex lens, when object is at 2f, image is also at 2f on the other side."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Atomic Structure",
+    "difficulty": "easy",
+    "q": "The maximum number of electrons in the K shell is:",
+    "options": [
+      "2",
+      "8",
+      "18",
+      "32"
+    ],
+    "answer": 0,
+    "explain": "The K shell is n = 1, and maximum capacity is 2n² = 2."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Atomic Structure",
+    "difficulty": "easy",
+    "q": "Which sublevel has the lowest energy?",
+    "options": [
+      "3p",
+      "4s",
+      "3d",
+      "2p"
+    ],
+    "answer": 3,
+    "explain": "In the order of filling, 2p is lower than 3p, 3d, or 4s."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Atomic Structure",
+    "difficulty": "easy",
+    "q": "The number of orbitals in d subshell is:",
+    "options": [
+      "1",
+      "3",
+      "5",
+      "7"
+    ],
+    "answer": 2,
+    "explain": "A d subshell has five orbitals."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Atomic Structure",
+    "difficulty": "easy",
+    "q": "The principal quantum number represents:",
+    "options": [
+      "Spin",
+      "Orbital orientation",
+      "Energy level",
+      "Magnetic moment"
+    ],
+    "answer": 2,
+    "explain": "The principal quantum number n determines the main energy level."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Bonding",
+    "difficulty": "easy",
+    "q": "The bond angle in a tetrahedral molecule is about:",
+    "options": [
+      "90°",
+      "107°",
+      "109.5°",
+      "120°"
+    ],
+    "answer": 2,
+    "explain": "Tetrahedral geometry has bond angles close to 109.5°."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Bonding",
+    "difficulty": "easy",
+    "q": "Which bond is most polar?",
+    "options": [
+      "H-H",
+      "H-Cl",
+      "H-F",
+      "C-H"
+    ],
+    "answer": 2,
+    "explain": "H-F has the greatest electronegativity difference and therefore is most polar."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Physical",
+    "difficulty": "easy",
+    "q": "The SI unit of molar concentration is:",
+    "options": [
+      "g/L",
+      "mol/L",
+      "mol/kg",
+      "g/mol"
+    ],
+    "answer": 1,
+    "explain": "Molarity is moles of solute per litre of solution."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Physical",
+    "difficulty": "easy",
+    "q": "The pH of a neutral solution at 25°C is:",
+    "options": [
+      "0",
+      "7",
+      "10",
+      "14"
+    ],
+    "answer": 1,
+    "explain": "At 25°C, pure water has pH 7."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Organic",
+    "difficulty": "easy",
+    "q": "The functional group of alcohols is:",
+    "options": [
+      "-CHO",
+      "-COOH",
+      "-OH",
+      "-COOR"
+    ],
+    "answer": 2,
+    "explain": "Alcohols contain the hydroxyl group -OH."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Organic",
+    "difficulty": "easy",
+    "q": "Ethane belongs to the homologous series of:",
+    "options": [
+      "Alkenes",
+      "Alkanes",
+      "Alkynes",
+      "Alcohols"
+    ],
+    "answer": 1,
+    "explain": "Ethane is an alkane with single bonds only."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Inorganic",
+    "difficulty": "easy",
+    "q": "The most electronegative element is:",
+    "options": [
+      "Oxygen",
+      "Chlorine",
+      "Fluorine",
+      "Nitrogen"
+    ],
+    "answer": 2,
+    "explain": "Fluorine has the highest electronegativity."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Inorganic",
+    "difficulty": "easy",
+    "q": "Which gas is used in Haber process for ammonia synthesis?",
+    "options": [
+      "Oxygen",
+      "Nitrogen",
+      "Chlorine",
+      "Hydrogen"
+    ],
+    "answer": 3,
+    "explain": "The Haber process uses N2 and H2 to synthesize NH3."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Physical",
+    "difficulty": "medium",
+    "q": "For a first-order reaction, the half-life is:",
+    "options": [
+      "Directly proportional to initial concentration",
+      "Independent of initial concentration",
+      "Inversely proportional to initial concentration",
+      "Proportional to square of initial concentration"
+    ],
+    "answer": 1,
+    "explain": "For first-order kinetics, t1/2 = 0.693/k, independent of initial concentration."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Physical",
+    "difficulty": "medium",
+    "q": "The rate constant of a zero-order reaction has units:",
+    "options": [
+      "s⁻¹",
+      "mol L⁻¹ s⁻¹",
+      "L mol⁻¹ s⁻¹",
+      "mol² L⁻² s⁻¹"
+    ],
+    "answer": 1,
+    "explain": "Zero-order rate = k, so units are concentration/time = mol L⁻¹ s⁻¹."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Physical",
+    "difficulty": "medium",
+    "q": "An increase in temperature generally:",
+    "options": [
+      "Decreases rate constant",
+      "Increases rate constant",
+      "Has no effect",
+      "Stops reaction"
+    ],
+    "answer": 1,
+    "explain": "Higher temperature increases effective collisions and hence the rate constant."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Bonding",
+    "difficulty": "medium",
+    "q": "The shape of NH3 molecule is:",
+    "options": [
+      "Linear",
+      "Trigonal planar",
+      "Trigonal pyramidal",
+      "Tetrahedral"
+    ],
+    "answer": 2,
+    "explain": "NH3 has 3 bond pairs and 1 lone pair; geometry is trigonal pyramidal."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Bonding",
+    "difficulty": "medium",
+    "q": "Which molecule has a dipole moment?",
+    "options": [
+      "CO₂",
+      "BF₃",
+      "CH₄",
+      "NH₃"
+    ],
+    "answer": 3,
+    "explain": "NH3 is asymmetrical and has a net dipole moment."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Bonding",
+    "difficulty": "medium",
+    "q": "The strongest intermolecular force in HF is:",
+    "options": [
+      "London forces",
+      "Dipole-dipole",
+      "Hydrogen bonding",
+      "Ionic bond"
+    ],
+    "answer": 2,
+    "explain": "HF forms hydrogen bonding because H is attached to highly electronegative fluorine."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Inorganic",
+    "difficulty": "medium",
+    "q": "Which element is present in all acids?",
+    "options": [
+      "Hydrogen",
+      "Nitrogen",
+      "Oxygen",
+      "Chlorine"
+    ],
+    "answer": 0,
+    "explain": "Acids produce H+ in water, so hydrogen is essential to acids."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Inorganic",
+    "difficulty": "medium",
+    "q": "Which oxidation state is common for alkali metals?",
+    "options": [
+      "+1",
+      "+2",
+      "+3",
+      "0"
+    ],
+    "answer": 0,
+    "explain": "Alkali metals lose one electron to form +1 ions."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Organic",
+    "difficulty": "medium",
+    "q": "Which compound is an aldehyde?",
+    "options": [
+      "CH3OH",
+      "CH3CHO",
+      "CH3COOH",
+      "CH3COCH3"
+    ],
+    "answer": 1,
+    "explain": "An aldehyde contains -CHO, as in CH3CHO."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Organic",
+    "difficulty": "medium",
+    "q": "Which hydrocarbon can undergo addition reaction readily?",
+    "options": [
+      "Methane",
+      "Ethane",
+      "Ethene",
+      "Benzene"
+    ],
+    "answer": 2,
+    "explain": "Ethene has a C=C bond and undergoes addition reactions."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Organic",
+    "difficulty": "medium",
+    "q": "The reagent used to distinguish aldehydes from ketones is:",
+    "options": [
+      "NaOH",
+      "Tollens' reagent",
+      "HCl",
+      "KMnO4"
+    ],
+    "answer": 1,
+    "explain": "Tollens' reagent gives a silver mirror with aldehydes but not ketones."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Physical",
+    "difficulty": "medium",
+    "q": "The molar volume of an ideal gas at STP is approximately:",
+    "options": [
+      "11.2 L",
+      "22.4 L",
+      "44.8 L",
+      "2.24 L"
+    ],
+    "answer": 1,
+    "explain": "At STP, 1 mole of an ideal gas occupies 22.4 L."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Organic",
+    "difficulty": "hard",
+    "q": "Markovnikov's rule applies to addition of HX to:",
+    "options": [
+      "Symmetrical alkenes",
+      "Unsymmetrical alkenes",
+      "Alkanes",
+      "Aromatic rings"
+    ],
+    "answer": 1,
+    "explain": "The proton adds to the carbon with more hydrogens in unsymmetrical alkenes."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Organic",
+    "difficulty": "hard",
+    "q": "Benzene undergoes electrophilic substitution because:",
+    "options": [
+      "It has unstable ring",
+      "It is highly reactive",
+      "It has delocalized π-electrons",
+      "It has single bonds only"
+    ],
+    "answer": 2,
+    "explain": "Delocalization of π electrons makes benzene aromatic and substitution favored."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Organic",
+    "difficulty": "hard",
+    "q": "The strongest acid among the following is:",
+    "options": [
+      "Ethanol",
+      "Phenol",
+      "Acetic acid",
+      "Water"
+    ],
+    "answer": 2,
+    "explain": "Acetic acid is more acidic because acetate is resonance stabilized."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Inorganic",
+    "difficulty": "hard",
+    "q": "Which of these has highest lattice energy?",
+    "options": [
+      "NaCl",
+      "MgO",
+      "KCl",
+      "CaO"
+    ],
+    "answer": 1,
+    "explain": "MgO has higher ionic charges and smaller ions, giving larger lattice energy."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Inorganic",
+    "difficulty": "hard",
+    "q": "Which is a transition element?",
+    "options": [
+      "Sodium",
+      "Calcium",
+      "Iron",
+      "Aluminium"
+    ],
+    "answer": 2,
+    "explain": "Iron is a transition element because it has partially filled d orbitals in its compounds."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Inorganic",
+    "difficulty": "hard",
+    "q": "The oxidation number of Mn in KMnO4 is:",
+    "options": [
+      "+2",
+      "+4",
+      "+6",
+      "+7"
+    ],
+    "answer": 3,
+    "explain": "In KMnO4, K is +1 and each O is -2; thus Mn is +7."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Physical",
+    "difficulty": "hard",
+    "q": "At equilibrium, the Gibbs free energy change ΔG is:",
+    "options": [
+      "Positive",
+      "Negative",
+      "Zero",
+      "Infinite"
+    ],
+    "answer": 2,
+    "explain": "For a system at equilibrium, ΔG = 0 for the process under standard conditions."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Physical",
+    "difficulty": "hard",
+    "q": "The ionic product of water at 25°C is:",
+    "options": [
+      "1e-7",
+      "1e-14",
+      "1e-12",
+      "1e-10"
+    ],
+    "answer": 1,
+    "explain": "Kw = [H+][OH−] = 1.0 × 10⁻¹⁴ at 25°C."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Bonding",
+    "difficulty": "hard",
+    "q": "Which species has trigonal bipyramidal geometry?",
+    "options": [
+      "BF3",
+      "NH3",
+      "PCl5",
+      "CH4"
+    ],
+    "answer": 2,
+    "explain": "PCl5 has five bond pairs and trigonal bipyramidal shape."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Atomic Structure",
+    "difficulty": "hard",
+    "q": "The wavelength emitted by an electron transition is determined by:",
+    "options": [
+      "Rydberg equation",
+      "Ohm's law",
+      "Avogadro's law",
+      "Hess's law"
+    ],
+    "answer": 0,
+    "explain": "Spectral lines are explained using the Rydberg formula for hydrogen."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Organic",
+    "difficulty": "hard",
+    "q": "Which has the highest boiling point?",
+    "options": [
+      "Methane",
+      "Ethane",
+      "Ethanol",
+      "Ethanal"
+    ],
+    "answer": 2,
+    "explain": "Ethanol has hydrogen bonding, giving it the highest boiling point."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Physical",
+    "difficulty": "hard",
+    "q": "A catalyst increases rate by:",
+    "options": [
+      "Increasing activation energy",
+      "Lowering activation energy",
+      "Changing equilibrium constant",
+      "Increasing reactant concentration"
+    ],
+    "answer": 1,
+    "explain": "Catalysts provide an alternate pathway with lower activation energy."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Algebra",
+    "difficulty": "easy",
+    "q": "If a, b, c are in AP, then:",
+    "options": [
+      "b² = ac",
+      "2b = a + c",
+      "b = a + c",
+      "a + b = 2c"
+    ],
+    "answer": 1,
+    "explain": "Middle term of AP satisfies 2b = a + c."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Algebra",
+    "difficulty": "easy",
+    "q": "The sum of roots of x² - 5x + 6 = 0 is:",
+    "options": [
+      "5",
+      "-5",
+      "6",
+      "-6"
+    ],
+    "answer": 0,
+    "explain": "For ax² + bx + c = 0, sum of roots = -b/a = 5."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Algebra",
+    "difficulty": "easy",
+    "q": "The product of roots of x² - 7x + 12 = 0 is:",
+    "options": [
+      "7",
+      "-7",
+      "12",
+      "-12"
+    ],
+    "answer": 2,
+    "explain": "Product of roots = c/a = 12."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Trigonometry",
+    "difficulty": "easy",
+    "q": "sin 30° equals:",
+    "options": [
+      "0",
+      "1/2",
+      "√3/2",
+      "1"
+    ],
+    "answer": 1,
+    "explain": "sin 30° = 1/2."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Coordinate Geometry",
+    "difficulty": "easy",
+    "q": "The distance between (0,0) and (3,4) is:",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "7"
+    ],
+    "answer": 2,
+    "explain": "Distance = √(3² + 4²) = 5."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Calculus",
+    "difficulty": "easy",
+    "q": "Derivative of x² is:",
+    "options": [
+      "x",
+      "2x",
+      "x²",
+      "2"
+    ],
+    "answer": 1,
+    "explain": "d/dx of x² is 2x."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Probability",
+    "difficulty": "easy",
+    "q": "Probability of a sure event is:",
+    "options": [
+      "0",
+      "1/2",
+      "1",
+      "Undefined"
+    ],
+    "answer": 2,
+    "explain": "A sure event always occurs and has probability 1."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Matrices",
+    "difficulty": "easy",
+    "q": "A 2×2 identity matrix is:",
+    "options": [
+      "[[1,0],[0,1]]",
+      "[[0,1],[1,0]]",
+      "[[1,1],[1,1]]",
+      "[[0,0],[0,0]]"
+    ],
+    "answer": 0,
+    "explain": "Identity matrix has 1s on diagonal and 0 elsewhere."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Sequences",
+    "difficulty": "easy",
+    "q": "The next term in 2, 4, 8, 16, ... is:",
+    "options": [
+      "20",
+      "24",
+      "32",
+      "48"
+    ],
+    "answer": 2,
+    "explain": "This is a geometric sequence with ratio 2."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Limits",
+    "difficulty": "easy",
+    "q": "The value of lim(x→0) sin x / x is:",
+    "options": [
+      "0",
+      "1",
+      "∞",
+      "undefined"
+    ],
+    "answer": 1,
+    "explain": "A standard limit is sin x / x → 1 as x→0."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Complex Numbers",
+    "difficulty": "easy",
+    "q": "i² equals:",
+    "options": [
+      "1",
+      "-1",
+      "0",
+      "i"
+    ],
+    "answer": 1,
+    "explain": "By definition, i² = -1."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Statistics",
+    "difficulty": "easy",
+    "q": "The median of 1, 3, 5, 7, 9 is:",
+    "options": [
+      "3",
+      "5",
+      "7",
+      "9"
+    ],
+    "answer": 1,
+    "explain": "With five values, the median is the middle value, 5."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Algebra",
+    "difficulty": "medium",
+    "q": "The number of ways to arrange letters of 'LEVEL' is:",
+    "options": [
+      "60",
+      "30",
+      "120",
+      "20"
+    ],
+    "answer": 1,
+    "explain": "5!/(2!2!) = 30."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Quadratic Equations",
+    "difficulty": "medium",
+    "q": "If roots are 2 and 3, equation is:",
+    "options": [
+      "x² - 5x + 6 = 0",
+      "x² + 5x + 6 = 0",
+      "x² - 6x + 5 = 0",
+      "x² + 6x + 5 = 0"
+    ],
+    "answer": 0,
+    "explain": "Sum = 5, product = 6, so x² - 5x + 6 = 0."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Trigonometry",
+    "difficulty": "medium",
+    "q": "cos 60° equals:",
+    "options": [
+      "1/2",
+      "√3/2",
+      "1",
+      "0"
+    ],
+    "answer": 0,
+    "explain": "cos 60° = 1/2."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Calculus",
+    "difficulty": "medium",
+    "q": "Derivative of sin x² is:",
+    "options": [
+      "cos x²",
+      "2x cos x²",
+      "2x sin x²",
+      "x cos x²"
+    ],
+    "answer": 1,
+    "explain": "Using chain rule: d/dx sin(x²) = cos(x²)·2x."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Probability",
+    "difficulty": "medium",
+    "q": "Probability of drawing an ace from a standard deck is:",
+    "options": [
+      "1/13",
+      "1/4",
+      "1/52",
+      "4/13"
+    ],
+    "answer": 0,
+    "explain": "There are 4 aces in 52 cards => 4/52 = 1/13."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Matrices",
+    "difficulty": "medium",
+    "q": "det of [[2,3],[1,4]] is:",
+    "options": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "answer": 0,
+    "explain": "Determinant = 2×4 − 3×1 = 5."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Series",
+    "difficulty": "medium",
+    "q": "Sum of first n natural numbers is:",
+    "options": [
+      "n(n+1)/2",
+      "n²",
+      "n(n-1)/2",
+      "2n"
+    ],
+    "answer": 0,
+    "explain": "The formula for the sum of the first n natural numbers is n(n+1)/2."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Coordinate Geometry",
+    "difficulty": "medium",
+    "q": "Slope of line through (1,2) and (3,6) is:",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": 1,
+    "explain": "Slope = (6 - 2)/(3 - 1) = 2."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Differentiation",
+    "difficulty": "medium",
+    "q": "Derivative of eˣ is:",
+    "options": [
+      "eˣ",
+      "x eˣ",
+      "e",
+      "1"
+    ],
+    "answer": 0,
+    "explain": "d/dx eˣ = eˣ."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Binomial Theorem",
+    "difficulty": "medium",
+    "q": "The coefficient of x² in (1 + x)^3 is:",
+    "options": [
+      "1",
+      "3",
+      "6",
+      "9"
+    ],
+    "answer": 1,
+    "explain": "The coefficient is C(3,2) = 3."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Sequences",
+    "difficulty": "medium",
+    "q": "Common difference of AP 3,7,11,15 is:",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "answer": 1,
+    "explain": "Difference between consecutive terms is 4."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Geometry",
+    "difficulty": "medium",
+    "q": "Area of a circle of radius 7 is:",
+    "options": [
+      "49π",
+      "14π",
+      "7π",
+      "49"
+    ],
+    "answer": 0,
+    "explain": "Area = πr² = 49π."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Calculus",
+    "difficulty": "hard",
+    "q": "∫₀¹ x eˣ dx equals:",
+    "options": [
+      "1",
+      "e",
+      "e-1",
+      "0"
+    ],
+    "answer": 0,
+    "explain": "Using integration by parts gives value 1."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Coordinate Geometry",
+    "difficulty": "hard",
+    "q": "Circle with center (2,-3) radius 4 has equation:",
+    "options": [
+      "(x-2)² + (y+3)² = 16",
+      "(x+2)² + (y-3)² = 16",
+      "(x-2)² + (y+3)² = 4",
+      "x² + y² = 16"
+    ],
+    "answer": 0,
+    "explain": "Use standard form (x-h)² + (y-k)² = r²."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Algebra",
+    "difficulty": "hard",
+    "q": "If log₂ 8 = x, then x is:",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "8"
+    ],
+    "answer": 1,
+    "explain": "2³ = 8, so log₂ 8 = 3."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Vectors",
+    "difficulty": "hard",
+    "q": "Dot product of perpendicular vectors is:",
+    "options": [
+      "1",
+      "0",
+      "-1",
+      "Infinity"
+    ],
+    "answer": 1,
+    "explain": "If vectors are perpendicular, their dot product is zero."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Probability",
+    "difficulty": "hard",
+    "q": "Mean of 2,4,6,8 is:",
+    "options": [
+      "4",
+      "5",
+      "6",
+      "8"
+    ],
+    "answer": 1,
+    "explain": "Average = (2 + 4 + 6 + 8)/4 = 5."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Differential Equations",
+    "difficulty": "hard",
+    "q": "Solution of y' = y is:",
+    "options": [
+      "y = x + C",
+      "y = C eˣ",
+      "y = x² + C",
+      "y = 1/x + C"
+    ],
+    "answer": 1,
+    "explain": "The general solution to dy/dx = y is y = Ceˣ."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Complex Numbers",
+    "difficulty": "hard",
+    "q": "Argument of i is:",
+    "options": [
+      "0",
+      "π/2",
+      "π",
+      "3π/2"
+    ],
+    "answer": 1,
+    "explain": "i lies on positive imaginary axis, angle π/2."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Trigonometry",
+    "difficulty": "hard",
+    "q": "Value of sin 2θ in terms of sin θ and cos θ is:",
+    "options": [
+      "sin²θ - cos²θ",
+      "2 sin θ cos θ",
+      "sin θ + cos θ",
+      "tan θ"
+    ],
+    "answer": 1,
+    "explain": "By double-angle identity, sin 2θ = 2 sin θ cos θ."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Parametric Equations",
+    "difficulty": "hard",
+    "q": "The derivative of x = t², y = 2t is dy/dx:",
+    "options": [
+      "1/t",
+      "t",
+      "2t",
+      "2"
+    ],
+    "answer": 0,
+    "explain": "dy/dt = 2, dx/dt = 2t, so dy/dx = 1/t."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Matrices",
+    "difficulty": "hard",
+    "q": "For matrix A, A² = A implies A is:",
+    "options": [
+      "Null matrix",
+      "Identity matrix",
+      "Idempotent matrix",
+      "Singular matrix"
+    ],
+    "answer": 2,
+    "explain": "A matrix satisfying A² = A is called idempotent."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Progressions",
+    "difficulty": "hard",
+    "q": "Sum of first 10 natural numbers is:",
+    "options": [
+      "45",
+      "50",
+      "55",
+      "60"
+    ],
+    "answer": 2,
+    "explain": "Using n(n+1)/2 with n = 10 gives 55."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Probability",
+    "difficulty": "hard",
+    "q": "Probability of getting at least one head in two tosses is:",
+    "options": [
+      "1/4",
+      "1/2",
+      "3/4",
+      "1"
+    ],
+    "answer": 2,
+    "explain": "Outcomes: HH, HT, TH, TT; 3 have at least one head."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "easy",
+    "q": "A 2 kg body changes its speed from 0 to 3 m/s. The magnitude of the impulse is:",
+    "options": [
+      "3 N·s",
+      "6 N·s",
+      "9 N·s",
+      "12 N·s"
+    ],
+    "answer": 1,
+    "explain": "Impulse equals change in momentum: Δp = m(v-u) = 2 × 3 = 6 N·s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrodynamics",
+    "difficulty": "easy",
+    "q": "Two resistors of 4 Ω and 6 Ω are connected in series. Their equivalent resistance is:",
+    "options": [
+      "2 Ω",
+      "5 Ω",
+      "10 Ω",
+      "24 Ω"
+    ],
+    "answer": 2,
+    "explain": "Series resistances add: R = 4 + 6 = 10 Ω."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Oscillations",
+    "difficulty": "easy",
+    "q": "A spring has force constant 200 N/m and is stretched by 0.02 m. The restoring force magnitude is:",
+    "options": [
+      "2 N",
+      "4 N",
+      "10 N",
+      "20 N"
+    ],
+    "answer": 1,
+    "explain": "Hooke's law gives F = kx = 200 × 0.02 = 4 N."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Waves",
+    "difficulty": "easy",
+    "q": "A wave completes one oscillation in 0.2 s. Its frequency is:",
+    "options": [
+      "0.2 Hz",
+      "2 Hz",
+      "5 Hz",
+      "10 Hz"
+    ],
+    "answer": 2,
+    "explain": "Frequency is the reciprocal of period: f = 1/T = 1/0.2 = 5 Hz."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Properties of Matter",
+    "difficulty": "easy",
+    "q": "A sample has mass 540 g and volume 200 cm³. Its density is:",
+    "options": [
+      "0.37 g/cm³",
+      "2.7 g/cm³",
+      "27 g/cm³",
+      "740 g/cm³"
+    ],
+    "answer": 1,
+    "explain": "Density = mass/volume = 540/200 = 2.7 g/cm³."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Mole Concept",
+    "difficulty": "easy",
+    "q": "How many moles of water are present in 18 g of H₂O? (Molar mass = 18 g/mol)",
+    "options": [
+      "0.5",
+      "1",
+      "2",
+      "18"
+    ],
+    "answer": 1,
+    "explain": "Number of moles = given mass/molar mass = 18/18 = 1 mol."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Redox Reactions",
+    "difficulty": "easy",
+    "q": "The oxidation number of oxygen in H₂O₂ is:",
+    "options": [
+      "−2",
+      "−1",
+      "0",
+      "+1"
+    ],
+    "answer": 1,
+    "explain": "In a peroxide, the O–O bond gives each oxygen an oxidation number of −1."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Equilibrium",
+    "difficulty": "easy",
+    "q": "The pH of 1.0 × 10⁻³ M HCl, assuming complete ionization, is:",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "11"
+    ],
+    "answer": 2,
+    "explain": "HCl is a strong acid, so [H⁺] = 10⁻³ M and pH = −log[H⁺] = 3."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Bonding",
+    "difficulty": "easy",
+    "q": "The hybridization of carbon in methane is:",
+    "options": [
+      "sp",
+      "sp²",
+      "sp³",
+      "dsp²"
+    ],
+    "answer": 2,
+    "explain": "Carbon forms four equivalent σ bonds in tetrahedral CH₄, corresponding to sp³ hybridization."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Equilibrium",
+    "difficulty": "easy",
+    "q": "For N₂(g) + 3H₂(g) ⇌ 2NH₃(g), Kc is:",
+    "options": [
+      "[NH₃]²/([N₂][H₂]³)",
+      "[N₂][H₂]³/[NH₃]²",
+      "[NH₃]/([N₂][H₂])",
+      "[NH₃]²/[N₂]"
+    ],
+    "answer": 0,
+    "explain": "The equilibrium expression uses product concentrations over reactant concentrations, each raised to its stoichiometric coefficient."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Quadratic Equations",
+    "difficulty": "easy",
+    "q": "The quadratic equation with roots 3 and −2 is:",
+    "options": [
+      "x² + x − 6 = 0",
+      "x² − x − 6 = 0",
+      "x² − 5x + 6 = 0",
+      "x² + 5x − 6 = 0"
+    ],
+    "answer": 1,
+    "explain": "The monic polynomial is (x−3)(x+2) = x²−x−6."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Sequences",
+    "difficulty": "easy",
+    "q": "The sum of the first 10 terms of the AP 3, 7, 11, ... is:",
+    "options": [
+      "180",
+      "190",
+      "200",
+      "210"
+    ],
+    "answer": 3,
+    "explain": "S₁₀ = 10/2 × [2(3) + 9(4)] = 5 × 42 = 210."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Matrices",
+    "difficulty": "easy",
+    "q": "The determinant of [[1, 2], [3, 4]] is:",
+    "options": [
+      "−2",
+      "2",
+      "10",
+      "−10"
+    ],
+    "answer": 0,
+    "explain": "For a 2×2 matrix, det = ad−bc = 1×4−2×3 = −2."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Differentiation",
+    "difficulty": "easy",
+    "q": "If f(x) = x³, then f′(2) equals:",
+    "options": [
+      "6",
+      "8",
+      "12",
+      "16"
+    ],
+    "answer": 2,
+    "explain": "f′(x) = 3x², so f′(2) = 3 × 4 = 12."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Work, Energy and Power",
+    "difficulty": "medium",
+    "q": "A 2 kg object is lifted vertically by 5 m. Taking g = 10 m/s², its gain in gravitational potential energy is:",
+    "options": [
+      "25 J",
+      "50 J",
+      "100 J",
+      "200 J"
+    ],
+    "answer": 2,
+    "explain": "The gain is mgh = 2 × 10 × 5 = 100 J."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrodynamics",
+    "difficulty": "medium",
+    "q": "A 4 μF capacitor is charged to 10 V. The energy stored is:",
+    "options": [
+      "20 μJ",
+      "100 μJ",
+      "200 μJ",
+      "400 μJ"
+    ],
+    "answer": 2,
+    "explain": "U = ½CV² = ½ × 4 μF × 100 V² = 200 μJ."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrodynamics",
+    "difficulty": "medium",
+    "q": "Resistors of 6 Ω and 3 Ω are connected in parallel. Their equivalent resistance is:",
+    "options": [
+      "1 Ω",
+      "2 Ω",
+      "3 Ω",
+      "9 Ω"
+    ],
+    "answer": 1,
+    "explain": "1/R = 1/6 + 1/3 = 1/2, so R = 2 Ω."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Optics",
+    "difficulty": "medium",
+    "q": "An object is 30 cm from a convex lens of focal length 20 cm. The image distance is:",
+    "options": [
+      "12 cm",
+      "30 cm",
+      "40 cm",
+      "60 cm"
+    ],
+    "answer": 3,
+    "explain": "Using 1/f = 1/v − 1/u with f = 20 cm and u = −30 cm gives 1/v = 1/60, so v = 60 cm."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Equilibrium",
+    "difficulty": "medium",
+    "q": "For N₂(g) + 3H₂(g) ⇌ 2NH₃(g), the relation between Kp and Kc is:",
+    "options": [
+      "Kp = Kc(RT)²",
+      "Kp = Kc/(RT)²",
+      "Kp = KcRT",
+      "Kp = Kc"
+    ],
+    "answer": 1,
+    "explain": "Kp = Kc(RT)^Δn, and Δn = 2−4 = −2."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Electrochemistry",
+    "difficulty": "medium",
+    "q": "Given E°(Cu²⁺/Cu) = +0.34 V and E°(Zn²⁺/Zn) = −0.76 V, E° for the Daniell cell is:",
+    "options": [
+      "−1.10 V",
+      "−0.42 V",
+      "+0.42 V",
+      "+1.10 V"
+    ],
+    "answer": 3,
+    "explain": "Copper is the cathode and zinc the anode: E°cell = E°cathode − E°anode = 0.34 − (−0.76) = 1.10 V."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "States of Matter",
+    "difficulty": "medium",
+    "q": "An ideal gas undergoes an isothermal expansion to twice its initial volume. Its final pressure is:",
+    "options": [
+      "Twice the initial pressure",
+      "Half the initial pressure",
+      "Unchanged",
+      "Four times the initial pressure"
+    ],
+    "answer": 1,
+    "explain": "At constant temperature, Boyle's law gives P₁V₁ = P₂V₂. Doubling V halves P."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Thermodynamics",
+    "difficulty": "medium",
+    "q": "For 2 mol of a monoatomic ideal gas heated by 10 K, the change in internal energy is:",
+    "options": [
+      "10R",
+      "20R",
+      "30R",
+      "40R"
+    ],
+    "answer": 2,
+    "explain": "ΔU = nCᵥΔT = n(3R/2)ΔT = 2 × 3R/2 × 10 = 30R."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Acid-Base Equilibrium",
+    "difficulty": "medium",
+    "q": "A buffer contains equal concentrations of a weak acid and its conjugate base. Its pH is:",
+    "options": [
+      "0",
+      "1",
+      "pKa",
+      "14"
+    ],
+    "answer": 2,
+    "explain": "From Henderson–Hasselbalch, pH = pKa + log([A⁻]/[HA]); equal concentrations make the logarithm zero."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Integral Calculus",
+    "difficulty": "medium",
+    "q": "The value of ∫₀^(π/2) sin x dx is:",
+    "options": [
+      "0",
+      "1",
+      "π/2",
+      "2"
+    ],
+    "answer": 1,
+    "explain": "An antiderivative is −cos x; evaluating from 0 to π/2 gives 0−(−1) = 1."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Sequences",
+    "difficulty": "medium",
+    "q": "The fifth term of a GP with first term 2 and common ratio 3 is:",
+    "options": [
+      "54",
+      "81",
+      "162",
+      "243"
+    ],
+    "answer": 2,
+    "explain": "The nth term is arⁿ⁻¹, so a₅ = 2 × 3⁴ = 162."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Probability",
+    "difficulty": "medium",
+    "q": "Two fair dice are thrown. The probability that their sum is 7 is:",
+    "options": [
+      "1/12",
+      "1/9",
+      "1/6",
+      "1/3"
+    ],
+    "answer": 2,
+    "explain": "Six of the 36 equally likely outcomes sum to 7, so the probability is 6/36 = 1/6."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Differentiation",
+    "difficulty": "medium",
+    "q": "The tangent to y = x² at (1, 1) is:",
+    "options": [
+      "y = x + 1",
+      "y = 2x − 1",
+      "y = 2x + 1",
+      "y = x − 1"
+    ],
+    "answer": 1,
+    "explain": "The derivative is 2x, so the slope at x=1 is 2. The tangent is y−1 = 2(x−1), or y=2x−1."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Vectors",
+    "difficulty": "medium",
+    "q": "The vectors (1, 2, −1) and (2, −1, 0) are:",
+    "options": [
+      "Parallel",
+      "Perpendicular",
+      "Equal",
+      "Of unequal magnitudes but same direction"
+    ],
+    "answer": 1,
+    "explain": "Their dot product is 1×2 + 2×(−1) + (−1)×0 = 0, so they are perpendicular."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Oscillations",
+    "difficulty": "hard",
+    "q": "The spring constant of a mass-spring oscillator is quadrupled while its mass is unchanged. Its time period becomes:",
+    "options": [
+      "Four times",
+      "Twice",
+      "Half",
+      "Unchanged"
+    ],
+    "answer": 2,
+    "explain": "T = 2π√(m/k). Replacing k by 4k divides the period by √4 = 2."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrostatics",
+    "difficulty": "hard",
+    "q": "Inside a uniformly charged solid sphere, the electric field at distance r from its centre varies as:",
+    "options": [
+      "1/r²",
+      "1/r",
+      "r",
+      "r²"
+    ],
+    "answer": 2,
+    "explain": "Gauss's law gives enclosed charge proportional to r³; dividing by the spherical area 4πr² gives E proportional to r."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Modern Physics",
+    "difficulty": "hard",
+    "q": "For a given metal, increasing the frequency of incident light above threshold causes the stopping potential to:",
+    "options": [
+      "Decrease linearly",
+      "Increase linearly",
+      "Remain unchanged",
+      "Become zero"
+    ],
+    "answer": 1,
+    "explain": "Einstein's equation gives eV₀ = hν − φ, so V₀ increases linearly with frequency above threshold."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrodynamics",
+    "difficulty": "hard",
+    "q": "A capacitor in a series RC circuit charges from a battery V. At t = RC, its charge is:",
+    "options": [
+      "CV/e",
+      "CV(1−1/e)",
+      "CV/2",
+      "CV"
+    ],
+    "answer": 1,
+    "explain": "During charging q(t) = CV(1−e^(−t/RC)); at t=RC this is CV(1−1/e)."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Gravitation",
+    "difficulty": "hard",
+    "q": "A satellite in a circular orbit is moved to an orbit of twice the radius around the same planet. Its orbital speed becomes:",
+    "options": [
+      "2v",
+      "√2v",
+      "v/√2",
+      "v/2"
+    ],
+    "answer": 2,
+    "explain": "Orbital speed is v = √(GM/r). Doubling r reduces the speed by a factor of √2."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Coordination Compounds",
+    "difficulty": "hard",
+    "q": "In the octahedral complex [Fe(CN)₆]⁴⁻, the Fe²⁺ ion is low-spin d⁶. Its number of unpaired electrons is:",
+    "options": [
+      "0",
+      "2",
+      "4",
+      "6"
+    ],
+    "answer": 0,
+    "explain": "CN⁻ is a strong-field ligand. Low-spin d⁶ fills the three t₂g orbitals as t₂g⁶, with all electrons paired."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Electrochemistry",
+    "difficulty": "hard",
+    "q": "For a cell reaction involving n electrons, which condition indicates spontaneity under the stated conditions?",
+    "options": [
+      "Ecell < 0 and ΔG < 0",
+      "Ecell > 0 and ΔG < 0",
+      "Ecell = 0 and ΔG < 0",
+      "Ecell > 0 and ΔG > 0"
+    ],
+    "answer": 1,
+    "explain": "ΔG = −nFEcell. A positive cell potential makes ΔG negative, indicating a spontaneous forward reaction."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Equilibrium",
+    "difficulty": "hard",
+    "q": "For N₂O₄(g) ⇌ 2NO₂(g), the relation between Kp and Kc is:",
+    "options": [
+      "Kp = Kc/(RT)",
+      "Kp = Kc",
+      "Kp = KcRT",
+      "Kp = Kc(RT)²"
+    ],
+    "answer": 2,
+    "explain": "Kp = Kc(RT)^Δn; here Δn = 2−1 = 1."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Ionic Equilibrium",
+    "difficulty": "hard",
+    "q": "AgCl dissolves in pure water with molar solubility s. Its solubility product Ksp is:",
+    "options": [
+      "s",
+      "2s",
+      "s²",
+      "4s²"
+    ],
+    "answer": 2,
+    "explain": "AgCl(s) ⇌ Ag⁺ + Cl⁻ gives [Ag⁺]=[Cl⁻]=s, so Ksp = [Ag⁺][Cl⁻] = s²."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Integral Calculus",
+    "difficulty": "hard",
+    "q": "The value of ∫₀¹ x/(1+x²) dx is:",
+    "options": [
+      "ln 2",
+      "(ln 2)/2",
+      "1/2",
+      "π/4"
+    ],
+    "answer": 1,
+    "explain": "Set u=1+x², so du=2x dx. The integral is ½ ln(1+x²) evaluated from 0 to 1, giving (ln 2)/2."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Matrices",
+    "difficulty": "hard",
+    "q": "The eigenvalues of an upper-triangular matrix with diagonal entries 2, −1, and 3 are:",
+    "options": [
+      "1, 2, 3",
+      "2, −1, 3",
+      "−2, 1, 3",
+      "0, 2, 3"
+    ],
+    "answer": 1,
+    "explain": "The characteristic polynomial of a triangular matrix has its diagonal entries as roots, so those entries are its eigenvalues."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Applications of Derivatives",
+    "difficulty": "hard",
+    "q": "A rectangle in the first quadrant has its upper-right corner on x + y = 12. Its maximum possible area is:",
+    "options": [
+      "24",
+      "30",
+      "36",
+      "48"
+    ],
+    "answer": 2,
+    "explain": "With y=12−x, area A=x(12−x), a downward parabola maximized at x=6, y=6. The maximum is 36."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Integral Calculus",
+    "difficulty": "hard",
+    "q": "The value of ∫₀^(π/2) ln(sin x) dx is:",
+    "options": [
+      "−π ln 2",
+      "−(π/2) ln 2",
+      "0",
+      "(π/2) ln 2"
+    ],
+    "answer": 1,
+    "explain": "Using the standard symmetry between ln(sin x) and ln(cos x), their equal integrals sum to −(π/2)ln 2; each integral is therefore −(π/2)ln 2."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Algebra",
+    "difficulty": "hard",
+    "q": "The number of distinct real roots of x⁴ − 5x² + 4 = 0 is:",
+    "options": [
+      "0",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": 3,
+    "explain": "Let y=x². Then y²−5y+4=(y−1)(y−4)=0, so x=±1, ±2: four distinct real roots."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "easy",
+    "q": "A particle travels 72 m in 12 s at constant speed. Its speed is:",
+    "options": [
+      "6 m/s",
+      "8 m/s",
+      "12 m/s",
+      "5 m/s"
+    ],
+    "answer": 0,
+    "explain": "Speed = distance/time = 72/12 = 6 m/s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "easy",
+    "q": "A 2 kg body has acceleration 3 m/s². The net force on it is:",
+    "options": [
+      "5 N",
+      "6 N",
+      "3 N",
+      "8 N"
+    ],
+    "answer": 1,
+    "explain": "Newton's second law gives F = ma = 2 × 3 = 6 N."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Work, Energy and Power",
+    "difficulty": "easy",
+    "q": "A 1 kg object is raised by 4 m. Take g = 10 m/s². Its gain in potential energy is:",
+    "options": [
+      "20 J",
+      "4 J",
+      "40 J",
+      "50 J"
+    ],
+    "answer": 2,
+    "explain": "ΔU = mgh = 1 × 10 × 4 = 40 J."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrodynamics",
+    "difficulty": "easy",
+    "q": "A 12 V source is connected across a 3 Ω resistor. The current is:",
+    "options": [
+      "36 A",
+      "6 A",
+      "0.25 A",
+      "4 A"
+    ],
+    "answer": 3,
+    "explain": "Ohm's law gives I = V/R = 12/3 = 4 A."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Waves",
+    "difficulty": "easy",
+    "q": "A wave has frequency 2 Hz and wavelength 3 m. Its speed is:",
+    "options": [
+      "6 m/s",
+      "5 m/s",
+      "12 m/s",
+      "3 m/s"
+    ],
+    "answer": 0,
+    "explain": "Wave speed v = fλ = 2 × 3 = 6 m/s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Properties of Matter",
+    "difficulty": "easy",
+    "q": "A material has mass 300 g and volume 100 cm³. Its density is:",
+    "options": [
+      "400 g/cm³",
+      "3 g/cm³",
+      "6 g/cm³",
+      "0.3333333333333333 g/cm³"
+    ],
+    "answer": 1,
+    "explain": "Density = mass/volume = 300/100 = 3 g/cm³."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "easy",
+    "q": "A particle travels 90 m in 10 s at constant speed. Its speed is:",
+    "options": [
+      "11 m/s",
+      "18 m/s",
+      "9 m/s",
+      "8 m/s"
+    ],
+    "answer": 2,
+    "explain": "Speed = distance/time = 90/10 = 9 m/s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "easy",
+    "q": "A 3 kg body has acceleration 4 m/s². The net force on it is:",
+    "options": [
+      "7 N",
+      "6 N",
+      "15 N",
+      "12 N"
+    ],
+    "answer": 3,
+    "explain": "Newton's second law gives F = ma = 3 × 4 = 12 N."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Work, Energy and Power",
+    "difficulty": "easy",
+    "q": "A 2 kg object is raised by 3 m. Take g = 10 m/s². Its gain in potential energy is:",
+    "options": [
+      "60 J",
+      "30 J",
+      "6 J",
+      "70 J"
+    ],
+    "answer": 0,
+    "explain": "ΔU = mgh = 2 × 10 × 3 = 60 J."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrodynamics",
+    "difficulty": "easy",
+    "q": "A 18 V source is connected across a 6 Ω resistor. The current is:",
+    "options": [
+      "108 A",
+      "3 A",
+      "5 A",
+      "0.3333333333333333 A"
+    ],
+    "answer": 1,
+    "explain": "Ohm's law gives I = V/R = 18/6 = 3 A."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Waves",
+    "difficulty": "easy",
+    "q": "A wave has frequency 3 Hz and wavelength 4 m. Its speed is:",
+    "options": [
+      "7 m/s",
+      "24 m/s",
+      "12 m/s",
+      "6 m/s"
+    ],
+    "answer": 2,
+    "explain": "Wave speed v = fλ = 3 × 4 = 12 m/s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Properties of Matter",
+    "difficulty": "easy",
+    "q": "A material has mass 420 g and volume 140 cm³. Its density is:",
+    "options": [
+      "560 g/cm³",
+      "6 g/cm³",
+      "0.3333333333333333 g/cm³",
+      "3 g/cm³"
+    ],
+    "answer": 3,
+    "explain": "Density = mass/volume = 420/140 = 3 g/cm³."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "easy",
+    "q": "A particle travels 120 m in 15 s at constant speed. Its speed is:",
+    "options": [
+      "8 m/s",
+      "10 m/s",
+      "16 m/s",
+      "7 m/s"
+    ],
+    "answer": 0,
+    "explain": "Speed = distance/time = 120/15 = 8 m/s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "easy",
+    "q": "A 4 kg body has acceleration 2 m/s². The net force on it is:",
+    "options": [
+      "6 N",
+      "8 N",
+      "4 N",
+      "12 N"
+    ],
+    "answer": 1,
+    "explain": "Newton's second law gives F = ma = 4 × 2 = 8 N."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Work, Energy and Power",
+    "difficulty": "easy",
+    "q": "A 3 kg object is raised by 2 m. Take g = 10 m/s². Its gain in potential energy is:",
+    "options": [
+      "30 J",
+      "6 J",
+      "60 J",
+      "70 J"
+    ],
+    "answer": 2,
+    "explain": "ΔU = mgh = 3 × 10 × 2 = 60 J."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrodynamics",
+    "difficulty": "easy",
+    "q": "A 20 V source is connected across a 5 Ω resistor. The current is:",
+    "options": [
+      "100 A",
+      "6 A",
+      "0.25 A",
+      "4 A"
+    ],
+    "answer": 3,
+    "explain": "Ohm's law gives I = V/R = 20/5 = 4 A."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Waves",
+    "difficulty": "easy",
+    "q": "A wave has frequency 4 Hz and wavelength 2 m. Its speed is:",
+    "options": [
+      "8 m/s",
+      "6 m/s",
+      "16 m/s",
+      "4 m/s"
+    ],
+    "answer": 0,
+    "explain": "Wave speed v = fλ = 4 × 2 = 8 m/s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Properties of Matter",
+    "difficulty": "easy",
+    "q": "A material has mass 540 g and volume 200 cm³. Its density is:",
+    "options": [
+      "740 g/cm³",
+      "2.7 g/cm³",
+      "5.4 g/cm³",
+      "0.37037037037037035 g/cm³"
+    ],
+    "answer": 1,
+    "explain": "Density = mass/volume = 540/200 = 2.7 g/cm³."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "easy",
+    "q": "A particle travels 150 m in 10 s at constant speed. Its speed is:",
+    "options": [
+      "17 m/s",
+      "30 m/s",
+      "15 m/s",
+      "14 m/s"
+    ],
+    "answer": 2,
+    "explain": "Speed = distance/time = 150/10 = 15 m/s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "easy",
+    "q": "A 5 kg body has acceleration 2 m/s². The net force on it is:",
+    "options": [
+      "7 N",
+      "5 N",
+      "15 N",
+      "10 N"
+    ],
+    "answer": 3,
+    "explain": "Newton's second law gives F = ma = 5 × 2 = 10 N."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Work, Energy and Power",
+    "difficulty": "easy",
+    "q": "A 4 kg object is raised by 5 m. Take g = 10 m/s². Its gain in potential energy is:",
+    "options": [
+      "200 J",
+      "100 J",
+      "20 J",
+      "210 J"
+    ],
+    "answer": 0,
+    "explain": "ΔU = mgh = 4 × 10 × 5 = 200 J."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrodynamics",
+    "difficulty": "easy",
+    "q": "A 24 V source is connected across a 8 Ω resistor. The current is:",
+    "options": [
+      "192 A",
+      "3 A",
+      "5 A",
+      "0.3333333333333333 A"
+    ],
+    "answer": 1,
+    "explain": "Ohm's law gives I = V/R = 24/8 = 3 A."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Waves",
+    "difficulty": "easy",
+    "q": "A wave has frequency 5 Hz and wavelength 2 m. Its speed is:",
+    "options": [
+      "7 m/s",
+      "20 m/s",
+      "10 m/s",
+      "5 m/s"
+    ],
+    "answer": 2,
+    "explain": "Wave speed v = fλ = 5 × 2 = 10 m/s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Properties of Matter",
+    "difficulty": "easy",
+    "q": "A material has mass 600 g and volume 150 cm³. Its density is:",
+    "options": [
+      "750 g/cm³",
+      "8 g/cm³",
+      "0.25 g/cm³",
+      "4 g/cm³"
+    ],
+    "answer": 3,
+    "explain": "Density = mass/volume = 600/150 = 4 g/cm³."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "easy",
+    "q": "A particle travels 180 m in 12 s at constant speed. Its speed is:",
+    "options": [
+      "15 m/s",
+      "17 m/s",
+      "30 m/s",
+      "14 m/s"
+    ],
+    "answer": 0,
+    "explain": "Speed = distance/time = 180/12 = 15 m/s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "easy",
+    "q": "A 6 kg body has acceleration 1.5 m/s². The net force on it is:",
+    "options": [
+      "7.5 N",
+      "9 N",
+      "4.5 N",
+      "15 N"
+    ],
+    "answer": 1,
+    "explain": "Newton's second law gives F = ma = 6 × 1.5 = 9 N."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Work, Energy and Power",
+    "difficulty": "easy",
+    "q": "A 5 kg object is raised by 2 m. Take g = 10 m/s². Its gain in potential energy is:",
+    "options": [
+      "50 J",
+      "10 J",
+      "100 J",
+      "110 J"
+    ],
+    "answer": 2,
+    "explain": "ΔU = mgh = 5 × 10 × 2 = 100 J."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrodynamics",
+    "difficulty": "easy",
+    "q": "A 30 V source is connected across a 10 Ω resistor. The current is:",
+    "options": [
+      "300 A",
+      "5 A",
+      "0.3333333333333333 A",
+      "3 A"
+    ],
+    "answer": 3,
+    "explain": "Ohm's law gives I = V/R = 30/10 = 3 A."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Waves",
+    "difficulty": "easy",
+    "q": "A wave has frequency 6 Hz and wavelength 1.5 m. Its speed is:",
+    "options": [
+      "9 m/s",
+      "7.5 m/s",
+      "18 m/s",
+      "4.5 m/s"
+    ],
+    "answer": 0,
+    "explain": "Wave speed v = fλ = 6 × 1.5 = 9 m/s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Properties of Matter",
+    "difficulty": "easy",
+    "q": "A material has mass 720 g and volume 240 cm³. Its density is:",
+    "options": [
+      "960 g/cm³",
+      "3 g/cm³",
+      "6 g/cm³",
+      "0.3333333333333333 g/cm³"
+    ],
+    "answer": 1,
+    "explain": "Density = mass/volume = 720/240 = 3 g/cm³."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "easy",
+    "q": "A particle travels 210 m in 14 s at constant speed. Its speed is:",
+    "options": [
+      "17 m/s",
+      "30 m/s",
+      "15 m/s",
+      "14 m/s"
+    ],
+    "answer": 2,
+    "explain": "Speed = distance/time = 210/14 = 15 m/s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "easy",
+    "q": "A 8 kg body has acceleration 2 m/s². The net force on it is:",
+    "options": [
+      "10 N",
+      "8 N",
+      "24 N",
+      "16 N"
+    ],
+    "answer": 3,
+    "explain": "Newton's second law gives F = ma = 8 × 2 = 16 N."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Work, Energy and Power",
+    "difficulty": "easy",
+    "q": "A 6 kg object is raised by 3 m. Take g = 10 m/s². Its gain in potential energy is:",
+    "options": [
+      "180 J",
+      "90 J",
+      "18 J",
+      "190 J"
+    ],
+    "answer": 0,
+    "explain": "ΔU = mgh = 6 × 10 × 3 = 180 J."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Kinematics",
+    "difficulty": "medium",
+    "q": "A body with initial speed 4 m/s accelerates at 2 m/s² for 3 s. Its final speed is:",
+    "options": [
+      "9 m/s",
+      "10 m/s",
+      "6 m/s",
+      "12 m/s"
+    ],
+    "answer": 1,
+    "explain": "Using v = u + at gives 4 + 2 × 3 = 10 m/s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Oscillations",
+    "difficulty": "medium",
+    "q": "A spring of constant 100 N/m is displaced 0.2 m from equilibrium. Its stored elastic energy is:",
+    "options": [
+      "20 J",
+      "4 J",
+      "2 J",
+      "1 J"
+    ],
+    "answer": 2,
+    "explain": "Elastic potential energy is ½kx² = ½ × 100 × 0.2² = 2 J."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "medium",
+    "q": "A 2 kg cart moving at 6 m/s sticks to a stationary 2 kg cart. Their common speed just after collision is:",
+    "options": [
+      "6 m/s",
+      "6 m/s",
+      "1.5 m/s",
+      "3 m/s"
+    ],
+    "answer": 3,
+    "explain": "Conservation of momentum gives v = m₁u₁/(m₁+m₂) = 2×6/4 = 3 m/s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrodynamics",
+    "difficulty": "medium",
+    "q": "A 12 V source is connected to a 6 Ω resistor. The power dissipated is:",
+    "options": [
+      "24 W",
+      "2 W",
+      "72 W",
+      "12 W"
+    ],
+    "answer": 0,
+    "explain": "P = V²/R = 12²/6 = 24 W."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Optics",
+    "difficulty": "medium",
+    "q": "An object is 30 cm from a convex lens of focal length 10 cm. The real image distance is:",
+    "options": [
+      "10 cm",
+      "15 cm",
+      "30 cm",
+      "25 cm"
+    ],
+    "answer": 1,
+    "explain": "The lens formula gives 1/v = 1/f − 1/u, hence v = fu/(u−f) = 15 cm."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Circular Motion",
+    "difficulty": "medium",
+    "q": "A 2 kg body moves at 3 m/s in a circle of radius 3 m. The required centripetal force is:",
+    "options": [
+      "2 N",
+      "18 N",
+      "6 N",
+      "3 N"
+    ],
+    "answer": 2,
+    "explain": "F = mv²/r = 2 × 3²/3 = 6 N."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "medium",
+    "q": "A constant 20 N force acts for 0.2 s. The impulse delivered is:",
+    "options": [
+      "100 N·s",
+      "20.2 N·s",
+      "8 N·s",
+      "4 N·s"
+    ],
+    "answer": 3,
+    "explain": "Impulse = FΔt = 20 × 0.2 = 4 N·s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Kinematics",
+    "difficulty": "medium",
+    "q": "A body with initial speed 3 m/s accelerates at 3 m/s² for 4 s. Its final speed is:",
+    "options": [
+      "15 m/s",
+      "10 m/s",
+      "12 m/s",
+      "17 m/s"
+    ],
+    "answer": 0,
+    "explain": "Using v = u + at gives 3 + 3 × 4 = 15 m/s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Oscillations",
+    "difficulty": "medium",
+    "q": "A spring of constant 200 N/m is displaced 0.1 m from equilibrium. Its stored elastic energy is:",
+    "options": [
+      "20 J",
+      "1 J",
+      "2 J",
+      "0.5 J"
+    ],
+    "answer": 1,
+    "explain": "Elastic potential energy is ½kx² = ½ × 200 × 0.1² = 1 J."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "medium",
+    "q": "A 3 kg cart moving at 8 m/s sticks to a stationary 1 kg cart. Their common speed just after collision is:",
+    "options": [
+      "8 m/s",
+      "24 m/s",
+      "6 m/s",
+      "3 m/s"
+    ],
+    "answer": 2,
+    "explain": "Conservation of momentum gives v = m₁u₁/(m₁+m₂) = 3×8/4 = 6 m/s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrodynamics",
+    "difficulty": "medium",
+    "q": "A 18 V source is connected to a 9 Ω resistor. The power dissipated is:",
+    "options": [
+      "2 W",
+      "162 W",
+      "18 W",
+      "36 W"
+    ],
+    "answer": 3,
+    "explain": "P = V²/R = 18²/9 = 36 W."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Optics",
+    "difficulty": "medium",
+    "q": "An object is 45 cm from a convex lens of focal length 15 cm. The real image distance is:",
+    "options": [
+      "22.5 cm",
+      "15 cm",
+      "45 cm",
+      "37.5 cm"
+    ],
+    "answer": 0,
+    "explain": "The lens formula gives 1/v = 1/f − 1/u, hence v = fu/(u−f) = 22.5 cm."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Circular Motion",
+    "difficulty": "medium",
+    "q": "A 3 kg body moves at 4 m/s in a circle of radius 4 m. The required centripetal force is:",
+    "options": [
+      "3 N",
+      "12 N",
+      "48 N",
+      "6 N"
+    ],
+    "answer": 1,
+    "explain": "F = mv²/r = 3 × 4²/4 = 12 N."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "medium",
+    "q": "A constant 30 N force acts for 0.3 s. The impulse delivered is:",
+    "options": [
+      "100 N·s",
+      "30.3 N·s",
+      "9 N·s",
+      "18 N·s"
+    ],
+    "answer": 2,
+    "explain": "Impulse = FΔt = 30 × 0.3 = 9 N·s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Kinematics",
+    "difficulty": "medium",
+    "q": "A body with initial speed 5 m/s accelerates at 1 m/s² for 5 s. Its final speed is:",
+    "options": [
+      "11 m/s",
+      "5 m/s",
+      "12 m/s",
+      "10 m/s"
+    ],
+    "answer": 3,
+    "explain": "Using v = u + at gives 5 + 1 × 5 = 10 m/s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Oscillations",
+    "difficulty": "medium",
+    "q": "A spring of constant 400 N/m is displaced 0.1 m from equilibrium. Its stored elastic energy is:",
+    "options": [
+      "2 J",
+      "40 J",
+      "4 J",
+      "1 J"
+    ],
+    "answer": 0,
+    "explain": "Elastic potential energy is ½kx² = ½ × 400 × 0.1² = 2 J."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "medium",
+    "q": "A 4 kg cart moving at 5 m/s sticks to a stationary 4 kg cart. Their common speed just after collision is:",
+    "options": [
+      "5 m/s",
+      "2.5 m/s",
+      "5 m/s",
+      "1.25 m/s"
+    ],
+    "answer": 1,
+    "explain": "Conservation of momentum gives v = m₁u₁/(m₁+m₂) = 4×5/8 = 2.5 m/s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrodynamics",
+    "difficulty": "medium",
+    "q": "A 24 V source is connected to a 8 Ω resistor. The power dissipated is:",
+    "options": [
+      "3 W",
+      "192 W",
+      "72 W",
+      "36 W"
+    ],
+    "answer": 2,
+    "explain": "P = V²/R = 24²/8 = 72 W."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Optics",
+    "difficulty": "medium",
+    "q": "An object is 60 cm from a convex lens of focal length 20 cm. The real image distance is:",
+    "options": [
+      "20 cm",
+      "60 cm",
+      "50 cm",
+      "30 cm"
+    ],
+    "answer": 3,
+    "explain": "The lens formula gives 1/v = 1/f − 1/u, hence v = fu/(u−f) = 30 cm."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Circular Motion",
+    "difficulty": "medium",
+    "q": "A 4 kg body moves at 5 m/s in a circle of radius 5 m. The required centripetal force is:",
+    "options": [
+      "20 N",
+      "4 N",
+      "100 N",
+      "10 N"
+    ],
+    "answer": 0,
+    "explain": "F = mv²/r = 4 × 5²/5 = 20 N."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "medium",
+    "q": "A constant 40 N force acts for 0.4 s. The impulse delivered is:",
+    "options": [
+      "100 N·s",
+      "16 N·s",
+      "40.4 N·s",
+      "32 N·s"
+    ],
+    "answer": 1,
+    "explain": "Impulse = FΔt = 40 × 0.4 = 16 N·s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Kinematics",
+    "difficulty": "medium",
+    "q": "A body with initial speed 2 m/s accelerates at 4 m/s² for 2 s. Its final speed is:",
+    "options": [
+      "8 m/s",
+      "8 m/s",
+      "10 m/s",
+      "12 m/s"
+    ],
+    "answer": 2,
+    "explain": "Using v = u + at gives 2 + 4 × 2 = 10 m/s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Oscillations",
+    "difficulty": "medium",
+    "q": "A spring of constant 500 N/m is displaced 0.2 m from equilibrium. Its stored elastic energy is:",
+    "options": [
+      "100 J",
+      "20 J",
+      "5 J",
+      "10 J"
+    ],
+    "answer": 3,
+    "explain": "Elastic potential energy is ½kx² = ½ × 500 × 0.2² = 10 J."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "medium",
+    "q": "A 5 kg cart moving at 4 m/s sticks to a stationary 5 kg cart. Their common speed just after collision is:",
+    "options": [
+      "2 m/s",
+      "4 m/s",
+      "4 m/s",
+      "1 m/s"
+    ],
+    "answer": 0,
+    "explain": "Conservation of momentum gives v = m₁u₁/(m₁+m₂) = 5×4/10 = 2 m/s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrodynamics",
+    "difficulty": "medium",
+    "q": "A 30 V source is connected to a 10 Ω resistor. The power dissipated is:",
+    "options": [
+      "3 W",
+      "90 W",
+      "300 W",
+      "45 W"
+    ],
+    "answer": 1,
+    "explain": "P = V²/R = 30²/10 = 90 W."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Optics",
+    "difficulty": "medium",
+    "q": "An object is 36 cm from a convex lens of focal length 12 cm. The real image distance is:",
+    "options": [
+      "12 cm",
+      "36 cm",
+      "18 cm",
+      "30 cm"
+    ],
+    "answer": 2,
+    "explain": "The lens formula gives 1/v = 1/f − 1/u, hence v = fu/(u−f) = 18 cm."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Circular Motion",
+    "difficulty": "medium",
+    "q": "A 5 kg body moves at 6 m/s in a circle of radius 8 m. The required centripetal force is:",
+    "options": [
+      "3.75 N",
+      "180 N",
+      "11.25 N",
+      "22.5 N"
+    ],
+    "answer": 3,
+    "explain": "F = mv²/r = 5 × 6²/8 = 22.5 N."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "medium",
+    "q": "A constant 50 N force acts for 0.5 s. The impulse delivered is:",
+    "options": [
+      "25 N·s",
+      "100 N·s",
+      "50.5 N·s",
+      "50 N·s"
+    ],
+    "answer": 0,
+    "explain": "Impulse = FΔt = 50 × 0.5 = 25 N·s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Kinematics",
+    "difficulty": "medium",
+    "q": "A body with initial speed 6 m/s accelerates at 2 m/s² for 3 s. Its final speed is:",
+    "options": [
+      "11 m/s",
+      "12 m/s",
+      "6 m/s",
+      "14 m/s"
+    ],
+    "answer": 1,
+    "explain": "Using v = u + at gives 6 + 2 × 3 = 12 m/s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Oscillations",
+    "difficulty": "medium",
+    "q": "A spring of constant 800 N/m is displaced 0.1 m from equilibrium. Its stored elastic energy is:",
+    "options": [
+      "80 J",
+      "8 J",
+      "4 J",
+      "2 J"
+    ],
+    "answer": 2,
+    "explain": "Elastic potential energy is ½kx² = ½ × 800 × 0.1² = 4 J."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "medium",
+    "q": "A 6 kg cart moving at 7 m/s sticks to a stationary 3 kg cart. Their common speed just after collision is:",
+    "options": [
+      "7 m/s",
+      "14 m/s",
+      "2.3333333333333335 m/s",
+      "4.666666666666667 m/s"
+    ],
+    "answer": 3,
+    "explain": "Conservation of momentum gives v = m₁u₁/(m₁+m₂) = 6×7/9 = 4.666666666666667 m/s."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrodynamics",
+    "difficulty": "medium",
+    "q": "A 20 V source is connected to a 5 Ω resistor. The power dissipated is:",
+    "options": [
+      "80 W",
+      "4 W",
+      "100 W",
+      "40 W"
+    ],
+    "answer": 0,
+    "explain": "P = V²/R = 20²/5 = 80 W."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Optics",
+    "difficulty": "medium",
+    "q": "An object is 72 cm from a convex lens of focal length 24 cm. The real image distance is:",
+    "options": [
+      "24 cm",
+      "36 cm",
+      "72 cm",
+      "60 cm"
+    ],
+    "answer": 1,
+    "explain": "The lens formula gives 1/v = 1/f − 1/u, hence v = fu/(u−f) = 36 cm."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Circular Motion",
+    "difficulty": "medium",
+    "q": "A 6 kg body moves at 2 m/s in a circle of radius 2 m. The required centripetal force is:",
+    "options": [
+      "6 N",
+      "24 N",
+      "12 N",
+      "6 N"
+    ],
+    "answer": 2,
+    "explain": "F = mv²/r = 6 × 2²/2 = 12 N."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "hard",
+    "q": "Two masses 1 kg and 3 kg form an ideal Atwood machine. Take g = 10 m/s². The acceleration magnitude is:",
+    "options": [
+      "20 m/s²",
+      "2.5 m/s²",
+      "10 m/s²",
+      "5 m/s²"
+    ],
+    "answer": 3,
+    "explain": "For an ideal Atwood machine, a = g(m₂−m₁)/(m₁+m₂) = 5 m/s²."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Projectile Motion",
+    "difficulty": "hard",
+    "q": "A projectile is launched at 10 m/s at 45° to the horizontal. Take g = 10 m/s². Its horizontal range is:",
+    "options": [
+      "10 m",
+      "5 m",
+      "20 m",
+      "20 m"
+    ],
+    "answer": 0,
+    "explain": "R = u²sin(2θ)/g. At 45°, sin 90°=1, so R = 10²/10 = 10 m."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Gravitation",
+    "difficulty": "hard",
+    "q": "A satellite's orbital radius is increased from r to 2r around the same planet. If its original speed is v, its new speed is:",
+    "options": [
+      "v",
+      "v/√2",
+      "v/2",
+      "2v"
+    ],
+    "answer": 1,
+    "explain": "Orbital speed varies as 1/√r. Increasing the radius by 2 changes the speed to v/√2 = v/√2."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrodynamics",
+    "difficulty": "hard",
+    "q": "A capacitor charges through a resistor. At time t = 1RC, the fraction of its final charge still missing is:",
+    "options": [
+      "1−e^−1",
+      "0.368",
+      "e^−1",
+      "1/1"
+    ],
+    "answer": 2,
+    "explain": "The unfilled fraction during charging is e^(−t/RC), which becomes e^−1 at t=1RC."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrostatics",
+    "difficulty": "hard",
+    "q": "For a uniformly charged solid sphere, compare the fields at r=R/4 and r=R/2 (both inside). The ratio E₁/E₂ is:",
+    "options": [
+      "1/3",
+      "2/3",
+      "2",
+      "1/2"
+    ],
+    "answer": 3,
+    "explain": "Inside a uniformly charged sphere E is proportional to r, so E₁/E₂ = (R/4)/(R/2) = 1/2."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Oscillations",
+    "difficulty": "hard",
+    "q": "In SHM, a particle is at x=0.2A from the mean position. What fraction of its total energy is potential energy?",
+    "options": [
+      "0.04000000000000001E",
+      "0.2E",
+      "0.96E",
+      "E"
+    ],
+    "answer": 0,
+    "explain": "The potential-energy fraction is x²/A². Substituting x=0.2A gives 0.04 of the total energy."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Waves",
+    "difficulty": "hard",
+    "q": "In a double-slit experiment, slit separation is reduced to d/2 while all other quantities remain fixed. The fringe width becomes:",
+    "options": [
+      "β/2",
+      "2β",
+      "√2β",
+      "β"
+    ],
+    "answer": 1,
+    "explain": "Fringe width β=λD/d, so reducing d by a factor 2 increases β by the same factor."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "hard",
+    "q": "Two masses 2 kg and 4 kg form an ideal Atwood machine. Take g = 10 m/s². The acceleration magnitude is:",
+    "options": [
+      "30 m/s²",
+      "1.6666666666666667 m/s²",
+      "3.3333333333333335 m/s²",
+      "10 m/s²"
+    ],
+    "answer": 2,
+    "explain": "For an ideal Atwood machine, a = g(m₂−m₁)/(m₁+m₂) = 3.3333333333333335 m/s²."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Projectile Motion",
+    "difficulty": "hard",
+    "q": "A projectile is launched at 14 m/s at 45° to the horizontal. Take g = 10 m/s². Its horizontal range is:",
+    "options": [
+      "9.8 m",
+      "28 m",
+      "39.2 m",
+      "19.6 m"
+    ],
+    "answer": 3,
+    "explain": "R = u²sin(2θ)/g. At 45°, sin 90°=1, so R = 14²/10 = 19.6 m."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Gravitation",
+    "difficulty": "hard",
+    "q": "A satellite's orbital radius is increased from r to 3r around the same planet. If its original speed is v, its new speed is:",
+    "options": [
+      "v/√3",
+      "v",
+      "v/3",
+      "3v"
+    ],
+    "answer": 0,
+    "explain": "Orbital speed varies as 1/√r. Increasing the radius by 3 changes the speed to v/√3 = v/√3."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrodynamics",
+    "difficulty": "hard",
+    "q": "A capacitor charges through a resistor. At time t = 2RC, the fraction of its final charge still missing is:",
+    "options": [
+      "1−e^−2",
+      "e^−2",
+      "0.135",
+      "1/2"
+    ],
+    "answer": 1,
+    "explain": "The unfilled fraction during charging is e^(−t/RC), which becomes e^−2 at t=2RC."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrostatics",
+    "difficulty": "hard",
+    "q": "For a uniformly charged solid sphere, compare the fields at r=R/5 and r=R/2 (both inside). The ratio E₁/E₂ is:",
+    "options": [
+      "1/2",
+      "1/3",
+      "2/5",
+      "2/3"
+    ],
+    "answer": 2,
+    "explain": "Inside a uniformly charged sphere E is proportional to r, so E₁/E₂ = (R/5)/(R/2) = 2/5."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Oscillations",
+    "difficulty": "hard",
+    "q": "In SHM, a particle is at x=0.25A from the mean position. What fraction of its total energy is potential energy?",
+    "options": [
+      "0.25E",
+      "0.94E",
+      "E",
+      "0.0625E"
+    ],
+    "answer": 3,
+    "explain": "The potential-energy fraction is x²/A². Substituting x=0.25A gives 0.06 of the total energy."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Waves",
+    "difficulty": "hard",
+    "q": "In a double-slit experiment, slit separation is reduced to d/3 while all other quantities remain fixed. The fringe width becomes:",
+    "options": [
+      "3β",
+      "β/3",
+      "√3β",
+      "β"
+    ],
+    "answer": 0,
+    "explain": "Fringe width β=λD/d, so reducing d by a factor 3 increases β by the same factor."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "hard",
+    "q": "Two masses 3 kg and 5 kg form an ideal Atwood machine. Take g = 10 m/s². The acceleration magnitude is:",
+    "options": [
+      "40 m/s²",
+      "2.5 m/s²",
+      "1.25 m/s²",
+      "10 m/s²"
+    ],
+    "answer": 1,
+    "explain": "For an ideal Atwood machine, a = g(m₂−m₁)/(m₁+m₂) = 2.5 m/s²."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Projectile Motion",
+    "difficulty": "hard",
+    "q": "A projectile is launched at 20 m/s at 45° to the horizontal. Take g = 10 m/s². Its horizontal range is:",
+    "options": [
+      "20 m",
+      "40 m",
+      "40 m",
+      "80 m"
+    ],
+    "answer": 2,
+    "explain": "R = u²sin(2θ)/g. At 45°, sin 90°=1, so R = 20²/10 = 40 m."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Gravitation",
+    "difficulty": "hard",
+    "q": "A satellite's orbital radius is increased from r to 4r around the same planet. If its original speed is v, its new speed is:",
+    "options": [
+      "v",
+      "v/4",
+      "4v",
+      "v/2"
+    ],
+    "answer": 3,
+    "explain": "Orbital speed varies as 1/√r. Increasing the radius by 4 changes the speed to v/√4 = v/2."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrodynamics",
+    "difficulty": "hard",
+    "q": "A capacitor charges through a resistor. At time t = 3RC, the fraction of its final charge still missing is:",
+    "options": [
+      "e^−3",
+      "1−e^−3",
+      "0.050",
+      "1/3"
+    ],
+    "answer": 0,
+    "explain": "The unfilled fraction during charging is e^(−t/RC), which becomes e^−3 at t=3RC."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrostatics",
+    "difficulty": "hard",
+    "q": "For a uniformly charged solid sphere, compare the fields at r=R/3 and r=R (both inside). The ratio E₁/E₂ is:",
+    "options": [
+      "1/2",
+      "1/3",
+      "2/3",
+      "2"
+    ],
+    "answer": 1,
+    "explain": "Inside a uniformly charged sphere E is proportional to r, so E₁/E₂ = (R/3)/(R) = 1/3."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Oscillations",
+    "difficulty": "hard",
+    "q": "In SHM, a particle is at x=0.4A from the mean position. What fraction of its total energy is potential energy?",
+    "options": [
+      "0.4E",
+      "0.84E",
+      "0.16000000000000003E",
+      "E"
+    ],
+    "answer": 2,
+    "explain": "The potential-energy fraction is x²/A². Substituting x=0.4A gives 0.16 of the total energy."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Waves",
+    "difficulty": "hard",
+    "q": "In a double-slit experiment, slit separation is reduced to d/4 while all other quantities remain fixed. The fringe width becomes:",
+    "options": [
+      "β/4",
+      "√4β",
+      "β",
+      "4β"
+    ],
+    "answer": 3,
+    "explain": "Fringe width β=λD/d, so reducing d by a factor 4 increases β by the same factor."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "hard",
+    "q": "Two masses 4 kg and 6 kg form an ideal Atwood machine. Take g = 10 m/s². The acceleration magnitude is:",
+    "options": [
+      "2 m/s²",
+      "50 m/s²",
+      "1 m/s²",
+      "10 m/s²"
+    ],
+    "answer": 0,
+    "explain": "For an ideal Atwood machine, a = g(m₂−m₁)/(m₁+m₂) = 2 m/s²."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Projectile Motion",
+    "difficulty": "hard",
+    "q": "A projectile is launched at 22 m/s at 45° to the horizontal. Take g = 10 m/s². Its horizontal range is:",
+    "options": [
+      "24.2 m",
+      "48.4 m",
+      "44 m",
+      "96.8 m"
+    ],
+    "answer": 1,
+    "explain": "R = u²sin(2θ)/g. At 45°, sin 90°=1, so R = 22²/10 = 48.4 m."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Gravitation",
+    "difficulty": "hard",
+    "q": "A satellite's orbital radius is increased from r to 5r around the same planet. If its original speed is v, its new speed is:",
+    "options": [
+      "v",
+      "v/5",
+      "v/√5",
+      "5v"
+    ],
+    "answer": 2,
+    "explain": "Orbital speed varies as 1/√r. Increasing the radius by 5 changes the speed to v/√5 = v/√5."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrodynamics",
+    "difficulty": "hard",
+    "q": "A capacitor charges through a resistor. At time t = 4RC, the fraction of its final charge still missing is:",
+    "options": [
+      "1−e^−4",
+      "0.018",
+      "1/4",
+      "e^−4"
+    ],
+    "answer": 3,
+    "explain": "The unfilled fraction during charging is e^(−t/RC), which becomes e^−4 at t=4RC."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrostatics",
+    "difficulty": "hard",
+    "q": "For a uniformly charged solid sphere, compare the fields at r=R/2 and r=3R/4 (both inside). The ratio E₁/E₂ is:",
+    "options": [
+      "2/3",
+      "1/2",
+      "1/3",
+      "2"
+    ],
+    "answer": 0,
+    "explain": "Inside a uniformly charged sphere E is proportional to r, so E₁/E₂ = (R/2)/(3R/4) = 2/3."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Oscillations",
+    "difficulty": "hard",
+    "q": "In SHM, a particle is at x=0.5A from the mean position. What fraction of its total energy is potential energy?",
+    "options": [
+      "0.5E",
+      "0.25E",
+      "0.75E",
+      "E"
+    ],
+    "answer": 1,
+    "explain": "The potential-energy fraction is x²/A². Substituting x=0.5A gives 0.25 of the total energy."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Waves",
+    "difficulty": "hard",
+    "q": "In a double-slit experiment, slit separation is reduced to d/5 while all other quantities remain fixed. The fringe width becomes:",
+    "options": [
+      "β/5",
+      "√5β",
+      "5β",
+      "β"
+    ],
+    "answer": 2,
+    "explain": "Fringe width β=λD/d, so reducing d by a factor 5 increases β by the same factor."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "difficulty": "hard",
+    "q": "Two masses 5 kg and 7 kg form an ideal Atwood machine. Take g = 10 m/s². The acceleration magnitude is:",
+    "options": [
+      "60 m/s²",
+      "0.8333333333333334 m/s²",
+      "10 m/s²",
+      "1.6666666666666667 m/s²"
+    ],
+    "answer": 3,
+    "explain": "For an ideal Atwood machine, a = g(m₂−m₁)/(m₁+m₂) = 1.6666666666666667 m/s²."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Projectile Motion",
+    "difficulty": "hard",
+    "q": "A projectile is launched at 25 m/s at 45° to the horizontal. Take g = 10 m/s². Its horizontal range is:",
+    "options": [
+      "62.5 m",
+      "31.25 m",
+      "50 m",
+      "125 m"
+    ],
+    "answer": 0,
+    "explain": "R = u²sin(2θ)/g. At 45°, sin 90°=1, so R = 25²/10 = 62.5 m."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Gravitation",
+    "difficulty": "hard",
+    "q": "A satellite's orbital radius is increased from r to 9r around the same planet. If its original speed is v, its new speed is:",
+    "options": [
+      "v",
+      "v/3",
+      "v/9",
+      "9v"
+    ],
+    "answer": 1,
+    "explain": "Orbital speed varies as 1/√r. Increasing the radius by 9 changes the speed to v/√9 = v/3."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrodynamics",
+    "difficulty": "hard",
+    "q": "A capacitor charges through a resistor. At time t = 5RC, the fraction of its final charge still missing is:",
+    "options": [
+      "1−e^−5",
+      "0.007",
+      "e^−5",
+      "1/5"
+    ],
+    "answer": 2,
+    "explain": "The unfilled fraction during charging is e^(−t/RC), which becomes e^−5 at t=5RC."
+  },
+  {
+    "subject": "Physics",
+    "topic": "Electrostatics",
+    "difficulty": "hard",
+    "q": "For a uniformly charged solid sphere, compare the fields at r=R/5 and r=4R/5 (both inside). The ratio E₁/E₂ is:",
+    "options": [
+      "1/2",
+      "1/3",
+      "2/3",
+      "1/4"
+    ],
+    "answer": 3,
+    "explain": "Inside a uniformly charged sphere E is proportional to r, so E₁/E₂ = (R/5)/(4R/5) = 1/4."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Mole Concept",
+    "difficulty": "easy",
+    "q": "9 g of a substance with molar mass 18 g/mol contains:",
+    "options": [
+      "0.5 mol",
+      "27 mol",
+      "1 mol",
+      "4.5 mol"
+    ],
+    "answer": 0,
+    "explain": "Amount n = mass/molar mass = 9/18 = 0.5 mol."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Solutions",
+    "difficulty": "easy",
+    "q": "0.1 mol solute is dissolved to make 0.5 L of solution. Its molarity is:",
+    "options": [
+      "0.05 M",
+      "0.2 M",
+      "5 M",
+      "0.4 M"
+    ],
+    "answer": 1,
+    "explain": "Molarity = moles/volume in litres = 0.1/0.5 = 0.2 M."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Acid-Base Equilibrium",
+    "difficulty": "easy",
+    "q": "Assuming complete ionization, the pH of 1.0 × 10⁻1 M HNO₃ is:",
+    "options": [
+      "13",
+      "2",
+      "1",
+      "0"
+    ],
+    "answer": 2,
+    "explain": "HNO₃ is a strong acid, so [H⁺]=10⁻1 M and pH=1."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Bonding",
+    "difficulty": "easy",
+    "q": "The hybridization of the central carbon atom in CO₂ is:",
+    "options": [
+      "sp²",
+      "sp³",
+      "dsp²",
+      "sp"
+    ],
+    "answer": 3,
+    "explain": "CO₂ has the stated electron-domain arrangement around carbon, corresponding to sp hybridization."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Bonding",
+    "difficulty": "easy",
+    "q": "The molecular shape of BeCl₂ is:",
+    "options": [
+      "Linear",
+      "Tetrahedral",
+      "Trigonal planar",
+      "Octahedral"
+    ],
+    "answer": 0,
+    "explain": "Applying VSEPR theory to the bonding pairs and lone pairs in BeCl₂ gives a linear molecular shape."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Redox Reactions",
+    "difficulty": "easy",
+    "q": "The oxidation number of S in SO₄²⁻ is:",
+    "options": [
+      "+2",
+      "+6",
+      "+4",
+      "+7"
+    ],
+    "answer": 1,
+    "explain": "Using the usual oxidation numbers for oxygen and the overall ionic charge gives S an oxidation number of +6."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Mole Concept",
+    "difficulty": "easy",
+    "q": "16 g of a substance with molar mass 32 g/mol contains:",
+    "options": [
+      "48 mol",
+      "1 mol",
+      "0.5 mol",
+      "8 mol"
+    ],
+    "answer": 2,
+    "explain": "Amount n = mass/molar mass = 16/32 = 0.5 mol."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Solutions",
+    "difficulty": "easy",
+    "q": "0.2 mol solute is dissolved to make 1 L of solution. Its molarity is:",
+    "options": [
+      "0.2 M",
+      "5 M",
+      "0.4 M",
+      "0.2 M"
+    ],
+    "answer": 3,
+    "explain": "Molarity = moles/volume in litres = 0.2/1 = 0.2 M."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Acid-Base Equilibrium",
+    "difficulty": "easy",
+    "q": "Assuming complete ionization, the pH of 1.0 × 10⁻2 M HNO₃ is:",
+    "options": [
+      "2",
+      "12",
+      "3",
+      "1"
+    ],
+    "answer": 0,
+    "explain": "HNO₃ is a strong acid, so [H⁺]=10⁻2 M and pH=2."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Bonding",
+    "difficulty": "easy",
+    "q": "The hybridization of the central carbon atom in BF₃ is:",
+    "options": [
+      "sp",
+      "sp²",
+      "sp³",
+      "dsp²"
+    ],
+    "answer": 1,
+    "explain": "BF₃ has the stated electron-domain arrangement around carbon, corresponding to sp² hybridization."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Bonding",
+    "difficulty": "easy",
+    "q": "The molecular shape of BF₃ is:",
+    "options": [
+      "Linear",
+      "Tetrahedral",
+      "Trigonal planar",
+      "Octahedral"
+    ],
+    "answer": 2,
+    "explain": "Applying VSEPR theory to the bonding pairs and lone pairs in BF₃ gives a trigonal planar molecular shape."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Redox Reactions",
+    "difficulty": "easy",
+    "q": "The oxidation number of N in NO₃⁻ is:",
+    "options": [
+      "+2",
+      "+4",
+      "+7",
+      "+5"
+    ],
+    "answer": 3,
+    "explain": "Using the usual oxidation numbers for oxygen and the overall ionic charge gives N an oxidation number of +5."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Mole Concept",
+    "difficulty": "easy",
+    "q": "22 g of a substance with molar mass 44 g/mol contains:",
+    "options": [
+      "0.5 mol",
+      "66 mol",
+      "1 mol",
+      "11 mol"
+    ],
+    "answer": 0,
+    "explain": "Amount n = mass/molar mass = 22/44 = 0.5 mol."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Solutions",
+    "difficulty": "easy",
+    "q": "0.3 mol solute is dissolved to make 1.5 L of solution. Its molarity is:",
+    "options": [
+      "0.44999999999999996 M",
+      "0.19999999999999998 M",
+      "5 M",
+      "0.39999999999999997 M"
+    ],
+    "answer": 1,
+    "explain": "Molarity = moles/volume in litres = 0.3/1.5 = 0.19999999999999998 M."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Acid-Base Equilibrium",
+    "difficulty": "easy",
+    "q": "Assuming complete ionization, the pH of 1.0 × 10⁻3 M HNO₃ is:",
+    "options": [
+      "11",
+      "4",
+      "3",
+      "2"
+    ],
+    "answer": 2,
+    "explain": "HNO₃ is a strong acid, so [H⁺]=10⁻3 M and pH=3."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Bonding",
+    "difficulty": "easy",
+    "q": "The hybridization of the central carbon atom in CH₄ is:",
+    "options": [
+      "sp",
+      "sp²",
+      "dsp²",
+      "sp³"
+    ],
+    "answer": 3,
+    "explain": "CH₄ has the stated electron-domain arrangement around carbon, corresponding to sp³ hybridization."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Bonding",
+    "difficulty": "easy",
+    "q": "The molecular shape of CH₄ is:",
+    "options": [
+      "Tetrahedral",
+      "Linear",
+      "Trigonal planar",
+      "Octahedral"
+    ],
+    "answer": 0,
+    "explain": "Applying VSEPR theory to the bonding pairs and lone pairs in CH₄ gives a tetrahedral molecular shape."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Redox Reactions",
+    "difficulty": "easy",
+    "q": "The oxidation number of C in CO₃²⁻ is:",
+    "options": [
+      "+2",
+      "+4",
+      "+7",
+      "0"
+    ],
+    "answer": 1,
+    "explain": "Using the usual oxidation numbers for oxygen and the overall ionic charge gives C an oxidation number of +4."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Mole Concept",
+    "difficulty": "easy",
+    "q": "32 g of a substance with molar mass 16 g/mol contains:",
+    "options": [
+      "48 mol",
+      "4 mol",
+      "2 mol",
+      "16 mol"
+    ],
+    "answer": 2,
+    "explain": "Amount n = mass/molar mass = 32/16 = 2 mol."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Solutions",
+    "difficulty": "easy",
+    "q": "0.4 mol solute is dissolved to make 2 L of solution. Its molarity is:",
+    "options": [
+      "0.8 M",
+      "5 M",
+      "0.4 M",
+      "0.2 M"
+    ],
+    "answer": 3,
+    "explain": "Molarity = moles/volume in litres = 0.4/2 = 0.2 M."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Acid-Base Equilibrium",
+    "difficulty": "easy",
+    "q": "Assuming complete ionization, the pH of 1.0 × 10⁻4 M HNO₃ is:",
+    "options": [
+      "4",
+      "10",
+      "5",
+      "3"
+    ],
+    "answer": 0,
+    "explain": "HNO₃ is a strong acid, so [H⁺]=10⁻4 M and pH=4."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Bonding",
+    "difficulty": "easy",
+    "q": "The hybridization of the central carbon atom in C₂H₄ is:",
+    "options": [
+      "sp",
+      "sp²",
+      "sp³",
+      "dsp²"
+    ],
+    "answer": 1,
+    "explain": "C₂H₄ has the stated electron-domain arrangement around carbon, corresponding to sp² hybridization."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Bonding",
+    "difficulty": "easy",
+    "q": "The molecular shape of NH₃ is:",
+    "options": [
+      "Linear",
+      "Tetrahedral",
+      "Trigonal pyramidal",
+      "Trigonal planar"
+    ],
+    "answer": 2,
+    "explain": "Applying VSEPR theory to the bonding pairs and lone pairs in NH₃ gives a trigonal pyramidal molecular shape."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Redox Reactions",
+    "difficulty": "easy",
+    "q": "The oxidation number of Cl in ClO₃⁻ is:",
+    "options": [
+      "+2",
+      "+4",
+      "+7",
+      "+5"
+    ],
+    "answer": 3,
+    "explain": "Using the usual oxidation numbers for oxygen and the overall ionic charge gives Cl an oxidation number of +5."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Mole Concept",
+    "difficulty": "easy",
+    "q": "44 g of a substance with molar mass 44 g/mol contains:",
+    "options": [
+      "1 mol",
+      "88 mol",
+      "2 mol",
+      "22 mol"
+    ],
+    "answer": 0,
+    "explain": "Amount n = mass/molar mass = 44/44 = 1 mol."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Solutions",
+    "difficulty": "easy",
+    "q": "0.5 mol solute is dissolved to make 2.5 L of solution. Its molarity is:",
+    "options": [
+      "1.25 M",
+      "0.2 M",
+      "5 M",
+      "0.4 M"
+    ],
+    "answer": 1,
+    "explain": "Molarity = moles/volume in litres = 0.5/2.5 = 0.2 M."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Acid-Base Equilibrium",
+    "difficulty": "easy",
+    "q": "Assuming complete ionization, the pH of 1.0 × 10⁻5 M HNO₃ is:",
+    "options": [
+      "9",
+      "6",
+      "5",
+      "4"
+    ],
+    "answer": 2,
+    "explain": "HNO₃ is a strong acid, so [H⁺]=10⁻5 M and pH=5."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Bonding",
+    "difficulty": "easy",
+    "q": "The hybridization of the central carbon atom in C₂H₂ is:",
+    "options": [
+      "sp²",
+      "sp³",
+      "dsp²",
+      "sp"
+    ],
+    "answer": 3,
+    "explain": "C₂H₂ has the stated electron-domain arrangement around carbon, corresponding to sp hybridization."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Bonding",
+    "difficulty": "easy",
+    "q": "The molecular shape of H₂O is:",
+    "options": [
+      "Bent",
+      "Linear",
+      "Tetrahedral",
+      "Trigonal planar"
+    ],
+    "answer": 0,
+    "explain": "Applying VSEPR theory to the bonding pairs and lone pairs in H₂O gives a bent molecular shape."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Redox Reactions",
+    "difficulty": "easy",
+    "q": "The oxidation number of Mn in MnO₄⁻ is:",
+    "options": [
+      "+2",
+      "+7",
+      "+4",
+      "0"
+    ],
+    "answer": 1,
+    "explain": "Using the usual oxidation numbers for oxygen and the overall ionic charge gives Mn an oxidation number of +7."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Mole Concept",
+    "difficulty": "easy",
+    "q": "54 g of a substance with molar mass 18 g/mol contains:",
+    "options": [
+      "72 mol",
+      "6 mol",
+      "3 mol",
+      "27 mol"
+    ],
+    "answer": 2,
+    "explain": "Amount n = mass/molar mass = 54/18 = 3 mol."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Solutions",
+    "difficulty": "easy",
+    "q": "0.6 mol solute is dissolved to make 3 L of solution. Its molarity is:",
+    "options": [
+      "1.7999999999999998 M",
+      "5 M",
+      "0.39999999999999997 M",
+      "0.19999999999999998 M"
+    ],
+    "answer": 3,
+    "explain": "Molarity = moles/volume in litres = 0.6/3 = 0.19999999999999998 M."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Acid-Base Equilibrium",
+    "difficulty": "easy",
+    "q": "Assuming complete ionization, the pH of 1.0 × 10⁻6 M HNO₃ is:",
+    "options": [
+      "6",
+      "8",
+      "7",
+      "5"
+    ],
+    "answer": 0,
+    "explain": "HNO₃ is a strong acid, so [H⁺]=10⁻6 M and pH=6."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Equilibrium",
+    "difficulty": "medium",
+    "q": "For A₂(g) ⇌ 2B(g), choose the relation between Kp and Kc:",
+    "options": [
+      "Kp = Kc",
+      "Kp = Kc(RT)^1",
+      "Kp = Kc(RT)",
+      "Kp = Kc/(RT)"
+    ],
+    "answer": 1,
+    "explain": "Kp=Kc(RT)^Δn, where Δn is gaseous product moles minus gaseous reactant moles. Here Δn=1, so Kp = Kc(RT)^1."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Kinetics",
+    "difficulty": "medium",
+    "q": "A first-order reaction has rate constant 0.231 s⁻¹. Its half-life is approximately:",
+    "options": [
+      "2.08 s",
+      "6 s",
+      "3 s",
+      "4.33 s"
+    ],
+    "answer": 2,
+    "explain": "For a first-order reaction, t₁/₂=0.693/k=3.00 s, approximately 3 s."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Electrochemistry",
+    "difficulty": "medium",
+    "q": "A galvanic cell has E°cathode=0.8 V and E°anode=0.2 V. Its standard cell potential is:",
+    "options": [
+      "1 V",
+      "-0.6000000000000001 V",
+      "1.2 V",
+      "0.6 V"
+    ],
+    "answer": 3,
+    "explain": "E°cell = E°cathode − E°anode = 0.8 − 0.2 = 0.6 V."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Acid-Base Equilibrium",
+    "difficulty": "medium",
+    "q": "A buffer has pKa=5 and base-to-acid concentration ratio 10^4. Its pH is:",
+    "options": [
+      "5",
+      "5",
+      "1",
+      "10"
+    ],
+    "answer": 0,
+    "explain": "Henderson–Hasselbalch gives pH=pKa+log([base]/[acid])=5+4=5."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Thermodynamics",
+    "difficulty": "medium",
+    "q": "At 300 K, a process has ΔH=40 kJ mol⁻¹ and ΔS=50000 J mol⁻¹ K⁻¹. ΔG is:",
+    "options": [
+      "55 kJ mol⁻¹",
+      "25 kJ mol⁻¹",
+      "40 kJ mol⁻¹",
+      "-25 kJ mol⁻¹"
+    ],
+    "answer": 1,
+    "explain": "ΔG=ΔH−TΔS=40−300×50/1000=25 kJ mol⁻¹."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Solutions",
+    "difficulty": "medium",
+    "q": "A component has mole fraction 0.2 in a solution. If its pure vapour pressure is 0.8 atm, its partial vapour pressure is:",
+    "options": [
+      "4 atm",
+      "0.64 atm",
+      "0.16 atm",
+      "0.32 atm"
+    ],
+    "answer": 2,
+    "explain": "Raoult's law gives p = x p° = 0.2 × 0.8 = 0.16 atm."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Solutions",
+    "difficulty": "medium",
+    "q": "An ideal solution has concentration 0.1 mol L⁻¹ at 300 K. Using R=0.082 L atm mol⁻¹ K⁻¹, its osmotic pressure is:",
+    "options": [
+      "0.008 atm",
+      "1.23 atm",
+      "4.92 atm",
+      "2.46 atm"
+    ],
+    "answer": 3,
+    "explain": "Π=CRT=0.1 × 0.082 × 300=2.46 atm."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Equilibrium",
+    "difficulty": "medium",
+    "q": "For A(g)+B(g) ⇌ C(g), choose the relation between Kp and Kc:",
+    "options": [
+      "Kp = Kc/(RT)^1",
+      "Kp = Kc",
+      "Kp = Kc(RT)",
+      "Kp = Kc/(RT)"
+    ],
+    "answer": 0,
+    "explain": "Kp=Kc(RT)^Δn, where Δn is gaseous product moles minus gaseous reactant moles. Here Δn=-1, so Kp = Kc/(RT)^1."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Kinetics",
+    "difficulty": "medium",
+    "q": "A first-order reaction has rate constant 0.3465 s⁻¹. Its half-life is approximately:",
+    "options": [
+      "1.39 s",
+      "2 s",
+      "4 s",
+      "2.89 s"
+    ],
+    "answer": 1,
+    "explain": "For a first-order reaction, t₁/₂=0.693/k=2.00 s, approximately 2 s."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Electrochemistry",
+    "difficulty": "medium",
+    "q": "A galvanic cell has E°cathode=1.1 V and E°anode=0.4 V. Its standard cell potential is:",
+    "options": [
+      "1.5 V",
+      "-0.7000000000000001 V",
+      "0.7 V",
+      "1.4 V"
+    ],
+    "answer": 2,
+    "explain": "E°cell = E°cathode − E°anode = 1.1 − 0.4 = 0.7 V."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Acid-Base Equilibrium",
+    "difficulty": "medium",
+    "q": "A buffer has pKa=4 and base-to-acid concentration ratio 10^3. Its pH is:",
+    "options": [
+      "4",
+      "1",
+      "8",
+      "4"
+    ],
+    "answer": 3,
+    "explain": "Henderson–Hasselbalch gives pH=pKa+log([base]/[acid])=4+3=4."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Thermodynamics",
+    "difficulty": "medium",
+    "q": "At 300 K, a process has ΔH=60 kJ mol⁻¹ and ΔS=40000 J mol⁻¹ K⁻¹. ΔG is:",
+    "options": [
+      "48 kJ mol⁻¹",
+      "72 kJ mol⁻¹",
+      "60 kJ mol⁻¹",
+      "-48 kJ mol⁻¹"
+    ],
+    "answer": 0,
+    "explain": "ΔG=ΔH−TΔS=60−300×40/1000=48 kJ mol⁻¹."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Solutions",
+    "difficulty": "medium",
+    "q": "A component has mole fraction 0.3 in a solution. If its pure vapour pressure is 1 atm, its partial vapour pressure is:",
+    "options": [
+      "3.3333333333333335 atm",
+      "0.3 atm",
+      "0.7 atm",
+      "0.6 atm"
+    ],
+    "answer": 1,
+    "explain": "Raoult's law gives p = x p° = 0.3 × 1 = 0.3 atm."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Solutions",
+    "difficulty": "medium",
+    "q": "An ideal solution has concentration 0.2 mol L⁻¹ at 300 K. Using R=0.082 L atm mol⁻¹ K⁻¹, its osmotic pressure is:",
+    "options": [
+      "0.016 atm",
+      "2.46 atm",
+      "4.92 atm",
+      "9.84 atm"
+    ],
+    "answer": 2,
+    "explain": "Π=CRT=0.2 × 0.082 × 300=4.92 atm."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Equilibrium",
+    "difficulty": "medium",
+    "q": "For 2A(g) ⇌ B(g)+C(g), choose the relation between Kp and Kc:",
+    "options": [
+      "Kp = Kc(RT)",
+      "Kp = Kc/(RT)",
+      "Kp = Kc(RT)²",
+      "Kp = Kc"
+    ],
+    "answer": 3,
+    "explain": "Kp=Kc(RT)^Δn, where Δn is gaseous product moles minus gaseous reactant moles. Here Δn=0, so Kp = Kc."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Kinetics",
+    "difficulty": "medium",
+    "q": "A first-order reaction has rate constant 0.099 s⁻¹. Its half-life is approximately:",
+    "options": [
+      "7 s",
+      "4.85 s",
+      "14 s",
+      "10.10 s"
+    ],
+    "answer": 0,
+    "explain": "For a first-order reaction, t₁/₂=0.693/k=7.00 s, approximately 7 s."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Electrochemistry",
+    "difficulty": "medium",
+    "q": "A galvanic cell has E°cathode=0.76 V and E°anode=0.34 V. Its standard cell potential is:",
+    "options": [
+      "1.1 V",
+      "0.42 V",
+      "-0.42 V",
+      "0.84 V"
+    ],
+    "answer": 1,
+    "explain": "E°cell = E°cathode − E°anode = 0.76 − 0.34 = 0.42 V."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Acid-Base Equilibrium",
+    "difficulty": "medium",
+    "q": "A buffer has pKa=6 and base-to-acid concentration ratio 10^5. Its pH is:",
+    "options": [
+      "6",
+      "1",
+      "6",
+      "12"
+    ],
+    "answer": 2,
+    "explain": "Henderson–Hasselbalch gives pH=pKa+log([base]/[acid])=6+5=6."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Thermodynamics",
+    "difficulty": "medium",
+    "q": "At 300 K, a process has ΔH=50 kJ mol⁻¹ and ΔS=100000 J mol⁻¹ K⁻¹. ΔG is:",
+    "options": [
+      "80 kJ mol⁻¹",
+      "50 kJ mol⁻¹",
+      "-20 kJ mol⁻¹",
+      "20 kJ mol⁻¹"
+    ],
+    "answer": 3,
+    "explain": "ΔG=ΔH−TΔS=50−300×100/1000=20 kJ mol⁻¹."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Solutions",
+    "difficulty": "medium",
+    "q": "A component has mole fraction 0.4 in a solution. If its pure vapour pressure is 0.5 atm, its partial vapour pressure is:",
+    "options": [
+      "0.2 atm",
+      "1.25 atm",
+      "0.3 atm",
+      "0.4 atm"
+    ],
+    "answer": 0,
+    "explain": "Raoult's law gives p = x p° = 0.4 × 0.5 = 0.2 atm."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Solutions",
+    "difficulty": "medium",
+    "q": "An ideal solution has concentration 0.05 mol L⁻¹ at 300 K. Using R=0.082 L atm mol⁻¹ K⁻¹, its osmotic pressure is:",
+    "options": [
+      "0.004 atm",
+      "1.23 atm",
+      "0.61 atm",
+      "2.46 atm"
+    ],
+    "answer": 1,
+    "explain": "Π=CRT=0.05 × 0.082 × 300=1.23 atm."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Equilibrium",
+    "difficulty": "medium",
+    "q": "For A(g)+3B(g) ⇌ 2C(g), choose the relation between Kp and Kc:",
+    "options": [
+      "Kp = Kc",
+      "Kp = Kc(RT)",
+      "Kp = Kc/(RT)^2",
+      "Kp = Kc/(RT)"
+    ],
+    "answer": 2,
+    "explain": "Kp=Kc(RT)^Δn, where Δn is gaseous product moles minus gaseous reactant moles. Here Δn=-2, so Kp = Kc/(RT)^2."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Kinetics",
+    "difficulty": "medium",
+    "q": "A first-order reaction has rate constant 0.17325 s⁻¹. Its half-life is approximately:",
+    "options": [
+      "2.77 s",
+      "8 s",
+      "5.77 s",
+      "4 s"
+    ],
+    "answer": 3,
+    "explain": "For a first-order reaction, t₁/₂=0.693/k=4.00 s, approximately 4 s."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Electrochemistry",
+    "difficulty": "medium",
+    "q": "A galvanic cell has E°cathode=0.5 V and E°anode=0.1 V. Its standard cell potential is:",
+    "options": [
+      "0.4 V",
+      "0.6 V",
+      "-0.4 V",
+      "0.8 V"
+    ],
+    "answer": 0,
+    "explain": "E°cell = E°cathode − E°anode = 0.5 − 0.1 = 0.4 V."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Acid-Base Equilibrium",
+    "difficulty": "medium",
+    "q": "A buffer has pKa=3 and base-to-acid concentration ratio 10^2. Its pH is:",
+    "options": [
+      "3",
+      "3",
+      "1",
+      "6"
+    ],
+    "answer": 1,
+    "explain": "Henderson–Hasselbalch gives pH=pKa+log([base]/[acid])=3+2=3."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Thermodynamics",
+    "difficulty": "medium",
+    "q": "At 300 K, a process has ΔH=80 kJ mol⁻¹ and ΔS=100000 J mol⁻¹ K⁻¹. ΔG is:",
+    "options": [
+      "110 kJ mol⁻¹",
+      "80 kJ mol⁻¹",
+      "50 kJ mol⁻¹",
+      "-50 kJ mol⁻¹"
+    ],
+    "answer": 2,
+    "explain": "ΔG=ΔH−TΔS=80−300×100/1000=50 kJ mol⁻¹."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Solutions",
+    "difficulty": "medium",
+    "q": "A component has mole fraction 0.6 in a solution. If its pure vapour pressure is 0.5 atm, its partial vapour pressure is:",
+    "options": [
+      "0.8333333333333334 atm",
+      "0.2 atm",
+      "0.6 atm",
+      "0.3 atm"
+    ],
+    "answer": 3,
+    "explain": "Raoult's law gives p = x p° = 0.6 × 0.5 = 0.3 atm."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Solutions",
+    "difficulty": "medium",
+    "q": "An ideal solution has concentration 0.15 mol L⁻¹ at 300 K. Using R=0.082 L atm mol⁻¹ K⁻¹, its osmotic pressure is:",
+    "options": [
+      "3.69 atm",
+      "0.012 atm",
+      "1.84 atm",
+      "7.38 atm"
+    ],
+    "answer": 0,
+    "explain": "Π=CRT=0.15 × 0.082 × 300=3.69 atm."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Equilibrium",
+    "difficulty": "medium",
+    "q": "For 2A(g)+B(g) ⇌ 3C(g), choose the relation between Kp and Kc:",
+    "options": [
+      "Kp = Kc(RT)",
+      "Kp = Kc",
+      "Kp = Kc/(RT)",
+      "Kp = Kc(RT)²"
+    ],
+    "answer": 1,
+    "explain": "Kp=Kc(RT)^Δn, where Δn is gaseous product moles minus gaseous reactant moles. Here Δn=0, so Kp = Kc."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Kinetics",
+    "difficulty": "medium",
+    "q": "A first-order reaction has rate constant 0.1386 s⁻¹. Its half-life is approximately:",
+    "options": [
+      "3.46 s",
+      "10 s",
+      "5 s",
+      "7.22 s"
+    ],
+    "answer": 2,
+    "explain": "For a first-order reaction, t₁/₂=0.693/k=5.00 s, approximately 5 s."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Electrochemistry",
+    "difficulty": "medium",
+    "q": "A galvanic cell has E°cathode=1 V and E°anode=0.25 V. Its standard cell potential is:",
+    "options": [
+      "1.25 V",
+      "-0.75 V",
+      "1.5 V",
+      "0.75 V"
+    ],
+    "answer": 3,
+    "explain": "E°cell = E°cathode − E°anode = 1 − 0.25 = 0.75 V."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Acid-Base Equilibrium",
+    "difficulty": "medium",
+    "q": "A buffer has pKa=7 and base-to-acid concentration ratio 10^6. Its pH is:",
+    "options": [
+      "7",
+      "7",
+      "1",
+      "14"
+    ],
+    "answer": 0,
+    "explain": "Henderson–Hasselbalch gives pH=pKa+log([base]/[acid])=7+6=7."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Thermodynamics",
+    "difficulty": "medium",
+    "q": "At 300 K, a process has ΔH=30 kJ mol⁻¹ and ΔS=20000 J mol⁻¹ K⁻¹. ΔG is:",
+    "options": [
+      "36 kJ mol⁻¹",
+      "24 kJ mol⁻¹",
+      "30 kJ mol⁻¹",
+      "-24 kJ mol⁻¹"
+    ],
+    "answer": 1,
+    "explain": "ΔG=ΔH−TΔS=30−300×20/1000=24 kJ mol⁻¹."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Ionic Equilibrium",
+    "difficulty": "hard",
+    "q": "For M(OH)₂ ⇌ M²⁺ + 2OH⁻, if the molar solubility is 0.01 mol/L, Ksp is:",
+    "options": [
+      "0.01²",
+      "0.02",
+      "4.0 × 10⁻⁶",
+      "1.0e-6"
+    ],
+    "answer": 2,
+    "explain": "At equilibrium [M²⁺]=s and [OH⁻]=2s, so Ksp=s(2s)²=4s³=4.0 × 10⁻⁶."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Electrochemistry",
+    "difficulty": "hard",
+    "q": "At 298 K, a cell has E°=0.8 V, n=2, and log₁₀Q=2. Using 0.0591 V in the Nernst equation, E is:",
+    "options": [
+      "0.8591000000000001 V",
+      "0.6818 V",
+      "0.8 V",
+      "0.7409 V"
+    ],
+    "answer": 3,
+    "explain": "E=E°−(0.0591/n)logQ=0.8−(0.0591/2)×2=0.7409 V."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Coordination Compounds",
+    "difficulty": "hard",
+    "q": "The number of unpaired electrons in Fe²⁺ in [Fe(CN)₆]⁴⁻ is:",
+    "options": [
+      "0",
+      "1",
+      "2",
+      "4"
+    ],
+    "answer": 0,
+    "explain": "Use the metal oxidation state, d-electron count and ligand-field strength. The stated configuration gives 0 unpaired electrons."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Acid-Base Equilibrium",
+    "difficulty": "hard",
+    "q": "A buffer has pKa=4 and [A⁻]/[HA]=0.1. Given log₁₀(0.1)=−1 and log₁₀(0.01)=−2, its pH is:",
+    "options": [
+      "4",
+      "5",
+      "5",
+      "3"
+    ],
+    "answer": 1,
+    "explain": "pH=pKa+log([A⁻]/[HA]); substituting the ratio gives pH=5."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Thermodynamics",
+    "difficulty": "hard",
+    "q": "At 300 K, a reaction has ΔH=80 kJ mol⁻¹ and ΔS=200 J mol⁻¹ K⁻¹. Its ΔG is:",
+    "options": [
+      "140 kJ mol⁻¹",
+      "80 kJ mol⁻¹",
+      "20 kJ mol⁻¹",
+      "-20 kJ mol⁻¹"
+    ],
+    "answer": 2,
+    "explain": "ΔG=ΔH−TΔS=80−300×200/1000=20 kJ mol⁻¹."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Kinetics",
+    "difficulty": "hard",
+    "q": "The units of the rate constant for a zero-order reaction are:",
+    "options": [
+      "s⁻¹",
+      "L mol⁻¹ s⁻¹",
+      "mol² L⁻² s⁻¹",
+      "mol L⁻¹ s⁻¹"
+    ],
+    "answer": 3,
+    "explain": "Rate has units of concentration/time. For order n, k has units concentration^(1−n) time⁻¹; for order zero, this is mol L⁻¹ s⁻¹."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Organic Chemistry",
+    "difficulty": "hard",
+    "q": "The major product when propene reacts with HBr in the presence of peroxide is:",
+    "options": [
+      "1-bromopropane",
+      "an alkane",
+      "a ketone",
+      "a carboxylic acid"
+    ],
+    "answer": 0,
+    "explain": "The peroxide effect changes the regiochemistry of HBr addition to an unsymmetrical alkene; the major product here is 1-bromopropane."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Ionic Equilibrium",
+    "difficulty": "hard",
+    "q": "For M(OH)₂ ⇌ M²⁺ + 2OH⁻, if the molar solubility is 0.02 mol/L, Ksp is:",
+    "options": [
+      "0.02²",
+      "3.2 × 10⁻⁵",
+      "0.04",
+      "8.0e-6"
+    ],
+    "answer": 1,
+    "explain": "At equilibrium [M²⁺]=s and [OH⁻]=2s, so Ksp=s(2s)²=4s³=3.2 × 10⁻⁵."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Electrochemistry",
+    "difficulty": "hard",
+    "q": "At 298 K, a cell has E°=1 V, n=1, and log₁₀Q=1. Using 0.0591 V in the Nernst equation, E is:",
+    "options": [
+      "1.0591 V",
+      "0.9409 V",
+      "0.9409 V",
+      "1 V"
+    ],
+    "answer": 2,
+    "explain": "E=E°−(0.0591/n)logQ=1−(0.0591/1)×1=0.9409 V."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Coordination Compounds",
+    "difficulty": "hard",
+    "q": "The number of unpaired electrons in Co³⁺ in [Co(NH₃)₆]³⁺ is:",
+    "options": [
+      "1",
+      "2",
+      "4",
+      "0"
+    ],
+    "answer": 3,
+    "explain": "Use the metal oxidation state, d-electron count and ligand-field strength. The stated configuration gives 0 unpaired electrons."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Acid-Base Equilibrium",
+    "difficulty": "hard",
+    "q": "A buffer has pKa=5 and [A⁻]/[HA]=0.01. Given log₁₀(0.1)=−1 and log₁₀(0.01)=−2, its pH is:",
+    "options": [
+      "3",
+      "5",
+      "6",
+      "4"
+    ],
+    "answer": 0,
+    "explain": "pH=pKa+log([A⁻]/[HA]); substituting the ratio gives pH=3."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Thermodynamics",
+    "difficulty": "hard",
+    "q": "At 300 K, a reaction has ΔH=120 kJ mol⁻¹ and ΔS=200 J mol⁻¹ K⁻¹. Its ΔG is:",
+    "options": [
+      "180 kJ mol⁻¹",
+      "60 kJ mol⁻¹",
+      "120 kJ mol⁻¹",
+      "-60 kJ mol⁻¹"
+    ],
+    "answer": 1,
+    "explain": "ΔG=ΔH−TΔS=120−300×200/1000=60 kJ mol⁻¹."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Kinetics",
+    "difficulty": "hard",
+    "q": "The units of the rate constant for a first-order reaction are:",
+    "options": [
+      "mol L⁻¹ s⁻¹",
+      "L mol⁻¹ s⁻¹",
+      "s⁻¹",
+      "mol² L⁻² s⁻¹"
+    ],
+    "answer": 2,
+    "explain": "Rate has units of concentration/time. For order n, k has units concentration^(1−n) time⁻¹; for order first, this is s⁻¹."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Organic Chemistry",
+    "difficulty": "hard",
+    "q": "The major product when 1-butene reacts with HBr in the presence of peroxide is:",
+    "options": [
+      "an alkane",
+      "a ketone",
+      "a carboxylic acid",
+      "1-bromobutane"
+    ],
+    "answer": 3,
+    "explain": "The peroxide effect changes the regiochemistry of HBr addition to an unsymmetrical alkene; the major product here is 1-bromobutane."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Ionic Equilibrium",
+    "difficulty": "hard",
+    "q": "For M(OH)₂ ⇌ M²⁺ + 2OH⁻, if the molar solubility is 0.005 mol/L, Ksp is:",
+    "options": [
+      "5.0 × 10⁻⁷",
+      "0.005²",
+      "0.01",
+      "1.3e-7"
+    ],
+    "answer": 0,
+    "explain": "At equilibrium [M²⁺]=s and [OH⁻]=2s, so Ksp=s(2s)²=4s³=5.0 × 10⁻⁷."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Electrochemistry",
+    "difficulty": "hard",
+    "q": "At 298 K, a cell has E°=0.6 V, n=2, and log₁₀Q=1. Using 0.0591 V in the Nernst equation, E is:",
+    "options": [
+      "0.6295499999999999 V",
+      "0.57045 V",
+      "0.5409 V",
+      "0.6 V"
+    ],
+    "answer": 1,
+    "explain": "E=E°−(0.0591/n)logQ=0.6−(0.0591/2)×1=0.57045 V."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Coordination Compounds",
+    "difficulty": "hard",
+    "q": "The number of unpaired electrons in Fe³⁺ high-spin in [FeF₆]³⁻ is:",
+    "options": [
+      "1",
+      "2",
+      "5",
+      "4"
+    ],
+    "answer": 2,
+    "explain": "Use the metal oxidation state, d-electron count and ligand-field strength. The stated configuration gives 5 unpaired electrons."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Acid-Base Equilibrium",
+    "difficulty": "hard",
+    "q": "A buffer has pKa=6 and [A⁻]/[HA]=10. Given log₁₀(0.1)=−1 and log₁₀(0.01)=−2, its pH is:",
+    "options": [
+      "6",
+      "7",
+      "5",
+      "7"
+    ],
+    "answer": 3,
+    "explain": "pH=pKa+log([A⁻]/[HA]); substituting the ratio gives pH=7."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Thermodynamics",
+    "difficulty": "hard",
+    "q": "At 300 K, a reaction has ΔH=100 kJ mol⁻¹ and ΔS=100 J mol⁻¹ K⁻¹. Its ΔG is:",
+    "options": [
+      "70 kJ mol⁻¹",
+      "130 kJ mol⁻¹",
+      "100 kJ mol⁻¹",
+      "-70 kJ mol⁻¹"
+    ],
+    "answer": 0,
+    "explain": "ΔG=ΔH−TΔS=100−300×100/1000=70 kJ mol⁻¹."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Kinetics",
+    "difficulty": "hard",
+    "q": "The units of the rate constant for a second-order reaction are:",
+    "options": [
+      "s⁻¹",
+      "L mol⁻¹ s⁻¹",
+      "mol L⁻¹ s⁻¹",
+      "mol² L⁻² s⁻¹"
+    ],
+    "answer": 1,
+    "explain": "Rate has units of concentration/time. For order n, k has units concentration^(1−n) time⁻¹; for order second, this is L mol⁻¹ s⁻¹."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Organic Chemistry",
+    "difficulty": "hard",
+    "q": "The major product when propene reacts with HBr without peroxide is:",
+    "options": [
+      "an alkane",
+      "a ketone",
+      "2-bromopropane",
+      "a carboxylic acid"
+    ],
+    "answer": 2,
+    "explain": "The peroxide effect changes the regiochemistry of HBr addition to an unsymmetrical alkene; the major product here is 2-bromopropane."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Ionic Equilibrium",
+    "difficulty": "hard",
+    "q": "For M(OH)₂ ⇌ M²⁺ + 2OH⁻, if the molar solubility is 0.03 mol/L, Ksp is:",
+    "options": [
+      "0.03²",
+      "0.06",
+      "2.7e-5",
+      "1.08 × 10⁻⁴"
+    ],
+    "answer": 3,
+    "explain": "At equilibrium [M²⁺]=s and [OH⁻]=2s, so Ksp=s(2s)²=4s³=1.08 × 10⁻⁴."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Electrochemistry",
+    "difficulty": "hard",
+    "q": "At 298 K, a cell has E°=0.5 V, n=1, and log₁₀Q=2. Using 0.0591 V in the Nernst equation, E is:",
+    "options": [
+      "0.3818 V",
+      "0.6182 V",
+      "0.3818 V",
+      "0.5 V"
+    ],
+    "answer": 0,
+    "explain": "E=E°−(0.0591/n)logQ=0.5−(0.0591/1)×2=0.3818 V."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Coordination Compounds",
+    "difficulty": "hard",
+    "q": "The number of unpaired electrons in Ni²⁺ square-planar in [Ni(CN)₄]²⁻ is:",
+    "options": [
+      "1",
+      "0",
+      "2",
+      "4"
+    ],
+    "answer": 1,
+    "explain": "Use the metal oxidation state, d-electron count and ligand-field strength. The stated configuration gives 0 unpaired electrons."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Acid-Base Equilibrium",
+    "difficulty": "hard",
+    "q": "A buffer has pKa=3 and [A⁻]/[HA]=0.01. Given log₁₀(0.1)=−1 and log₁₀(0.01)=−2, its pH is:",
+    "options": [
+      "3",
+      "4",
+      "1",
+      "2"
+    ],
+    "answer": 2,
+    "explain": "pH=pKa+log([A⁻]/[HA]); substituting the ratio gives pH=1."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Thermodynamics",
+    "difficulty": "hard",
+    "q": "At 300 K, a reaction has ΔH=90 kJ mol⁻¹ and ΔS=100 J mol⁻¹ K⁻¹. Its ΔG is:",
+    "options": [
+      "120 kJ mol⁻¹",
+      "90 kJ mol⁻¹",
+      "-60 kJ mol⁻¹",
+      "60 kJ mol⁻¹"
+    ],
+    "answer": 3,
+    "explain": "ΔG=ΔH−TΔS=90−300×100/1000=60 kJ mol⁻¹."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Kinetics",
+    "difficulty": "hard",
+    "q": "The units of the rate constant for a third-order reaction are:",
+    "options": [
+      "L² mol⁻² s⁻¹",
+      "s⁻¹",
+      "mol L⁻¹ s⁻¹",
+      "L mol⁻¹ s⁻¹"
+    ],
+    "answer": 0,
+    "explain": "Rate has units of concentration/time. For order n, k has units concentration^(1−n) time⁻¹; for order third, this is L² mol⁻² s⁻¹."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Organic Chemistry",
+    "difficulty": "hard",
+    "q": "The major product when 1-butene reacts with HBr without peroxide is:",
+    "options": [
+      "an alkane",
+      "2-bromobutane",
+      "a ketone",
+      "a carboxylic acid"
+    ],
+    "answer": 1,
+    "explain": "The peroxide effect changes the regiochemistry of HBr addition to an unsymmetrical alkene; the major product here is 2-bromobutane."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Ionic Equilibrium",
+    "difficulty": "hard",
+    "q": "For M(OH)₂ ⇌ M²⁺ + 2OH⁻, if the molar solubility is 0.04 mol/L, Ksp is:",
+    "options": [
+      "0.04²",
+      "0.08",
+      "2.56 × 10⁻⁴",
+      "6.4e-5"
+    ],
+    "answer": 2,
+    "explain": "At equilibrium [M²⁺]=s and [OH⁻]=2s, so Ksp=s(2s)²=4s³=2.56 × 10⁻⁴."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Electrochemistry",
+    "difficulty": "hard",
+    "q": "At 298 K, a cell has E°=1.2 V, n=2, and log₁₀Q=2. Using 0.0591 V in the Nernst equation, E is:",
+    "options": [
+      "1.2590999999999999 V",
+      "1.0818 V",
+      "1.2 V",
+      "1.1409 V"
+    ],
+    "answer": 3,
+    "explain": "E=E°−(0.0591/n)logQ=1.2−(0.0591/2)×2=1.1409 V."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Coordination Compounds",
+    "difficulty": "hard",
+    "q": "The number of unpaired electrons in Mn²⁺ high-spin in [Mn(H₂O)₆]²⁺ is:",
+    "options": [
+      "5",
+      "1",
+      "2",
+      "4"
+    ],
+    "answer": 0,
+    "explain": "Use the metal oxidation state, d-electron count and ligand-field strength. The stated configuration gives 5 unpaired electrons."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Acid-Base Equilibrium",
+    "difficulty": "hard",
+    "q": "A buffer has pKa=7 and [A⁻]/[HA]=0.1. Given log₁₀(0.1)=−1 and log₁₀(0.01)=−2, its pH is:",
+    "options": [
+      "7",
+      "8",
+      "8",
+      "6"
+    ],
+    "answer": 1,
+    "explain": "pH=pKa+log([A⁻]/[HA]); substituting the ratio gives pH=8."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Thermodynamics",
+    "difficulty": "hard",
+    "q": "At 300 K, a reaction has ΔH=150 kJ mol⁻¹ and ΔS=300 J mol⁻¹ K⁻¹. Its ΔG is:",
+    "options": [
+      "240 kJ mol⁻¹",
+      "150 kJ mol⁻¹",
+      "60 kJ mol⁻¹",
+      "-60 kJ mol⁻¹"
+    ],
+    "answer": 2,
+    "explain": "ΔG=ΔH−TΔS=150−300×300/1000=60 kJ mol⁻¹."
+  },
+  {
+    "subject": "Chemistry",
+    "topic": "Chemical Kinetics",
+    "difficulty": "hard",
+    "q": "The units of the rate constant for a fourth-order reaction are:",
+    "options": [
+      "s⁻¹",
+      "mol L⁻¹ s⁻¹",
+      "L mol⁻¹ s⁻¹",
+      "L³ mol⁻³ s⁻¹"
+    ],
+    "answer": 3,
+    "explain": "Rate has units of concentration/time. For order n, k has units concentration^(1−n) time⁻¹; for order fourth, this is L³ mol⁻³ s⁻¹."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Differentiation",
+    "difficulty": "easy",
+    "q": "If f(x)=2x^2, then f′(3) is:",
+    "options": [
+      "12",
+      "18",
+      "14",
+      "6"
+    ],
+    "answer": 0,
+    "explain": "f′(x)=4x^1; substituting x=3 gives 12."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Sequences",
+    "difficulty": "easy",
+    "q": "An AP has first term 2 and common difference 3. Its 6th term is:",
+    "options": [
+      "20",
+      "17",
+      "15",
+      "20"
+    ],
+    "answer": 1,
+    "explain": "aₙ=a+(n−1)d=2+(6−1)×3=17."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Trigonometry",
+    "difficulty": "easy",
+    "q": "sin 45° equals:",
+    "options": [
+      "0",
+      "1/2",
+      "1/√2",
+      "1"
+    ],
+    "answer": 2,
+    "explain": "From the standard special-angle values, sin 45° = 1/√2."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Matrices",
+    "difficulty": "easy",
+    "q": "The determinant of [[2, 1], [4, 3]] is:",
+    "options": [
+      "10",
+      "5",
+      "-2",
+      "2"
+    ],
+    "answer": 3,
+    "explain": "The determinant is ad−bc = 2×3−1×4=2."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Probability",
+    "difficulty": "easy",
+    "q": "One a fair coin is used once. The probability of getting head is:",
+    "options": [
+      "1/2",
+      "1/4",
+      "1/3",
+      "2/3"
+    ],
+    "answer": 0,
+    "explain": "Favourable outcomes divided by total equally likely outcomes gives 1/2."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Coordinate Geometry",
+    "difficulty": "easy",
+    "q": "Find the distance between (0,0) and (3,4):",
+    "options": [
+      "2",
+      "5",
+      "4",
+      "6"
+    ],
+    "answer": 1,
+    "explain": "Applying the standard result gives 5."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Differentiation",
+    "difficulty": "easy",
+    "q": "If f(x)=3x^3, then f′(2) is:",
+    "options": [
+      "24",
+      "39",
+      "36",
+      "18"
+    ],
+    "answer": 2,
+    "explain": "f′(x)=9x^2; substituting x=2 gives 36."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Sequences",
+    "difficulty": "easy",
+    "q": "An AP has first term 5 and common difference 4. Its 8th term is:",
+    "options": [
+      "37",
+      "44",
+      "37",
+      "33"
+    ],
+    "answer": 3,
+    "explain": "aₙ=a+(n−1)d=5+(8−1)×4=33."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Trigonometry",
+    "difficulty": "easy",
+    "q": "cos 45° equals:",
+    "options": [
+      "1/√2",
+      "0",
+      "1/2",
+      "1"
+    ],
+    "answer": 0,
+    "explain": "From the standard special-angle values, cos 45° = 1/√2."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Matrices",
+    "difficulty": "easy",
+    "q": "The determinant of [[3, 2], [5, 4]] is:",
+    "options": [
+      "22",
+      "2",
+      "7",
+      "-2"
+    ],
+    "answer": 1,
+    "explain": "The determinant is ad−bc = 3×4−2×5=2."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Probability",
+    "difficulty": "easy",
+    "q": "One a fair six-sided die is used once. The probability of getting an even number is:",
+    "options": [
+      "1/4",
+      "1/3",
+      "1/2",
+      "2/3"
+    ],
+    "answer": 2,
+    "explain": "Favourable outcomes divided by total equally likely outcomes gives 1/2."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Coordinate Geometry",
+    "difficulty": "easy",
+    "q": "Find the slope through (1,1) and (3,5):",
+    "options": [
+      "4",
+      "6",
+      "8",
+      "2"
+    ],
+    "answer": 3,
+    "explain": "Applying the standard result gives 2."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Differentiation",
+    "difficulty": "easy",
+    "q": "If f(x)=4x^2, then f′(5) is:",
+    "options": [
+      "40",
+      "100",
+      "44",
+      "20"
+    ],
+    "answer": 0,
+    "explain": "f′(x)=8x^1; substituting x=5 gives 40."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Sequences",
+    "difficulty": "easy",
+    "q": "An AP has first term 3 and common difference 5. Its 10th term is:",
+    "options": [
+      "53",
+      "48",
+      "35",
+      "53"
+    ],
+    "answer": 1,
+    "explain": "aₙ=a+(n−1)d=3+(10−1)×5=48."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Trigonometry",
+    "difficulty": "easy",
+    "q": "tan 45° equals:",
+    "options": [
+      "0",
+      "1/2",
+      "1",
+      "√3"
+    ],
+    "answer": 2,
+    "explain": "From the standard special-angle values, tan 45° = 1."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Matrices",
+    "difficulty": "easy",
+    "q": "The determinant of [[4, 3], [6, 5]] is:",
+    "options": [
+      "38",
+      "9",
+      "-2",
+      "2"
+    ],
+    "answer": 3,
+    "explain": "The determinant is ad−bc = 4×5−3×6=2."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Probability",
+    "difficulty": "easy",
+    "q": "One a fair six-sided die is used once. The probability of getting a number greater than 4 is:",
+    "options": [
+      "1/3",
+      "1/4",
+      "2/3",
+      "3/4"
+    ],
+    "answer": 0,
+    "explain": "Favourable outcomes divided by total equally likely outcomes gives 1/3."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Coordinate Geometry",
+    "difficulty": "easy",
+    "q": "Find the modulus of 3+4i:",
+    "options": [
+      "2",
+      "5",
+      "4",
+      "6"
+    ],
+    "answer": 1,
+    "explain": "Applying the standard result gives 5."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Differentiation",
+    "difficulty": "easy",
+    "q": "If f(x)=5x^3, then f′(2) is:",
+    "options": [
+      "40",
+      "65",
+      "60",
+      "30"
+    ],
+    "answer": 2,
+    "explain": "f′(x)=15x^2; substituting x=2 gives 60."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Sequences",
+    "difficulty": "easy",
+    "q": "An AP has first term 7 and common difference 2. Its 7th term is:",
+    "options": [
+      "21",
+      "51",
+      "21",
+      "19"
+    ],
+    "answer": 3,
+    "explain": "aₙ=a+(n−1)d=7+(7−1)×2=19."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Trigonometry",
+    "difficulty": "easy",
+    "q": "sin 90° equals:",
+    "options": [
+      "1",
+      "0",
+      "1/2",
+      "√3"
+    ],
+    "answer": 0,
+    "explain": "From the standard special-angle values, sin 90° = 1."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Matrices",
+    "difficulty": "easy",
+    "q": "The determinant of [[5, 4], [7, 6]] is:",
+    "options": [
+      "58",
+      "2",
+      "11",
+      "-2"
+    ],
+    "answer": 1,
+    "explain": "The determinant is ad−bc = 5×6−4×7=2."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Probability",
+    "difficulty": "easy",
+    "q": "One a standard deck is used once. The probability of getting an ace is:",
+    "options": [
+      "1/4",
+      "1/3",
+      "1/13",
+      "2/3"
+    ],
+    "answer": 2,
+    "explain": "Favourable outcomes divided by total equally likely outcomes gives 1/13."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Coordinate Geometry",
+    "difficulty": "easy",
+    "q": "Find the limit of sin x/x as x→0:",
+    "options": [
+      "2",
+      "4",
+      "6",
+      "1"
+    ],
+    "answer": 3,
+    "explain": "Applying the standard result gives 1."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Differentiation",
+    "difficulty": "easy",
+    "q": "If f(x)=6x^2, then f′(4) is:",
+    "options": [
+      "48",
+      "96",
+      "54",
+      "24"
+    ],
+    "answer": 0,
+    "explain": "f′(x)=12x^1; substituting x=4 gives 48."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Sequences",
+    "difficulty": "easy",
+    "q": "An AP has first term 4 and common difference 6. Its 9th term is:",
+    "options": [
+      "58",
+      "52",
+      "42",
+      "58"
+    ],
+    "answer": 1,
+    "explain": "aₙ=a+(n−1)d=4+(9−1)×6=52."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Trigonometry",
+    "difficulty": "easy",
+    "q": "cos 0° equals:",
+    "options": [
+      "0",
+      "1/2",
+      "1",
+      "√3"
+    ],
+    "answer": 2,
+    "explain": "From the standard special-angle values, cos 0° = 1."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Matrices",
+    "difficulty": "easy",
+    "q": "The determinant of [[6, 5], [8, 7]] is:",
+    "options": [
+      "82",
+      "13",
+      "-2",
+      "2"
+    ],
+    "answer": 3,
+    "explain": "The determinant is ad−bc = 6×7−5×8=2."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Probability",
+    "difficulty": "easy",
+    "q": "One a fair coin is used once. The probability of getting tail is:",
+    "options": [
+      "1/2",
+      "1/4",
+      "1/3",
+      "2/3"
+    ],
+    "answer": 0,
+    "explain": "Favourable outcomes divided by total equally likely outcomes gives 1/2."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Coordinate Geometry",
+    "difficulty": "easy",
+    "q": "Find the area of a radius-3 circle:",
+    "options": [
+      "2",
+      "9π",
+      "4",
+      "6"
+    ],
+    "answer": 1,
+    "explain": "Applying the standard result gives 9π."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Differentiation",
+    "difficulty": "easy",
+    "q": "If f(x)=7x^3, then f′(2) is:",
+    "options": [
+      "56",
+      "91",
+      "84",
+      "42"
+    ],
+    "answer": 2,
+    "explain": "f′(x)=21x^2; substituting x=2 gives 84."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Sequences",
+    "difficulty": "easy",
+    "q": "An AP has first term 6 and common difference 3. Its 12th term is:",
+    "options": [
+      "42",
+      "75",
+      "42",
+      "39"
+    ],
+    "answer": 3,
+    "explain": "aₙ=a+(n−1)d=6+(12−1)×3=39."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Trigonometry",
+    "difficulty": "easy",
+    "q": "tan 30° equals:",
+    "options": [
+      "1/√3",
+      "0",
+      "1/2",
+      "1"
+    ],
+    "answer": 0,
+    "explain": "From the standard special-angle values, tan 30° = 1/√3."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Matrices",
+    "difficulty": "easy",
+    "q": "The determinant of [[7, 6], [9, 8]] is:",
+    "options": [
+      "110",
+      "2",
+      "15",
+      "-2"
+    ],
+    "answer": 1,
+    "explain": "The determinant is ad−bc = 7×8−6×9=2."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Integral Calculus",
+    "difficulty": "medium",
+    "q": "Evaluate ∫₀¹ 2x^1 dx:",
+    "options": [
+      "2",
+      "1/2",
+      "1",
+      "1"
+    ],
+    "answer": 2,
+    "explain": "An antiderivative is x^2; evaluating from 0 to 1 gives 1."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Differentiation",
+    "difficulty": "medium",
+    "q": "For f(x)=(2x+1)², the value of f′(2) is:",
+    "options": [
+      "10",
+      "12",
+      "5",
+      "10"
+    ],
+    "answer": 3,
+    "explain": "By the chain rule, f′(x)=2a(ax+b); at x=2, this is 10."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Probability",
+    "difficulty": "medium",
+    "q": "When two dice are thrown, the probability of obtaining a sum of 8 is:",
+    "options": [
+      "5/36",
+      "1/6",
+      "1/12",
+      "1/4"
+    ],
+    "answer": 0,
+    "explain": "Count the ordered outcomes giving a sum of 8 among 36 equally likely outcomes; the probability is 5/36."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Series",
+    "difficulty": "medium",
+    "q": "The sum of the first 5 terms of a GP with first term 1 and common ratio 2 is:",
+    "options": [
+      "16",
+      "31",
+      "32",
+      "15.5"
+    ],
+    "answer": 1,
+    "explain": "Sₙ=a(rⁿ−1)/(r−1)=1(2^5−1)/(2−1)=31."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Vectors",
+    "difficulty": "medium",
+    "q": "The dot product of vectors (1,2,3) and (2,−1,0) is:",
+    "options": [
+      "1",
+      "2",
+      "0",
+      "−1"
+    ],
+    "answer": 2,
+    "explain": "Multiply corresponding components and add; the products cancel, giving 0."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Matrices",
+    "difficulty": "medium",
+    "q": "Evaluate det([[2,1],[1,4]]):",
+    "options": [
+      "9",
+      "6",
+      "-7",
+      "7"
+    ],
+    "answer": 3,
+    "explain": "For [[a,b],[c,d]], determinant = ad−bc = 2×4−1×1=7."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Coordinate Geometry",
+    "difficulty": "medium",
+    "q": "The equation of a 3-unit circle centred at (2,−1) is:",
+    "options": [
+      "(x−2)²+(y+1)²=9",
+      "x²+y²=1",
+      "(x+2)²+(y+1)²=9",
+      "(x−1)²+(y−1)²=16"
+    ],
+    "answer": 0,
+    "explain": "A circle with centre (h,k) and radius r has equation (x−h)²+(y−k)²=r²; substituting the given values gives (x−2)²+(y+1)²=9."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Integral Calculus",
+    "difficulty": "medium",
+    "q": "Evaluate ∫₀¹ 3x^2 dx:",
+    "options": [
+      "3",
+      "1",
+      "1/3",
+      "2"
+    ],
+    "answer": 1,
+    "explain": "An antiderivative is x^3; evaluating from 0 to 1 gives 1."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Differentiation",
+    "difficulty": "medium",
+    "q": "For f(x)=(3x+2)², the value of f′(1) is:",
+    "options": [
+      "10",
+      "18",
+      "15",
+      "5"
+    ],
+    "answer": 2,
+    "explain": "By the chain rule, f′(x)=2a(ax+b); at x=1, this is 15."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Probability",
+    "difficulty": "medium",
+    "q": "When two dice are thrown, the probability of obtaining a sum of 9 is:",
+    "options": [
+      "1/6",
+      "1/12",
+      "1/4",
+      "1/9"
+    ],
+    "answer": 3,
+    "explain": "Count the ordered outcomes giving a sum of 9 among 36 equally likely outcomes; the probability is 1/9."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Series",
+    "difficulty": "medium",
+    "q": "The sum of the first 4 terms of a GP with first term 2 and common ratio 3 is:",
+    "options": [
+      "80",
+      "54",
+      "82",
+      "40"
+    ],
+    "answer": 0,
+    "explain": "Sₙ=a(rⁿ−1)/(r−1)=2(3^4−1)/(3−1)=80."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Vectors",
+    "difficulty": "medium",
+    "q": "The dot product of vectors (1,0,2) and (2,1,−1) is:",
+    "options": [
+      "1",
+      "0",
+      "2",
+      "−1"
+    ],
+    "answer": 1,
+    "explain": "Multiply corresponding components and add; the products cancel, giving 0."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Matrices",
+    "difficulty": "medium",
+    "q": "Evaluate det([[3,2],[2,5]]):",
+    "options": [
+      "19",
+      "8",
+      "11",
+      "-11"
+    ],
+    "answer": 2,
+    "explain": "For [[a,b],[c,d]], determinant = ad−bc = 3×5−2×2=11."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Coordinate Geometry",
+    "difficulty": "medium",
+    "q": "The equation of a 4-unit circle centred at (−3,2) is:",
+    "options": [
+      "x²+y²=1",
+      "(x+2)²+(y+1)²=9",
+      "(x−1)²+(y−1)²=16",
+      "(x+3)²+(y−2)²=16"
+    ],
+    "answer": 3,
+    "explain": "A circle with centre (h,k) and radius r has equation (x−h)²+(y−k)²=r²; substituting the given values gives (x+3)²+(y−2)²=16."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Integral Calculus",
+    "difficulty": "medium",
+    "q": "Evaluate ∫₀¹ 4x^3 dx:",
+    "options": [
+      "1",
+      "4",
+      "1/4",
+      "3"
+    ],
+    "answer": 0,
+    "explain": "An antiderivative is x^4; evaluating from 0 to 1 gives 1."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Differentiation",
+    "difficulty": "medium",
+    "q": "For f(x)=(4x+1)², the value of f′(3) is:",
+    "options": [
+      "26",
+      "52",
+      "56",
+      "13"
+    ],
+    "answer": 1,
+    "explain": "By the chain rule, f′(x)=2a(ax+b); at x=3, this is 52."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Probability",
+    "difficulty": "medium",
+    "q": "When two dice are thrown, the probability of obtaining a sum of 10 is:",
+    "options": [
+      "1/6",
+      "1/4",
+      "1/12",
+      "1/3"
+    ],
+    "answer": 2,
+    "explain": "Count the ordered outcomes giving a sum of 10 among 36 equally likely outcomes; the probability is 1/12."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Series",
+    "difficulty": "medium",
+    "q": "The sum of the first 6 terms of a GP with first term 3 and common ratio 2 is:",
+    "options": [
+      "96",
+      "192",
+      "94.5",
+      "189"
+    ],
+    "answer": 3,
+    "explain": "Sₙ=a(rⁿ−1)/(r−1)=3(2^6−1)/(2−1)=189."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Vectors",
+    "difficulty": "medium",
+    "q": "The dot product of vectors (2,1,0) and (1,−2,3) is:",
+    "options": [
+      "0",
+      "1",
+      "2",
+      "−1"
+    ],
+    "answer": 0,
+    "explain": "Multiply corresponding components and add; the products cancel, giving 0."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Matrices",
+    "difficulty": "medium",
+    "q": "Evaluate det([[4,1],[3,6]]):",
+    "options": [
+      "27",
+      "21",
+      "10",
+      "-21"
+    ],
+    "answer": 1,
+    "explain": "For [[a,b],[c,d]], determinant = ad−bc = 4×6−1×3=21."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Coordinate Geometry",
+    "difficulty": "medium",
+    "q": "The equation of a 2-unit circle centred at (1,1) is:",
+    "options": [
+      "x²+y²=1",
+      "(x+2)²+(y+1)²=9",
+      "(x−1)²+(y−1)²=4",
+      "(x−1)²+(y−1)²=16"
+    ],
+    "answer": 2,
+    "explain": "A circle with centre (h,k) and radius r has equation (x−h)²+(y−k)²=r²; substituting the given values gives (x−1)²+(y−1)²=4."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Integral Calculus",
+    "difficulty": "medium",
+    "q": "Evaluate ∫₀¹ 5x^4 dx:",
+    "options": [
+      "5",
+      "1/5",
+      "4",
+      "1"
+    ],
+    "answer": 3,
+    "explain": "An antiderivative is x^5; evaluating from 0 to 1 gives 1."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Differentiation",
+    "difficulty": "medium",
+    "q": "For f(x)=(5x+3)², the value of f′(2) is:",
+    "options": [
+      "65",
+      "26",
+      "70",
+      "13"
+    ],
+    "answer": 0,
+    "explain": "By the chain rule, f′(x)=2a(ax+b); at x=2, this is 65."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Probability",
+    "difficulty": "medium",
+    "q": "When two dice are thrown, the probability of obtaining a sum of 5 is:",
+    "options": [
+      "1/6",
+      "1/9",
+      "1/12",
+      "1/4"
+    ],
+    "answer": 1,
+    "explain": "Count the ordered outcomes giving a sum of 5 among 36 equally likely outcomes; the probability is 1/9."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Series",
+    "difficulty": "medium",
+    "q": "The sum of the first 5 terms of a GP with first term 4 and common ratio 2 is:",
+    "options": [
+      "64",
+      "128",
+      "124",
+      "62"
+    ],
+    "answer": 2,
+    "explain": "Sₙ=a(rⁿ−1)/(r−1)=4(2^5−1)/(2−1)=124."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Vectors",
+    "difficulty": "medium",
+    "q": "The dot product of vectors (1,2,0) and (0,0,1) is:",
+    "options": [
+      "1",
+      "2",
+      "−1",
+      "0"
+    ],
+    "answer": 3,
+    "explain": "Multiply corresponding components and add; the products cancel, giving 0."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Matrices",
+    "difficulty": "medium",
+    "q": "Evaluate det([[5,3],[2,7]]):",
+    "options": [
+      "29",
+      "41",
+      "12",
+      "-29"
+    ],
+    "answer": 0,
+    "explain": "For [[a,b],[c,d]], determinant = ad−bc = 5×7−3×2=29."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Coordinate Geometry",
+    "difficulty": "medium",
+    "q": "The equation of a 5-unit circle centred at (0,−2) is:",
+    "options": [
+      "x²+y²=1",
+      "x²+(y+2)²=25",
+      "(x+2)²+(y+1)²=9",
+      "(x−1)²+(y−1)²=16"
+    ],
+    "answer": 1,
+    "explain": "A circle with centre (h,k) and radius r has equation (x−h)²+(y−k)²=r²; substituting the given values gives x²+(y+2)²=25."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Integral Calculus",
+    "difficulty": "medium",
+    "q": "Evaluate ∫₀¹ 6x^5 dx:",
+    "options": [
+      "6",
+      "1/6",
+      "1",
+      "5"
+    ],
+    "answer": 2,
+    "explain": "An antiderivative is x^6; evaluating from 0 to 1 gives 1."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Differentiation",
+    "difficulty": "medium",
+    "q": "For f(x)=(6x+2)², the value of f′(4) is:",
+    "options": [
+      "52",
+      "162",
+      "26",
+      "156"
+    ],
+    "answer": 3,
+    "explain": "By the chain rule, f′(x)=2a(ax+b); at x=4, this is 156."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Probability",
+    "difficulty": "medium",
+    "q": "When two dice are thrown, the probability of obtaining a sum of 6 is:",
+    "options": [
+      "5/36",
+      "1/6",
+      "1/12",
+      "1/4"
+    ],
+    "answer": 0,
+    "explain": "Count the ordered outcomes giving a sum of 6 among 36 equally likely outcomes; the probability is 5/36."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Series",
+    "difficulty": "medium",
+    "q": "The sum of the first 3 terms of a GP with first term 5 and common ratio 3 is:",
+    "options": [
+      "45",
+      "65",
+      "70",
+      "32.5"
+    ],
+    "answer": 1,
+    "explain": "Sₙ=a(rⁿ−1)/(r−1)=5(3^3−1)/(3−1)=65."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Vectors",
+    "difficulty": "medium",
+    "q": "The dot product of vectors (3,0,1) and (1,2,−3) is:",
+    "options": [
+      "1",
+      "2",
+      "0",
+      "−1"
+    ],
+    "answer": 2,
+    "explain": "Multiply corresponding components and add; the products cancel, giving 0."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Integral Calculus",
+    "difficulty": "hard",
+    "q": "Evaluate ∫₀^1 x/(x²+1) dx:",
+    "options": [
+      "0.693",
+      "0.500",
+      "0.680",
+      "0.347"
+    ],
+    "answer": 3,
+    "explain": "With u=x²+1, the integral is ½ln((x²+1)/1) from 0 to 1, giving 0.347."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Applications of Derivatives",
+    "difficulty": "hard",
+    "q": "A rectangle has perimeter 16. Its maximum possible area is:",
+    "options": [
+      "16",
+      "32",
+      "15",
+      "32"
+    ],
+    "answer": 0,
+    "explain": "For fixed perimeter, a square maximizes area. Its side is 16/4=4, so area=4²=16."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Algebra",
+    "difficulty": "hard",
+    "q": "How many distinct real roots does (x²−1)(x²−4)=0 have?",
+    "options": [
+      "0",
+      "4",
+      "2",
+      "3"
+    ],
+    "answer": 1,
+    "explain": "The roots are ±√1 and ±√4. These give four distinct real values for the listed m and k."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Complex Numbers",
+    "difficulty": "hard",
+    "q": "The sum of all complex roots of z^3=1 is:",
+    "options": [
+      "1",
+      "3",
+      "0",
+      "−1"
+    ],
+    "answer": 2,
+    "explain": "The roots are equally spaced on the unit circle; for power 3>1 their vector sum is zero."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Matrices",
+    "difficulty": "hard",
+    "q": "A triangular matrix has diagonal entries 2, -1, and 3. The product of its eigenvalues is:",
+    "options": [
+      "4",
+      "-5",
+      "-5",
+      "-6"
+    ],
+    "answer": 3,
+    "explain": "The eigenvalues of a triangular matrix are its diagonal entries. Their product is 2×-1×3=-6."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Differential Equations",
+    "difficulty": "hard",
+    "q": "If dy/dx=1y and y(0)=2, then y(1) is:",
+    "options": [
+      "2e^1",
+      "3",
+      "2e^2",
+      "2e^1"
+    ],
+    "answer": 0,
+    "explain": "Separating variables gives y=Ce^(1x). The initial condition gives C=2, hence y(1)=2e^1."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Probability",
+    "difficulty": "hard",
+    "q": "A fair coin is tossed 4 times. The probability of exactly 2 heads is:",
+    "options": [
+      "1/2",
+      "3/8",
+      "1/4",
+      "1/8"
+    ],
+    "answer": 1,
+    "explain": "Use the binomial model: P= C(4,2)/2^4=3/8."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Integral Calculus",
+    "difficulty": "hard",
+    "q": "Evaluate ∫₀^2 x/(x²+2) dx:",
+    "options": [
+      "1.099",
+      "0.333",
+      "0.549",
+      "0.882"
+    ],
+    "answer": 2,
+    "explain": "With u=x²+2, the integral is ½ln((x²+2)/2) from 0 to 2, giving 0.549."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Applications of Derivatives",
+    "difficulty": "hard",
+    "q": "A rectangle has perimeter 20. Its maximum possible area is:",
+    "options": [
+      "50",
+      "24",
+      "40",
+      "25"
+    ],
+    "answer": 3,
+    "explain": "For fixed perimeter, a square maximizes area. Its side is 20/4=5, so area=5²=25."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Algebra",
+    "difficulty": "hard",
+    "q": "How many distinct real roots does (x²−1)(x²−9)=0 have?",
+    "options": [
+      "4",
+      "0",
+      "2",
+      "3"
+    ],
+    "answer": 0,
+    "explain": "The roots are ±√1 and ±√9. These give four distinct real values for the listed m and k."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Complex Numbers",
+    "difficulty": "hard",
+    "q": "The sum of all complex roots of z^4=1 is:",
+    "options": [
+      "1",
+      "0",
+      "4",
+      "−1"
+    ],
+    "answer": 1,
+    "explain": "The roots are equally spaced on the unit circle; for power 4>1 their vector sum is zero."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Matrices",
+    "difficulty": "hard",
+    "q": "A triangular matrix has diagonal entries 4, 0, and -2. The product of its eigenvalues is:",
+    "options": [
+      "2",
+      "0",
+      "0",
+      "1"
+    ],
+    "answer": 2,
+    "explain": "The eigenvalues of a triangular matrix are its diagonal entries. Their product is 4×0×-2=0."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Differential Equations",
+    "difficulty": "hard",
+    "q": "If dy/dx=2y and y(0)=3, then y(2) is:",
+    "options": [
+      "7",
+      "3e^4",
+      "3e^2",
+      "3e^4"
+    ],
+    "answer": 3,
+    "explain": "Separating variables gives y=Ce^(2x). The initial condition gives C=3, hence y(2)=3e^4."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Probability",
+    "difficulty": "hard",
+    "q": "A fair coin is tossed 5 times. The probability of exactly 2 heads is:",
+    "options": [
+      "5/16",
+      "1/2",
+      "1/4",
+      "1/8"
+    ],
+    "answer": 0,
+    "explain": "Use the binomial model: P= C(5,2)/2^5=5/16."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Integral Calculus",
+    "difficulty": "hard",
+    "q": "Evaluate ∫₀^3 x/(x²+3) dx:",
+    "options": [
+      "1.386",
+      "0.693",
+      "0.250",
+      "1.026"
+    ],
+    "answer": 1,
+    "explain": "With u=x²+3, the integral is ½ln((x²+3)/3) from 0 to 3, giving 0.693."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Applications of Derivatives",
+    "difficulty": "hard",
+    "q": "A rectangle has perimeter 24. Its maximum possible area is:",
+    "options": [
+      "72",
+      "35",
+      "36",
+      "48"
+    ],
+    "answer": 2,
+    "explain": "For fixed perimeter, a square maximizes area. Its side is 24/4=6, so area=6²=36."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Algebra",
+    "difficulty": "hard",
+    "q": "How many distinct real roots does (x²−4)(x²−16)=0 have?",
+    "options": [
+      "0",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": 3,
+    "explain": "The roots are ±√4 and ±√16. These give four distinct real values for the listed m and k."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Complex Numbers",
+    "difficulty": "hard",
+    "q": "The sum of all complex roots of z^5=1 is:",
+    "options": [
+      "0",
+      "1",
+      "5",
+      "−1"
+    ],
+    "answer": 0,
+    "explain": "The roots are equally spaced on the unit circle; for power 5>1 their vector sum is zero."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Matrices",
+    "difficulty": "hard",
+    "q": "A triangular matrix has diagonal entries 5, 1, and 6. The product of its eigenvalues is:",
+    "options": [
+      "12",
+      "30",
+      "11",
+      "31"
+    ],
+    "answer": 1,
+    "explain": "The eigenvalues of a triangular matrix are its diagonal entries. Their product is 5×1×6=30."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Differential Equations",
+    "difficulty": "hard",
+    "q": "If dy/dx=3y and y(0)=4, then y(1) is:",
+    "options": [
+      "7",
+      "4e^4",
+      "4e^3",
+      "4e^3"
+    ],
+    "answer": 2,
+    "explain": "Separating variables gives y=Ce^(3x). The initial condition gives C=4, hence y(1)=4e^3."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Probability",
+    "difficulty": "hard",
+    "q": "A fair coin is tossed 5 times. The probability of exactly 3 heads is:",
+    "options": [
+      "1/2",
+      "1/4",
+      "1/8",
+      "5/16"
+    ],
+    "answer": 3,
+    "explain": "Use the binomial model: P= C(5,3)/2^5=5/16."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Integral Calculus",
+    "difficulty": "hard",
+    "q": "Evaluate ∫₀^4 x/(x²+4) dx:",
+    "options": [
+      "0.805",
+      "1.609",
+      "0.200",
+      "1.138"
+    ],
+    "answer": 0,
+    "explain": "With u=x²+4, the integral is ½ln((x²+4)/4) from 0 to 4, giving 0.805."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Applications of Derivatives",
+    "difficulty": "hard",
+    "q": "A rectangle has perimeter 28. Its maximum possible area is:",
+    "options": [
+      "98",
+      "49",
+      "48",
+      "56"
+    ],
+    "answer": 1,
+    "explain": "For fixed perimeter, a square maximizes area. Its side is 28/4=7, so area=7²=49."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Algebra",
+    "difficulty": "hard",
+    "q": "How many distinct real roots does (x²−4)(x²−25)=0 have?",
+    "options": [
+      "0",
+      "2",
+      "4",
+      "3"
+    ],
+    "answer": 2,
+    "explain": "The roots are ±√4 and ±√25. These give four distinct real values for the listed m and k."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Complex Numbers",
+    "difficulty": "hard",
+    "q": "The sum of all complex roots of z^6=1 is:",
+    "options": [
+      "1",
+      "6",
+      "−1",
+      "0"
+    ],
+    "answer": 3,
+    "explain": "The roots are equally spaced on the unit circle; for power 6>1 their vector sum is zero."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Matrices",
+    "difficulty": "hard",
+    "q": "A triangular matrix has diagonal entries -3, 2, and 7. The product of its eigenvalues is:",
+    "options": [
+      "-42",
+      "6",
+      "8",
+      "-41"
+    ],
+    "answer": 0,
+    "explain": "The eigenvalues of a triangular matrix are its diagonal entries. Their product is -3×2×7=-42."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Differential Equations",
+    "difficulty": "hard",
+    "q": "If dy/dx=4y and y(0)=5, then y(2) is:",
+    "options": [
+      "13",
+      "5e^8",
+      "5e^6",
+      "5e^4"
+    ],
+    "answer": 1,
+    "explain": "Separating variables gives y=Ce^(4x). The initial condition gives C=5, hence y(2)=5e^8."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Probability",
+    "difficulty": "hard",
+    "q": "A fair coin is tossed 6 times. The probability of exactly 2 heads is:",
+    "options": [
+      "1/2",
+      "1/4",
+      "15/64",
+      "1/8"
+    ],
+    "answer": 2,
+    "explain": "Use the binomial model: P= C(6,2)/2^6=15/64."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Integral Calculus",
+    "difficulty": "hard",
+    "q": "Evaluate ∫₀^5 x/(x²+5) dx:",
+    "options": [
+      "1.792",
+      "0.167",
+      "1.229",
+      "0.896"
+    ],
+    "answer": 3,
+    "explain": "With u=x²+5, the integral is ½ln((x²+5)/5) from 0 to 5, giving 0.896."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Applications of Derivatives",
+    "difficulty": "hard",
+    "q": "A rectangle has perimeter 32. Its maximum possible area is:",
+    "options": [
+      "64",
+      "128",
+      "63",
+      "64"
+    ],
+    "answer": 0,
+    "explain": "For fixed perimeter, a square maximizes area. Its side is 32/4=8, so area=8²=64."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Algebra",
+    "difficulty": "hard",
+    "q": "How many distinct real roots does (x²−9)(x²−36)=0 have?",
+    "options": [
+      "0",
+      "4",
+      "2",
+      "3"
+    ],
+    "answer": 1,
+    "explain": "The roots are ±√9 and ±√36. These give four distinct real values for the listed m and k."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Complex Numbers",
+    "difficulty": "hard",
+    "q": "The sum of all complex roots of z^7=1 is:",
+    "options": [
+      "1",
+      "7",
+      "0",
+      "−1"
+    ],
+    "answer": 2,
+    "explain": "The roots are equally spaced on the unit circle; for power 7>1 their vector sum is zero."
+  },
+  {
+    "subject": "Mathematics",
+    "topic": "Matrices",
+    "difficulty": "hard",
+    "q": "A triangular matrix has diagonal entries 8, -4, and 1. The product of its eigenvalues is:",
+    "options": [
+      "5",
+      "-36",
+      "-31",
+      "-32"
+    ],
+    "answer": 3,
+    "explain": "The eigenvalues of a triangular matrix are its diagonal entries. Their product is 8×-4×1=-32."
+  }
+]
