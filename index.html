@@ -755,24 +755,6 @@
     *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   }
 
-  /* AI Generation styles */
-  .ai-section { margin-top: 20px; border-top: 1px solid var(--paper-line); padding-top: 18px; }
-  .ai-section-title { display: flex; align-items: center; gap: 8px; font-family: "Courier New", monospace; font-size: 11px; color: #9fc3ff; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
-  .btn.ai-btn { background: linear-gradient(135deg, #7c3aed, #4f46e5); box-shadow: 0 12px 28px rgba(79,70,229,0.35); display: inline-flex; align-items: center; gap: 8px; }
-  .btn.ai-btn:hover { background: linear-gradient(135deg, #8b5cf6, #6366f1); }
-  .btn.ai-btn:disabled { opacity: 0.55; cursor: not-allowed; }
-  .ai-status { display: none; font-size: 13px; color: var(--ink-soft); margin-top: 10px; font-family: "Courier New", monospace; }
-  .ai-status.show { display: block; }
-  .ai-status.error { color: var(--red); }
-  .ai-status.success { color: var(--pine); }
-  .api-key-row { display: flex; gap: 8px; align-items: center; margin-bottom: 6px; }
-  .api-key-input { flex: 1; padding: 9px 13px; border: 1px solid var(--rule); border-radius: 10px; color: var(--ink); background: #142239; font: 13px "Courier New", monospace; max-width: 340px; }
-  .api-key-input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
-  .api-key-hint { font-size: 11px; color: var(--ink-soft); margin: 4px 0 12px; }
-  .api-key-hint a { color: #72a7ff; }
-  .ai-count-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 13px; color: var(--ink-soft); font-family: "Courier New", monospace; }
-  .ai-count-select { padding: 6px 10px; border: 1px solid var(--rule); border-radius: 8px; color: var(--ink); background: #142239; font: 13px "Courier New", monospace; cursor: pointer; }
-  .ai-generated-badge { display: inline-flex; align-items: center; gap: 5px; font-family: "Courier New", monospace; font-size: 10px; color: #a78bfa; background: rgba(124,58,237,0.14); border: 1px solid rgba(124,58,237,0.3); padding: 2px 8px; border-radius: 999px; margin-left: 6px; vertical-align: middle; }
 </style>
 </head>
 <body>
@@ -846,27 +828,6 @@
     </div>
     <div id="weakAreaNote" class="weak-note hidden"></div>
     <button class="btn" id="startBtn">Start Quiz</button>
-    <div class="ai-section">
-      <div class="ai-section-title">Generate fresh questions with AI</div>
-      <div class="api-key-row">
-        <input class="api-key-input" type="password" id="geminiKeyInput" placeholder="Paste your Gemini API key..." autocomplete="off" spellcheck="false">
-        <button class="btn ghost" id="saveKeyBtn" type="button" style="padding:9px 14px;font-size:13px;">Save</button>
-        <button class="btn ghost" id="clearKeyBtn" type="button" style="padding:9px 14px;font-size:13px;">Clear</button>
-      </div>
-      <p class="api-key-hint">Free key at <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">aistudio.google.com</a>. Stored only in this browser.</p>
-      <div class="ai-count-row">
-        <span>Generate</span>
-        <select class="ai-count-select" id="aiCountSelect">
-          <option value="5">5</option>
-          <option value="10" selected>10</option>
-          <option value="15">15</option>
-          <option value="20">20</option>
-        </select>
-        <span>new questions and add to this session</span>
-      </div>
-      <button class="btn ai-btn" id="generateAIBtn" type="button">⚡ Generate with Gemini</button>
-      <div class="ai-status" id="aiStatus"></div>
-    </div>
   </section>
 
   <section id="quizScreen" class="card hidden">
@@ -1587,147 +1548,6 @@
 
   document.getElementById("dateStamp").textContent = new Date().toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
   refreshSetupUI();
-  initAISection();
-  /* ── Gemini AI Question Generator ── */
-  const GEMINI_KEY_STORAGE = "jeeGeminiApiKey";
-
-  function loadSavedKey() {
-    return localStorage.getItem(GEMINI_KEY_STORAGE) || "";
-  }
-
-  function initAISection() {
-    const keyInput = document.getElementById("geminiKeyInput");
-    const saveBtn = document.getElementById("saveKeyBtn");
-    const clearBtn = document.getElementById("clearKeyBtn");
-    const generateBtn = document.getElementById("generateAIBtn");
-    const aiStatus = document.getElementById("aiStatus");
-
-    const saved = loadSavedKey();
-    if (saved) {
-      keyInput.value = saved;
-      keyInput.placeholder = "API key saved";
-    }
-
-    saveBtn.addEventListener("click", () => {
-      const key = keyInput.value.trim();
-      if (!key) { showAIStatus("Paste your API key first.", "error"); return; }
-      localStorage.setItem(GEMINI_KEY_STORAGE, key);
-      showAIStatus("Key saved to this browser.", "success");
-    });
-
-    clearBtn.addEventListener("click", () => {
-      localStorage.removeItem(GEMINI_KEY_STORAGE);
-      keyInput.value = "";
-      keyInput.placeholder = "Paste your Gemini API key...";
-      showAIStatus("Key cleared.", "");
-    });
-
-    generateBtn.addEventListener("click", handleGenerateClick);
-  }
-
-  function showAIStatus(msg, type) {
-    const el = document.getElementById("aiStatus");
-    el.textContent = msg;
-    el.className = "ai-status show" + (type ? " " + type : "");
-  }
-
-  async function handleGenerateClick() {
-    const key = document.getElementById("geminiKeyInput").value.trim() || loadSavedKey();
-    if (!key) { showAIStatus("Add a Gemini API key above first.", "error"); return; }
-
-    const count = parseInt(document.getElementById("aiCountSelect").value, 10);
-    const subject = state.subject === "Mixed" ? "Physics, Chemistry, and Mathematics (mix all three)" : state.subject;
-    const difficulty = state.difficulty === "any" ? "mixed (easy, medium, hard)" : state.difficulty;
-    const topic = state.focus === "any" ? "any relevant topic" : state.focus.split("|")[1];
-
-    const generateBtn = document.getElementById("generateAIBtn");
-    generateBtn.disabled = true;
-    showAIStatus("Generating " + count + " questions… this takes ~5 seconds.", "");
-
-    const prompt = `You are an expert JEE (Joint Entrance Examination) question setter.
-
-Generate exactly ${count} multiple-choice questions for JEE preparation.
-
-Requirements:
-- Subject: ${subject}
-- Topic: ${topic}
-- Difficulty: ${difficulty}
-- Each question must have exactly 4 options (A, B, C, D)
-- Exactly one correct answer
-- Include a short worked explanation (1-2 sentences)
-- Questions must be unique, accurate, and at genuine JEE level
-
-Return ONLY a valid JSON array with this exact structure (no markdown, no extra text):
-[
-  {
-    "subject": "Physics",
-    "topic": "Mechanics",
-    "difficulty": "medium",
-    "q": "Question text here?",
-    "options": ["Option A", "Option B", "Option C", "Option D"],
-    "answer": 2,
-    "explain": "Brief explanation of why the answer is correct."
-  }
-]
-
-The "answer" field is the 0-based index of the correct option. Double-check every answer is scientifically correct.`;
-
-    try {
-      const res = await fetch(
-        "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + key,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            contents: [{ parts: [{ text: prompt }] }],
-            generationConfig: { temperature: 0.7, maxOutputTokens: 4096 }
-          })
-        }
-      );
-
-      if (!res.ok) {
-        const err = await res.json().catch(() => ({}));
-        throw new Error(err.error?.message || "API error " + res.status);
-      }
-
-      const data = await res.json();
-      const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
-
-      // Strip markdown code fences if present
-      const cleaned = rawText.replace(/```json\s*/gi, "").replace(/```\s*/g, "").trim();
-      let questions;
-      try {
-        questions = JSON.parse(cleaned);
-      } catch (e) {
-        // Try to extract JSON array from response
-        const match = cleaned.match(/\[[\s\S]*\]/);
-        if (!match) throw new Error("Could not parse questions from AI response.");
-        questions = JSON.parse(match[0]);
-      }
-
-      if (!Array.isArray(questions) || questions.length === 0) {
-        throw new Error("AI returned no questions. Try again.");
-      }
-
-      // Validate and tag each question
-      const valid = questions.filter(q =>
-        q.q && Array.isArray(q.options) && q.options.length === 4 &&
-        typeof q.answer === "number" && q.answer >= 0 && q.answer <= 3
-      ).map(q => ({ ...q, _aiGenerated: true }));
-
-      if (valid.length === 0) throw new Error("Questions failed validation. Try again.");
-
-      // Add to bank
-      BANK.push(...valid);
-      refreshSetupUI();
-
-      showAIStatus("✓ Added " + valid.length + " AI-generated questions to the bank. Total: " + BANK.length + " questions.", "success");
-    } catch (err) {
-      showAIStatus("Error: " + err.message, "error");
-    } finally {
-      generateBtn.disabled = false;
-    }
-  }
 })();
 </script>
 </body>
