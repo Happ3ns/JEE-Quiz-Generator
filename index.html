@@ -1,1554 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>JEE Quiz Studio</title>
-<style>
-  :root {
-    --paper: #17243a;
-    --paper-line: rgba(189, 207, 236, 0.14);
-    --ink: #eff4ff;
-    --ink-soft: #a7b5cd;
-    --rule: rgba(189, 207, 236, 0.22);
-    --pine: #54d6a3;
-    --pine-soft: rgba(52, 196, 142, 0.14);
-    --red: #ff807d;
-    --red-soft: rgba(255, 102, 112, 0.14);
-    --amber: #ffc76b;
-    --amber-soft: rgba(255, 187, 82, 0.12);
-    --card: rgba(13, 24, 42, 0.78);
-    --card-strong: #111e33;
-    --shadow: rgba(0, 0, 0, 0.32);
-    --accent: #72a7ff;
-    --accent-soft: rgba(93, 151, 255, 0.14);
-    --bg-deep: #070b14;
-    --bg-mid: #101a2b;
-    --bg-glow: #152a48;
-  }
-
-  * { box-sizing: border-box; }
-
-  html, body {
-    height: 100%;
-    margin: 0;
-  }
-
-  body {
-    background:
-      radial-gradient(ellipse at 12% 10%, rgba(69, 117, 211, 0.24), transparent 34%),
-      radial-gradient(ellipse at 87% 75%, rgba(27, 165, 147, 0.14), transparent 32%),
-      linear-gradient(135deg, var(--bg-deep) 0%, var(--bg-mid) 54%, var(--bg-glow) 100%);
-    color: var(--ink);
-    font-family: "Segoe UI", Arial, sans-serif;
-    padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px) 0;
-    min-height: 100%;
-    line-height: 1.6;
-  }
-
-  .wrap {
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 34px 24px 64px;
-  }
-
-  header.masthead {
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-    padding: 18px 22px 16px;
-    margin: 0 auto 30px;
-    max-width: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 8px;
-    background: rgba(17, 29, 49, 0.58);
-    backdrop-filter: blur(18px);
-    border: 1px solid rgba(189, 207, 236, 0.14);
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-  }
-
-  header.masthead h1 {
-    font-size: clamp(1.8rem, 2.2vw, 2.5rem);
-    margin: 0;
-    letter-spacing: 0;
-    color: #f4f7ff;
-  }
-
-  header.masthead .stamp {
-    font-family: 'Courier New', monospace;
-    font-size: 12px;
-    color: #d9e7ff;
-    border: 1px solid rgba(189, 207, 236, 0.2);
-    padding: 6px 12px;
-    border-radius: 999px;
-    background: rgba(255,255,255,0.06);
-  }
-
-  .card {
-    background: linear-gradient(145deg, rgba(22, 36, 59, 0.88), rgba(11, 20, 36, 0.9));
-    border: 1px solid rgba(189, 207, 236, 0.16);
-    border-radius: 18px;
-    padding: 28px;
-    box-shadow: 0 24px 64px var(--shadow);
-    margin-bottom: 24px;
-    backdrop-filter: blur(20px);
-  }
-
-  .field {
-    margin-bottom: 22px;
-  }
-
-  .start-hero {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    padding: 4px 0 23px;
-    margin-bottom: 22px;
-    border-bottom: 1px solid var(--paper-line);
-  }
-
-  .hero-copy { min-width: 0; }
-
-  .hero-kicker {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin: 0 0 8px;
-    color: #9fc3ff;
-    font: 11px 'Courier New', monospace;
-    text-transform: uppercase;
-  }
-
-  .hero-kicker::before {
-    content: "";
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #62dfb1;
-    box-shadow: 0 0 12px rgba(98, 223, 177, 0.7);
-  }
-
-  .start-hero h2 {
-    margin: 0;
-    color: #f4f7ff;
-    font-size: 30px;
-    line-height: 1.2;
-  }
-
-  .start-hero p {
-    margin: 9px 0 0;
-    max-width: 520px;
-    color: var(--ink-soft);
-    font-size: 14px;
-  }
-
-  .hero-count {
-    flex: 0 0 auto;
-    min-width: 116px;
-    padding: 14px 16px;
-    border: 1px solid rgba(114,167,255,0.25);
-    border-radius: 12px;
-    background: linear-gradient(145deg, rgba(77, 125, 213, 0.16), rgba(255,255,255,0.025));
-    text-align: center;
-  }
-
-  .hero-count strong { display: block; color: #fff; font-size: 24px; line-height: 1.2; }
-  .hero-count span { color: var(--ink-soft); font: 10px 'Courier New', monospace; text-transform: uppercase; }
-
-  .quick-starts {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 10px;
-    margin-bottom: 25px;
-  }
-
-  .launch-tile {
-    min-width: 0;
-    min-height: 104px;
-    padding: 13px 14px;
-    text-align: left;
-    color: var(--ink);
-    border: 1px solid var(--rule);
-    border-radius: 12px;
-    background: rgba(255,255,255,0.035);
-    cursor: pointer;
-    transition: border-color 0.18s ease, transform 0.18s ease, background 0.18s ease;
-  }
-
-  .launch-tile:hover:not(:disabled) {
-    border-color: rgba(114,167,255,0.65);
-    background: rgba(93,151,255,0.09);
-    transform: translateY(-2px);
-  }
-
-  .launch-tile:disabled { cursor: not-allowed; opacity: 0.46; }
-  .launch-tile strong { display: block; margin: 7px 0 3px; color: #f4f7ff; font-size: 14px; }
-  .launch-tile span { color: var(--ink-soft); font-size: 11px; line-height: 1.4; }
-
-  .tile-mark {
-    display: inline-grid;
-    place-items: center;
-    width: 24px;
-    height: 24px;
-    border-radius: 7px;
-    background: rgba(114,167,255,0.14);
-    color: #a9c9ff;
-    font: 12px 'Courier New', monospace;
-  }
-
-  .setup-divider {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 2px 0 18px;
-    color: #d5e1f7;
-    font: 11px 'Courier New', monospace;
-    text-transform: uppercase;
-  }
-
-  .setup-divider::after { content: ""; height: 1px; flex: 1; background: var(--paper-line); }
-
-  .select-wrap { position: relative; max-width: 420px; }
-
-  .setup-select {
-    width: 100%;
-    padding: 11px 38px 11px 13px;
-    border: 1px solid var(--rule);
-    border-radius: 10px;
-    color: var(--ink);
-    background: #142239;
-    font: inherit;
-    cursor: pointer;
-  }
-
-  .setup-select option { color: var(--ink); background: #142239; }
-
-  .setup-summary {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: -3px 0 18px;
-  }
-
-  .summary-pill {
-    padding: 5px 9px;
-    border: 1px solid var(--rule);
-    border-radius: 999px;
-    color: var(--ink-soft);
-    background: rgba(255,255,255,0.03);
-    font: 10px 'Courier New', monospace;
-  }
-
-  .mode-help { color: var(--ink-soft); font-size: 12px; margin: 8px 0 0; }
-
-  .field label {
-    display: block;
-    font-size: 14px;
-    color: #aebbd0;
-    margin-bottom: 8px;
-    font-family: 'Courier New', monospace;
-    text-transform: lowercase;
-  }
-
-  .chip-row {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-
-  .chip {
-    border: 1px solid var(--rule);
-    background: rgba(255,255,255,0.045);
-    color: var(--ink);
-    padding: 9px 16px;
-    border-radius: 999px;
-    cursor: pointer;
-    font-size: 15px;
-    font-family: inherit;
-    transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
-  }
-
-  .chip:hover {
-    border-color: var(--ink-soft);
-    transform: translateY(-1px);
-  }
-
-  .chip[aria-pressed="true"] {
-    background: linear-gradient(135deg, #4779dc, #3156a8);
-    color: #fff;
-    border-color: transparent;
-    box-shadow: 0 10px 20px rgba(26, 36, 51, 0.18);
-  }
-
-  .btn {
-    font-family: 'Courier New', monospace;
-    font-size: 15px;
-    letter-spacing: 0.3px;
-    background: linear-gradient(135deg, #5c8ff0, #3766c2);
-    color: #fff;
-    border: none;
-    padding: 14px 26px;
-    border-radius: 12px;
-    cursor: pointer;
-    box-shadow: 0 12px 28px rgba(35, 83, 175, 0.3);
-  }
-
-  .btn:hover { background: linear-gradient(135deg, #6d9cff, #4777d5); }
-
-  .btn:focus-visible, .chip:focus-visible, input:focus-visible {
-    outline: 3px solid var(--accent);
-    outline-offset: 2px;
-  }
-
-  .btn.ghost {
-    background: transparent;
-    color: var(--ink);
-    border: 1px solid var(--rule);
-    box-shadow: none;
-  }
-
-  .btn.ghost:hover { background: rgba(255,255,255,0.08); }
-
-  .weak-note {
-    font-size: 14px;
-    color: var(--ink-soft);
-    margin-top: 6px;
-  }
-
-  .weak-note strong { color: var(--red); }
-
-  .progress-line {
-    font-family: 'Courier New', monospace;
-    font-size: 13px;
-    color: var(--ink-soft);
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-bottom: 14px;
-    gap: 10px;
-    align-items: center;
-  }
-
-  .timer-badge {
-    border: 1px solid var(--rule);
-    background: rgba(255,255,255,0.06);
-    color: var(--ink);
-    padding: 4px 8px;
-    border-radius: 999px;
-    font-weight: bold;
-  }
-
-  .timer-badge.alert {
-    color: var(--red);
-    border-color: var(--red);
-    background: var(--red-soft);
-  }
-
-  .progress-track {
-    height: 8px;
-    background: rgba(26, 36, 51, 0.08);
-    border-radius: 999px;
-    margin-bottom: 24px;
-    overflow: hidden;
-  }
-
-  .progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--accent), #7ab4ff);
-    transition: width 0.25s ease;
-  }
-
-  .q-tag {
-    display: inline-block;
-    font-family: 'Courier New', monospace;
-    font-size: 12px;
-    color: var(--ink-soft);
-    background: var(--accent-soft);
-    border: 1px solid rgba(93, 109, 246, 0.2);
-    padding: 4px 10px;
-    border-radius: 999px;
-    margin-bottom: 14px;
-  }
-
-  .q-text {
-    font-size: clamp(1.2rem, 2vw, 1.7rem);
-    line-height: 1.45;
-    margin: 0 0 22px;
-  }
-
-  .option {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    border: 1px solid var(--rule);
-    border-radius: 14px;
-    padding: 13px 16px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    background: rgba(255,255,255,0.035);
-    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-  }
-
-  .option:hover {
-    border-color: var(--ink-soft);
-    transform: translateY(-1px);
-    box-shadow: 0 8px 18px rgba(21, 31, 50, 0.08);
-  }
-
-  .option.selected {
-    border-color: var(--accent);
-    background: var(--accent-soft);
-  }
-
-  .option.correct {
-    border-color: #42d99a;
-    background: rgba(31, 180, 119, 0.24);
-    color: #e2fff2;
-    box-shadow: inset 0 0 0 1px rgba(66, 217, 154, 0.18);
-  }
-
-  .option.incorrect {
-    border-color: #ff7278;
-    background: rgba(234, 74, 87, 0.24);
-    color: #fff0f0;
-    box-shadow: inset 0 0 0 1px rgba(255, 114, 120, 0.18);
-  }
-
-  .option.correct .letter {
-    color: #a6ffd8;
-    background: rgba(66, 217, 154, 0.2);
-  }
-
-  .option.incorrect .letter {
-    color: #ffc0c2;
-    background: rgba(255, 114, 120, 0.2);
-  }
-
-  .option .letter {
-    font-family: 'Courier New', monospace;
-    font-weight: bold;
-    color: var(--ink-soft);
-    flex-shrink: 0;
-    width: 18px;
-    background: rgba(114,167,255,0.12);
-    border-radius: 6px;
-    text-align: center;
-  }
-
-  .explain {
-    font-size: 15px;
-    color: var(--ink-soft);
-    border-left: 3px solid var(--amber);
-    padding: 10px 14px;
-    margin: 16px 0 0;
-    background: var(--amber-soft);
-    border-radius: 0 10px 10px 0;
-    display: none;
-  }
-
-  .explain.show { display: block; }
-
-  .quiz-actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 22px;
-  }
-
-  .score-row {
-    display: flex;
-    align-items: baseline;
-    gap: 14px;
-    margin-bottom: 6px;
-  }
-
-  .score-row .big {
-    font-family: 'Courier New', monospace;
-    font-size: clamp(2.3rem, 5vw, 3.4rem);
-    font-weight: bold;
-  }
-
-  .score-row .of {
-    font-size: 16px;
-    color: var(--ink-soft);
-  }
-
-  table.topic-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 8px;
-    font-size: 15px;
-  }
-
-  table.topic-table th, table.topic-table td {
-    text-align: left;
-    padding: 8px 6px;
-    border-bottom: 1px solid var(--paper-line);
-  }
-
-  table.topic-table th {
-    font-family: 'Courier New', monospace;
-    font-size: 12px;
-    color: var(--ink-soft);
-    font-weight: normal;
-  }
-
-  .stats-strip {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
-    margin: 18px 0 22px;
-  }
-
-  .stat-box {
-    background: rgba(255,255,255,0.045);
-    border: 1px solid var(--rule);
-    border-radius: 14px;
-    padding: 12px 14px;
-  }
-
-  .stat-box .label {
-    display: block;
-    font-family: 'Courier New', monospace;
-    font-size: 11px;
-    color: var(--ink-soft);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 6px;
-  }
-
-  .stat-box strong {
-    font-size: 22px;
-    color: var(--ink);
-  }
-
-  .bar-track {
-    background: var(--rule);
-    border-radius: 2px;
-    height: 8px;
-    width: 100px;
-    overflow: hidden;
-  }
-
-  .bar-fill {
-    height: 100%;
-  }
-
-  .review-item {
-    border-top: 1px solid var(--paper-line);
-    padding: 16px 0;
-  }
-
-  .review-item:first-child { border-top: none; }
-
-  .review-item .verdict {
-    font-family: 'Courier New', monospace;
-    font-size: 12px;
-    padding: 1px 8px;
-    border-radius: 999px;
-    display: inline-block;
-    margin-bottom: 8px;
-  }
-
-  .verdict.right { background: var(--pine-soft); color: var(--pine); }
-  .verdict.wrong { background: var(--red-soft); color: var(--red); }
-
-  .hidden { display: none !important; }
-
-  footer {
-    text-align: center;
-    font-size: 13px;
-    color: #a7b5cd;
-    margin-top: 40px;
-  }
-
-  .workspace-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 270px;
-    gap: 20px;
-    align-items: start;
-  }
-
-  .main-column { min-width: 0; }
-  .main-column > .card { animation: enter-panel 0.4s ease both; }
-
-  .side-rail {
-    position: sticky;
-    top: 20px;
-    padding: 20px;
-    color: var(--ink);
-    background: linear-gradient(160deg, rgba(24, 40, 65, 0.86), rgba(12, 21, 37, 0.9));
-    border: 1px solid rgba(189, 207, 236, 0.16);
-    border-radius: 16px;
-    box-shadow: 0 20px 48px rgba(0,0,0,0.24);
-    backdrop-filter: blur(18px);
-    animation: enter-panel 0.5s ease both;
-  }
-
-  .rail-heading {
-    margin: 0 0 5px;
-    font-size: 16px;
-    color: #f3f6ff;
-  }
-
-  .rail-caption {
-    margin: 0 0 18px;
-    color: var(--ink-soft);
-    font-size: 12px;
-  }
-
-  .rail-stat {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 10px 0;
-    border-top: 1px solid var(--paper-line);
-    font-size: 13px;
-    color: var(--ink-soft);
-  }
-
-  .rail-stat strong { color: #f3f6ff; font-weight: 600; }
-
-  .rail-section-title {
-    margin: 20px 0 9px;
-    color: #d5e1f7;
-    font-family: 'Courier New', monospace;
-    font-size: 11px;
-    text-transform: uppercase;
-  }
-
-  .leader-row {
-    display: grid;
-    grid-template-columns: 26px minmax(0, 1fr) auto;
-    align-items: center;
-    gap: 8px;
-    padding: 9px 0;
-    border-top: 1px solid var(--paper-line);
-    color: var(--ink-soft);
-    font-size: 12px;
-  }
-
-  .leader-rank {
-    display: grid;
-    place-items: center;
-    width: 24px;
-    height: 24px;
-    border-radius: 8px;
-    background: rgba(114,167,255,0.12);
-    color: #a9c9ff;
-    font-family: 'Courier New', monospace;
-  }
-
-  .leader-row strong { color: var(--ink); }
-  .leader-row .leader-score { color: #79d9b5; font-weight: bold; }
-
-  .question-map {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 7px;
-  }
-
-  .mock-subject-nav {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 7px;
-    margin: 0 0 18px;
-  }
-
-  .mock-subject-button {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    width: 100%;
-    padding: 9px 8px;
-    border: 1px solid var(--rule);
-    border-radius: 9px;
-    background: rgba(255,255,255,0.035);
-    color: var(--ink-soft);
-    font: 12px 'Courier New', monospace;
-    text-align: left;
-    cursor: pointer;
-  }
-
-  .mock-subject-button[aria-pressed="true"] {
-    color: #e4eeff;
-    border-color: var(--accent);
-    background: rgba(93,151,255,0.13);
-  }
-
-  .mock-subject-button strong { color: #a9c9ff; font-weight: normal; }
-
-  .map-cell {
-    display: grid;
-    place-items: center;
-    aspect-ratio: 1;
-    border: 1px solid var(--rule);
-    border-radius: 8px;
-    background: rgba(255,255,255,0.035);
-    color: var(--ink-soft);
-    font: 12px 'Courier New', monospace;
-    padding: 0;
-  }
-
-  button.map-cell { width: 100%; cursor: pointer; }
-  button.map-cell:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  button.map-cell:hover { filter: brightness(1.18); }
-
-  .map-cell.done { border-color: rgba(189,207,236,0.24); color: #c6d2e6; background: rgba(255,255,255,0.06); }
-  .map-cell.done.correct { border-color: #42d99a; color: #a6ffd8; background: rgba(31,180,119,0.24); }
-  .map-cell.done.incorrect { border-color: #ff7278; color: #ffc0c2; background: rgba(234,74,87,0.24); }
-  .map-cell.done.answered { border-color: #42d99a; color: #a6ffd8; background: rgba(31,180,119,0.24); }
-  .map-cell.unanswered { border-color: #ff7278; color: #ffc0c2; background: rgba(234,74,87,0.2); }
-  .map-cell.current:not(.done):not(.unanswered) { border-color: var(--accent); color: #fff; background: rgba(93,151,255,0.22); }
-
-  .mock-section-label {
-    margin: -10px 0 14px;
-    color: #a9c9ff;
-    font: 11px 'Courier New', monospace;
-    text-transform: uppercase;
-  }
-
-  #optionsList .option { animation: option-arrive 0.28s ease both; }
-  #optionsList .option:nth-child(2) { animation-delay: 0.04s; }
-  #optionsList .option:nth-child(3) { animation-delay: 0.08s; }
-  #optionsList .option:nth-child(4) { animation-delay: 0.12s; }
-
-  .rail-empty { color: var(--ink-soft); font-size: 12px; padding: 8px 0; }
-
-  @keyframes enter-panel {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes option-arrive {
-    from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @media (max-width: 820px) {
-    .workspace-grid { grid-template-columns: minmax(0, 1fr); }
-    .side-rail { position: static; }
-  }
-
-  @media (max-width: 520px) {
-    .wrap { padding: 20px 14px 42px; }
-    header.masthead { padding: 14px 16px; margin-bottom: 18px; }
-    .card { padding: 21px 17px; border-radius: 15px; }
-    .side-rail { padding: 17px; }
-    .stats-strip { gap: 7px; }
-    .stat-box { padding: 10px; }
-    .stat-box strong { font-size: 19px; }
-    .start-hero { align-items: flex-start; }
-    .start-hero h2 { font-size: 25px; }
-    .hero-count { min-width: 82px; padding: 10px; }
-    .hero-count strong { font-size: 20px; }
-    .quick-starts { grid-template-columns: 1fr; }
-    .launch-tile { min-height: 0; }
-    .mock-subject-button { gap: 4px; padding: 8px 6px; font-size: 10px; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
-  }
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="JEE Quiz Studio — Practice JEE Physics, Chemistry, and Mathematics with per-topic accuracy tracking, mock exams, formula rendering, and real JEE Mains negative marking.">
+  <title>JEE Quiz Studio</title>
+
+  <!-- KaTeX for crisp mathematical formulas -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Canvas Confetti celebration -->
+  <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Modular Design System -->
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/results.css">
 </head>
 <body>
 <div class="wrap">
 
+  <!-- Masthead -->
   <header class="masthead">
-    <h1>JEE Quiz Generator</h1>
-    <span class="stamp" id="dateStamp"></span>
+    <div class="masthead-brand">
+      <div class="brand-icon">JEE</div>
+      <h1>JEE Quiz Studio</h1>
+    </div>
+    <div class="masthead-controls">
+      <button class="icon-btn" id="soundToggleBtn" type="button" aria-label="Toggle sound effects">
+        <span>🔊</span> Sound On
+      </button>
+      <span class="stamp" id="dateStamp"></span>
+    </div>
   </header>
 
   <div class="workspace-grid">
-  <main class="main-column">
-  <section id="setupScreen" class="card">
-    <div class="start-hero">
-      <div class="hero-copy">
-        <p class="hero-kicker">JEE practice studio</p>
-        <h2>Build your next session.</h2>
-        <p>Pick a quick session or shape a focused set around your subject, topic and pace.</p>
+    <!-- Main Interaction Column -->
+    <main class="main-column">
+
+      <!-- Setup Screen -->
+      <section id="setupScreen" class="card">
+        <div class="start-hero">
+          <div class="hero-copy">
+            <p class="hero-kicker">Targeted JEE Practice Studio</p>
+            <h2>Build your revision round.</h2>
+            <p>Select a quick-start drill or configure your subject, level, and marking rules.</p>
+          </div>
+          <div class="hero-count">
+            <strong id="bankCount">0</strong>
+            <span>questions ready</span>
+          </div>
+        </div>
+
+        <!-- Quick-start presets -->
+        <div class="quick-starts" aria-label="Quick-start presets">
+          <button class="launch-tile" id="warmupBtn" type="button">
+            <span class="tile-mark">01</span>
+            <strong>Quick warm-up</strong>
+            <span>10 mixed questions · practice mode</span>
+          </button>
+          <button class="launch-tile" id="weakStartBtn" type="button">
+            <span class="tile-mark">02</span>
+            <strong>Weak-topic focus</strong>
+            <span id="weakStartCaption">Target a priority topic from your history</span>
+          </button>
+          <button class="launch-tile" id="mockStartBtn" type="button">
+            <span class="tile-mark">03</span>
+            <strong>Full Mock session</strong>
+            <span>Timed sections · 30 per subject · 90s each</span>
+          </button>
+        </div>
+
+        <div class="setup-divider">Customize session parameters</div>
+
+        <div class="field">
+          <label>Subject</label>
+          <div class="chip-row" id="subjectRow"></div>
+        </div>
+
+        <div class="field">
+          <label for="topicSelect">Focus topic</label>
+          <div class="select-wrap">
+            <select class="setup-select" id="topicSelect">
+              <option value="any">Any topic</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Difficulty</label>
+          <div class="chip-row" id="difficultyRow"></div>
+        </div>
+
+        <div class="field">
+          <label id="countLabel">Number of questions</label>
+          <div class="chip-row" id="countRow"></div>
+        </div>
+
+        <div class="field">
+          <label>Marking Scheme</label>
+          <div class="chip-row" id="markingRow"></div>
+        </div>
+
+        <div class="field">
+          <label>Time per question</label>
+          <div class="chip-row" id="timerRow"></div>
+        </div>
+
+        <div class="field">
+          <label>Session style</label>
+          <div class="chip-row" id="modeRow"></div>
+          <p class="mode-help" id="modeHelp">Practice mode displays worked explanations immediately after each response.</p>
+        </div>
+
+        <div class="setup-summary" aria-live="polite">
+          <span class="summary-pill" id="selectionSummary">Mixed session</span>
+          <span class="summary-pill" id="selectionAvailable">0 matching questions</span>
+          <span class="summary-pill hidden" id="mockSectionPlan"></span>
+        </div>
+
+        <div id="weakAreaNote" class="weak-note hidden"></div>
+        <button class="btn" id="startBtn" type="button">Start Practice Round</button>
+      </section>
+
+      <!-- Active Quiz Screen -->
+      <section id="quizScreen" class="card hidden">
+        <div class="progress-line">
+          <span id="progressLabel">Question 1 of 10</span>
+          <span id="scoreLabel">Score: 0</span>
+          <span class="timer-badge" id="timerLabel">Time: 60s</span>
+        </div>
+
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div id="mockSubjectNav" class="mock-subject-nav hidden" aria-label="Mock subject sections"></div>
+
+        <span class="q-tag" id="qTag"></span>
+        <p class="q-text" id="qText"></p>
+        <div id="optionsList"></div>
+        <div class="explain" id="explainBox"></div>
+
+        <div class="quiz-actions">
+          <button class="btn ghost" id="quitBtn" type="button">Quit</button>
+          <div class="action-group-right">
+            <button class="btn warning-ghost" id="skipBtn" type="button">Skip Question (S)</button>
+            <button class="btn" id="nextBtn" type="button" disabled>Next</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Results & Analytics Screen -->
+      <section id="resultsScreen" class="card hidden">
+        <div class="results-hero">
+          <div class="score-meta">
+            <div id="badgeContainer" class="achievement-badge gold"></div>
+            <h2>Session Complete</h2>
+            <div style="display: flex; align-items: baseline; gap: 8px; margin-top: 8px;">
+              <span id="finalScore" style="font-family: var(--font-mono); font-size: 38px; font-weight: 700; color: #fff;">0</span>
+              <span id="finalOf" style="font-size: 16px; color: var(--ink-secondary);">/ 40 pts</span>
+            </div>
+            <p id="resultSummary"></p>
+          </div>
+
+          <!-- Circular Score Meter -->
+          <div class="circle-gauge">
+            <svg viewBox="0 0 100 100">
+              <circle class="gauge-bg" cx="50" cy="50" r="45"></circle>
+              <circle id="gaugeFill" class="gauge-fill" cx="50" cy="50" r="45"></circle>
+            </svg>
+            <div class="circle-gauge-text">
+              <strong id="gaugePercent">0%</strong>
+              <span>Accuracy</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4-Stat Metric Grid -->
+        <div class="stats-strip">
+          <div class="stat-box">
+            <span class="label">Accuracy</span>
+            <strong id="accuracyMetric">0%</strong>
+          </div>
+          <div class="stat-box">
+            <span class="label">Avg Time</span>
+            <strong id="avgTimeMetric">0s</strong>
+          </div>
+          <div class="stat-box">
+            <span class="label">Answered</span>
+            <strong id="attemptMetric">0</strong>
+          </div>
+          <div class="stat-box">
+            <span class="label">Skipped</span>
+            <strong id="skippedMetric">0</strong>
+          </div>
+        </div>
+
+        <!-- Topic Mastery Section -->
+        <div class="mastery-section">
+          <h3 class="section-subhead">Topic Mastery & Breakdown</h3>
+          <div id="topicMasteryList" class="topic-mastery-list"></div>
+        </div>
+
+        <!-- Actions -->
+        <div style="display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap;">
+          <button class="btn" id="reviewBtn" type="button">Review All Answers</button>
+          <button class="btn ghost" id="restartBtn" type="button">New Practice Round</button>
+        </div>
+
+        <!-- Detailed Review List -->
+        <div id="reviewList" style="margin-top: 32px;"></div>
+      </section>
+
+    </main>
+
+    <!-- Side Rail Panel -->
+    <aside class="side-rail" aria-label="Overview panel">
+      <!-- Setup Rail -->
+      <div id="setupRail">
+        <h2 class="rail-heading">Your Practice Stats</h2>
+        <p class="rail-caption">Stored securely on this device</p>
+        <div class="rail-stat">
+          <span>Quizzes completed</span>
+          <strong id="historyCount">0</strong>
+        </div>
+        <div class="rail-stat">
+          <span>Personal best</span>
+          <strong id="personalBest">--</strong>
+        </div>
+        <h3 class="rail-section-title">Recent Best Rounds</h3>
+        <div id="leaderboardList"></div>
       </div>
-      <div class="hero-count"><strong id="bankCount">0</strong><span>questions ready</span></div>
-    </div>
 
-    <div class="quick-starts" aria-label="Quick-start sessions">
-      <button class="launch-tile" id="warmupBtn" type="button">
-        <span class="tile-mark">01</span>
-        <strong>Quick warm-up</strong>
-        <span>10 mixed questions · practice mode</span>
-      </button>
-      <button class="launch-tile" id="weakStartBtn" type="button">
-        <span class="tile-mark">02</span>
-        <strong>Weak-topic focus</strong>
-        <span id="weakStartCaption">Target a topic from your past results</span>
-      </button>
-      <button class="launch-tile" id="mockStartBtn" type="button">
-        <span class="tile-mark">03</span>
-        <strong>Mock session</strong>
-        <span>40 per subject · 120 total · 90 seconds each</span>
-      </button>
-    </div>
-
-    <div class="setup-divider">Customize your session</div>
-    <div class="field">
-      <label>subject</label>
-      <div class="chip-row" id="subjectRow"></div>
-    </div>
-    <div class="field">
-      <label for="topicSelect">focus topic</label>
-      <div class="select-wrap"><select class="setup-select" id="topicSelect"><option value="any">Any topic</option></select></div>
-    </div>
-    <div class="field">
-      <label>difficulty</label>
-      <div class="chip-row" id="difficultyRow"></div>
-    </div>
-    <div class="field">
-      <label id="countLabel">number of questions</label>
-      <div class="chip-row" id="countRow"></div>
-    </div>
-    <div class="field">
-      <label>time per question</label>
-      <div class="chip-row" id="timerRow"></div>
-    </div>
-    <div class="field">
-      <label>session style</label>
-      <div class="chip-row" id="modeRow"></div>
-      <p class="mode-help" id="modeHelp">Practice mode shows the answer and explanation after each response.</p>
-    </div>
-    <div class="setup-summary" aria-live="polite">
-      <span class="summary-pill" id="selectionSummary">Mixed session</span>
-      <span class="summary-pill" id="selectionAvailable">0 matching questions</span>
-      <span class="summary-pill hidden" id="mockSectionPlan"></span>
-    </div>
-    <div id="weakAreaNote" class="weak-note hidden"></div>
-    <button class="btn" id="startBtn">Start Quiz</button>
-  </section>
-
-  <section id="quizScreen" class="card hidden">
-    <div class="progress-line">
-      <span id="progressLabel">Question 1 of 10</span>
-      <span id="scoreLabel">Score: 0</span>
-      <span class="timer-badge" id="timerLabel">Time: 60s</span>
-    </div>
-    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-    <div class="mock-section-label hidden" id="mockSectionLabel"></div>
-    <div id="mockSubjectNav" class="mock-subject-nav hidden" aria-label="Mock exam subject sections"></div>
-
-    <span class="q-tag" id="qTag"></span>
-    <p class="q-text" id="qText"></p>
-    <div id="optionsList"></div>
-    <div class="explain" id="explainBox"></div>
-
-    <div class="quiz-actions">
-      <button class="btn ghost" id="quitBtn">Quit</button>
-      <button class="btn" id="nextBtn" disabled>Next</button>
-    </div>
-  </section>
-
-  <section id="resultsScreen" class="card hidden">
-    <div class="score-row">
-      <span class="big" id="finalScore">0</span>
-      <span class="of" id="finalOf">/ 10 correct</span>
-    </div>
-    <p id="resultSummary" style="color: var(--ink-soft); margin-top: 0;"></p>
-
-    <div class="stats-strip">
-      <div class="stat-box">
-        <span class="label">Accuracy</span>
-        <strong id="accuracyMetric">0%</strong>
+      <!-- Quiz Rail -->
+      <div id="quizRail" class="hidden">
+        <h2 class="rail-heading">Live Round Matrix</h2>
+        <p class="rail-caption">Click any cell to navigate</p>
+        <div class="rail-stat">
+          <span>Answered</span>
+          <strong id="railAnswered">0 / 0</strong>
+        </div>
+        <div class="rail-stat">
+          <span>Correct</span>
+          <strong id="railCorrect">0</strong>
+        </div>
+        <div class="rail-stat">
+          <span>Remaining</span>
+          <strong id="railRemaining">0</strong>
+        </div>
+        <h3 class="rail-section-title">Question Status</h3>
+        <div id="questionMap" class="question-map" aria-label="Question status map"></div>
       </div>
-      <div class="stat-box">
-        <span class="label">Avg Time</span>
-        <strong id="avgTimeMetric">0s</strong>
-      </div>
-      <div class="stat-box">
-        <span class="label">Attempted</span>
-        <strong id="attemptMetric">0</strong>
-      </div>
-    </div>
-
-    <table class="topic-table" id="topicTable">
-      <thead><tr><th>topic</th><th>accuracy</th><th></th></tr></thead>
-      <tbody id="topicTableBody"></tbody>
-    </table>
-
-    <div style="margin-top: 24px; display:flex; gap: 10px;">
-      <button class="btn" id="reviewBtn">Review Answers</button>
-      <button class="btn ghost" id="restartBtn">New Quiz</button>
-    </div>
-
-    <div id="reviewList" style="margin-top: 24px;"></div>
-  </section>
-  </main>
-
-  <aside class="side-rail" aria-label="Quiz overview">
-    <div id="setupRail">
-      <h2 class="rail-heading">Your practice</h2>
-      <p class="rail-caption">Personal stats saved on this device</p>
-      <div class="rail-stat"><span>Quizzes completed</span><strong id="historyCount">0</strong></div>
-      <div class="rail-stat"><span>Personal best</span><strong id="personalBest">--</strong></div>
-      <h3 class="rail-section-title">Recent best rounds</h3>
-      <div id="leaderboardList"></div>
-    </div>
-    <div id="quizRail" class="hidden">
-      <h2 class="rail-heading">Live session</h2>
-      <p class="rail-caption">Your progress at a glance</p>
-      <div class="rail-stat"><span>Answered</span><strong id="railAnswered">0 / 0</strong></div>
-      <div class="rail-stat"><span>Correct</span><strong id="railCorrect">0</strong></div>
-      <div class="rail-stat"><span>Remaining</span><strong id="railRemaining">0</strong></div>
-      <h3 class="rail-section-title" id="questionStatusTitle">Question status</h3>
-      <div id="questionMap" class="question-map" aria-label="Question status map"></div>
-    </div>
-  </aside>
+    </aside>
   </div>
 
-  <footer>Runs entirely in your browser. Your stats are stored locally on this device only.</footer>
+  <footer>Runs entirely in your browser. No server, no accounts required.</footer>
 </div>
 
+<!-- Application Scripts -->
 <script src="questions.js"></script>
-<script>
-(function () {
-  "use strict";
-
-  // Load question bank from questions.js (or initialize empty array for AI generation)
-  const BANK = (typeof window !== 'undefined' && window.JEE_BANK) ? window.JEE_BANK : [];
-
-  const STORAGE_KEY = "jeeQuizHistory";
-
-  function loadHistory() {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      return raw ? JSON.parse(raw) : [];
-    } catch (e) {
-      return [];
-    }
-  }
-
-  function saveAttempt(attempt) {
-    try {
-      const hist = loadHistory();
-      hist.push(attempt);
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(hist.slice(-50)));
-    } catch (e) { }
-  }
-
-  function topicWeaknessSummary() {
-    const hist = loadHistory();
-    const stats = {};
-    hist.forEach(a => a.answers.forEach(r => {
-      const key = r.topic;
-      if (!stats[key]) stats[key] = { correct: 0, total: 0 };
-      stats[key].total++;
-      if (r.correct) stats[key].correct++;
-    }));
-    return stats;
-  }
-
-  let state = {
-    subject: "Mixed",
-    focus: "any",
-    difficulty: "any",
-    count: 10,
-    questions: [],
-    index: 0,
-    activeSubject: null,
-    score: 0,
-    answers: [],
-    questionLimit: 60,
-    mode: "practice",
-    questionStart: 0,
-    totalTime: 0,
-    timerId: null
-  };
-
-  const SUBJECTS = ["Mixed", "Physics", "Chemistry", "Mathematics"];
-  const DIFFICULTIES = ["any", "easy", "medium", "hard"];
-  const COUNTS = [5, 10, 15, 20, 30, 40];
-  const TIME_LIMITS = [30, 60, 90, 0];
-  const MODES = ["practice", "mock"];
-
-  const subjectRow = document.getElementById("subjectRow");
-  const difficultyRow = document.getElementById("difficultyRow");
-  const countRow = document.getElementById("countRow");
-  const timerRow = document.getElementById("timerRow");
-  const modeRow = document.getElementById("modeRow");
-
-  function renderChipRow(container, values, current, labelFn, onPick) {
-    container.innerHTML = "";
-    values.forEach(v => {
-      const chip = document.createElement("button");
-      chip.type = "button";
-      chip.className = "chip";
-      chip.textContent = labelFn(v);
-      chip.setAttribute("aria-pressed", v === current ? "true" : "false");
-      chip.addEventListener("click", () => onPick(v));
-      container.appendChild(chip);
-    });
-  }
-
-  function refreshSetupUI() {
-    renderChipRow(subjectRow, SUBJECTS, state.subject, s => s, (s) => { state.subject = s; state.focus = "any"; refreshSetupUI(); });
-    renderChipRow(difficultyRow, DIFFICULTIES, state.difficulty, d => d === "any" ? "Any" : d[0].toUpperCase() + d.slice(1), (d) => { state.difficulty = d; refreshSetupUI(); });
-    renderChipRow(countRow, COUNTS, state.count, c => String(c), (c) => { state.count = c; refreshSetupUI(); });
-    renderChipRow(timerRow, TIME_LIMITS, state.questionLimit, seconds => seconds ? seconds + "s" : "Off", seconds => { state.questionLimit = seconds; refreshSetupUI(); });
-    renderChipRow(modeRow, MODES, state.mode, mode => mode === "practice" ? "Practice" : "Mock exam", mode => { state.mode = mode; refreshSetupUI(); });
-
-    const topicSelect = document.getElementById("topicSelect");
-    const previousFocus = state.focus;
-    const topicChoices = [...new Map(BANK
-      .filter(q => state.subject === "Mixed" || q.subject === state.subject)
-      .map(q => [q.subject + "|" + q.topic, q])).values()]
-      .sort((a, b) => a.topic.localeCompare(b.topic) || a.subject.localeCompare(b.subject));
-    topicSelect.innerHTML = '<option value="any">Any topic</option>';
-    topicChoices.forEach(q => {
-      const option = document.createElement("option");
-      option.value = q.subject + "|" + q.topic;
-      option.textContent = state.subject === "Mixed" ? q.subject + " · " + q.topic : q.topic;
-      topicSelect.appendChild(option);
-    });
-    if (topicChoices.some(q => q.subject + "|" + q.topic === previousFocus)) {
-      topicSelect.value = previousFocus;
-    } else {
-      state.focus = "any";
-      topicSelect.value = "any";
-    }
-
-    const strictCount = getFilteredPool().length;
-    document.getElementById("bankCount").textContent = BANK.length;
-    document.getElementById("selectionSummary").textContent = [state.subject, state.focus === "any" ? "Any topic" : state.focus.split("|")[1], state.difficulty === "any" ? "Any level" : state.difficulty].join(" · ");
-    document.getElementById("selectionAvailable").textContent = strictCount + " matching questions";
-    document.getElementById("modeHelp").textContent = state.mode === "practice"
-      ? "Practice mode shows the answer and explanation after each response."
-      : "Mock exam hides correctness and explanations until you finish and review.";
-    const mockSectionPlan = document.getElementById("mockSectionPlan");
-    if (state.mode === "mock") {
-      const sections = getMockSections();
-      const totalQuestions = sections.reduce((total, section) => total + section.count, 0);
-      mockSectionPlan.textContent = "Sections: " + sections
-        .map(section => section.subject + " " + section.count)
-        .join(" · ") + " (" + totalQuestions + " total)";
-      mockSectionPlan.classList.remove("hidden");
-    } else {
-      mockSectionPlan.classList.add("hidden");
-    }
-    document.getElementById("countLabel").textContent = state.mode === "mock"
-      ? "questions per subject section"
-      : "number of questions";
-
-    const weakTopics = getWeakTopics();
-    const weakStart = document.getElementById("weakStartBtn");
-    weakStart.disabled = !weakTopics.length;
-    document.getElementById("weakStartCaption").textContent = weakTopics.length
-      ? "Start with " + weakTopics[0]
-      : "Complete a few quizzes to unlock this";
-
-    const note = document.getElementById("weakAreaNote");
-    if (weakTopics.length) {
-      note.classList.remove("hidden");
-      note.innerHTML = "Your weaker topics so far: <strong>" + weakTopics.slice(0, 3).join(", ") + "</strong>";
-    } else {
-      note.classList.add("hidden");
-    }
-    renderPracticeRail();
-  }
-
-  function getWeakTopics() {
-    const weak = topicWeaknessSummary();
-    return Object.keys(weak)
-      .filter(topic => weak[topic].total >= 3 && (weak[topic].correct / weak[topic].total) < 0.6)
-      .sort((a, b) => (weak[a].correct / weak[a].total) - (weak[b].correct / weak[b].total));
-  }
-
-  function getFilteredPool() {
-    const [focusSubject, focusTopic] = state.focus === "any" ? [] : state.focus.split("|");
-    return BANK.filter(q =>
-      (state.subject === "Mixed" || q.subject === state.subject) &&
-      (state.difficulty === "any" || q.difficulty === state.difficulty) &&
-      (state.focus === "any" || (q.subject === focusSubject && q.topic === focusTopic))
-    );
-  }
-
-  function getMockSections() {
-    const subjectOrder = ["Chemistry", "Physics", "Mathematics"];
-    const focusedSubject = state.focus === "any" ? null : state.focus.split("|")[0];
-    const subjects = state.subject !== "Mixed"
-      ? [state.subject]
-      : focusedSubject ? [focusedSubject] : subjectOrder;
-    return subjects
-      .map(subject => {
-        let available = BANK.filter(question =>
-          question.subject === subject &&
-          (state.focus === "any" || question.topic === state.focus.split("|")[1]) &&
-          (state.difficulty === "any" || question.difficulty === state.difficulty)
-        ).length;
-        if (available < state.count && state.focus !== "any") {
-          available = BANK.filter(question => question.subject === subject && question.topic === state.focus.split("|")[1]).length;
-        } else if (available < state.count && state.difficulty !== "any") {
-          available = BANK.filter(question => question.subject === subject).length;
-        }
-        return { subject: subject, count: Math.min(state.count, available) };
-      })
-      .filter(section => section.count > 0);
-  }
-
-  function buildQuizPool() {
-    const strictPool = getFilteredPool();
-    let pool = strictPool;
-    if (pool.length < state.count) {
-      if (state.focus !== "any") {
-        const [focusSubject, focusTopic] = state.focus.split("|");
-        pool = BANK.filter(q => q.subject === focusSubject && q.topic === focusTopic);
-      } else if (state.difficulty !== "any") {
-        pool = BANK.filter(q => state.subject === "Mixed" || q.subject === state.subject);
-      }
-      if (pool.length < state.count && state.subject !== "Mixed" && state.focus === "any") {
-        pool = shuffle([...pool, ...BANK.filter(q => !pool.includes(q))]);
-      }
-    }
-    const total = Math.min(state.count, pool.length);
-    if (state.mode !== "mock") return shuffle(pool).slice(0, total);
-
-    return getMockSections().flatMap(section => {
-      let subjectPool = pool.filter(question => question.subject === section.subject);
-      if (subjectPool.length < section.count && state.focus !== "any") {
-        const topic = state.focus.split("|")[1];
-        subjectPool = BANK.filter(question => question.subject === section.subject && question.topic === topic);
-      } else if (subjectPool.length < section.count && state.difficulty !== "any") {
-        subjectPool = BANK.filter(question => question.subject === section.subject);
-      }
-      return shuffle(subjectPool).slice(0, section.count);
-    });
-  }
-
-  function startQuiz() {
-    state.questions = buildQuizPool();
-    if (!state.questions.length) return;
-    state.index = 0;
-    state.activeSubject = state.questions[0].subject;
-    state.score = 0;
-    state.answers = [];
-    state.totalTime = 0;
-    state.questionStart = 0;
-    showScreen("quiz");
-    renderQuestion();
-  }
-
-  function renderPracticeRail() {
-    const history = loadHistory();
-    const bestRuns = history.slice().sort((a, b) => {
-      const scoreA = a.total ? a.score / a.total : 0;
-      const scoreB = b.total ? b.score / b.total : 0;
-      return scoreB - scoreA || new Date(b.date) - new Date(a.date);
-    }).slice(0, 3);
-    const best = bestRuns.length && bestRuns[0].total
-      ? Math.round(100 * bestRuns[0].score / bestRuns[0].total) + "%"
-      : "--";
-
-    document.getElementById("historyCount").textContent = history.length;
-    document.getElementById("personalBest").textContent = best;
-
-    const list = document.getElementById("leaderboardList");
-    list.innerHTML = "";
-    if (!bestRuns.length) {
-      list.innerHTML = '<div class="rail-empty">Complete a quiz to build your personal board.</div>';
-      return;
-    }
-    bestRuns.forEach((attempt, index) => {
-      const row = document.createElement("div");
-      const percent = attempt.total ? Math.round(100 * attempt.score / attempt.total) : 0;
-      const date = new Date(attempt.date).toLocaleDateString(undefined, { month: "short", day: "numeric" });
-      row.className = "leader-row";
-      row.innerHTML = '<span class="leader-rank">' + (index + 1) + '</span><span><strong>' + date + '</strong><br>' + attempt.score + '/' + attempt.total + ' correct</span><span class="leader-score">' + percent + '%</span>';
-      list.appendChild(row);
-    });
-  }
-
-  function getAnswerForQuestion(questionIndex) {
-    return state.answers.find(answer => answer.questionIndex === questionIndex);
-  }
-
-  function updateLiveRail() {
-    document.getElementById("railAnswered").textContent = state.answers.length + " / " + state.questions.length;
-    document.getElementById("railCorrect").textContent = state.mode === "mock" ? "Hidden" : state.score;
-    document.getElementById("railRemaining").textContent = Math.max(0, state.questions.length - state.answers.length);
-
-    const subjectNav = document.getElementById("mockSubjectNav");
-    const statusTitle = document.getElementById("questionStatusTitle");
-    const mockMode = state.mode === "mock";
-    subjectNav.classList.toggle("hidden", !mockMode);
-    subjectNav.innerHTML = "";
-    if (mockMode) {
-      const subjects = [...new Set(state.questions.map(question => question.subject))];
-      subjects.forEach(subject => {
-        const subjectIndexes = state.questions
-          .map((question, index) => question.subject === subject ? index : -1)
-          .filter(index => index >= 0);
-        const answeredCount = state.answers.filter(answer => subjectIndexes.includes(answer.questionIndex)).length;
-        const button = document.createElement("button");
-        button.type = "button";
-        button.className = "mock-subject-button";
-        button.setAttribute("aria-pressed", subject === state.activeSubject ? "true" : "false");
-        button.setAttribute("aria-label", subject + " section, " + answeredCount + " of " + subjectIndexes.length + " answered");
-        const name = document.createElement("span");
-        name.textContent = subject;
-        const count = document.createElement("strong");
-        count.textContent = answeredCount + " / " + subjectIndexes.length;
-        button.append(name, count);
-        button.addEventListener("click", () => {
-          const firstUnanswered = subjectIndexes.find(index => !getAnswerForQuestion(index));
-          state.activeSubject = subject;
-          state.index = firstUnanswered === undefined ? subjectIndexes[0] : firstUnanswered;
-          renderQuestion();
-        });
-        subjectNav.appendChild(button);
-      });
-      statusTitle.textContent = state.activeSubject + " questions";
-    } else {
-      statusTitle.textContent = "Question status";
-    }
-
-    const map = document.getElementById("questionMap");
-    map.innerHTML = "";
-    const visibleQuestions = state.questions
-      .map((question, questionIndex) => ({ question: question, questionIndex: questionIndex }))
-      .filter(entry => !mockMode || entry.question.subject === state.activeSubject);
-    visibleQuestions.forEach(({ question, questionIndex }, localIndex) => {
-      const cell = document.createElement(mockMode ? "button" : "span");
-      if (mockMode) cell.type = "button";
-      cell.className = "map-cell";
-      const questionNumber = mockMode ? localIndex + 1 : questionIndex + 1;
-      if (questionIndex === state.index) cell.classList.add("current");
-      const answer = getAnswerForQuestion(questionIndex);
-      if (answer) {
-        cell.classList.add("done");
-        if (mockMode) {
-          cell.classList.add("answered");
-          cell.setAttribute("aria-label", "Question " + questionNumber + ": Answered");
-        } else {
-          cell.classList.add(answer.correct ? "correct" : "incorrect");
-          cell.setAttribute("aria-label", "Question " + questionNumber + ": " + (answer.correct ? "Correct" : "Incorrect"));
-        }
-      } else {
-        if (mockMode) cell.classList.add("unanswered");
-        cell.setAttribute("aria-label", "Question " + questionNumber + (questionIndex === state.index ? ": Current, not answered" : ": Not answered"));
-      }
-      cell.textContent = questionNumber;
-      if (mockMode) {
-        cell.addEventListener("click", () => {
-          state.index = questionIndex;
-          renderQuestion();
-        });
-      }
-      map.appendChild(cell);
-    });
-  }
-
-  function shuffle(arr) {
-    const a = arr.slice();
-    for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [a[i], a[j]] = [a[j], a[i]];
-    }
-    return a;
-  }
-
-  document.getElementById("startBtn").addEventListener("click", startQuiz);
-
-  document.getElementById("topicSelect").addEventListener("change", event => {
-    state.focus = event.target.value;
-    refreshSetupUI();
-  });
-
-  document.getElementById("warmupBtn").addEventListener("click", () => {
-    Object.assign(state, { subject: "Mixed", focus: "any", difficulty: "any", count: 10, questionLimit: 60, mode: "practice" });
-    startQuiz();
-  });
-
-  document.getElementById("weakStartBtn").addEventListener("click", () => {
-    const weakest = getWeakTopics()[0];
-    const sample = BANK.find(q => q.topic === weakest);
-    if (!sample) return;
-    Object.assign(state, {
-      subject: sample.subject,
-      focus: sample.subject + "|" + sample.topic,
-      difficulty: "any",
-      count: Math.min(10, BANK.filter(q => q.subject === sample.subject && q.topic === sample.topic).length),
-      questionLimit: 60,
-      mode: "practice"
-    });
-    startQuiz();
-  });
-
-  document.getElementById("mockStartBtn").addEventListener("click", () => {
-    Object.assign(state, { subject: "Mixed", focus: "any", difficulty: "any", count: 40, questionLimit: 90, mode: "mock" });
-    startQuiz();
-  });
-
-  const qTag = document.getElementById("qTag");
-  const qText = document.getElementById("qText");
-  const optionsList = document.getElementById("optionsList");
-  const explainBox = document.getElementById("explainBox");
-  const nextBtn = document.getElementById("nextBtn");
-  const progressLabel = document.getElementById("progressLabel");
-  const scoreLabel = document.getElementById("scoreLabel");
-  const progressFill = document.getElementById("progressFill");
-  const timerLabel = document.getElementById("timerLabel");
-
-  function updateTimerUI() {
-    if (!state.questionLimit) {
-      timerLabel.textContent = "Untimed";
-      timerLabel.classList.remove("alert");
-      return;
-    }
-    const remaining = Math.max(0, state.questionLimit - Math.floor((Date.now() - state.questionStart) / 1000));
-    timerLabel.textContent = "Time: " + remaining + "s";
-    timerLabel.classList.toggle("alert", remaining <= 10);
-  }
-
-  function startQuestionTimer() {
-    clearInterval(state.timerId);
-    state.questionStart = Date.now();
-    updateTimerUI();
-    if (!state.questionLimit) return;
-    state.timerId = setInterval(() => {
-      updateTimerUI();
-      if (Math.floor((Date.now() - state.questionStart) / 1000) >= state.questionLimit) {
-        clearInterval(state.timerId);
-        finalizeQuestion(null, true);
-      }
-    }, 1000);
-  }
-
-  function finalizeQuestion(selectedIndex, timedOut) {
-    const item = state.questions[state.index];
-    if (!item || optionsList.dataset.answered === "true") return;
-    optionsList.dataset.answered = "true";
-    clearInterval(state.timerId);
-
-    const chosenIndex = selectedIndex === null ? -1 : selectedIndex;
-    const isCorrect = chosenIndex >= 0 && chosenIndex === item.answer;
-    const elapsed = Math.max(1, Math.ceil((Date.now() - state.questionStart) / 1000));
-    const timeSpent = state.questionLimit ? Math.min(state.questionLimit, elapsed) : elapsed;
-
-    const opts = optionsList.querySelectorAll(".option");
-    opts.forEach((el, idx) => {
-      el.classList.toggle("selected", idx === chosenIndex);
-      el.classList.toggle("correct", state.mode === "practice" && idx === item.answer);
-      el.classList.toggle("incorrect", state.mode === "practice" && idx === chosenIndex && chosenIndex !== item.answer);
-    });
-
-    const previousAnswerIndex = state.answers.findIndex(answer => answer.questionIndex === state.index);
-    if (previousAnswerIndex >= 0) state.totalTime -= state.answers[previousAnswerIndex].timeSpent || 0;
-    const answer = { questionIndex: state.index, topic: item.topic, subject: item.subject, correct: isCorrect, q: item.q, chosen: chosenIndex, right: item.answer, options: item.options, explain: item.explain, timeSpent: timeSpent, timedOut: !!timedOut };
-    if (previousAnswerIndex >= 0) state.answers[previousAnswerIndex] = answer;
-    else state.answers.push(answer);
-    state.score = state.answers.filter(savedAnswer => savedAnswer.correct).length;
-    state.totalTime += timeSpent;
-
-    explainBox.textContent = state.mode === "practice"
-      ? item.explain + (timedOut ? " Time expired." : "")
-      : timedOut ? "Time expired. Review the answer after finishing the mock exam." : "Answer saved. Correct answers and explanations will appear after you finish.";
-    explainBox.classList.add("show");
-    nextBtn.disabled = false;
-    if (state.mode === "mock") {
-      nextBtn.textContent = state.answers.length === state.questions.length ? "Finish mock" : "Next unanswered";
-    }
-    scoreLabel.textContent = state.mode === "mock" ? "Score: hidden" : "Score: " + state.score;
-    updateLiveRail();
-  }
-
-  function renderQuestion() {
-    const item = state.questions[state.index];
-    state.activeSubject = item.subject;
-    const sectionLabel = document.getElementById("mockSectionLabel");
-    if (state.mode === "mock") {
-      let sectionStart = state.index;
-      let sectionEnd = state.index;
-      while (sectionStart > 0 && state.questions[sectionStart - 1].subject === item.subject) sectionStart--;
-      while (sectionEnd + 1 < state.questions.length && state.questions[sectionEnd + 1].subject === item.subject) sectionEnd++;
-      const sectionNumber = new Set(state.questions.slice(0, sectionStart).map(question => question.subject)).size + 1;
-      sectionLabel.textContent = "Section " + sectionNumber + " · " + item.subject + " · Questions " + (sectionStart + 1) + "–" + (sectionEnd + 1) + " · " + state.questions.length + " total";
-      sectionLabel.classList.remove("hidden");
-    } else {
-      sectionLabel.classList.add("hidden");
-    }
-    qTag.innerHTML = (item.subject + " · " + item.topic + " · " + item.difficulty) + (item._aiGenerated ? ' <span class=\"ai-generated-badge\">⚡ AI Generated</span>' : "");
-    qText.textContent = item.q;
-    explainBox.classList.remove("show");
-    explainBox.textContent = "";
-    const sectionIndexes = state.mode === "mock"
-      ? state.questions.map((question, index) => question.subject === item.subject ? index : -1).filter(index => index >= 0)
-      : [];
-    const localQuestionNumber = sectionIndexes.indexOf(state.index) + 1;
-    const existingAnswer = getAnswerForQuestion(state.index);
-    nextBtn.disabled = !existingAnswer;
-    nextBtn.textContent = state.mode === "mock"
-      ? state.answers.length === state.questions.length ? "Finish mock" : "Next unanswered"
-      : (state.index === state.questions.length - 1) ? "Finish" : "Next";
-
-    progressLabel.textContent = state.mode === "mock"
-      ? item.subject + " · Question " + localQuestionNumber + " of " + sectionIndexes.length
-      : "Question " + (state.index + 1) + " of " + state.questions.length;
-    scoreLabel.textContent = state.mode === "mock" ? "Score: hidden" : "Score: " + state.score;
-    progressFill.style.width = (100 * state.index / state.questions.length) + "%";
-
-    optionsList.innerHTML = "";
-    const letters = ["A", "B", "C", "D"];
-    item.options.forEach((opt, i) => {
-      const div = document.createElement("div");
-      div.className = "option";
-      div.setAttribute("role", "button");
-      div.setAttribute("tabindex", "0");
-      div.innerHTML = '<span class="letter">' + letters[i] + '</span><span>' + opt + '</span>';
-      div.addEventListener("click", () => finalizeQuestion(i, false));
-      div.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); finalizeQuestion(i, false); } });
-      optionsList.appendChild(div);
-    });
-    optionsList.dataset.answered = "false";
-    if (existingAnswer) {
-      optionsList.querySelectorAll(".option").forEach((element, optionIndex) => {
-        element.classList.toggle("selected", optionIndex === existingAnswer.chosen);
-        element.classList.toggle("correct", state.mode === "practice" && optionIndex === item.answer);
-        element.classList.toggle("incorrect", state.mode === "practice" && optionIndex === existingAnswer.chosen && !existingAnswer.correct);
-      });
-      explainBox.textContent = state.mode === "practice"
-        ? item.explain + (existingAnswer.timedOut ? " Time expired." : "")
-        : "Answer saved. Correct answers and explanations will appear after you finish.";
-      explainBox.classList.add("show");
-      state.questionStart = Date.now();
-      timerLabel.textContent = "Answered";
-      clearInterval(state.timerId);
-    }
-    updateLiveRail();
-    if (!existingAnswer) startQuestionTimer();
-  }
-
-  nextBtn.addEventListener("click", () => {
-    if (state.mode === "mock") {
-      clearInterval(state.timerId);
-      for (let offset = 1; offset <= state.questions.length; offset++) {
-        const nextIndex = (state.index + offset) % state.questions.length;
-        if (!getAnswerForQuestion(nextIndex)) {
-          state.index = nextIndex;
-          state.activeSubject = state.questions[nextIndex].subject;
-          renderQuestion();
-          return;
-        }
-      }
-      finishQuiz();
-      return;
-    }
-
-    if (state.index < state.questions.length - 1) {
-      state.index++;
-      renderQuestion();
-    } else {
-      finishQuiz();
-    }
-  });
-
-  document.getElementById("quitBtn").addEventListener("click", () => {
-    if (confirm("Quit this quiz? Your progress on this attempt will be lost.")) {
-      showScreen("setup");
-      refreshSetupUI();
-    }
-  });
-
-  function finishQuiz() {
-    clearInterval(state.timerId);
-    saveAttempt({ date: new Date().toISOString(), score: state.score, total: state.questions.length, answers: state.answers, totalTime: state.totalTime });
-    showScreen("results");
-    renderResults();
-  }
-
-  function renderResults() {
-    const total = Math.max(1, state.questions.length);
-    const pct = Math.round(100 * state.score / total);
-    const avgTime = state.answers.length ? Math.round(state.totalTime / state.answers.length) : 0;
-
-    document.getElementById("finalScore").textContent = state.score;
-    document.getElementById("finalOf").textContent = "/ " + total + " correct";
-    document.getElementById("accuracyMetric").textContent = pct + "%";
-    document.getElementById("avgTimeMetric").textContent = avgTime + "s";
-    document.getElementById("attemptMetric").textContent = state.answers.length;
-
-    let summary;
-    if (pct >= 80) summary = "Strong round — keep this pace up.";
-    else if (pct >= 50) summary = "Solid, with clear room to tighten up specific topics below.";
-    else summary = "Rough round — use the topic breakdown below to target your next revision session.";
-    document.getElementById("resultSummary").textContent = summary;
-
-    const byTopic = {};
-    state.answers.forEach(a => {
-      if (!byTopic[a.topic]) byTopic[a.topic] = { correct: 0, total: 0, time: 0 };
-      byTopic[a.topic].total++;
-      if (a.correct) byTopic[a.topic].correct++;
-      byTopic[a.topic].time += a.timeSpent || 0;
-    });
-
-    const tbody = document.getElementById("topicTableBody");
-    tbody.innerHTML = "";
-    Object.keys(byTopic).forEach(topic => {
-      const s = byTopic[topic];
-      const acc = Math.round(100 * s.correct / s.total);
-      const avgTopicTime = Math.round(s.time / s.total);
-      const tr = document.createElement("tr");
-      const color = acc >= 70 ? "var(--pine)" : acc >= 40 ? "var(--amber)" : "var(--red)";
-      tr.innerHTML =
-        '<td>' + topic + '</td>' +
-        '<td>' + s.correct + '/' + s.total + ' (' + acc + '%)</td>' +
-        '<td><div class="bar-track"><div class="bar-fill" style="width:' + acc + '%; background:' + color + ';"></div></div><div style="font-size:11px;color:var(--ink-soft);margin-top:4px;">Avg ' + avgTopicTime + 's</div></td>';
-      tbody.appendChild(tr);
-    });
-
-    document.getElementById("reviewList").innerHTML = "";
-    document.getElementById("reviewList").classList.add("hidden");
-  }
-
-  document.getElementById("reviewBtn").addEventListener("click", () => {
-    const list = document.getElementById("reviewList");
-    if (!list.classList.contains("hidden")) { list.classList.add("hidden"); return; }
-    list.classList.remove("hidden");
-    list.innerHTML = "";
-    const letters = ["A", "B", "C", "D"];
-    state.answers.slice().sort((a, b) => a.questionIndex - b.questionIndex).forEach(a => {
-      const div = document.createElement("div");
-      div.className = "review-item";
-      const answerLabel = a.chosen < 0
-        ? "Timed out"
-        : 'Your answer: ' + letters[a.chosen] + '. ' + a.options[a.chosen];
-      div.innerHTML =
-        '<span class="verdict ' + (a.correct ? "right" : "wrong") + '">' + (a.correct ? "Correct" : "Incorrect") + '</span>' +
-        '<p style="margin:6px 0 4px; font-weight:bold;">' + (a.questionIndex + 1) + '. ' + a.q + '</p>' +
-        '<p style="margin:2px 0; color:var(--ink-soft);">' + answerLabel + '</p>' +
-        (a.correct ? "" : '<p style="margin:2px 0; color:var(--pine);">Correct answer: ' + letters[a.right] + '. ' + a.options[a.right] + '</p>') +
-        '<p style="margin:8px 0 0; font-size:14px; color:var(--ink-soft);">' + a.explain + '</p>';
-      list.appendChild(div);
-    });
-  });
-
-  document.getElementById("restartBtn").addEventListener("click", () => {
-    showScreen("setup");
-    refreshSetupUI();
-  });
-
-  function showScreen(name) {
-    document.getElementById("setupScreen").classList.toggle("hidden", name !== "setup");
-    document.getElementById("quizScreen").classList.toggle("hidden", name !== "quiz");
-    document.getElementById("resultsScreen").classList.toggle("hidden", name !== "results");
-    document.getElementById("setupRail").classList.toggle("hidden", name === "quiz");
-    document.getElementById("quizRail").classList.toggle("hidden", name !== "quiz");
-  }
-
-  document.getElementById("dateStamp").textContent = new Date().toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
-  refreshSetupUI();
-})();
-</script>
+<script src="js/state.js"></script>
+<script src="js/marking.js"></script>
+<script src="js/katex-render.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>

@@ -87,11 +87,23 @@ flowchart LR
 ## Project Structure
 
 ```
-├── index.html                  # UI, state management, timer, and AI generation controls
+├── index.html                  # Semantic application markup & CDN integrations (KaTeX, Confetti)
+├── css/                        # Modular stylesheet architecture
+│   ├── theme.css               # Design tokens, fonts, colors, and resets
+│   ├── layout.css              # Masthead, responsive grid, card containers, side rail
+│   ├── components.css          # Chips, launch tiles, question map, options, timer
+│   └── results.css             # Score gauge, stats grid, topic mastery bars, review list
+├── js/                         # Modular JavaScript application engine
+│   ├── state.js                # App state, localStorage persistence, Web Audio synth
+│   ├── marking.js              # JEE Mains (+4 / -1) vs Standard scoring calculation
+│   ├── katex-render.js         # KaTeX math auto-renderer
+│   ├── ui.js                   # Screen manager, question pool, live rail, results view
+│   └── app.js                  # App bootstrap, event wiring, and keyboard shortcuts
 ├── questions.js                # Modular question bank & procedural generator functions
 ├── questions.json              # Full 450+ validated questions exported for tooling/APIs
 ├── tools/
-│   └── validate_questions.py   # Automated validation script (checks bounds, duplicate text, keys)
+│   ├── validate_questions.py   # Automated validation script (checks bounds, duplicate text, keys)
+│   └── generate_with_gemini.py # Automated batch question generator with Gemini
 └── README.md
 ```
 
