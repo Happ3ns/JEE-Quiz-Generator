@@ -336,6 +336,26 @@
 
     if (qBadge) qBadge.textContent = "Question " + (state.index + 1) + " of " + state.questions.length;
     if (qTopic) qTopic.textContent = item.subject + " · " + item.topic + " · " + item.difficulty.toUpperCase();
+        const starBtn = document.getElementById("bookmarkStarBtn");
+    const qKey = item.id || (item.subject + "::" + item.question.slice(0, 30));
+    if (starBtn && root.QuizState) {
+      const isStarred = root.QuizState.isBookmarked(qKey);
+      const starIcon = document.getElementById("starIcon");
+      const starLabel = document.getElementById("starLabel");
+      if (starIcon) starIcon.textContent = isStarred ? "★" : "☆";
+      if (starLabel) starLabel.textContent = isStarred ? "Starred" : "Star";
+      starBtn.style.background = isStarred ? "rgba(251, 191, 36, 0.2)" : "rgba(255,255,255,0.06)";
+      starBtn.style.borderColor = isStarred ? "rgba(251, 191, 36, 0.5)" : "rgba(255,255,255,0.12)";
+      starBtn.onclick = (e) => {
+        e.stopPropagation();
+        const nowStarred = root.QuizState.toggleBookmark(qKey);
+        if (starIcon) starIcon.textContent = nowStarred ? "★" : "☆";
+        if (starLabel) starLabel.textContent = nowStarred ? "Starred" : "Star";
+        starBtn.style.background = nowStarred ? "rgba(251, 191, 36, 0.2)" : "rgba(255,255,255,0.06)";
+        starBtn.style.borderColor = nowStarred ? "rgba(251, 191, 36, 0.5)" : "rgba(255,255,255,0.12)";
+      };
+    }
+
     if (markingBadge) {
       markingBadge.textContent = state.markingScheme === "jee" ? "+4 / -1 JEE" : "+1 Standard";
     }

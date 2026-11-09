@@ -60,6 +60,14 @@
       <div class="card" style="margin-bottom: 24px;">
         <div class="setup-hero" style="margin-bottom: 20px;">
           <div class="hero-pill">PERSISTENT DIAGNOSTIC METRICS</div>
+          <div style="display:flex; justify-content:center; gap:10px; margin-bottom:14px; flex-wrap:wrap;">
+            <button id="exportErrorSheetBtn" type="button" style="background:rgba(99, 102, 241, 0.15); border:1px solid rgba(99, 102, 241, 0.4); color:#a5b4fc; border-radius:8px; padding:6px 14px; font-size:12.5px; font-weight:600; cursor:pointer; display:inline-flex; align-items:center; gap:6px;">
+              📥 Export Revision Error Sheet (Markdown)
+            </button>
+            <button id="drillStarredBtn" type="button" style="background:rgba(251, 191, 36, 0.12); border:1px solid rgba(251, 191, 36, 0.35); color:#fde68a; border-radius:8px; padding:6px 14px; font-size:12.5px; font-weight:600; cursor:pointer; display:inline-flex; align-items:center; gap:6px;">
+              ★ Practice Starred Questions
+            </button>
+          </div>
           <h2>Performance <span class="gradient-text">&amp; Analytics Engine</span></h2>
           <p>Comprehensive tracking of test history, subject-by-subject accuracy, and prioritized focus areas stored on this device.</p>
         </div>
@@ -105,6 +113,90 @@
         </div>
       </div>
     `;
+
+    // Export Error Sheet
+    const exportBtn = container.querySelector("#exportErrorSheetBtn");
+    if (exportBtn) {
+      exportBtn.onclick = () => {
+        const hist = (root.QuizState && root.QuizState.loadHistory) ? root.QuizState.loadHistory() : [];
+        const mistakes = [];
+        hist.forEach(round => {
+          (round.answers || []).forEach(ans => {
+            if (!ans.correct && !ans.skipped) {
+              mistakes.push({ ...ans, roundDate: round.date, roundSubject: round.subject });
+            }
+          });
+        });
+
+        let md = "# JEE Revision Error Sheet\n\n";
+        md += "Generated on: " + new Date().toLocaleString() + "\n\n";
+        md += "Total Recorded Mistakes: " + mistakes.length + "\n\n";
+        md += "---\n\n";
+
+        if (!mistakes.length) {
+          md += "### Clean Record!\nNo mistakes recorded on this device. Keep practicing!\n";
+        } else {
+          mistakes.forEach((m, idx) => {
+            md += "### Question " + (idx + 1) + " [" + (m.subject || "JEE") + " · " + (m.topic || "General") + "]\n\n";
+            md += "**Question:**\n" + (m.question || "") + "\n\n";
+            if (m.chosen !== undefined) md += "- **Your Selection:** Option " + (m.chosen + 1) + "\n";
+            if (m.correctAnswer !== undefined) md += "- **Correct Answer:** Option " + (m.correctAnswer + 1) + "\n";
+            if (m.explanation) md += "\n**Solution & Explanation:**\n" + m.explanation + "\n";
+            md += "\n---\n\n";
+          });
+        }
+
+        const blob = new Blob([md], { type: "text/markdown;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "jee-revision-error-log.md";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      };
+    }
+
+    // Drill Starred Questions
+    const drillStarBtn = container.querySelector("#drillStarredBtn");
+    if (drillStarBtn) {
+      drillStarBtn.onclick = () => {
+        const starred = (root.QuizState && root.QuizState.getBookmarks) ? root.QuizState.getBookmarks() : [];
+        if (!starred.length) {
+          alert("You haven't starred any questions yet! Click the ☆ Star button during practice to bookmark tricky questions.");
+          return;
+        }
+        const bank = (typeof root.QuizTaxonomy !== "undefined" && root.QuizTaxonomy.getQuestionBank)
+          ? root.QuizTaxonomy.getQuestionBank()
+          : (window.JEE_QUESTIONS || []);
+        const matching = bank.filter(q => {
+          const k = q.id || (q.subject + "::" + q.question.slice(0, 30));
+          return starred.includes(String(k));
+        });
+        if (!matching.length) {
+          alert("None of your starred questions match the current local database.");
+          return;
+        }
+        if (root.QuizState && root.QuizState.state) {
+          root.QuizState.state.questions = matching;
+          root.QuizState.state.count = matching.length;
+          root.QuizState.state.index = 0;
+          root.QuizState.state.score = 0;
+          root.QuizState.state.correctCount = 0;
+          root.QuizState.state.wrongCount = 0;
+          root.QuizState.state.skippedCount = 0;
+          root.QuizState.state.answers = [];
+          root.QuizState.state.mode = "practice";
+        }
+        if (root.QuizRouter && root.QuizRouter.navigate) {
+          root.QuizRouter.navigate("quiz");
+        }
+        if (root.QuizUI && root.QuizUI.renderQuestion) {
+          root.QuizUI.renderQuestion();
+        }
+      };
+    }
 
     // Wire Drill buttons in analytics
     container.querySelectorAll(".drill-topic-btn").forEach(btn => {

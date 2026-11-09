@@ -4,6 +4,36 @@
 
   const STORAGE_KEY = "jeeQuizHistory";
   const SETTINGS_KEY = "jeeQuizSettings";
+  const BOOKMARKS_KEY = "jeeQuizBookmarks";
+
+  function getBookmarks() {
+    try {
+      const raw = localStorage.getItem(BOOKMARKS_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function toggleBookmark(id) {
+    const bms = getBookmarks();
+    const strId = String(id);
+    const idx = bms.indexOf(strId);
+    if (idx >= 0) {
+      bms.splice(idx, 1);
+    } else {
+      bms.push(strId);
+    }
+    try {
+      localStorage.setItem(BOOKMARKS_KEY, JSON.stringify(bms));
+    } catch (e) {}
+    return idx < 0;
+  }
+
+  function isBookmarked(id) {
+    return getBookmarks().includes(String(id));
+  }
+
 
   const state = {
     subject: "Mixed",
@@ -155,7 +185,10 @@
     loadHistory,
     saveAttempt,
     topicWeaknessSummary,
-    getWeakTopics
+    getWeakTopics,
+    getBookmarks,
+    toggleBookmark,
+    isBookmarked
   };
 
 })(typeof window !== "undefined" ? window : globalThis);
