@@ -2,14 +2,11 @@
 (function (root) {
   "use strict";
 
-  const { loadHistory, topicWeaknessSummary, state } = root.QuizState;
-  const { startQuiz } = root.QuizUI;
-
   function renderAnalyticsView(container) {
     if (!container) return;
 
-    const history = loadHistory();
-    const stats = topicWeaknessSummary();
+    const history = (root.QuizState && root.QuizState.loadHistory) ? root.QuizState.loadHistory() : [];
+    const stats = (root.QuizState && root.QuizState.topicWeaknessSummary) ? root.QuizState.topicWeaknessSummary() : {};
 
     let totalQuestions = 0;
     let totalCorrect = 0;
@@ -113,12 +110,16 @@
       btn.addEventListener("click", () => {
         const topic = btn.getAttribute("data-topic");
         if (topic) {
-          state.subject = "Mixed";
-          state.focus = "Mixed|" + topic;
-          state.difficulty = "any";
-          state.count = 10;
-          state.mode = "practice";
-          startQuiz();
+          if (root.QuizState && root.QuizState.state) {
+            root.QuizState.state.subject = "Mixed";
+            root.QuizState.state.focus = "Mixed|" + topic;
+            root.QuizState.state.difficulty = "any";
+            root.QuizState.state.count = 10;
+            root.QuizState.state.mode = "practice";
+          }
+          if (root.QuizUI && root.QuizUI.startQuiz) {
+            root.QuizUI.startQuiz();
+          }
         }
       });
     });

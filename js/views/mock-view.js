@@ -2,9 +2,6 @@
 (function (root) {
   "use strict";
 
-  const { state, playSound } = root.QuizState;
-  const { startQuiz } = root.QuizUI;
-
   function renderMockView(container) {
     if (!container) return;
 
@@ -88,40 +85,47 @@
       </div>
     `;
 
+    const playSound = (t) => { if (root.QuizState && root.QuizState.playSound) root.QuizState.playSound(t); };
+    const getState = () => (root.QuizState ? root.QuizState.state : {});
+    const startQuiz = () => { if (root.QuizUI && root.QuizUI.startQuiz) root.QuizUI.startQuiz(); };
+
     // Event listeners
     container.querySelector("#launchFullMockBtn")?.addEventListener("click", () => {
       playSound("click");
-      state.subject = "Mixed";
-      state.focus = "any";
-      state.difficulty = "any";
-      state.count = 30; // 30 per subject = 90 total
-      state.mode = "mock";
-      state.markingScheme = "jee";
-      state.questionLimit = 90;
+      const st = getState();
+      st.subject = "Mixed";
+      st.focus = "any";
+      st.difficulty = "any";
+      st.count = 30; // 30 per subject = 90 total
+      st.mode = "mock";
+      st.markingScheme = "jee";
+      st.questionLimit = 90;
       startQuiz();
     });
 
     container.querySelector("#launchSprintMockBtn")?.addEventListener("click", () => {
       playSound("click");
-      state.subject = "Mixed";
-      state.focus = "any";
-      state.difficulty = "any";
-      state.count = 10; // 10 per subject = 30 total
-      state.mode = "mock";
-      state.markingScheme = "jee";
-      state.questionLimit = 60;
+      const st = getState();
+      st.subject = "Mixed";
+      st.focus = "any";
+      st.difficulty = "any";
+      st.count = 10; // 10 per subject = 30 total
+      st.mode = "mock";
+      st.markingScheme = "jee";
+      st.questionLimit = 60;
       startQuiz();
     });
 
     container.querySelector("#launchChallengerBtn")?.addEventListener("click", () => {
       playSound("click");
-      state.subject = "Mixed";
-      state.focus = "any";
-      state.difficulty = "hard";
-      state.count = 20;
-      state.mode = "mock";
-      state.markingScheme = "jee";
-      state.questionLimit = 90;
+      const st = getState();
+      st.subject = "Mixed";
+      st.focus = "any";
+      st.difficulty = "hard";
+      st.count = 20;
+      st.mode = "mock";
+      st.markingScheme = "jee";
+      st.questionLimit = 90;
       startQuiz();
     });
   }

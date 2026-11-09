@@ -2,11 +2,6 @@
 (function (root) {
   "use strict";
 
-  const { render: renderSyllabus } = root.SyllabusView;
-  const { render: renderMock } = root.MockView;
-  const { render: renderAnalytics } = root.AnalyticsView;
-  const { render: renderFormulas } = root.FormulasView;
-
   const VIEWS = ["practice", "syllabus", "mock", "analytics", "formulas"];
   let currentView = "practice";
 
@@ -25,7 +20,7 @@
     // Listen to hash change
     window.addEventListener("hashchange", handleHashChange);
 
-    // Initial route
+    // Initial route based on URL hash
     handleHashChange();
   }
 
@@ -50,8 +45,7 @@
     const quizScreen = document.getElementById("quizScreen");
     const resultsScreen = document.getElementById("resultsScreen");
     if (quizScreen && !quizScreen.classList.contains("hidden")) {
-      // Prompt if quiz is currently running
-      if (typeof root.QuizState !== "undefined" && root.QuizState.state && root.QuizState.state.questions.length > 0) {
+      if (typeof root.QuizState !== "undefined" && root.QuizState.state) {
         clearInterval(root.QuizState.state.timerId);
       }
       quizScreen.classList.add("hidden");
@@ -77,19 +71,23 @@
       }
     });
 
-    // Render Dynamic Views
-    if (viewName === "syllabus") {
-      renderSyllabus(document.getElementById("view-syllabus"));
-    } else if (viewName === "mock") {
-      renderMock(document.getElementById("view-mock"));
-    } else if (viewName === "analytics") {
-      renderAnalytics(document.getElementById("view-analytics"));
-    } else if (viewName === "formulas") {
-      renderFormulas(document.getElementById("view-formulas"));
-    } else if (viewName === "practice") {
-      if (root.QuizUI && root.QuizUI.refreshSetupUI) {
-        root.QuizUI.refreshSetupUI();
+    // Render Dynamic Views safely
+    try {
+      if (viewName === "syllabus" && root.SyllabusView && root.SyllabusView.render) {
+        root.SyllabusView.render(document.getElementById("view-syllabus"));
+      } else if (viewName === "mock" && root.MockView && root.MockView.render) {
+        root.MockView.render(document.getElementById("view-mock"));
+      } else if (viewName === "analytics" && root.AnalyticsView && root.AnalyticsView.render) {
+        root.AnalyticsView.render(document.getElementById("view-analytics"));
+      } else if (viewName === "formulas" && root.FormulasView && root.FormulasView.render) {
+        root.FormulasView.render(document.getElementById("view-formulas"));
+      } else if (viewName === "practice") {
+        if (root.QuizUI && root.QuizUI.refreshSetupUI) {
+          root.QuizUI.refreshSetupUI();
+        }
       }
+    } catch (err) {
+      console.error("View rendering error in " + viewName + ":", err);
     }
 
     window.scrollTo({ top: 0, behavior: "smooth" });

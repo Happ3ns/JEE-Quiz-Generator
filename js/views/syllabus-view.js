@@ -2,18 +2,14 @@
 (function (root) {
   "use strict";
 
-  const { getTaxonomy } = root.QuizTaxonomy;
-  const { topicWeaknessSummary, state } = root.QuizState;
-  const { startQuiz } = root.QuizUI;
-
   let activeSubjectFilter = "all";
   let activeSearchTerm = "";
 
   function renderSyllabusView(container) {
     if (!container) return;
 
-    const taxonomy = getTaxonomy();
-    const stats = topicWeaknessSummary();
+    const taxonomy = (root.QuizTaxonomy && root.QuizTaxonomy.getTaxonomy) ? root.QuizTaxonomy.getTaxonomy() : [];
+    const stats = (root.QuizState && root.QuizState.topicWeaknessSummary) ? root.QuizState.topicWeaknessSummary() : {};
 
     container.innerHTML = `
       <div class="card" style="margin-bottom: 24px;">
@@ -176,12 +172,16 @@
 
           // Quick Drill Handler
           card.querySelector(".topic-drill-btn").addEventListener("click", () => {
-            state.subject = section.name;
-            state.focus = section.name + "|" + topic;
-            state.difficulty = "any";
-            state.count = 10;
-            state.mode = "practice";
-            startQuiz();
+            if (root.QuizState && root.QuizState.state) {
+              root.QuizState.state.subject = section.name;
+              root.QuizState.state.focus = section.name + "|" + topic;
+              root.QuizState.state.difficulty = "any";
+              root.QuizState.state.count = 10;
+              root.QuizState.state.mode = "practice";
+            }
+            if (root.QuizUI && root.QuizUI.startQuiz) {
+              root.QuizUI.startQuiz();
+            }
           });
 
           grid.appendChild(card);

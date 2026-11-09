@@ -2,16 +2,13 @@
 (function (root) {
   "use strict";
 
-  const { getFormulas } = root.QuizTaxonomy;
-  const { render: renderMath } = root.QuizMath;
-
   let activeFormulaSubject = "all";
   let formulaSearchQuery = "";
 
   function renderFormulasView(container) {
     if (!container) return;
 
-    const records = getFormulas();
+    const records = (root.QuizTaxonomy && root.QuizTaxonomy.getFormulas) ? root.QuizTaxonomy.getFormulas() : [];
 
     container.innerHTML = `
       <div class="card" style="margin-bottom: 24px;">
@@ -102,7 +99,9 @@
         </div>
       `;
 
-      renderMath(block);
+      if (root.QuizMath && root.QuizMath.render) {
+        root.QuizMath.render(block);
+      }
       cardContainer.appendChild(block);
     });
   }
