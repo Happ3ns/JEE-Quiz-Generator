@@ -102,6 +102,30 @@
   box-shadow: 0 0 0 1px var(--accent-indigo), 0 12px 36px -8px var(--accent-indigo-glow);
 }
 
+.subject-card[data-subject="Physics"][aria-selected="true"] {
+  background: rgba(6, 182, 212, 0.08);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 1px var(--accent-cyan), 0 12px 36px -8px var(--accent-cyan-glow);
+}
+
+.subject-card[data-subject="Chemistry"][aria-selected="true"] {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: var(--accent-emerald);
+  box-shadow: 0 0 0 1px var(--accent-emerald), 0 12px 36px -8px var(--accent-emerald-glow);
+}
+
+.subject-card[data-subject="Mathematics"][aria-selected="true"] {
+  background: rgba(99, 102, 241, 0.08);
+  border-color: var(--accent-indigo);
+  box-shadow: 0 0 0 1px var(--accent-indigo), 0 12px 36px -8px var(--accent-indigo-glow);
+}
+
+.subject-card[data-subject="Mixed"][aria-selected="true"] {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: var(--accent-amber);
+  box-shadow: 0 0 0 1px var(--accent-amber), 0 12px 36px -8px var(--accent-amber-glow);
+}
+
 /* Card Icons & Header */
 .card-top {
   display: flex;

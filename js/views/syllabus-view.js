@@ -1,8 +1,8 @@
-// ── Syllabus & Module Explorer (Sections, Subsections & Sub-subsections) ──
+// ── Syllabus & Module Explorer (Distinct Sections, Bite-Sized Units & Topics) ──
 (function (root) {
   "use strict";
 
-  let activeSubjectFilter = "all";
+  let activeSubjectFilter = "Physics"; // Default to Physics for immediate focused view
   let activeSearchTerm = "";
 
   function renderSyllabusView(container) {
@@ -19,8 +19,35 @@
             Explore by <span class="gradient-text">Section, Unit &amp; Topic</span>
           </h2>
           <p style="color:var(--ink-secondary); font-size:14.5px; margin-top:6px;">
-            Three-tier hierarchical syllabus breakdown. Track per-topic mastery and launch targeted 10-question drills on any specific sub-subsection.
+            Bite-sized concept summaries, key high-yield formulas, and focused 10-question practice drills. Select a subject below to drill down into its units.
           </p>
+
+          <!-- 3 Distinct Main Subject Cards -->
+          <div class="section-switcher-grid" id="syllabusSectionSwitchers" style="margin-top: 24px;">
+            <div class="section-switch-card" data-subject="Physics" data-active="${activeSubjectFilter === 'Physics' ? 'true' : 'false'}" role="button" tabindex="0">
+              <div class="switch-icon">⚛️</div>
+              <div>
+                <span class="switch-title">Physics</span>
+                <span class="switch-sub">3 Units · 13 Topics</span>
+              </div>
+            </div>
+
+            <div class="section-switch-card" data-subject="Chemistry" data-active="${activeSubjectFilter === 'Chemistry' ? 'true' : 'false'}" role="button" tabindex="0">
+              <div class="switch-icon">🧪</div>
+              <div>
+                <span class="switch-title">Chemistry</span>
+                <span class="switch-sub">3 Units · 18 Topics</span>
+              </div>
+            </div>
+
+            <div class="section-switch-card" data-subject="Mathematics" data-active="${activeSubjectFilter === 'Mathematics' ? 'true' : 'false'}" role="button" tabindex="0">
+              <div class="switch-icon">📐</div>
+              <div>
+                <span class="switch-title">Mathematics</span>
+                <span class="switch-sub">3 Units · 21 Topics</span>
+              </div>
+            </div>
+          </div>
 
           <!-- Search & Filter Controls -->
           <div class="syllabus-controls-row">
@@ -42,6 +69,17 @@
       <div id="syllabusSectionsList"></div>
     `;
 
+    // Wire Top Switcher Cards
+    const switchCards = container.querySelectorAll("#syllabusSectionSwitchers .section-switch-card");
+    switchCards.forEach(card => {
+      card.addEventListener("click", () => {
+        const sub = card.getAttribute("data-subject");
+        activeSubjectFilter = sub;
+        updateSwitcherUI(container);
+        renderSectionsList(container, taxonomy, stats);
+      });
+    });
+
     // Wire Search Input
     const searchInput = container.querySelector("#syllabusSearchInput");
     searchInput.addEventListener("input", (e) => {
@@ -53,14 +91,26 @@
     const filterPills = container.querySelectorAll("#syllabusFilterPills .filter-pill");
     filterPills.forEach(pill => {
       pill.addEventListener("click", () => {
-        filterPills.forEach(p => p.classList.remove("active"));
-        pill.classList.add("active");
         activeSubjectFilter = pill.getAttribute("data-filter");
+        updateSwitcherUI(container);
         renderSectionsList(container, taxonomy, stats);
       });
     });
 
     renderSectionsList(container, taxonomy, stats);
+  }
+
+  function updateSwitcherUI(container) {
+    const switchCards = container.querySelectorAll("#syllabusSectionSwitchers .section-switch-card");
+    switchCards.forEach(card => {
+      const isAct = card.getAttribute("data-subject") === activeSubjectFilter;
+      card.setAttribute("data-active", isAct ? "true" : "false");
+    });
+
+    const filterPills = container.querySelectorAll("#syllabusFilterPills .filter-pill");
+    filterPills.forEach(pill => {
+      pill.classList.toggle("active", pill.getAttribute("data-filter") === activeSubjectFilter);
+    });
   }
 
   function renderSectionsList(container, taxonomy, stats) {
@@ -79,12 +129,18 @@
       const filteredSubsections = [];
 
       section.subsections.forEach(sub => {
-        const filteredTopics = sub.topics.filter(topic => {
-          const matchesSearch = !activeSearchTerm || topic.toLowerCase().includes(activeSearchTerm) || sub.name.toLowerCase().includes(activeSearchTerm);
+        const filteredTopics = sub.topics.filter(tObj => {
+          const tName = typeof tObj === "string" ? tObj : tObj.name;
+          const tDesc = tObj.summary || "";
+          const matchesSearch = !activeSearchTerm ||
+            tName.toLowerCase().includes(activeSearchTerm) ||
+            tDesc.toLowerCase().includes(activeSearchTerm) ||
+            sub.name.toLowerCase().includes(activeSearchTerm);
+
           if (!matchesSearch) return false;
 
           if (activeSubjectFilter === "weak") {
-            const topicStat = stats[topic];
+            const topicStat = stats[tName];
             return topicStat && topicStat.total >= 2 && (topicStat.correct / topicStat.total) < 0.6;
           }
           return true;
@@ -111,61 +167,98 @@
             <div class="section-icon-box">${section.icon}</div>
             <div>
               <h3>Section: ${section.name}</h3>
-              <span style="font-size:12px; color:var(--ink-muted); font-family:var(--font-mono);">${filteredSubsections.length} Units · ${totalTopicsInSection} Topics</span>
+              <span class="section-tagline">${section.tagline || 'CORE SYLLABUS'}</span>
             </div>
           </div>
-          <span class="section-progress-pill">Core Syllabus</span>
+          <span class="section-progress-pill">${filteredSubsections.length} Units · ${totalTopicsInSection} Topics</span>
         </div>
         <div class="subsections-wrapper"></div>
       `;
 
       const subWrapper = sectionEl.querySelector(".subsections-wrapper");
 
-      // Subsection Blocks (Level 2)
-      filteredSubsections.forEach(sub => {
+      // Subsection Blocks (Level 2) - Collapsible Accordion
+      filteredSubsections.forEach((sub, subIdx) => {
         const subGroup = document.createElement("div");
-        subGroup.className = "subsection-group";
+        // Open by default for first unit or when single subject is active
+        const isOpen = activeSubjectFilter !== "all" || subIdx === 0 || activeSearchTerm.length > 0;
+        subGroup.className = "subsection-group " + (isOpen ? "open" : "");
 
         subGroup.innerHTML = `
-          <div class="subsection-header">
-            <div class="subsection-title">
-              <span>${sub.icon}</span>
-              <span>Unit: ${sub.name}</span>
+          <div class="subsection-header" role="button" tabindex="0">
+            <div>
+              <div class="subsection-title">
+                <span>${sub.icon}</span>
+                <span>Unit: ${sub.name}</span>
+              </div>
+              <p class="subsection-desc">${sub.desc}</p>
             </div>
-            <span class="subsection-desc">${sub.desc}</span>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <span style="font-family:var(--font-mono); font-size:11.5px; color:var(--ink-muted);">${sub.topics.length} topics</span>
+              <span class="unit-chevron">▸</span>
+            </div>
           </div>
-          <div class="sub-subsection-grid"></div>
+          <div class="subsection-body">
+            <div class="sub-subsection-grid"></div>
+          </div>
         `;
+
+        // Toggle handler
+        const headerEl = subGroup.querySelector(".subsection-header");
+        headerEl.addEventListener("click", () => {
+          subGroup.classList.toggle("open");
+        });
+        headerEl.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            subGroup.classList.toggle("open");
+          }
+        });
 
         const grid = subGroup.querySelector(".sub-subsection-grid");
 
-        // Sub-subsection Cards (Level 3 - Topics)
-        sub.topics.forEach(topic => {
-          const topicStat = stats[topic];
-          let statusBadge = '<span class="topic-node-badge">Not tested</span>';
-          let accuracyText = "No attempts yet";
+        // Sub-subsection Cards (Level 3 - Bite-Sized Topic Nodes)
+        sub.topics.forEach(tObj => {
+          const tName = typeof tObj === "string" ? tObj : tObj.name;
+          const summary = tObj.summary || "High-yield JEE Mains & Advanced problem solving module.";
+          const formula = tObj.formula || "";
+          const weight = tObj.weight || "Core Fundamental";
+
+          let weightClass = "core";
+          let weightEmoji = "⚡";
+          if (weight === "High Weightage") {
+            weightClass = "high-weight";
+            weightEmoji = "🔥";
+          } else if (weight === "High Scoring") {
+            weightClass = "scoring";
+            weightEmoji = "🎯";
+          }
+
+          const topicStat = stats[tName];
+          let accuracyLabel = "No attempts yet";
+          let accuracyClass = "";
 
           if (topicStat && topicStat.total > 0) {
             const acc = Math.round((topicStat.correct / topicStat.total) * 100);
-            accuracyText = `${acc}% accuracy (${topicStat.correct}/${topicStat.total})`;
-            if (acc >= 75) {
-              statusBadge = '<span class="topic-node-badge mastered">✓ Mastered</span>';
-            } else if (acc < 60) {
-              statusBadge = '<span class="topic-node-badge weak">⚠️ Revision</span>';
-            } else {
-              statusBadge = '<span class="topic-node-badge">Progressing</span>';
-            }
+            accuracyLabel = `${acc}% accuracy (${topicStat.correct}/${topicStat.total})`;
+            if (acc >= 75) accuracyClass = "mastered";
+            else if (acc < 60) accuracyClass = "weak";
           }
 
           const card = document.createElement("div");
           card.className = "topic-node-card";
           card.innerHTML = `
-            <div class="topic-node-top">
-              <span class="topic-node-name">${topic}</span>
-              ${statusBadge}
+            <div>
+              <div class="topic-node-top">
+                <span class="topic-node-name">${tName}</span>
+                <span class="topic-weight-badge ${weightClass}">${weightEmoji} ${weight}</span>
+              </div>
+              <p class="topic-summary-text" style="margin-top:6px;">${summary}</p>
+              ${formula ? `<div style="margin-top:8px;"><span class="topic-formula-chip"><code>${formula}</code></span></div>` : ''}
             </div>
+
             <div class="topic-node-bottom">
-              <span class="topic-accuracy-label">${accuracyText}</span>
+              <span class="topic-accuracy-label ${accuracyClass}">${accuracyLabel}</span>
               <button class="topic-drill-btn" type="button">Practice 10 Qs →</button>
             </div>
           `;
@@ -174,7 +267,7 @@
           card.querySelector(".topic-drill-btn").addEventListener("click", () => {
             if (root.QuizState && root.QuizState.state) {
               root.QuizState.state.subject = section.name;
-              root.QuizState.state.focus = section.name + "|" + topic;
+              root.QuizState.state.focus = section.name + "|" + tName;
               root.QuizState.state.difficulty = "any";
               root.QuizState.state.count = 10;
               root.QuizState.state.mode = "practice";

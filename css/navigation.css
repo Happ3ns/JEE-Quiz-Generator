@@ -1,4 +1,4 @@
-/* ── Multi-Page Navigation & Three-Tier Hierarchy (Sections & Subsections) ── */
+/* ── Multi-Page Navigation & Distinct Modern Section Styling ── */
 
 /* Floating App Navigation Bar */
 .app-nav {
@@ -64,87 +64,121 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Section & Sub-subsection Syllabus Explorer ── */
-.syllabus-header {
-  margin-bottom: 28px;
-}
-
-.syllabus-controls-row {
-  display: flex;
+/* ── Distinct Modern Subject Sections ── */
+.section-switcher-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
-  margin-top: 18px;
-  flex-wrap: wrap;
+  margin-bottom: 24px;
 }
 
-.syllabus-search {
-  flex: 1;
-  min-width: 240px;
+.section-switch-card {
+  padding: 16px 20px;
+  border-radius: var(--r-md);
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-hairline);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   align-items: center;
-  gap: 10px;
-  background: #0a0c12;
-  border: 1px solid var(--border-hairline);
-  border-radius: var(--r-md);
-  padding: 10px 16px;
-  transition: border-color 0.15s ease;
+  gap: 14px;
 }
 
-.syllabus-search:focus-within {
-  border-color: var(--accent-indigo);
-}
-
-.syllabus-search input {
-  flex: 1;
-  background: transparent;
-  border: none;
-  outline: none;
-  color: #fff;
-  font-family: var(--font-sans);
-  font-size: 14px;
-}
-
-.syllabus-search input::placeholder {
-  color: var(--ink-muted);
-}
-
-.filter-pills {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-
-.filter-pill {
-  padding: 8px 14px;
-  border-radius: var(--r-full);
-  background: #0a0c12;
-  border: 1px solid var(--border-hairline);
-  color: var(--ink-secondary);
-  font-family: var(--font-sans);
-  font-size: 12.5px;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.filter-pill:hover {
-  color: #fff;
+.section-switch-card:hover {
+  transform: translateY(-2px);
+  background: var(--bg-card-hover);
   border-color: var(--border-hover);
 }
 
-.filter-pill.active {
-  background: var(--accent-indigo-soft);
-  border-color: var(--accent-indigo);
-  color: #fff;
-  font-weight: 600;
+.section-switch-card[data-active="true"] {
+  box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.5);
 }
 
-/* Level 1: Section Block (Subject) */
+.section-switch-card[data-subject="Physics"][data-active="true"] {
+  border-color: var(--accent-cyan);
+  background: rgba(6, 182, 212, 0.08);
+  box-shadow: 0 0 0 1px var(--accent-cyan), 0 8px 24px -6px var(--accent-cyan-glow);
+}
+
+.section-switch-card[data-subject="Chemistry"][data-active="true"] {
+  border-color: var(--accent-emerald);
+  background: rgba(16, 185, 129, 0.08);
+  box-shadow: 0 0 0 1px var(--accent-emerald), 0 8px 24px -6px var(--accent-emerald-glow);
+}
+
+.section-switch-card[data-subject="Mathematics"][data-active="true"] {
+  border-color: var(--accent-indigo);
+  background: rgba(99, 102, 241, 0.08);
+  box-shadow: 0 0 0 1px var(--accent-indigo), 0 8px 24px -6px var(--accent-indigo-glow);
+}
+
+.switch-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-size: 19px;
+  flex-shrink: 0;
+  border: 1px solid var(--border-hairline);
+}
+
+.section-switch-card[data-subject="Physics"] .switch-icon {
+  background: var(--accent-cyan-soft);
+  color: var(--accent-cyan);
+}
+
+.section-switch-card[data-subject="Chemistry"] .switch-icon {
+  background: var(--accent-emerald-soft);
+  color: var(--accent-emerald);
+}
+
+.section-switch-card[data-subject="Mathematics"] .switch-icon {
+  background: var(--accent-indigo-soft);
+  color: var(--accent-indigo);
+}
+
+.switch-title {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.switch-sub {
+  display: block;
+  font-size: 12px;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+}
+
+/* Level 1: Distinct Section Block (Subject) */
 .section-block {
   margin-bottom: 32px;
-  background: var(--bg-card);
-  border: 1px solid var(--border-hairline);
   border-radius: var(--r-lg);
-  padding: 24px;
-  transition: border-color 0.2s ease;
+  padding: 28px;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-block[data-subject="Physics"] {
+  background: linear-gradient(180deg, rgba(6, 182, 212, 0.04) 0%, rgba(15, 18, 26, 0.95) 100%);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  box-shadow: 0 12px 36px -12px rgba(6, 182, 212, 0.18);
+}
+
+.section-block[data-subject="Chemistry"] {
+  background: linear-gradient(180deg, rgba(16, 185, 129, 0.04) 0%, rgba(15, 18, 26, 0.95) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  box-shadow: 0 12px 36px -12px rgba(16, 185, 129, 0.18);
+}
+
+.section-block[data-subject="Mathematics"] {
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.04) 0%, rgba(15, 18, 26, 0.95) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  box-shadow: 0 12px 36px -12px rgba(99, 102, 241, 0.18);
 }
 
 .section-header {
@@ -152,8 +186,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 20px;
-  padding-bottom: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
   border-bottom: 1px solid var(--border-hairline);
   flex-wrap: wrap;
 }
@@ -161,59 +195,63 @@
 .section-title-wrap {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .section-icon-box {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 12px;
   display: grid;
   place-items: center;
-  font-size: 20px;
-  background: rgba(255, 255, 255, 0.04);
+  font-size: 22px;
   border: 1px solid var(--border-hairline);
 }
 
 .section-block[data-subject="Physics"] .section-icon-box {
   background: var(--accent-cyan-soft);
-  border-color: rgba(6, 182, 212, 0.3);
+  border-color: rgba(6, 182, 212, 0.4);
 }
 
 .section-block[data-subject="Chemistry"] .section-icon-box {
   background: var(--accent-emerald-soft);
-  border-color: rgba(16, 185, 129, 0.3);
+  border-color: rgba(16, 185, 129, 0.4);
 }
 
 .section-block[data-subject="Mathematics"] .section-icon-box {
   background: var(--accent-indigo-soft);
-  border-color: rgba(99, 102, 241, 0.3);
+  border-color: rgba(99, 102, 241, 0.4);
 }
 
 .section-title-wrap h3 {
-  font-size: 19px;
-  font-weight: 700;
+  font-size: 21px;
+  font-weight: 800;
   color: #fff;
   letter-spacing: -0.02em;
 }
 
-.section-progress-pill {
+.section-tagline {
+  display: block;
   font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--ink-secondary);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-hairline);
-  padding: 5px 12px;
-  border-radius: var(--r-full);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 2px;
 }
 
-/* Level 2: Subsection (Unit / Domain) */
+.section-block[data-subject="Physics"] .section-tagline { color: var(--accent-cyan); }
+.section-block[data-subject="Chemistry"] .section-tagline { color: var(--accent-emerald); }
+.section-block[data-subject="Mathematics"] .section-tagline { color: var(--accent-indigo); }
+
+/* Level 2: Collapsible Subsection Unit Cards */
 .subsection-group {
-  margin-bottom: 24px;
-  background: rgba(255, 255, 255, 0.015);
+  margin-bottom: 20px;
+  background: rgba(10, 13, 20, 0.85);
   border: 1px solid var(--border-hairline);
   border-radius: var(--r-md);
-  padding: 20px;
+  overflow: hidden;
+  transition: all 0.2s ease;
 }
 
 .subsection-group:last-child {
@@ -221,117 +259,182 @@
 }
 
 .subsection-header {
+  padding: 16px 20px;
+  cursor: pointer;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 14px;
-  flex-wrap: wrap;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid transparent;
+  transition: all 0.16s ease;
+}
+
+.subsection-header:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.subsection-group.open .subsection-header {
+  border-bottom-color: var(--border-hairline);
 }
 
 .subsection-title {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   font-size: 15.5px;
   font-weight: 700;
   color: #fff;
 }
 
 .subsection-desc {
-  font-size: 12.5px;
-  color: var(--ink-muted);
+  font-size: 13px;
+  color: var(--ink-secondary);
+  line-height: 1.4;
+  margin-top: 3px;
 }
 
-/* Level 3: Sub-subsection (Topic Node Grid) */
+.unit-chevron {
+  font-size: 14px;
+  color: var(--ink-muted);
+  transition: transform 0.2s ease;
+}
+
+.subsection-group.open .unit-chevron {
+  transform: rotate(90deg);
+  color: var(--accent-indigo);
+}
+
+.subsection-body {
+  padding: 18px 20px 22px;
+  display: none;
+}
+
+.subsection-group.open .subsection-body {
+  display: block;
+}
+
+/* Level 3: Bite-Sized Topic Micro-Cards */
 .sub-subsection-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 14px;
 }
 
 .topic-node-card {
-  background: #0d111a;
+  background: #090c14;
   border: 1px solid var(--border-hairline);
   border-radius: var(--r-md);
-  padding: 14px 16px;
+  padding: 16px 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 10px;
-  transition: all 0.16s ease;
+  gap: 12px;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .topic-node-card:hover {
-  background: #131926;
+  background: #111622;
   border-color: var(--border-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px -4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.5);
 }
 
 .topic-node-top {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 8px;
+  gap: 10px;
 }
 
 .topic-node-name {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 700;
   color: #fff;
-  line-height: 1.4;
+  line-height: 1.35;
 }
 
-.topic-node-badge {
+.topic-weight-badge {
   font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 600;
-  padding: 2px 7px;
+  padding: 3px 8px;
   border-radius: var(--r-full);
-  border: 1px solid var(--border-hairline);
-  color: var(--ink-muted);
+  white-space: nowrap;
   flex-shrink: 0;
 }
 
-.topic-node-badge.mastered {
-  color: var(--accent-emerald);
-  background: var(--accent-emerald-soft);
-  border-color: rgba(16, 185, 129, 0.3);
+.topic-weight-badge.high-weight {
+  background: var(--accent-amber-soft);
+  color: var(--accent-amber);
+  border: 1px solid rgba(245, 158, 11, 0.35);
 }
 
-.topic-node-badge.weak {
-  color: var(--accent-coral);
-  background: var(--accent-coral-soft);
-  border-color: rgba(244, 63, 94, 0.3);
+.topic-weight-badge.core {
+  background: var(--accent-indigo-soft);
+  color: var(--accent-indigo);
+  border: 1px solid rgba(99, 102, 241, 0.35);
+}
+
+.topic-weight-badge.scoring {
+  background: var(--accent-emerald-soft);
+  color: var(--accent-emerald);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+/* Easy to understand concept summary */
+.topic-summary-text {
+  font-size: 13px;
+  color: var(--ink-secondary);
+  line-height: 1.5;
+}
+
+/* Key formula micro-chip */
+.topic-formula-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-hairline);
+  padding: 4px 10px;
+  border-radius: var(--r-sm);
+  overflow-x: auto;
+  max-width: 100%;
 }
 
 .topic-node-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
-  padding-top: 8px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  gap: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .topic-accuracy-label {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--ink-secondary);
+  color: var(--ink-muted);
 }
+
+.topic-accuracy-label.mastered { color: var(--accent-emerald); font-weight: 600; }
+.topic-accuracy-label.weak { color: var(--accent-coral); font-weight: 600; }
 
 .topic-drill-btn {
   background: var(--accent-indigo-soft);
   color: var(--accent-indigo);
-  border: 1px solid rgba(99, 102, 241, 0.3);
-  padding: 4px 10px;
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  padding: 5px 12px;
   border-radius: var(--r-full);
-  font-family: var(--font-mono);
-  font-size: 11px;
+  font-family: var(--font-sans);
+  font-size: 12px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.16s ease;
+  white-space: nowrap;
 }
 
 .topic-drill-btn:hover {
@@ -349,10 +452,12 @@
   font-size: 11.5px;
   color: var(--ink-muted);
   margin-bottom: 14px;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 .quiz-breadcrumb span.sep {
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
 .quiz-breadcrumb strong {
@@ -461,6 +566,9 @@
 }
 
 @media (max-width: 768px) {
+  .section-switcher-grid {
+    grid-template-columns: 1fr;
+  }
   .mock-center-grid {
     grid-template-columns: 1fr;
   }
