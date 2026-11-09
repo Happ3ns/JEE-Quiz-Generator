@@ -531,7 +531,12 @@
     const finalOf = document.getElementById("finalOf");
     const resultSummary = document.getElementById("resultSummary");
 
-    if (finalScore) finalScore.textContent = summary.score;
+    const anim = (typeof root.Interactive3D !== "undefined" && root.Interactive3D.animateNumber) ? root.Interactive3D.animateNumber : null;
+
+    if (finalScore) {
+      if (anim) anim(finalScore, 0, summary.score, 800);
+      else finalScore.textContent = summary.score;
+    }
     if (finalOf) finalOf.textContent = "/ " + summary.maxScore + " pts (" + summary.correct + " correct)";
     if (resultSummary) {
       resultSummary.textContent = "Completed in " + Math.round(state.totalTime) + "s · Marking Scheme: " + (state.markingScheme === "jee" ? "JEE Mains (+4 / -1)" : "Standard (+1 / 0)");
@@ -542,7 +547,10 @@
     const attemptMetric = document.getElementById("attemptMetric");
     const skippedMetric = document.getElementById("skippedMetric");
 
-    if (accuracyMetric) accuracyMetric.textContent = summary.accuracy + "%";
+    if (accuracyMetric) {
+      if (anim) anim(accuracyMetric, 0, summary.accuracy, 800, "%");
+      else accuracyMetric.textContent = summary.accuracy + "%";
+    }
     if (avgTimeMetric) avgTimeMetric.textContent = state.answers.length ? Math.round(state.totalTime / state.answers.length) + "s" : "0s";
     if (attemptMetric) attemptMetric.textContent = summary.answeredCount;
     if (skippedMetric) skippedMetric.textContent = summary.skipped;
@@ -554,7 +562,8 @@
       const circumference = 283;
       const offset = circumference - (summary.overallPercent / 100) * circumference;
       gaugeFill.style.strokeDashoffset = offset;
-      gaugePercent.textContent = summary.overallPercent + "%";
+      if (anim) anim(gaugePercent, 0, summary.overallPercent, 1000, "%");
+      else gaugePercent.textContent = summary.overallPercent + "%";
     }
 
     // Confetti celebration if score is high

@@ -1,0 +1,246 @@
+/* ── 2026 Next-Gen 3D Spatial Depth, Glassmorphism & Holographic Sheen ── */
+
+/* 3D Perspective Context */
+.perspective-container {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+/* Ambient Canvas Background */
+#ambientCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.65;
+  transition: opacity 0.5s ease;
+}
+
+/* 3D Glass Surface Elevation */
+.card, .section-block, .topic-node-card, .mock-card, .preset-tile {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+  /* Multi-stop specular glass border */
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    0 16px 36px -8px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+}
+
+/* Holographic Cursor Sheen Glare */
+.card-sheen-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    circle 240px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.03) 40%,
+    transparent 80%
+  );
+  transition: opacity 0.3s ease;
+  mix-blend-mode: overlay;
+  z-index: 2;
+}
+
+.card:hover .card-sheen-overlay,
+.subject-card:hover .card-sheen-overlay,
+.topic-node-card:hover .card-sheen-overlay,
+.mock-card:hover .card-sheen-overlay,
+.preset-tile:hover .card-sheen-overlay {
+  opacity: 1;
+}
+
+/* Dynamic Spotlight Border on Hover */
+.subject-card, .topic-node-card, .mock-card, .preset-tile, .section-switch-card {
+  overflow: hidden;
+}
+
+.subject-card::before, .mock-card::before, .preset-tile::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    circle 200px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.35),
+    transparent 70%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.subject-card:hover::before, .mock-card:hover::before, .preset-tile:hover::before {
+  opacity: 1;
+}
+
+/* 3D Floating Glyphs with Dynamic Shadow */
+.card-glyph, .section-icon-box, .switch-icon {
+  transform: translateZ(24px);
+  box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.6);
+  animation: floatLevitate 4s ease-in-out infinite;
+  transition: transform 0.25s ease;
+}
+
+@keyframes floatLevitate {
+  0%, 100% { transform: translateZ(24px) translateY(0); }
+  50% { transform: translateZ(24px) translateY(-3px); }
+}
+
+/* Physical Haptic Button Depress */
+button, .btn, .btn-launch, .btn-next, .btn-skip, .topic-drill-btn, .segment-btn, .nav-tab {
+  will-change: transform;
+  transition: transform 0.16s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.16s ease, background 0.16s ease;
+}
+
+button:active, .btn:active, .btn-launch:active, .btn-next:active {
+  transform: scale(0.96) translateY(2px) !important;
+}
+
+/* 3D Realistic Option Cards in Quiz Canvas */
+.options-grid {
+  perspective: 900px;
+}
+
+.option-row {
+  transform-style: preserve-3d;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.option-row:hover {
+  transform: translateX(6px) translateZ(8px) scale(1.01) !important;
+  background: #161c2a !important;
+  border-color: rgba(99, 102, 241, 0.4) !important;
+  box-shadow:
+    0 8px 24px -4px rgba(0, 0, 0, 0.5),
+    0 0 16px -2px rgba(99, 102, 241, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+}
+
+.option-row.selected {
+  transform: translateX(6px) translateZ(12px) !important;
+  border-color: var(--accent-indigo) !important;
+  box-shadow:
+    0 0 0 1px var(--accent-indigo),
+    0 10px 30px -4px var(--accent-indigo-glow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+.option-row.correct {
+  transform: translateX(6px) translateZ(12px) !important;
+  border-color: var(--accent-emerald) !important;
+  box-shadow:
+    0 0 0 1px var(--accent-emerald),
+    0 10px 30px -4px var(--accent-emerald-glow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+}
+
+.option-row.incorrect {
+  transform: translateX(6px) translateZ(12px) !important;
+  border-color: var(--accent-coral) !important;
+  box-shadow:
+    0 0 0 1px var(--accent-coral),
+    0 10px 30px -4px var(--accent-coral-glow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+}
+
+.option-key {
+  transform: translateZ(14px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* 3D Glowing Launch Button */
+.btn-launch {
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 4px 14px rgba(99, 102, 241, 0.4),
+    0 12px 28px -6px rgba(99, 102, 241, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+}
+
+.btn-launch::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  transform: rotate(25deg);
+  animation: shineSweep 4.5s ease-in-out infinite;
+}
+
+@keyframes shineSweep {
+  0% { left: -70%; }
+  30%, 100% { left: 140%; }
+}
+
+/* 3D Realistic Circular Gauge */
+.circle-gauge {
+  filter: drop-shadow(0 0 20px var(--accent-emerald-glow));
+  animation: gaugePulse 3s ease-in-out infinite;
+}
+
+@keyframes gaugePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.025); }
+}
+
+/* Nav Tab 3D Active Pill */
+.nav-tab.active {
+  box-shadow:
+    0 4px 16px rgba(99, 102, 241, 0.3),
+    0 0 1px 1px rgba(99, 102, 241, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Shimmer Progress Track */
+.quiz-progress-bar {
+  position: relative;
+  overflow: hidden;
+}
+
+.quiz-progress-bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmerProgress 2s linear infinite;
+}
+
+@keyframes shimmerProgress {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Modern Gradient Headline Shimmer */
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff 20%, #cbd5e1 50%, #94a3b8 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+}
