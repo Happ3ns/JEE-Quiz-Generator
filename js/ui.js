@@ -1,4 +1,4 @@
-// ── UI Controller & View Management ──
+// ── Modern UI Controller & View Management (Linear Obsidian Theme) ──
 (function (root) {
   "use strict";
 
@@ -20,120 +20,15 @@
   }
 
   function showScreen(name) {
-    document.getElementById("setupScreen").classList.toggle("hidden", name !== "setup");
-    document.getElementById("quizScreen").classList.toggle("hidden", name !== "quiz");
-    document.getElementById("resultsScreen").classList.toggle("hidden", name !== "results");
-    document.getElementById("setupRail").classList.toggle("hidden", name === "quiz");
-    document.getElementById("quizRail").classList.toggle("hidden", name !== "quiz");
+    const setupEl = document.getElementById("setupScreen");
+    const quizEl = document.getElementById("quizScreen");
+    const resultsEl = document.getElementById("resultsScreen");
+
+    if (setupEl) setupEl.classList.toggle("hidden", name !== "setup");
+    if (quizEl) quizEl.classList.toggle("hidden", name !== "quiz");
+    if (resultsEl) resultsEl.classList.toggle("hidden", name !== "results");
+
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-
-  function renderChipRow(container, values, current, labelFn, onPick) {
-    container.innerHTML = "";
-    values.forEach(v => {
-      const chip = document.createElement("button");
-      chip.type = "button";
-      chip.className = "chip";
-      chip.textContent = labelFn(v);
-      chip.setAttribute("aria-pressed", v === current ? "true" : "false");
-      chip.addEventListener("click", () => {
-        playSound("click");
-        onPick(v);
-      });
-      container.appendChild(chip);
-    });
-  }
-
-  const SUBJECTS = ["Mixed", "Physics", "Chemistry", "Mathematics"];
-  const DIFFICULTIES = ["any", "easy", "medium", "hard"];
-  const COUNTS = [5, 10, 15, 20, 30, 40];
-  const MARKING_SCHEMES = ["jee", "standard"];
-  const TIME_LIMITS = [30, 60, 90, 0];
-  const MODES = ["practice", "mock"];
-
-  function refreshSetupUI() {
-    const bank = getBank();
-    const subjectRow = document.getElementById("subjectRow");
-    const difficultyRow = document.getElementById("difficultyRow");
-    const countRow = document.getElementById("countRow");
-    const markingRow = document.getElementById("markingRow");
-    const timerRow = document.getElementById("timerRow");
-    const modeRow = document.getElementById("modeRow");
-
-    renderChipRow(subjectRow, SUBJECTS, state.subject, s => s, s => { state.subject = s; state.focus = "any"; refreshSetupUI(); });
-    renderChipRow(difficultyRow, DIFFICULTIES, state.difficulty, d => d === "any" ? "Any level" : d[0].toUpperCase() + d.slice(1), d => { state.difficulty = d; refreshSetupUI(); });
-    renderChipRow(countRow, COUNTS, state.count, c => String(c), c => { state.count = c; refreshSetupUI(); });
-    renderChipRow(markingRow, MARKING_SCHEMES, state.markingScheme, m => m === "jee" ? "JEE Mains (+4 / -1)" : "Standard (1 pt)", m => { state.markingScheme = m; saveSettings(); refreshSetupUI(); });
-    renderChipRow(timerRow, TIME_LIMITS, state.questionLimit, sec => sec ? sec + "s" : "Off", sec => { state.questionLimit = sec; refreshSetupUI(); });
-    renderChipRow(modeRow, MODES, state.mode, mode => mode === "practice" ? "Practice" : "Mock exam", mode => { state.mode = mode; refreshSetupUI(); });
-
-    // Focus Topic dropdown
-    const topicSelect = document.getElementById("topicSelect");
-    const previousFocus = state.focus;
-    const topicChoices = [...new Map(bank
-      .filter(q => state.subject === "Mixed" || q.subject === state.subject)
-      .map(q => [q.subject + "|" + q.topic, q])).values()]
-      .sort((a, b) => a.topic.localeCompare(b.topic) || a.subject.localeCompare(b.subject));
-
-    topicSelect.innerHTML = '<option value="any">Any topic</option>';
-    topicChoices.forEach(q => {
-      const option = document.createElement("option");
-      option.value = q.subject + "|" + q.topic;
-      option.textContent = state.subject === "Mixed" ? q.subject + " · " + q.topic : q.topic;
-      topicSelect.appendChild(option);
-    });
-
-    if (topicChoices.some(q => q.subject + "|" + q.topic === previousFocus)) {
-      topicSelect.value = previousFocus;
-    } else {
-      state.focus = "any";
-      topicSelect.value = "any";
-    }
-
-    const strictCount = getFilteredPool().length;
-    document.getElementById("bankCount").textContent = bank.length;
-    document.getElementById("selectionSummary").textContent = [
-      state.subject,
-      state.focus === "any" ? "Any topic" : state.focus.split("|")[1],
-      state.difficulty === "any" ? "Any level" : state.difficulty,
-      state.markingScheme === "jee" ? "+4/-1" : "+1/0"
-    ].join(" · ");
-    document.getElementById("selectionAvailable").textContent = strictCount + " matching questions";
-
-    document.getElementById("modeHelp").textContent = state.mode === "practice"
-      ? "Practice mode shows the answer and worked explanation immediately after each response."
-      : "Mock exam hides correctness and explanations until your final review.";
-
-    const mockSectionPlan = document.getElementById("mockSectionPlan");
-    if (state.mode === "mock") {
-      const sections = getMockSections();
-      const totalQuestions = sections.reduce((total, section) => total + section.count, 0);
-      mockSectionPlan.textContent = "Sections: " + sections.map(s => s.subject + " " + s.count).join(" · ") + " (" + totalQuestions + " total)";
-      mockSectionPlan.classList.remove("hidden");
-    } else {
-      mockSectionPlan.classList.add("hidden");
-    }
-
-    document.getElementById("countLabel").textContent = state.mode === "mock"
-      ? "Questions per subject section"
-      : "Number of questions";
-
-    const weakTopics = getWeakTopics();
-    const weakStart = document.getElementById("weakStartBtn");
-    weakStart.disabled = !weakTopics.length;
-    document.getElementById("weakStartCaption").textContent = weakTopics.length
-      ? "Target " + weakTopics[0]
-      : "Complete a few quizzes to unlock";
-
-    const note = document.getElementById("weakAreaNote");
-    if (weakTopics.length) {
-      note.classList.remove("hidden");
-      note.innerHTML = "Identified focus topics: <strong>" + weakTopics.slice(0, 3).join(", ") + "</strong>";
-    } else {
-      note.classList.add("hidden");
-    }
-
-    renderPracticeRail();
   }
 
   function getFilteredPool() {
@@ -169,6 +64,127 @@
       .filter(section => section.count > 0);
   }
 
+  function refreshSetupUI() {
+    const bank = getBank();
+
+    // Bank count pill
+    const bankPill = document.getElementById("liveBankPill");
+    if (bankPill) bankPill.textContent = bank.length + " Questions";
+
+    // Update Subject Cards
+    const subjectCards = document.querySelectorAll("#subjectGrid .subject-card");
+    subjectCards.forEach(card => {
+      const isSelected = card.getAttribute("data-subject") === state.subject;
+      card.setAttribute("aria-checked", isSelected ? "true" : "false");
+      card.setAttribute("aria-selected", isSelected ? "true" : "false");
+    });
+
+    // Update Segmented Controls
+    updateSegmentedControl("difficultyControl", state.difficulty);
+    updateSegmentedControl("countControl", String(state.count));
+    updateSegmentedControl("markingControl", state.markingScheme);
+    updateSegmentedControl("timerControl", String(state.questionLimit));
+    updateSegmentedControl("modeControl", state.mode);
+
+    // Update Focus Topic dropdown
+    const topicSelect = document.getElementById("topicSelect");
+    if (topicSelect) {
+      const previousFocus = state.focus;
+      const topicChoices = [...new Map(bank
+        .filter(q => state.subject === "Mixed" || q.subject === state.subject)
+        .map(q => [q.subject + "|" + q.topic, q])).values()]
+        .sort((a, b) => a.topic.localeCompare(b.topic) || a.subject.localeCompare(b.subject));
+
+      topicSelect.innerHTML = '<option value="any">Any Topic (Default)</option>';
+      topicChoices.forEach(q => {
+        const option = document.createElement("option");
+        option.value = q.subject + "|" + q.topic;
+        option.textContent = state.subject === "Mixed" ? q.subject + " · " + q.topic : q.topic;
+        topicSelect.appendChild(option);
+      });
+
+      if (topicChoices.some(q => q.subject + "|" + q.topic === previousFocus)) {
+        topicSelect.value = previousFocus;
+      } else {
+        state.focus = "any";
+        topicSelect.value = "any";
+      }
+    }
+
+    // Update Summary Pills
+    const strictCount = getFilteredPool().length;
+    const summaryPill = document.getElementById("selectionSummary");
+    const availablePill = document.getElementById("selectionAvailable");
+    const mockSectionPlan = document.getElementById("mockSectionPlan");
+
+    if (summaryPill) {
+      const diffLabel = state.difficulty === "any" ? "All Levels" : (state.difficulty.charAt(0).toUpperCase() + state.difficulty.slice(1));
+      const topicLabel = state.focus === "any" ? "" : " · " + state.focus.split("|")[1];
+      summaryPill.textContent = state.subject + topicLabel + " · " + diffLabel + " · " + state.count + " Qs";
+    }
+
+    if (availablePill) {
+      availablePill.textContent = strictCount + " matching questions";
+    }
+
+    if (mockSectionPlan) {
+      if (state.mode === "mock") {
+        const sections = getMockSections();
+        const totalQuestions = sections.reduce((total, section) => total + section.count, 0);
+        mockSectionPlan.textContent = "Sections: " + sections.map(s => s.subject + " " + s.count).join(" · ") + " (" + totalQuestions + " total)";
+        mockSectionPlan.classList.remove("hidden");
+      } else {
+        mockSectionPlan.classList.add("hidden");
+      }
+    }
+
+    // Weak Topic Quick-Start Button
+    const weakTopics = getWeakTopics();
+    const weakStart = document.getElementById("weakStartBtn");
+    const weakCaption = document.getElementById("weakStartCaption");
+    if (weakStart && weakCaption) {
+      if (weakTopics.length) {
+        weakStart.disabled = false;
+        weakCaption.textContent = "Target " + weakTopics[0];
+      } else {
+        weakStart.disabled = true;
+        weakCaption.textContent = "Complete rounds to unlock";
+      }
+    }
+
+    // Practice stats footer
+    const history = loadHistory();
+    const historyCount = document.getElementById("historyCount");
+    const personalBest = document.getElementById("personalBest");
+    const weakAreaSummary = document.getElementById("weakAreaSummary");
+
+    if (historyCount) historyCount.textContent = history.length;
+
+    if (personalBest) {
+      const bestRuns = history.slice().sort((a, b) => {
+        const scoreA = a.total ? a.score / a.total : 0;
+        const scoreB = b.total ? b.score / b.total : 0;
+        return scoreB - scoreA;
+      });
+      personalBest.textContent = (bestRuns.length && bestRuns[0].total)
+        ? Math.round((100 * bestRuns[0].score) / bestRuns[0].total) + "%"
+        : "--";
+    }
+
+    if (weakAreaSummary) {
+      weakAreaSummary.textContent = weakTopics.length ? weakTopics.slice(0, 2).join(", ") : "None yet";
+    }
+  }
+
+  function updateSegmentedControl(id, activeVal) {
+    const control = document.getElementById(id);
+    if (!control) return;
+    control.querySelectorAll(".segment-btn").forEach(btn => {
+      const isActive = btn.getAttribute("data-val") === activeVal;
+      btn.setAttribute("aria-checked", isActive ? "true" : "false");
+    });
+  }
+
   function buildQuizPool() {
     const bank = getBank();
     const strictPool = getFilteredPool();
@@ -200,7 +216,10 @@
 
   function startQuiz() {
     state.questions = buildQuizPool();
-    if (!state.questions.length) return;
+    if (!state.questions.length) {
+      alert("No matching questions found for current selection. Try selecting 'All Levels' or another subject.");
+      return;
+    }
     state.index = 0;
     state.activeSubject = state.questions[0].subject;
     state.score = 0;
@@ -215,126 +234,30 @@
     renderQuestion();
   }
 
-  function renderPracticeRail() {
-    const history = loadHistory();
-    const bestRuns = history.slice().sort((a, b) => {
-      const scoreA = a.total ? a.score / a.total : 0;
-      const scoreB = b.total ? b.score / b.total : 0;
-      return scoreB - scoreA || new Date(b.date) - new Date(a.date);
-    }).slice(0, 3);
-
-    const best = bestRuns.length && bestRuns[0].total
-      ? Math.round(100 * bestRuns[0].score / bestRuns[0].total) + "%"
-      : "--";
-
-    document.getElementById("historyCount").textContent = history.length;
-    document.getElementById("personalBest").textContent = best;
-
-    const list = document.getElementById("leaderboardList");
-    list.innerHTML = "";
-    if (!bestRuns.length) {
-      list.innerHTML = '<div class="rail-caption">Complete a round to see your best scores.</div>';
-      return;
-    }
-    bestRuns.forEach((attempt, index) => {
-      const row = document.createElement("div");
-      const percent = attempt.total ? Math.round(100 * attempt.score / attempt.total) : 0;
-      const date = new Date(attempt.date).toLocaleDateString(undefined, { month: "short", day: "numeric" });
-      row.className = "rail-stat";
-      row.innerHTML = '<span>#' + (index + 1) + ' · ' + date + ' (' + attempt.score + '/' + attempt.total + ')</span><strong>' + percent + '%</strong>';
-      list.appendChild(row);
-    });
-  }
-
   function getAnswerForQuestion(questionIndex) {
     return state.answers.find(answer => answer.questionIndex === questionIndex);
   }
 
-  function updateLiveRail() {
-    const answeredCount = state.answers.length;
-    document.getElementById("railAnswered").textContent = answeredCount + " / " + state.questions.length;
-    document.getElementById("railCorrect").textContent = state.mode === "mock" ? "Hidden" : state.correctCount;
-    document.getElementById("railRemaining").textContent = Math.max(0, state.questions.length - answeredCount);
-
-    const subjectNav = document.getElementById("mockSubjectNav");
-    const mockMode = state.mode === "mock";
-    subjectNav.classList.toggle("hidden", !mockMode);
-    subjectNav.innerHTML = "";
-
-    if (mockMode) {
-      const subjects = [...new Set(state.questions.map(q => q.subject))];
-      subjects.forEach(subject => {
-        const subjectIndexes = state.questions
-          .map((q, idx) => q.subject === subject ? idx : -1)
-          .filter(idx => idx >= 0);
-        const answeredInSub = state.answers.filter(a => subjectIndexes.includes(a.questionIndex)).length;
-
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "mock-subject-button";
-        btn.setAttribute("aria-pressed", subject === state.activeSubject ? "true" : "false");
-        btn.innerHTML = '<span>' + subject + '</span><strong>' + answeredInSub + '/' + subjectIndexes.length + '</strong>';
-        btn.addEventListener("click", () => {
-          const firstIdx = subjectIndexes.find(idx => !getAnswerForQuestion(idx));
-          state.activeSubject = subject;
-          state.index = firstIdx !== undefined ? firstIdx : subjectIndexes[0];
-          renderQuestion();
-        });
-        subjectNav.appendChild(btn);
-      });
-    }
-
-    const questionMap = document.getElementById("questionMap");
-    questionMap.innerHTML = "";
-    state.questions.forEach((q, idx) => {
-      const cell = document.createElement("button");
-      cell.type = "button";
-      cell.className = "map-cell";
-      cell.textContent = String(idx + 1);
-
-      const ans = getAnswerForQuestion(idx);
-      if (idx === state.index) cell.classList.add("current");
-
-      if (ans) {
-        cell.classList.add("done");
-        if (state.mode === "mock") {
-          cell.classList.add("answered");
-        } else if (ans.skipped) {
-          cell.classList.add("skipped");
-        } else if (ans.correct) {
-          cell.classList.add("correct");
-        } else {
-          cell.classList.add("incorrect");
-        }
-      }
-
-      cell.addEventListener("click", () => {
-        state.index = idx;
-        state.activeSubject = q.subject;
-        renderQuestion();
-      });
-      questionMap.appendChild(cell);
-    });
-  }
-
   function startTimer() {
     clearInterval(state.timerId);
-    const timerLabel = document.getElementById("timerLabel");
+    const timerPill = document.getElementById("timerPill");
+    if (!timerPill) return;
+
     if (!state.questionLimit) {
-      timerLabel.textContent = "Timer: Off";
-      timerLabel.classList.remove("alert");
+      timerPill.textContent = "⏱️ Unlimited";
+      timerPill.classList.remove("alert");
       return;
     }
 
     let remaining = state.questionLimit;
-    timerLabel.textContent = remaining + "s";
-    timerLabel.classList.remove("alert");
+    timerPill.textContent = "⏱️ " + remaining + "s";
+    timerPill.classList.remove("alert");
 
     state.timerId = setInterval(() => {
       remaining--;
-      timerLabel.textContent = remaining + "s";
+      timerPill.textContent = "⏱️ " + remaining + "s";
       if (remaining <= 10) {
-        timerLabel.classList.add("alert");
+        timerPill.classList.add("alert");
       }
       if (remaining <= 0) {
         clearInterval(state.timerId);
@@ -357,76 +280,119 @@
     state.questionStart = Date.now();
     startTimer();
 
-    const progressLabel = document.getElementById("progressLabel");
-    const scoreLabel = document.getElementById("scoreLabel");
-    const progressFill = document.getElementById("progressFill");
-    const qTag = document.getElementById("qTag");
+    const qBadge = document.getElementById("qBadge");
+    const qTopic = document.getElementById("qTopic");
+    const markingBadge = document.getElementById("markingBadge");
+    const progressBar = document.getElementById("progressBar");
     const qText = document.getElementById("qText");
-    const optionsList = document.getElementById("optionsList");
+    const optionsGrid = document.getElementById("optionsGrid");
     const explainBox = document.getElementById("explainBox");
     const nextBtn = document.getElementById("nextBtn");
     const skipBtn = document.getElementById("skipBtn");
 
-    progressLabel.textContent = "Question " + (state.index + 1) + " of " + state.questions.length;
-    scoreLabel.textContent = state.mode === "mock" 
-      ? (state.markingScheme === "jee" ? "JEE Mode" : "Standard")
-      : "Score: " + (state.markingScheme === "jee" ? (state.score >= 0 ? "+" + state.score : state.score) : state.score);
-
-    const progressPercent = ((state.index + 1) / state.questions.length) * 100;
-    progressFill.style.width = progressPercent + "%";
-
-    qTag.textContent = item.subject + " · " + item.topic + " · " + item.difficulty;
-    qText.textContent = item.q;
-    renderMath(qText);
-
-    explainBox.classList.remove("show");
-    explainBox.textContent = "";
-
-    const existingAnswer = getAnswerForQuestion(state.index);
-    optionsList.innerHTML = "";
-
-    const letters = ["A", "B", "C", "D"];
-    item.options.forEach((optText, optIdx) => {
-      const opt = document.createElement("div");
-      opt.className = "option";
-      opt.innerHTML = '<span class="letter">' + letters[optIdx] + '</span><span class="option-text">' + optText + '</span>';
-      renderMath(opt.querySelector(".option-text"));
-
-      if (existingAnswer) {
-        opt.style.pointerEvents = "none";
-        if (existingAnswer.skipped) {
-          if (optIdx === item.answer && state.mode !== "mock") opt.classList.add("correct");
-        } else {
-          if (optIdx === existingAnswer.picked) {
-            opt.classList.add("selected");
-            if (state.mode !== "mock") {
-              opt.classList.add(existingAnswer.correct ? "correct" : "incorrect");
-            }
-          } else if (optIdx === item.answer && state.mode !== "mock") {
-            opt.classList.add("correct");
-          }
-        }
-      } else {
-        opt.addEventListener("click", () => pickOption(optIdx));
-      }
-      optionsList.appendChild(opt);
-    });
-
-    if (existingAnswer) {
-      if (state.mode !== "mock" && item.explain) {
-        explainBox.textContent = item.explain;
-        renderMath(explainBox);
-        explainBox.classList.add("show");
-      }
-      nextBtn.disabled = false;
-      skipBtn.disabled = true;
-    } else {
-      nextBtn.disabled = true;
-      skipBtn.disabled = false;
+    if (qBadge) qBadge.textContent = "Question " + (state.index + 1) + " of " + state.questions.length;
+    if (qTopic) qTopic.textContent = item.subject + " · " + item.topic + " · " + item.difficulty.toUpperCase();
+    if (markingBadge) {
+      markingBadge.textContent = state.markingScheme === "jee" ? "+4 / -1 JEE" : "+1 Standard";
     }
 
-    nextBtn.textContent = state.index === state.questions.length - 1 ? "Finish Round" : "Next";
-    updateLiveRail();
+    if (progressBar) {
+      const percent = ((state.index + 1) / state.questions.length) * 100;
+      progressBar.style.width = percent + "%";
+    }
+
+    if (qText) {
+      qText.textContent = item.q;
+      renderMath(qText);
+    }
+
+    if (explainBox) {
+      explainBox.classList.remove("show");
+      explainBox.textContent = "";
+    }
+
+    // Mock subject nav if mock mode
+    const mockSubjectNav = document.getElementById("mockSubjectNav");
+    if (mockSubjectNav) {
+      const isMock = state.mode === "mock";
+      mockSubjectNav.classList.toggle("hidden", !isMock);
+      mockSubjectNav.innerHTML = "";
+      if (isMock) {
+        const subjects = [...new Set(state.questions.map(q => q.subject))];
+        subjects.forEach(subject => {
+          const subjectIndexes = state.questions
+            .map((q, idx) => q.subject === subject ? idx : -1)
+            .filter(idx => idx >= 0);
+          const answeredInSub = state.answers.filter(a => subjectIndexes.includes(a.questionIndex)).length;
+
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "mock-subject-button";
+          btn.setAttribute("aria-pressed", subject === state.activeSubject ? "true" : "false");
+          btn.innerHTML = '<span>' + subject + '</span><strong>' + answeredInSub + '/' + subjectIndexes.length + '</strong>';
+          btn.addEventListener("click", () => {
+            const firstIdx = subjectIndexes.find(idx => !getAnswerForQuestion(idx));
+            state.activeSubject = subject;
+            state.index = firstIdx !== undefined ? firstIdx : subjectIndexes[0];
+            renderQuestion();
+          });
+          mockSubjectNav.appendChild(btn);
+        });
+      }
+    }
+
+    // Render Option Cards
+    if (optionsGrid) {
+      optionsGrid.innerHTML = "";
+      const letters = ["A", "B", "C", "D"];
+      const existingAnswer = getAnswerForQuestion(state.index);
+
+      item.options.forEach((optText, optIdx) => {
+        const row = document.createElement("div");
+        row.className = "option-row";
+        row.setAttribute("role", "radio");
+        row.setAttribute("tabindex", "0");
+        row.innerHTML = `<div class="option-key">${letters[optIdx]}</div><div class="option-text">${optText}</div>`;
+        renderMath(row.querySelector(".option-text"));
+
+        if (existingAnswer) {
+          row.style.pointerEvents = "none";
+          if (existingAnswer.skipped) {
+            if (optIdx === item.answer && state.mode !== "mock") row.classList.add("correct");
+          } else {
+            if (optIdx === existingAnswer.picked) {
+              row.classList.add("selected");
+              if (state.mode !== "mock") {
+                row.classList.add(existingAnswer.correct ? "correct" : "incorrect");
+              }
+            } else if (optIdx === item.answer && state.mode !== "mock") {
+              row.classList.add("correct");
+            }
+          }
+        } else {
+          row.addEventListener("click", () => pickOption(optIdx));
+        }
+
+        optionsGrid.appendChild(row);
+      });
+
+      if (existingAnswer) {
+        if (state.mode !== "mock" && item.explain && explainBox) {
+          explainBox.innerHTML = "<strong>Worked Solution:</strong><br>" + item.explain;
+          renderMath(explainBox);
+          explainBox.classList.add("show");
+        }
+        if (nextBtn) nextBtn.disabled = false;
+        if (skipBtn) skipBtn.disabled = true;
+      } else {
+        if (nextBtn) nextBtn.disabled = true;
+        if (skipBtn) skipBtn.disabled = false;
+      }
+    }
+
+    if (nextBtn) {
+      nextBtn.textContent = state.index === state.questions.length - 1 ? "Finish Round" : "Next →";
+    }
   }
 
   function pickOption(pickedIndex) {
@@ -516,30 +482,45 @@
 
     // Populate Results Screen
     const badgeContainer = document.getElementById("badgeContainer");
-    badgeContainer.className = "achievement-badge " + summary.badge.class;
-    badgeContainer.textContent = summary.badge.text;
+    if (badgeContainer) {
+      badgeContainer.className = "achievement-badge " + summary.badge.class;
+      badgeContainer.textContent = summary.badge.text;
+    }
 
-    document.getElementById("finalScore").textContent = summary.score;
-    document.getElementById("finalOf").textContent = "/ " + summary.maxScore + " pts (" + summary.correct + " correct)";
-    document.getElementById("resultSummary").textContent = "Completed in " + Math.round(state.totalTime) + "s · Marking Scheme: " + (state.markingScheme === "jee" ? "JEE Mains (+4 / -1)" : "Standard (1 pt)");
+    const finalScore = document.getElementById("finalScore");
+    const finalOf = document.getElementById("finalOf");
+    const resultSummary = document.getElementById("resultSummary");
 
-    document.getElementById("accuracyMetric").textContent = summary.accuracy + "%";
-    document.getElementById("avgTimeMetric").textContent = state.answers.length ? Math.round(state.totalTime / state.answers.length) + "s" : "0s";
-    document.getElementById("attemptMetric").textContent = summary.answeredCount;
-    document.getElementById("skippedMetric").textContent = summary.skipped;
+    if (finalScore) finalScore.textContent = summary.score;
+    if (finalOf) finalOf.textContent = "/ " + summary.maxScore + " pts (" + summary.correct + " correct)";
+    if (resultSummary) {
+      resultSummary.textContent = "Completed in " + Math.round(state.totalTime) + "s · Marking Scheme: " + (state.markingScheme === "jee" ? "JEE Mains (+4 / -1)" : "Standard (+1 / 0)");
+    }
+
+    const accuracyMetric = document.getElementById("accuracyMetric");
+    const avgTimeMetric = document.getElementById("avgTimeMetric");
+    const attemptMetric = document.getElementById("attemptMetric");
+    const skippedMetric = document.getElementById("skippedMetric");
+
+    if (accuracyMetric) accuracyMetric.textContent = summary.accuracy + "%";
+    if (avgTimeMetric) avgTimeMetric.textContent = state.answers.length ? Math.round(state.totalTime / state.answers.length) + "s" : "0s";
+    if (attemptMetric) attemptMetric.textContent = summary.answeredCount;
+    if (skippedMetric) skippedMetric.textContent = summary.skipped;
 
     // Animate circular gauge
     const gaugeFill = document.getElementById("gaugeFill");
     const gaugePercent = document.getElementById("gaugePercent");
-    const circumference = 283;
-    const offset = circumference - (summary.overallPercent / 100) * circumference;
-    gaugeFill.style.strokeDashoffset = offset;
-    gaugePercent.textContent = summary.overallPercent + "%";
+    if (gaugeFill && gaugePercent) {
+      const circumference = 283;
+      const offset = circumference - (summary.overallPercent / 100) * circumference;
+      gaugeFill.style.strokeDashoffset = offset;
+      gaugePercent.textContent = summary.overallPercent + "%";
+    }
 
     // Confetti celebration if score is high
     if (summary.accuracy >= 75 && typeof window.confetti === "function") {
       try {
-        window.confetti({ particleCount: 70, spread: 60, origin: { y: 0.6 } });
+        window.confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
       } catch (e) {}
     }
 
@@ -549,6 +530,7 @@
 
   function renderTopicMastery() {
     const list = document.getElementById("topicMasteryList");
+    if (!list) return;
     list.innerHTML = "";
 
     const perTopic = {};
@@ -560,7 +542,7 @@
 
     const topics = Object.keys(perTopic);
     if (!topics.length) {
-      list.innerHTML = '<div class="rail-caption">No topic data recorded.</div>';
+      list.innerHTML = '<div style="color:var(--ink-muted); font-size:13px;">No topic data recorded.</div>';
       return;
     }
 
@@ -597,6 +579,7 @@
 
   function renderReviewList() {
     const reviewList = document.getElementById("reviewList");
+    if (!reviewList) return;
     reviewList.innerHTML = "";
     const letters = ["A", "B", "C", "D"];
 
@@ -625,7 +608,7 @@
         ${verdictHtml}
         <div class="review-q-text">${idx + 1}. ${q.q}</div>
         ${optionsHtml}
-        ${q.explain ? '<div class="explain show">' + q.explain + '</div>' : ''}
+        ${q.explain ? '<div class="solution-drawer show" style="margin-top:12px;"><strong>Worked Solution:</strong><br>' + q.explain + '</div>' : ''}
       `;
 
       renderMath(item);
