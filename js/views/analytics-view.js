@@ -7,6 +7,7 @@
 
     const history = (root.QuizState && root.QuizState.loadHistory) ? root.QuizState.loadHistory() : [];
     const stats = (root.QuizState && root.QuizState.topicWeaknessSummary) ? root.QuizState.topicWeaknessSummary() : {};
+    const icons = root.QuizIcons || { get: () => "" };
 
     let totalQuestions = 0;
     let totalCorrect = 0;
@@ -86,15 +87,15 @@
         <!-- Subject Breakdown -->
         <h3 class="section-subhead">Section-by-Section Accuracy</h3>
         <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:14px; margin-bottom: 32px;">
-          ${renderSubjectMetricCard("Physics", "⚛️", subjectStats.Physics, "#06b6d4")}
-          ${renderSubjectMetricCard("Chemistry", "🧪", subjectStats.Chemistry, "#10b981")}
-          ${renderSubjectMetricCard("Mathematics", "📐", subjectStats.Mathematics, "#6366f1")}
+          ${renderSubjectMetricCard("Physics", icons.get("atom"), subjectStats.Physics, "#06b6d4")}
+          ${renderSubjectMetricCard("Chemistry", icons.get("flask"), subjectStats.Chemistry, "#10b981")}
+          ${renderSubjectMetricCard("Mathematics", icons.get("pi"), subjectStats.Mathematics, "#6366f1")}
         </div>
 
         <!-- Weak Topics Action Matrix -->
         <h3 class="section-subhead">Targeted Revision Priority</h3>
         <div id="analyticsWeakList" style="margin-bottom: 32px;">
-          ${renderWeakList(weakTopics)}
+          ${renderWeakList(weakTopics, icons)}
         </div>
 
         <!-- Past Test History Log -->
@@ -125,12 +126,14 @@
     });
   }
 
-  function renderSubjectMetricCard(name, icon, data, color) {
+  function renderSubjectMetricCard(name, iconSvg, data, color) {
     const acc = data.total > 0 ? Math.round((data.correct / data.total) * 100) : 0;
     return `
       <div class="stat-box">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-          <span style="font-weight:700; color:#fff; font-size:14px;">${icon} ${name}</span>
+          <span style="font-weight:700; color:#fff; font-size:14px; display:inline-flex; align-items:center; gap:8px;">
+            ${iconSvg} ${name}
+          </span>
           <span style="font-family:var(--font-mono); font-size:13px; font-weight:700; color:${color};">${acc}%</span>
         </div>
         <div class="mastery-bar-track">
@@ -143,7 +146,7 @@
     `;
   }
 
-  function renderWeakList(topics) {
+  function renderWeakList(topics, icons) {
     if (!topics.length) {
       return '<p style="color:var(--ink-secondary); font-size:13.5px;">Complete a few practice rounds to identify prioritized topics for revision.</p>';
     }
@@ -160,7 +163,10 @@
               </div>
             </div>
             <div class="topic-mastery-score">${t.accuracy}%</div>
-            <button class="drill-topic-btn" data-topic="${t.topic}" type="button">Drill 10 Qs →</button>
+            <button class="drill-topic-btn" data-topic="${t.topic}" type="button">
+              <span>Drill 10 Qs</span>
+              ${icons ? icons.get("arrowRight") : "→"}
+            </button>
           </div>
         `).join("")}
       </div>

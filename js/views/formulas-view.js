@@ -9,6 +9,7 @@
     if (!container) return;
 
     const records = (root.QuizTaxonomy && root.QuizTaxonomy.getFormulas) ? root.QuizTaxonomy.getFormulas() : [];
+    const icons = root.QuizIcons || { get: () => "" };
 
     container.innerHTML = `
       <div class="card" style="margin-bottom: 24px;">
@@ -19,14 +20,14 @@
 
           <div class="syllabus-controls-row">
             <div class="syllabus-search">
-              <span>🔍</span>
+              <span>${icons.get("search")}</span>
               <input type="text" id="formulaSearchInput" placeholder="Filter equations, e.g. projectile, nernst, quadratic, integration..." value="${formulaSearchQuery}">
             </div>
             <div class="filter-pills" id="formulaFilterPills">
               <button class="filter-pill ${activeFormulaSubject === 'all' ? 'active' : ''}" data-filter="all" type="button">All Sections</button>
-              <button class="filter-pill ${activeFormulaSubject === 'Physics' ? 'active' : ''}" data-filter="Physics" type="button">⚛️ Physics</button>
-              <button class="filter-pill ${activeFormulaSubject === 'Chemistry' ? 'active' : ''}" data-filter="Chemistry" type="button">🧪 Chemistry</button>
-              <button class="filter-pill ${activeFormulaSubject === 'Mathematics' ? 'active' : ''}" data-filter="Mathematics" type="button">📐 Mathematics</button>
+              <button class="filter-pill ${activeFormulaSubject === 'Physics' ? 'active' : ''}" data-filter="Physics" type="button">${icons.get("atom")} Physics</button>
+              <button class="filter-pill ${activeFormulaSubject === 'Chemistry' ? 'active' : ''}" data-filter="Chemistry" type="button">${icons.get("flask")} Chemistry</button>
+              <button class="filter-pill ${activeFormulaSubject === 'Mathematics' ? 'active' : ''}" data-filter="Mathematics" type="button">${icons.get("pi")} Mathematics</button>
             </div>
           </div>
         </div>

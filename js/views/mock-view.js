@@ -5,6 +5,8 @@
   function renderMockView(container) {
     if (!container) return;
 
+    const icons = root.QuizIcons || { get: () => "" };
+
     container.innerHTML = `
       <div class="card" style="margin-bottom: 24px;">
         <div class="setup-hero" style="margin-bottom: 12px;">
@@ -33,7 +35,8 @@
                 <span>+4 / -1 JEE</span>
               </div>
               <button class="btn-launch" id="launchFullMockBtn" type="button" style="width:100%; justify-content:center;">
-                <span>Launch Full Mock</span> <span>→</span>
+                <span>Launch Full Mock</span>
+                ${icons.get("arrowRight")}
               </button>
             </div>
           </div>
@@ -55,7 +58,8 @@
                 <span>+4 / -1 JEE</span>
               </div>
               <button class="btn-launch" id="launchSprintMockBtn" type="button" style="width:100%; justify-content:center; background:linear-gradient(135deg, #06b6d4, #0284c7);">
-                <span>Launch Sprint Mock</span> <span>→</span>
+                <span>Launch Sprint Mock</span>
+                ${icons.get("arrowRight")}
               </button>
             </div>
           </div>
@@ -77,7 +81,8 @@
                 <span>+4 / -1 JEE</span>
               </div>
               <button class="btn-launch" id="launchChallengerBtn" type="button" style="width:100%; justify-content:center; background:linear-gradient(135deg, #f59e0b, #d97706);">
-                <span>Launch Challenger</span> <span>→</span>
+                <span>Launch Challenger</span>
+                ${icons.get("arrowRight")}
               </button>
             </div>
           </div>
@@ -98,7 +103,6 @@
       st.difficulty = "any";
       st.count = 30; // 30 per subject = 90 total
       st.mode = "mock";
-      st.markingScheme = "jee";
       st.questionLimit = 90;
       startQuiz();
     });
@@ -111,7 +115,6 @@
       st.difficulty = "any";
       st.count = 10; // 10 per subject = 30 total
       st.mode = "mock";
-      st.markingScheme = "jee";
       st.questionLimit = 60;
       startQuiz();
     });
@@ -124,7 +127,6 @@
       st.difficulty = "hard";
       st.count = 20;
       st.mode = "mock";
-      st.markingScheme = "jee";
       st.questionLimit = 90;
       startQuiz();
     });

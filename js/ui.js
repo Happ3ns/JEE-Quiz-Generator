@@ -266,21 +266,25 @@
   function startTimer() {
     clearInterval(state.timerId);
     const timerPill = document.getElementById("timerPill");
+    const timerText = document.getElementById("timerText");
     if (!timerPill) return;
 
     if (!state.questionLimit) {
-      timerPill.textContent = "⏱️ Unlimited";
+      if (timerText) timerText.textContent = "Unlimited";
+      else timerPill.textContent = "Unlimited";
       timerPill.classList.remove("alert");
       return;
     }
 
     let remaining = state.questionLimit;
-    timerPill.textContent = "⏱️ " + remaining + "s";
+    if (timerText) timerText.textContent = remaining + "s";
+    else timerPill.textContent = remaining + "s";
     timerPill.classList.remove("alert");
 
     state.timerId = setInterval(() => {
       remaining--;
-      timerPill.textContent = "⏱️ " + remaining + "s";
+      if (timerText) timerText.textContent = remaining + "s";
+      else timerPill.textContent = remaining + "s";
       if (remaining <= 10) {
         timerPill.classList.add("alert");
       }
@@ -339,6 +343,31 @@
     if (progressBar) {
       const percent = ((state.index + 1) / state.questions.length) * 100;
       progressBar.style.width = percent + "%";
+    }
+
+    // Question Navigator Rail (CBT Matrix)
+    const navRail = document.getElementById("questionNavRail");
+    if (navRail) {
+      navRail.innerHTML = "";
+      state.questions.forEach((q, idx) => {
+        const pill = document.createElement("button");
+        pill.type = "button";
+        pill.className = "q-rail-pill";
+        pill.textContent = idx + 1;
+        const ans = getAnswerForQuestion(idx);
+        if (idx === state.index) {
+          pill.classList.add("active");
+        } else if (ans) {
+          if (ans.skipped) pill.classList.add("skipped");
+          else pill.classList.add("answered");
+        }
+        pill.addEventListener("click", () => {
+          state.index = idx;
+          state.activeSubject = state.questions[idx].subject;
+          renderQuestion();
+        });
+        navRail.appendChild(pill);
+      });
     }
 
     if (qText) {

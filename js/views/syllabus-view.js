@@ -10,6 +10,7 @@
 
     const taxonomy = (root.QuizTaxonomy && root.QuizTaxonomy.getTaxonomy) ? root.QuizTaxonomy.getTaxonomy() : [];
     const stats = (root.QuizState && root.QuizState.topicWeaknessSummary) ? root.QuizState.topicWeaknessSummary() : {};
+    const icons = root.QuizIcons || { get: () => "" };
 
     container.innerHTML = `
       <div class="card" style="margin-bottom: 24px;">
@@ -25,7 +26,7 @@
           <!-- 3 Distinct Main Subject Cards -->
           <div class="section-switcher-grid" id="syllabusSectionSwitchers" style="margin-top: 24px;">
             <div class="section-switch-card" data-subject="Physics" data-active="${activeSubjectFilter === 'Physics' ? 'true' : 'false'}" role="button" tabindex="0">
-              <div class="switch-icon">⚛️</div>
+              <div class="switch-icon">${icons.get("atom")}</div>
               <div>
                 <span class="switch-title">Physics</span>
                 <span class="switch-sub">3 Units · 13 Topics</span>
@@ -33,7 +34,7 @@
             </div>
 
             <div class="section-switch-card" data-subject="Chemistry" data-active="${activeSubjectFilter === 'Chemistry' ? 'true' : 'false'}" role="button" tabindex="0">
-              <div class="switch-icon">🧪</div>
+              <div class="switch-icon">${icons.get("flask")}</div>
               <div>
                 <span class="switch-title">Chemistry</span>
                 <span class="switch-sub">3 Units · 18 Topics</span>
@@ -41,7 +42,7 @@
             </div>
 
             <div class="section-switch-card" data-subject="Mathematics" data-active="${activeSubjectFilter === 'Mathematics' ? 'true' : 'false'}" role="button" tabindex="0">
-              <div class="switch-icon">📐</div>
+              <div class="switch-icon">${icons.get("pi")}</div>
               <div>
                 <span class="switch-title">Mathematics</span>
                 <span class="switch-sub">3 Units · 21 Topics</span>
@@ -52,15 +53,15 @@
           <!-- Search & Filter Controls -->
           <div class="syllabus-controls-row">
             <div class="syllabus-search">
-              <span>🔍</span>
+              <span>${icons.get("search")}</span>
               <input type="text" id="syllabusSearchInput" placeholder="Search topics, e.g. Kinematics, Matrices, Thermodynamics..." value="${activeSearchTerm}">
             </div>
             <div class="filter-pills" id="syllabusFilterPills">
               <button class="filter-pill ${activeSubjectFilter === 'all' ? 'active' : ''}" data-filter="all" type="button">All Sections</button>
-              <button class="filter-pill ${activeSubjectFilter === 'Physics' ? 'active' : ''}" data-filter="Physics" type="button">⚛️ Physics</button>
-              <button class="filter-pill ${activeSubjectFilter === 'Chemistry' ? 'active' : ''}" data-filter="Chemistry" type="button">🧪 Chemistry</button>
-              <button class="filter-pill ${activeSubjectFilter === 'Mathematics' ? 'active' : ''}" data-filter="Mathematics" type="button">📐 Mathematics</button>
-              <button class="filter-pill ${activeSubjectFilter === 'weak' ? 'active' : ''}" data-filter="weak" type="button">⚠️ Needs Revision</button>
+              <button class="filter-pill ${activeSubjectFilter === 'Physics' ? 'active' : ''}" data-filter="Physics" type="button">${icons.get("atom")} Physics</button>
+              <button class="filter-pill ${activeSubjectFilter === 'Chemistry' ? 'active' : ''}" data-filter="Chemistry" type="button">${icons.get("flask")} Chemistry</button>
+              <button class="filter-pill ${activeSubjectFilter === 'Mathematics' ? 'active' : ''}" data-filter="Mathematics" type="button">${icons.get("pi")} Mathematics</button>
+              <button class="filter-pill ${activeSubjectFilter === 'weak' ? 'active' : ''}" data-filter="weak" type="button">${icons.get("zap")} Needs Revision</button>
             </div>
           </div>
         </div>
@@ -97,63 +98,74 @@
       });
     });
 
+    // Initial render of sections list
     renderSectionsList(container, taxonomy, stats);
   }
 
   function updateSwitcherUI(container) {
     const switchCards = container.querySelectorAll("#syllabusSectionSwitchers .section-switch-card");
     switchCards.forEach(card => {
-      const isAct = card.getAttribute("data-subject") === activeSubjectFilter;
-      card.setAttribute("data-active", isAct ? "true" : "false");
+      const sub = card.getAttribute("data-subject");
+      card.setAttribute("data-active", sub === activeSubjectFilter ? "true" : "false");
     });
 
     const filterPills = container.querySelectorAll("#syllabusFilterPills .filter-pill");
     filterPills.forEach(pill => {
-      pill.classList.toggle("active", pill.getAttribute("data-filter") === activeSubjectFilter);
+      const filter = pill.getAttribute("data-filter");
+      pill.classList.toggle("active", filter === activeSubjectFilter);
     });
   }
 
   function renderSectionsList(container, taxonomy, stats) {
     const listContainer = container.querySelector("#syllabusSectionsList");
     if (!listContainer) return;
-
     listContainer.innerHTML = "";
+    const icons = root.QuizIcons || { get: () => "" };
+
+    const weakTopicsSet = new Set(
+      Object.keys(stats).filter(t => stats[t].total > 0 && (stats[t].correct / stats[t].total) < 0.6)
+    );
 
     taxonomy.forEach(section => {
-      // Filter by subject
-      if (activeSubjectFilter !== "all" && activeSubjectFilter !== "weak" && activeSubjectFilter !== section.name) {
+      if (activeSubjectFilter !== "all" && activeSubjectFilter !== "weak" && section.name !== activeSubjectFilter) {
         return;
       }
 
-      // Filter subsections & sub-subsections
+      // Filter subsections & topics
       const filteredSubsections = [];
-
       section.subsections.forEach(sub => {
-        const filteredTopics = sub.topics.filter(tObj => {
-          const tName = typeof tObj === "string" ? tObj : tObj.name;
-          const tDesc = tObj.summary || "";
-          const matchesSearch = !activeSearchTerm ||
-            tName.toLowerCase().includes(activeSearchTerm) ||
-            tDesc.toLowerCase().includes(activeSearchTerm) ||
-            sub.name.toLowerCase().includes(activeSearchTerm);
+        const matchingTopics = sub.topics.filter(t => {
+          const tName = typeof t === "string" ? t : t.name;
+          const tSummary = t.summary || "";
+          const tFormula = t.formula || "";
 
-          if (!matchesSearch) return false;
-
-          if (activeSubjectFilter === "weak") {
-            const topicStat = stats[tName];
-            return topicStat && topicStat.total >= 2 && (topicStat.correct / topicStat.total) < 0.6;
+          // Weak topic filter
+          if (activeSubjectFilter === "weak" && !weakTopicsSet.has(tName)) {
+            return false;
           }
+
+          // Search term filter
+          if (activeSearchTerm) {
+            const matchesName = tName.toLowerCase().includes(activeSearchTerm);
+            const matchesSummary = tSummary.toLowerCase().includes(activeSearchTerm);
+            const matchesFormula = tFormula.toLowerCase().includes(activeSearchTerm);
+            const matchesSub = sub.name.toLowerCase().includes(activeSearchTerm);
+            return matchesName || matchesSummary || matchesFormula || matchesSub;
+          }
+
           return true;
         });
 
-        if (filteredTopics.length > 0) {
-          filteredSubsections.push({ ...sub, topics: filteredTopics });
+        if (matchingTopics.length > 0) {
+          filteredSubsections.push({
+            ...sub,
+            topics: matchingTopics
+          });
         }
       });
 
-      if (!filteredSubsections.length) return;
+      if (filteredSubsections.length === 0) return;
 
-      // Section Block (Level 1)
       const sectionEl = document.createElement("div");
       sectionEl.className = "section-block";
       sectionEl.setAttribute("data-subject", section.name);
@@ -161,10 +173,16 @@
       let totalTopicsInSection = 0;
       filteredSubsections.forEach(s => totalTopicsInSection += s.topics.length);
 
+      const sectionIconSvg = section.name === "Physics"
+        ? icons.get("atom")
+        : section.name === "Chemistry"
+        ? icons.get("flask")
+        : icons.get("pi");
+
       sectionEl.innerHTML = `
         <div class="section-header">
           <div class="section-title-wrap">
-            <div class="section-icon-box">${section.icon}</div>
+            <div class="section-icon-box">${sectionIconSvg}</div>
             <div>
               <h3>Section: ${section.name}</h3>
               <span class="section-tagline">${section.tagline || 'CORE SYLLABUS'}</span>
@@ -188,14 +206,14 @@
           <div class="subsection-header" role="button" tabindex="0">
             <div>
               <div class="subsection-title">
-                <span>${sub.icon}</span>
+                <span class="unit-icon">${icons.get("layers")}</span>
                 <span>Unit: ${sub.name}</span>
               </div>
               <p class="subsection-desc">${sub.desc}</p>
             </div>
-            <div style="display:flex; align-items:center; gap:10px;">
-              <span style="font-family:var(--font-mono); font-size:11.5px; color:var(--ink-muted);">${sub.topics.length} topics</span>
-              <span class="unit-chevron">▸</span>
+            <div style="display:flex; align-items:center; gap:12px;">
+              <span class="card-tag" style="font-size:11px;">${sub.topics.length} Topics</span>
+              <span class="unit-chevron">${icons.get("chevronRight")}</span>
             </div>
           </div>
           <div class="subsection-body">
@@ -225,13 +243,13 @@
           const weight = tObj.weight || "Core Fundamental";
 
           let weightClass = "core";
-          let weightEmoji = "⚡";
+          let weightIcon = icons.get("zap");
           if (weight === "High Weightage") {
             weightClass = "high-weight";
-            weightEmoji = "🔥";
+            weightIcon = icons.get("flame");
           } else if (weight === "High Scoring") {
             weightClass = "scoring";
-            weightEmoji = "🎯";
+            weightIcon = icons.get("target");
           }
 
           const topicStat = stats[tName];
@@ -251,7 +269,7 @@
             <div>
               <div class="topic-node-top">
                 <span class="topic-node-name">${tName}</span>
-                <span class="topic-weight-badge ${weightClass}">${weightEmoji} ${weight}</span>
+                <span class="topic-weight-badge ${weightClass}">${weightIcon} ${weight}</span>
               </div>
               <p class="topic-summary-text" style="margin-top:6px;">${summary}</p>
               ${formula ? `<div style="margin-top:8px;"><span class="topic-formula-chip"><code>${formula}</code></span></div>` : ''}
@@ -259,7 +277,10 @@
 
             <div class="topic-node-bottom">
               <span class="topic-accuracy-label ${accuracyClass}">${accuracyLabel}</span>
-              <button class="topic-drill-btn" type="button">Practice 10 Qs →</button>
+              <button class="topic-drill-btn" type="button">
+                <span>Practice 10 Qs</span>
+                ${icons.get("arrowRight")}
+              </button>
             </div>
           `;
 

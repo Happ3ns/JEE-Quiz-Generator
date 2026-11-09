@@ -18,11 +18,17 @@
       });
     }
 
-    // Sound toggle button
+    // Sound toggle button with modern SVG and animated EQ bars
     const soundToggleBtn = document.getElementById("soundToggleBtn");
     if (soundToggleBtn) {
       const updateSoundIcon = () => {
-        soundToggleBtn.innerHTML = state.soundEnabled ? '<span>🔊</span> Sound On' : '<span>🔇</span> Muted';
+        const iconSvg = (root.QuizIcons && root.QuizIcons.get)
+          ? root.QuizIcons.get(state.soundEnabled ? "soundOn" : "soundOff")
+          : "";
+        const eqHtml = state.soundEnabled
+          ? '<span class="sound-eq sound-active"><span class="sound-bar"></span><span class="sound-bar"></span><span class="sound-bar"></span></span>'
+          : '<span class="sound-eq"><span class="sound-bar" style="height:2px;"></span></span>';
+        soundToggleBtn.innerHTML = `${iconSvg}<span>${state.soundEnabled ? "Sound On" : "Muted"}</span>${eqHtml}`;
       };
       updateSoundIcon();
       soundToggleBtn.addEventListener("click", () => {
@@ -170,41 +176,66 @@
       refreshSetupUI();
     });
 
-    // Keyboard Shortcuts
+    // Global Power-User Keyboard Shortcuts
     window.addEventListener("keydown", (e) => {
-      const quizScreen = document.getElementById("quizScreen");
-      if (!quizScreen || quizScreen.classList.contains("hidden")) return;
+      // If typing in an input or select, skip shortcuts
+      if (["INPUT", "SELECT", "TEXTAREA"].includes(document.activeElement?.tagName)) return;
 
-      // Numbers 1-4 or letters A-D for options
-      const optKeys = ["1", "2", "3", "4", "a", "b", "c", "d"];
-      const keyLower = e.key.toLowerCase();
-      if (optKeys.includes(keyLower)) {
-        let idx = -1;
-        if (["1", "2", "3", "4"].includes(keyLower)) {
-          idx = parseInt(keyLower, 10) - 1;
-        } else {
-          idx = ["a", "b", "c", "d"].indexOf(keyLower);
+      const quizScreen = document.getElementById("quizScreen");
+      const isQuizActive = quizScreen && !quizScreen.classList.contains("hidden");
+
+      if (isQuizActive) {
+        // Quiz Screen Shortcuts
+        const optKeys = ["1", "2", "3", "4", "a", "b", "c", "d"];
+        const keyLower = e.key.toLowerCase();
+        if (optKeys.includes(keyLower)) {
+          let idx = -1;
+          if (["1", "2", "3", "4"].includes(keyLower)) {
+            idx = parseInt(keyLower, 10) - 1;
+          } else {
+            idx = ["a", "b", "c", "d"].indexOf(keyLower);
+          }
+          const options = document.querySelectorAll("#optionsGrid .option-row");
+          if (options[idx] && options[idx].style.pointerEvents !== "none") {
+            e.preventDefault();
+            options[idx].click();
+          }
+        } else if (e.key === "Enter" || e.key === " ") {
+          const nextBtn = document.getElementById("nextBtn");
+          if (nextBtn && !nextBtn.disabled) {
+            e.preventDefault();
+            nextBtn.click();
+          }
+        } else if (keyLower === "s") {
+          const skipBtn = document.getElementById("skipBtn");
+          if (skipBtn && !skipBtn.disabled) {
+            e.preventDefault();
+            skipBtn.click();
+          }
+        } else if (e.key === "Escape") {
+          const quitBtn = document.getElementById("quitBtn");
+          if (quitBtn) quitBtn.click();
         }
-        const options = document.querySelectorAll("#optionsGrid .option-row");
-        if (options[idx] && options[idx].style.pointerEvents !== "none") {
-          e.preventDefault();
-          options[idx].click();
+      } else {
+        // Setup Screen Keyboard Shortcuts
+        const setupScreen = document.getElementById("setupScreen");
+        const isSetupActive = setupScreen && !setupScreen.classList.contains("hidden");
+        if (isSetupActive) {
+          if (["1", "2", "3", "4"].includes(e.key)) {
+            const subjects = ["Physics", "Chemistry", "Mathematics", "Mixed"];
+            const sub = subjects[parseInt(e.key, 10) - 1];
+            if (sub) {
+              e.preventDefault();
+              state.subject = sub;
+              state.focus = "any";
+              playSound("click");
+              refreshSetupUI();
+            }
+          } else if (e.key === "Enter") {
+            e.preventDefault();
+            document.getElementById("startBtn")?.click();
+          }
         }
-      } else if (e.key === "Enter" || e.key === " ") {
-        const nextBtn = document.getElementById("nextBtn");
-        if (nextBtn && !nextBtn.disabled) {
-          e.preventDefault();
-          nextBtn.click();
-        }
-      } else if (keyLower === "s") {
-        const skipBtn = document.getElementById("skipBtn");
-        if (skipBtn && !skipBtn.disabled) {
-          e.preventDefault();
-          skipBtn.click();
-        }
-      } else if (e.key === "Escape") {
-        const quitBtn = document.getElementById("quitBtn");
-        if (quitBtn) quitBtn.click();
       }
     });
 
