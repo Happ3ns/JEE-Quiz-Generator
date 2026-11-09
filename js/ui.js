@@ -67,9 +67,9 @@
   function refreshSetupUI() {
     const bank = getBank();
 
-    // Bank count pill
+    // Status pill
     const bankPill = document.getElementById("liveBankPill");
-    if (bankPill) bankPill.textContent = bank.length + " Questions";
+    if (bankPill) bankPill.textContent = "JEE 2026 Ready";
 
     // Update Subject Cards
     const subjectCards = document.querySelectorAll("#subjectGrid .subject-card");
@@ -124,7 +124,13 @@
     }
 
     if (availablePill) {
-      availablePill.textContent = strictCount + " matching questions";
+      if (strictCount > 0) {
+        availablePill.textContent = "Adaptive Engine Ready";
+        availablePill.style.color = "";
+      } else {
+        availablePill.textContent = "No questions for this combination";
+        availablePill.style.color = "var(--accent-coral)";
+      }
     }
 
     if (mockSectionPlan) {
