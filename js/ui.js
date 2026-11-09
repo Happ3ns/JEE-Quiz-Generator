@@ -20,13 +20,32 @@
   }
 
   function showScreen(name) {
-    const setupEl = document.getElementById("setupScreen");
+    const navEl = document.querySelector(".app-nav");
     const quizEl = document.getElementById("quizScreen");
     const resultsEl = document.getElementById("resultsScreen");
+    const views = document.querySelectorAll(".app-view");
 
-    if (setupEl) setupEl.classList.toggle("hidden", name !== "setup");
-    if (quizEl) quizEl.classList.toggle("hidden", name !== "quiz");
-    if (resultsEl) resultsEl.classList.toggle("hidden", name !== "results");
+    if (name === "quiz") {
+      if (navEl) navEl.classList.add("hidden");
+      views.forEach(v => v.classList.add("hidden"));
+      if (quizEl) quizEl.classList.remove("hidden");
+      if (resultsEl) resultsEl.classList.add("hidden");
+    } else if (name === "results") {
+      if (navEl) navEl.classList.remove("hidden");
+      views.forEach(v => v.classList.add("hidden"));
+      if (quizEl) quizEl.classList.add("hidden");
+      if (resultsEl) resultsEl.classList.remove("hidden");
+    } else {
+      if (navEl) navEl.classList.remove("hidden");
+      if (quizEl) quizEl.classList.add("hidden");
+      if (resultsEl) resultsEl.classList.add("hidden");
+      if (root.QuizRouter) {
+        root.QuizRouter.navigateTo(root.QuizRouter.getCurrentView() || "practice", false);
+      } else {
+        const practiceView = document.getElementById("view-practice");
+        if (practiceView) practiceView.classList.remove("hidden");
+      }
+    }
 
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
@@ -295,6 +314,21 @@
     const explainBox = document.getElementById("explainBox");
     const nextBtn = document.getElementById("nextBtn");
     const skipBtn = document.getElementById("skipBtn");
+    const breadcrumb = document.getElementById("quizBreadcrumb");
+
+    if (breadcrumb) {
+      const subInfo = (typeof root.QuizTaxonomy !== "undefined" && root.QuizTaxonomy.getSubsectionForTopic)
+        ? root.QuizTaxonomy.getSubsectionForTopic(item.subject, item.topic)
+        : null;
+      const subName = subInfo ? subInfo.name : item.subject;
+      breadcrumb.innerHTML = `
+        <span>Section: ${item.subject}</span>
+        <span class="sep">›</span>
+        <span>Unit: ${subName}</span>
+        <span class="sep">›</span>
+        <strong>${item.topic}</strong>
+      `;
+    }
 
     if (qBadge) qBadge.textContent = "Question " + (state.index + 1) + " of " + state.questions.length;
     if (qTopic) qTopic.textContent = item.subject + " · " + item.topic + " · " + item.difficulty.toUpperCase();

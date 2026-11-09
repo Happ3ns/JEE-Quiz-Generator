@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="JEE Quiz Studio — Practice JEE Physics, Chemistry, and Mathematics with per-topic accuracy tracking, mock exams, KaTeX formula rendering, and real JEE Mains negative marking.">
+  <meta name="description" content="JEE Quiz Studio — Practice JEE Physics, Chemistry, and Mathematics with hierarchical syllabus explorer, per-topic accuracy tracking, mock exams, KaTeX formula rendering, and real JEE Mains negative marking.">
   <title>JEE Quiz Studio — Practice Physics, Chemistry &amp; Mathematics</title>
 
   <!-- KaTeX for crisp mathematical formulas -->
@@ -15,10 +15,11 @@
   <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
   <!-- Modern Linear / Raycast Obsidian Design System -->
-  <link rel="stylesheet" href="css/theme.css?v=2026.3">
-  <link rel="stylesheet" href="css/layout.css?v=2026.3">
-  <link rel="stylesheet" href="css/components.css?v=2026.3">
-  <link rel="stylesheet" href="css/results.css?v=2026.3">
+  <link rel="stylesheet" href="css/theme.css?v=2026.4">
+  <link rel="stylesheet" href="css/layout.css?v=2026.4">
+  <link rel="stylesheet" href="css/components.css?v=2026.4">
+  <link rel="stylesheet" href="css/results.css?v=2026.4">
+  <link rel="stylesheet" href="css/navigation.css?v=2026.4">
 </head>
 <body>
 <div class="wrap">
@@ -38,173 +39,209 @@
     </div>
   </header>
 
-  <!-- Setup Screen -->
-  <section id="setupScreen" class="card">
-    <div class="setup-hero">
-      <div class="hero-pill">TARGETED JEE 2026 PRACTICE STUDIO</div>
-      <h2>Master <span class="gradient-text">Physics, Chemistry &amp; Math</span></h2>
-      <p>Adaptive problem sets, official JEE (+4 / -1) negative marking, KaTeX mathematical equations, and offline device analytics.</p>
-    </div>
+  <!-- Multi-Page App Navigation -->
+  <nav class="app-nav" aria-label="Main App Navigation">
+    <button class="nav-tab active" data-view="practice" type="button" aria-selected="true">
+      <span class="nav-icon">🎯</span> Practice Studio
+    </button>
+    <button class="nav-tab" data-view="syllabus" type="button" aria-selected="false">
+      <span class="nav-icon">🗺️</span> Syllabus &amp; Modules
+    </button>
+    <button class="nav-tab" data-view="mock" type="button" aria-selected="false">
+      <span class="nav-icon">⏱️</span> Mock Center
+    </button>
+    <button class="nav-tab" data-view="analytics" type="button" aria-selected="false">
+      <span class="nav-icon">📊</span> Analytics
+    </button>
+    <button class="nav-tab" data-view="formulas" type="button" aria-selected="false">
+      <span class="nav-icon">📑</span> Formula Vault
+    </button>
+  </nav>
 
-    <!-- 4 Hero Subject Cards -->
-    <div class="subject-grid" id="subjectGrid" role="radiogroup" aria-label="Select Subject">
-      <div class="subject-card" data-subject="Physics" role="radio" aria-checked="false" tabindex="0">
-        <div class="card-top">
-          <div class="card-glyph">⚛️</div>
-          <span class="card-tag">Mains &amp; Adv</span>
-        </div>
-        <strong>Physics</strong>
-        <span class="card-desc">Mechanics, Electrostatics, Optics &amp; Thermodynamics</span>
+  <!-- VIEW 1: Practice Studio Screen -->
+  <div id="view-practice" class="app-view">
+    <section id="setupScreen" class="card">
+      <div class="setup-hero">
+        <div class="hero-pill">TARGETED JEE 2026 PRACTICE STUDIO</div>
+        <h2>Master <span class="gradient-text">Physics, Chemistry &amp; Math</span></h2>
+        <p>Adaptive problem sets, official JEE (+4 / -1) negative marking, KaTeX mathematical equations, and offline device analytics.</p>
       </div>
 
-      <div class="subject-card" data-subject="Chemistry" role="radio" aria-checked="false" tabindex="0">
-        <div class="card-top">
-          <div class="card-glyph">🧪</div>
-          <span class="card-tag">Mains &amp; Adv</span>
+      <!-- 4 Hero Subject Cards -->
+      <div class="subject-grid" id="subjectGrid" role="radiogroup" aria-label="Select Subject">
+        <div class="subject-card" data-subject="Physics" role="radio" aria-checked="false" tabindex="0">
+          <div class="card-top">
+            <div class="card-glyph">⚛️</div>
+            <span class="card-tag">Mains &amp; Adv</span>
+          </div>
+          <strong>Physics</strong>
+          <span class="card-desc">Mechanics, Electrostatics, Optics &amp; Thermodynamics</span>
         </div>
-        <strong>Chemistry</strong>
-        <span class="card-desc">Physical, Organic &amp; Inorganic equilibrium &amp; kinetics</span>
+
+        <div class="subject-card" data-subject="Chemistry" role="radio" aria-checked="false" tabindex="0">
+          <div class="card-top">
+            <div class="card-glyph">🧪</div>
+            <span class="card-tag">Mains &amp; Adv</span>
+          </div>
+          <strong>Chemistry</strong>
+          <span class="card-desc">Physical, Organic &amp; Inorganic equilibrium &amp; kinetics</span>
+        </div>
+
+        <div class="subject-card" data-subject="Mathematics" role="radio" aria-checked="false" tabindex="0">
+          <div class="card-top">
+            <div class="card-glyph">📐</div>
+            <span class="card-tag">Mains &amp; Adv</span>
+          </div>
+          <strong>Mathematics</strong>
+          <span class="card-desc">Calculus, Coordinate Geometry, Vectors &amp; Algebra</span>
+        </div>
+
+        <div class="subject-card" data-subject="Mixed" role="radio" aria-checked="true" tabindex="0">
+          <div class="card-top">
+            <div class="card-glyph">⚡</div>
+            <span class="card-tag">Full Mock</span>
+          </div>
+          <strong>All Subjects / Mock</strong>
+          <span class="card-desc">Full timed exam interleaved across all three subjects</span>
+        </div>
       </div>
 
-      <div class="subject-card" data-subject="Mathematics" role="radio" aria-checked="false" tabindex="0">
-        <div class="card-top">
-          <div class="card-glyph">📐</div>
-          <span class="card-tag">Mains &amp; Adv</span>
+      <!-- Quick-Start Presets -->
+      <div class="presets-section">
+        <span class="presets-label">Quick Drills</span>
+        <div class="presets-grid" aria-label="Quick-start presets">
+          <button class="preset-tile" id="warmupBtn" type="button">
+            <span class="tile-num">01 · WARM-UP</span>
+            <strong>Quick warm-up</strong>
+            <span>10 mixed questions · Practice mode</span>
+          </button>
+          <button class="preset-tile" id="weakStartBtn" type="button">
+            <span class="tile-num">02 · TARGETED</span>
+            <strong>Weak-topic drill</strong>
+            <span id="weakStartCaption">Target your priority weak topics</span>
+          </button>
+          <button class="preset-tile" id="mockStartBtn" type="button">
+            <span class="tile-num">03 · SIMULATION</span>
+            <strong>Full Mock exam</strong>
+            <span>90 questions · 30 per subject · 90s timer</span>
+          </button>
         </div>
-        <strong>Mathematics</strong>
-        <span class="card-desc">Calculus, Coordinate Geometry, Vectors &amp; Algebra</span>
       </div>
 
-      <div class="subject-card" data-subject="Mixed" role="radio" aria-checked="true" tabindex="0">
-        <div class="card-top">
-          <div class="card-glyph">⚡</div>
-          <span class="card-tag">Full Mock</span>
-        </div>
-        <strong>All Subjects / Mock</strong>
-        <span class="card-desc">Full timed exam interleaved across all three subjects</span>
-      </div>
-    </div>
+      <!-- Configuration Panel -->
+      <div class="config-panel">
+        <div class="config-grid">
 
-    <!-- Quick-Start Presets -->
-    <div class="presets-section">
-      <span class="presets-label">Quick Drills</span>
-      <div class="presets-grid" aria-label="Quick-start presets">
-        <button class="preset-tile" id="warmupBtn" type="button">
-          <span class="tile-num">01 · WARM-UP</span>
-          <strong>Quick warm-up</strong>
-          <span>10 mixed questions · Practice mode</span>
+          <div class="config-field">
+            <label>Difficulty Level</label>
+            <div class="segmented-control" id="difficultyControl" role="radiogroup">
+              <button class="segment-btn" data-val="any" role="radio" aria-checked="true" type="button">All</button>
+              <button class="segment-btn" data-val="easy" role="radio" aria-checked="false" type="button">Easy</button>
+              <button class="segment-btn" data-val="medium" role="radio" aria-checked="false" type="button">Medium</button>
+              <button class="segment-btn" data-val="hard" role="radio" aria-checked="false" type="button">Hard</button>
+            </div>
+          </div>
+
+          <div class="config-field">
+            <label id="countLabel">Questions Count</label>
+            <div class="segmented-control" id="countControl" role="radiogroup">
+              <button class="segment-btn" data-val="10" role="radio" aria-checked="true" type="button">10</button>
+              <button class="segment-btn" data-val="20" role="radio" aria-checked="false" type="button">20</button>
+              <button class="segment-btn" data-val="30" role="radio" aria-checked="false" type="button">30</button>
+              <button class="segment-btn" data-val="40" role="radio" aria-checked="false" type="button">40</button>
+            </div>
+          </div>
+
+          <div class="config-field">
+            <label>Marking Scheme</label>
+            <div class="segmented-control" id="markingControl" role="radiogroup">
+              <button class="segment-btn" data-val="jee" role="radio" aria-checked="true" type="button">JEE Mains (+4 / -1)</button>
+              <button class="segment-btn" data-val="standard" role="radio" aria-checked="false" type="button">Standard (+1 / 0)</button>
+            </div>
+          </div>
+
+          <div class="config-field">
+            <label>Timer per Question</label>
+            <div class="segmented-control" id="timerControl" role="radiogroup">
+              <button class="segment-btn" data-val="30" role="radio" aria-checked="false" type="button">30s</button>
+              <button class="segment-btn" data-val="60" role="radio" aria-checked="true" type="button">60s</button>
+              <button class="segment-btn" data-val="90" role="radio" aria-checked="false" type="button">90s</button>
+              <button class="segment-btn" data-val="0" role="radio" aria-checked="false" type="button">Off</button>
+            </div>
+          </div>
+
+          <div class="config-field">
+            <label for="topicSelect">Focus Specific Topic</label>
+            <select class="styled-select" id="topicSelect">
+              <option value="any">Any Topic (Default)</option>
+            </select>
+          </div>
+
+          <div class="config-field">
+            <label>Session Mode</label>
+            <div class="segmented-control" id="modeControl" role="radiogroup">
+              <button class="segment-btn" data-val="practice" role="radio" aria-checked="true" type="button">Practice Mode</button>
+              <button class="segment-btn" data-val="mock" role="radio" aria-checked="false" type="button">Mock Exam</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Primary Launch Bar -->
+      <div class="launch-bar">
+        <div class="launch-summary">
+          <span class="launch-pill" id="selectionSummary">Mixed · All Levels · 10 Qs</span>
+          <span class="launch-pill" id="selectionAvailable">Adaptive Engine Ready</span>
+          <span class="launch-pill hidden" id="mockSectionPlan"></span>
+        </div>
+        <button class="btn-launch" id="startBtn" type="button">
+          <span>Start Practice Round</span>
+          <span>→</span>
         </button>
-        <button class="preset-tile" id="weakStartBtn" type="button">
-          <span class="tile-num">02 · TARGETED</span>
-          <strong>Weak-topic drill</strong>
-          <span id="weakStartCaption">Target your priority weak topics</span>
-        </button>
-        <button class="preset-tile" id="mockStartBtn" type="button">
-          <span class="tile-num">03 · SIMULATION</span>
-          <strong>Full Mock exam</strong>
-          <span>90 questions · 30 per subject · 90s timer</span>
-        </button>
       </div>
-    </div>
 
-    <!-- Configuration Panel -->
-    <div class="config-panel">
-      <div class="config-grid">
-
-        <div class="config-field">
-          <label>Difficulty Level</label>
-          <div class="segmented-control" id="difficultyControl" role="radiogroup">
-            <button class="segment-btn" data-val="any" role="radio" aria-checked="true" type="button">All</button>
-            <button class="segment-btn" data-val="easy" role="radio" aria-checked="false" type="button">Easy</button>
-            <button class="segment-btn" data-val="medium" role="radio" aria-checked="false" type="button">Medium</button>
-            <button class="segment-btn" data-val="hard" role="radio" aria-checked="false" type="button">Hard</button>
+      <!-- Practice Stats Footer -->
+      <div class="stats-footer">
+        <div class="stats-footer-header">
+          <h3>Device Practice Stats</h3>
+          <span>Persistent offline storage</span>
+        </div>
+        <div class="stats-pill-grid">
+          <div class="stats-pill-card">
+            <span>Rounds Completed</span>
+            <strong id="historyCount">0</strong>
+          </div>
+          <div class="stats-pill-card">
+            <span>Personal Best</span>
+            <strong id="personalBest">--</strong>
+          </div>
+          <div class="stats-pill-card">
+            <span>Identified Focus Areas</span>
+            <strong id="weakAreaSummary" style="font-size:13px; font-weight:600; color:var(--accent-amber);">None yet</strong>
           </div>
         </div>
-
-        <div class="config-field">
-          <label id="countLabel">Questions Count</label>
-          <div class="segmented-control" id="countControl" role="radiogroup">
-            <button class="segment-btn" data-val="10" role="radio" aria-checked="true" type="button">10</button>
-            <button class="segment-btn" data-val="20" role="radio" aria-checked="false" type="button">20</button>
-            <button class="segment-btn" data-val="30" role="radio" aria-checked="false" type="button">30</button>
-            <button class="segment-btn" data-val="40" role="radio" aria-checked="false" type="button">40</button>
-          </div>
-        </div>
-
-        <div class="config-field">
-          <label>Marking Scheme</label>
-          <div class="segmented-control" id="markingControl" role="radiogroup">
-            <button class="segment-btn" data-val="jee" role="radio" aria-checked="true" type="button">JEE Mains (+4 / -1)</button>
-            <button class="segment-btn" data-val="standard" role="radio" aria-checked="false" type="button">Standard (+1 / 0)</button>
-          </div>
-        </div>
-
-        <div class="config-field">
-          <label>Timer per Question</label>
-          <div class="segmented-control" id="timerControl" role="radiogroup">
-            <button class="segment-btn" data-val="30" role="radio" aria-checked="false" type="button">30s</button>
-            <button class="segment-btn" data-val="60" role="radio" aria-checked="true" type="button">60s</button>
-            <button class="segment-btn" data-val="90" role="radio" aria-checked="false" type="button">90s</button>
-            <button class="segment-btn" data-val="0" role="radio" aria-checked="false" type="button">Off</button>
-          </div>
-        </div>
-
-        <div class="config-field">
-          <label for="topicSelect">Focus Specific Topic</label>
-          <select class="styled-select" id="topicSelect">
-            <option value="any">Any Topic (Default)</option>
-          </select>
-        </div>
-
-        <div class="config-field">
-          <label>Session Mode</label>
-          <div class="segmented-control" id="modeControl" role="radiogroup">
-            <button class="segment-btn" data-val="practice" role="radio" aria-checked="true" type="button">Practice Mode</button>
-            <button class="segment-btn" data-val="mock" role="radio" aria-checked="false" type="button">Mock Exam</button>
-          </div>
-        </div>
-
       </div>
-    </div>
+    </section>
+  </div>
 
-    <!-- Primary Launch Bar -->
-    <div class="launch-bar">
-      <div class="launch-summary">
-        <span class="launch-pill" id="selectionSummary">Mixed · All Levels · 10 Qs</span>
-        <span class="launch-pill" id="selectionAvailable">Adaptive Engine Ready</span>
-        <span class="launch-pill hidden" id="mockSectionPlan"></span>
-      </div>
-      <button class="btn-launch" id="startBtn" type="button">
-        <span>Start Practice Round</span>
-        <span>→</span>
-      </button>
-    </div>
+  <!-- VIEW 2: Syllabus & Modules Explorer (Sections, Subsections & Sub-subsections) -->
+  <div id="view-syllabus" class="app-view hidden"></div>
 
-    <!-- Practice Stats Footer -->
-    <div class="stats-footer">
-      <div class="stats-footer-header">
-        <h3>Device Practice Stats</h3>
-        <span>Persistent offline storage</span>
-      </div>
-      <div class="stats-pill-grid">
-        <div class="stats-pill-card">
-          <span>Rounds Completed</span>
-          <strong id="historyCount">0</strong>
-        </div>
-        <div class="stats-pill-card">
-          <span>Personal Best</span>
-          <strong id="personalBest">--</strong>
-        </div>
-        <div class="stats-pill-card">
-          <span>Identified Focus Areas</span>
-          <strong id="weakAreaSummary" style="font-size:13px; font-weight:600; color:var(--accent-amber);">None yet</strong>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- VIEW 3: Mock Exam Center -->
+  <div id="view-mock" class="app-view hidden"></div>
+
+  <!-- VIEW 4: Performance Analytics -->
+  <div id="view-analytics" class="app-view hidden"></div>
+
+  <!-- VIEW 5: Formula Vault -->
+  <div id="view-formulas" class="app-view hidden"></div>
 
   <!-- Active Quiz Screen (Distraction-Free) -->
   <section id="quizScreen" class="card hidden">
+    <!-- Breadcrumb Hierarchy -->
+    <div class="quiz-breadcrumb" id="quizBreadcrumb"></div>
+
     <!-- Top Meta Bar -->
     <div class="quiz-topbar">
       <div class="quiz-meta-left">
@@ -310,11 +347,17 @@
 </div>
 
 <!-- Application Scripts with Version Cache-Busting -->
-<script src="questions.js?v=2026.3"></script>
-<script src="js/state.js?v=2026.3"></script>
-<script src="js/marking.js?v=2026.3"></script>
-<script src="js/katex-render.js?v=2026.3"></script>
-<script src="js/ui.js?v=2026.3"></script>
-<script src="js/app.js?v=2026.3"></script>
+<script src="questions.js?v=2026.4"></script>
+<script src="js/state.js?v=2026.4"></script>
+<script src="js/taxonomy.js?v=2026.4"></script>
+<script src="js/marking.js?v=2026.4"></script>
+<script src="js/katex-render.js?v=2026.4"></script>
+<script src="js/views/syllabus-view.js?v=2026.4"></script>
+<script src="js/views/mock-view.js?v=2026.4"></script>
+<script src="js/views/analytics-view.js?v=2026.4"></script>
+<script src="js/views/formulas-view.js?v=2026.4"></script>
+<script src="js/router.js?v=2026.4"></script>
+<script src="js/ui.js?v=2026.4"></script>
+<script src="js/app.js?v=2026.4"></script>
 </body>
 </html>

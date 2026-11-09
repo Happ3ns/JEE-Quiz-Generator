@@ -208,8 +208,12 @@
       }
     });
 
-    // Initial setup render
-    refreshSetupUI();
+    // Initialize Multi-Page Router
+    if (root.QuizRouter && root.QuizRouter.init) {
+      root.QuizRouter.init();
+    } else {
+      refreshSetupUI();
+    }
   });
 
 })(typeof window !== "undefined" ? window : globalThis);

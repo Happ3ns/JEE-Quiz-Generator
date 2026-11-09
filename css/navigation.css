@@ -1,0 +1,473 @@
+/* ── Multi-Page Navigation & Three-Tier Hierarchy (Sections & Subsections) ── */
+
+/* Floating App Navigation Bar */
+.app-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(15, 18, 26, 0.7);
+  backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--r-full);
+  padding: 5px;
+  margin-bottom: 28px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.app-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: var(--r-full);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ink-secondary);
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-tab:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-tab.active {
+  background: #192032;
+  color: #fff;
+  border-color: rgba(99, 102, 241, 0.4);
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.nav-tab span.nav-icon {
+  font-size: 15px;
+}
+
+/* App View Containers */
+.app-view {
+  animation: fadeInView 0.22s ease both;
+}
+
+@keyframes fadeInView {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Section & Sub-subsection Syllabus Explorer ── */
+.syllabus-header {
+  margin-bottom: 28px;
+}
+
+.syllabus-controls-row {
+  display: flex;
+  gap: 14px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.syllabus-search {
+  flex: 1;
+  min-width: 240px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #0a0c12;
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--r-md);
+  padding: 10px 16px;
+  transition: border-color 0.15s ease;
+}
+
+.syllabus-search:focus-within {
+  border-color: var(--accent-indigo);
+}
+
+.syllabus-search input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+
+.syllabus-search input::placeholder {
+  color: var(--ink-muted);
+}
+
+.filter-pills {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.filter-pill {
+  padding: 8px 14px;
+  border-radius: var(--r-full);
+  background: #0a0c12;
+  border: 1px solid var(--border-hairline);
+  color: var(--ink-secondary);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.filter-pill:hover {
+  color: #fff;
+  border-color: var(--border-hover);
+}
+
+.filter-pill.active {
+  background: var(--accent-indigo-soft);
+  border-color: var(--accent-indigo);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Level 1: Section Block (Subject) */
+.section-block {
+  margin-bottom: 32px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--r-lg);
+  padding: 24px;
+  transition: border-color 0.2s ease;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-hairline);
+  flex-wrap: wrap;
+}
+
+.section-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-hairline);
+}
+
+.section-block[data-subject="Physics"] .section-icon-box {
+  background: var(--accent-cyan-soft);
+  border-color: rgba(6, 182, 212, 0.3);
+}
+
+.section-block[data-subject="Chemistry"] .section-icon-box {
+  background: var(--accent-emerald-soft);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.section-block[data-subject="Mathematics"] .section-icon-box {
+  background: var(--accent-indigo-soft);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.section-title-wrap h3 {
+  font-size: 19px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.section-progress-pill {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-secondary);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-hairline);
+  padding: 5px 12px;
+  border-radius: var(--r-full);
+}
+
+/* Level 2: Subsection (Unit / Domain) */
+.subsection-group {
+  margin-bottom: 24px;
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--r-md);
+  padding: 20px;
+}
+
+.subsection-group:last-child {
+  margin-bottom: 0;
+}
+
+.subsection-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.subsection-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.subsection-desc {
+  font-size: 12.5px;
+  color: var(--ink-muted);
+}
+
+/* Level 3: Sub-subsection (Topic Node Grid) */
+.sub-subsection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.topic-node-card {
+  background: #0d111a;
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--r-md);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  transition: all 0.16s ease;
+}
+
+.topic-node-card:hover {
+  background: #131926;
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px -4px rgba(0, 0, 0, 0.4);
+}
+
+.topic-node-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.topic-node-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.4;
+}
+
+.topic-node-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: var(--r-full);
+  border: 1px solid var(--border-hairline);
+  color: var(--ink-muted);
+  flex-shrink: 0;
+}
+
+.topic-node-badge.mastered {
+  color: var(--accent-emerald);
+  background: var(--accent-emerald-soft);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.topic-node-badge.weak {
+  color: var(--accent-coral);
+  background: var(--accent-coral-soft);
+  border-color: rgba(244, 63, 94, 0.3);
+}
+
+.topic-node-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.topic-accuracy-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-secondary);
+}
+
+.topic-drill-btn {
+  background: var(--accent-indigo-soft);
+  color: var(--accent-indigo);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  padding: 4px 10px;
+  border-radius: var(--r-full);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.16s ease;
+}
+
+.topic-drill-btn:hover {
+  background: var(--accent-indigo);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* ── Breadcrumb Bar in Quiz Mode ── */
+.quiz-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--ink-muted);
+  margin-bottom: 14px;
+}
+
+.quiz-breadcrumb span.sep {
+  opacity: 0.5;
+}
+
+.quiz-breadcrumb strong {
+  color: var(--accent-indigo);
+  font-weight: 600;
+}
+
+/* ── Mock Exam Center Styles ── */
+.mock-center-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.mock-card {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--r-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  transition: all 0.2s ease;
+}
+
+.mock-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.6);
+}
+
+.mock-card-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--r-full);
+  margin-bottom: 8px;
+}
+
+.mock-card strong {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.mock-card p {
+  font-size: 13.5px;
+  color: var(--ink-secondary);
+  line-height: 1.5;
+}
+
+.mock-meta-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--ink-muted);
+}
+
+.mock-meta-row span {
+  padding: 3px 8px;
+  border-radius: var(--r-full);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-hairline);
+}
+
+/* ── Formula Vault Styles ── */
+.formula-section {
+  margin-bottom: 28px;
+}
+
+.formula-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.formula-card {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--r-md);
+  padding: 16px 18px;
+}
+
+.formula-card strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-secondary);
+  margin-bottom: 8px;
+}
+
+.formula-tex {
+  font-size: 15px;
+  color: #fff;
+  overflow-x: auto;
+  padding: 4px 0;
+}
+
+@media (max-width: 768px) {
+  .mock-center-grid {
+    grid-template-columns: 1fr;
+  }
+  .sub-subsection-grid {
+    grid-template-columns: 1fr;
+  }
+  .app-nav {
+    border-radius: var(--r-md);
+  }
+}

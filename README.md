@@ -8,12 +8,13 @@ A modern, zero-dependency quiz and practice studio for JEE-level Physics, Chemis
 
 ## Features
 
-- **450+ Verified Questions + Procedural Generators:** Covers Physics, Chemistry, and Mathematics across Easy, Medium, and Hard tiers.
-- **⚡ On-Demand AI Generation:** Generate fresh, custom JEE questions in real time on any subject/topic using the integrated Google Gemini API.
-- **Mock Exam & Practice Modes:** Timed multi-subject mock sessions (Chemistry → Physics → Maths) or focused practice with instant step-by-step explanations.
-- **Smart Weak-Topic Tracker:** Automatically tracks your per-topic accuracy in `localStorage` across attempts to guide your revision.
-- **Live Question Map & Side Rail:** Interactive navigation matrix showing status (answered, unanswered, correct, incorrect) in real time.
-- **Zero Build Setup:** Runs directly in any browser with no dependencies or build steps required.
+- **Multi-Page Web Architecture:** Seamless client-side routing across 5 dedicated modules: Practice Studio, Syllabus Explorer, Mock Center, Analytics, and Formula Vault.
+- **Three-Tier Syllabus Explorer:** Complete hierarchical tree navigation (Sections → Subsections → Sub-subsections) covering Physics, Chemistry, and Mathematics with instant topic drills.
+- **Computer-Based Test (CBT) Mock Center:** Realistic NTA-style timed test environment with section switching and official JEE Mains (+4 / -1) negative marking.
+- **KaTeX Mathematical Equations:** High-performance LaTeX rendering for complex integrals, kinetic rates, and vectors.
+- **Persistent Diagnostic Analytics:** Local storage accuracy matrix tracking strong and weak areas with percentile estimates.
+- **Verified Question Bank & Procedural Generators:** 450+ multi-tier conceptual questions and automated Gemini API batch generation tooling.
+- **Zero Build Setup:** Runs directly in any browser on GitHub Pages with zero external build dependencies.
 
 ---
 
@@ -90,14 +91,22 @@ flowchart LR
 ├── index.html                  # Semantic application markup & CDN integrations (KaTeX, Confetti)
 ├── css/                        # Modular stylesheet architecture
 │   ├── theme.css               # Design tokens, fonts, colors, and resets
-│   ├── layout.css              # Masthead, responsive grid, card containers, side rail
-│   ├── components.css          # Chips, launch tiles, question map, options, timer
+│   ├── layout.css              # Masthead, responsive grid, card containers
+│   ├── components.css          # Subject cards, segmented controls, option rows, solution drawer
+│   ├── navigation.css          # Tab navigation, breadcrumbs, 3-tier syllabus tree & mock cards
 │   └── results.css             # Score gauge, stats grid, topic mastery bars, review list
 ├── js/                         # Modular JavaScript application engine
 │   ├── state.js                # App state, localStorage persistence, Web Audio synth
+│   ├── taxonomy.js             # 3-tier JEE hierarchy (Sections, Subsections, Topics) & formulas
 │   ├── marking.js              # JEE Mains (+4 / -1) vs Standard scoring calculation
 │   ├── katex-render.js         # KaTeX math auto-renderer
-│   ├── ui.js                   # Screen manager, question pool, live rail, results view
+│   ├── router.js               # Client-side hash routing across application pages
+│   ├── ui.js                   # Active quiz canvas, question pool, results controller
+│   ├── views/                  # View modules
+│   │   ├── syllabus-view.js    # Sections & sub-subsections matrix with search & drills
+│   │   ├── mock-view.js        # CBT mock exam test center launcher
+│   │   ├── analytics-view.js   # Diagnostic metrics, percentile estimate & history log
+│   │   └── formulas-view.js    # High-yield KaTeX equation reference vault
 │   └── app.js                  # App bootstrap, event wiring, and keyboard shortcuts
 ├── questions.js                # Modular question bank & procedural generator functions
 ├── questions.json              # Full 450+ validated questions exported for tooling/APIs
