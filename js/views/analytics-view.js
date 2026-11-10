@@ -137,11 +137,16 @@
           md += "### Clean Record!\nNo mistakes recorded on this device. Keep practicing!\n";
         } else {
           mistakes.forEach((m, idx) => {
+            const qPrompt = m.q || m.question || "(Question text unavailable for older attempts)";
+            const pickedVal = m.picked !== undefined ? m.picked : m.chosen;
+            const ansVal = m.answer !== undefined ? m.answer : m.correctAnswer;
+            const solText = m.explain || m.explanation || "";
+            const letters = ["A", "B", "C", "D"];
             md += "### Question " + (idx + 1) + " [" + (m.subject || "JEE") + " · " + (m.topic || "General") + "]\n\n";
-            md += "**Question:**\n" + (m.question || "") + "\n\n";
-            if (m.chosen !== undefined) md += "- **Your Selection:** Option " + (m.chosen + 1) + "\n";
-            if (m.correctAnswer !== undefined) md += "- **Correct Answer:** Option " + (m.correctAnswer + 1) + "\n";
-            if (m.explanation) md += "\n**Solution & Explanation:**\n" + m.explanation + "\n";
+            md += "**Question:**\n" + qPrompt + "\n\n";
+            if (pickedVal !== undefined) md += "- **Your Selection:** Option " + (letters[pickedVal] || (pickedVal + 1)) + "\n";
+            if (ansVal !== undefined) md += "- **Correct Answer:** Option " + (letters[ansVal] || (ansVal + 1)) + "\n";
+            if (solText) md += "\n**Solution & Explanation:**\n" + solText + "\n";
             md += "\n---\n\n";
           });
         }
@@ -171,7 +176,7 @@
           ? root.QuizTaxonomy.getQuestionBank()
           : (window.JEE_QUESTIONS || []);
         const matching = bank.filter(q => {
-          const k = q.id || (q.subject + "::" + q.question.slice(0, 30));
+          const k = (root.QuizState && root.QuizState.getQuestionKey) ? root.QuizState.getQuestionKey(q) : String(q.id || (q.q || q.question || "").slice(0, 30));
           return starred.includes(String(k));
         });
         if (!matching.length) {

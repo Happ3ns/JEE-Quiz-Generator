@@ -337,7 +337,7 @@
     if (qBadge) qBadge.textContent = "Question " + (state.index + 1) + " of " + state.questions.length;
     if (qTopic) qTopic.textContent = item.subject + " · " + item.topic + " · " + item.difficulty.toUpperCase();
         const starBtn = document.getElementById("bookmarkStarBtn");
-    const qKey = item.id || (item.subject + "::" + item.question.slice(0, 30));
+    const qKey = (root.QuizState && root.QuizState.getQuestionKey) ? root.QuizState.getQuestionKey(item) : String(item.id || (item.q || item.question || '').slice(0, 30));
     if (starBtn && root.QuizState) {
       const isStarred = root.QuizState.isBookmarked(qKey);
       const starIcon = document.getElementById("starIcon");
@@ -507,6 +507,9 @@
       subject: item.subject,
       topic: item.topic,
       difficulty: item.difficulty,
+      q: item.q || item.question || "",
+      answer: item.answer,
+      explain: item.explain || item.explanation || "",
       picked: pickedIndex,
       correct: isCorrect,
       skipped: false,

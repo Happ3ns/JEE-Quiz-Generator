@@ -30,6 +30,11 @@
     return idx < 0;
   }
 
+  function getQuestionKey(item) {
+    if (!item) return "";
+    return String(item.id || ((item.subject || "") + "::" + (item.q || item.question || "").slice(0, 30)));
+  }
+
   function isBookmarked(id) {
     return getBookmarks().includes(String(id));
   }
@@ -188,7 +193,8 @@
     getWeakTopics,
     getBookmarks,
     toggleBookmark,
-    isBookmarked
+    isBookmarked,
+    getQuestionKey
   };
 
 })(typeof window !== "undefined" ? window : globalThis);
